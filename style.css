@@ -55,7 +55,7 @@
 html, body {
     overflow-x: hidden;
     width: 100%;
-    max-width: 100%;
+    max-width: 100vw;
     position: relative;
 }
 
@@ -71,7 +71,7 @@ body {
     width: 100%;
 }
 
-/* ===== CONTAINER PRINCIPAL (CORRIGIDO) ===== */
+/* ===== CONTAINER PRINCIPAL ===== */
 .container {
     max-width: 1280px;
     width: 100%;
@@ -169,7 +169,6 @@ img, iframe, video {
     z-index: 60;
 }
 
-/* Menu desktop */
 .nav-links {
     display: flex;
     gap: clamp(1rem, 3vw, 2rem);
@@ -189,7 +188,6 @@ img, iframe, video {
     color: var(--primary);
 }
 
-/* Botão sanduíche */
 .menu-toggle {
     display: none;
     background: none;
@@ -209,7 +207,6 @@ img, iframe, video {
     border-radius: 3px;
 }
 
-/* Responsivo: mobile menu */
 @media (max-width: 600px) {
     .menu-toggle {
         display: block;
@@ -320,12 +317,14 @@ img, iframe, video {
     }
 }
 
-/* ===== GRIDS E CARDS ===== */
+/* ===== GRIDS ===== */
 .cases-grid,
 .tecnologia-grid,
 .testimonials-grid,
 .pricing-grid,
-.garantia-grid {
+.garantia-grid,
+.para-quem-grid,
+.steps-grid {
     display: grid;
     gap: 1.5rem;
     margin-top: 2rem;
@@ -354,11 +353,25 @@ img, iframe, video {
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
 }
 
+.para-quem-grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 160px), 1fr));
+    gap: 0.8rem;
+    margin: 2rem 0 3rem;
+}
+
+.steps-grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+    gap: 2rem;
+}
+
+/* ===== CARDS ===== */
 .case-card,
 .tecnologia-card,
 .testimonial-card,
 .pricing-card,
-.garantia-card {
+.garantia-card,
+.nicho-item,
+.step-item {
     background-color: var(--card);
     border-radius: 1.8rem;
     padding: 1.5rem;
@@ -377,6 +390,30 @@ img, iframe, video {
 .testimonial-card,
 .pricing-card {
     box-shadow: var(--shadow-lg);
+}
+
+.nicho-item {
+    padding: 0.8rem 1rem;
+    border-radius: 60px;
+    font-weight: 500;
+    text-align: center;
+    font-size: 0.95rem;
+    white-space: normal;
+    word-break: keep-all;
+}
+
+.nicho-item:hover {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+    transform: scale(1.02);
+}
+
+.step-item {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
 }
 
 .case-rank {
@@ -413,42 +450,6 @@ img, iframe, video {
     word-break: break-word;
 }
 
-/* ===== PARA QUEM GRID ===== */
-.para-quem-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 160px), 1fr));
-    gap: 0.8rem;
-    margin: 2rem 0 3rem;
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-}
-
-.nicho-item {
-    background: var(--card);
-    padding: 0.8rem 1rem;
-    border-radius: 60px;
-    border: 1px solid var(--border);
-    font-weight: 500;
-    color: var(--foreground);
-    box-shadow: var(--shadow-sm);
-    transition: 0.1s;
-    text-align: center;
-    font-size: 0.95rem;
-    white-space: normal;
-    word-break: keep-all;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.nicho-item:hover {
-    background: var(--primary);
-    color: white;
-    border-color: var(--primary);
-    transform: scale(1.02);
-}
-
-/* ===== TECNOLOGIA ===== */
 .tecnologia-card h3 {
     font-size: 1.5rem;
     margin-bottom: 1.2rem;
@@ -480,7 +481,6 @@ img, iframe, video {
     color: var(--blue-700);
 }
 
-/* ===== DEPOIMENTOS ===== */
 .testimonial-card {
     position: relative;
 }
@@ -522,7 +522,7 @@ img, iframe, video {
     color: var(--muted-foreground);
 }
 
-/* ===== TABELA DIFERENCIAL ===== */
+/* ===== TABELA ===== */
 .diff-table-wrapper {
     background: var(--card);
     border-radius: 2rem;
@@ -585,51 +585,7 @@ img, iframe, video {
     }
 }
 
-/* ===== COMO FUNCIONA ===== */
-.steps-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
-    gap: 2rem;
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-}
-
-.step-item {
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.step-number {
-    background: var(--primary);
-    color: white;
-    width: 40px;
-    height: 40px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 60px;
-    font-weight: 700;
-    margin-bottom: 1rem;
-}
-
-.step-item h3 {
-    font-size: 1.3rem;
-    margin-bottom: 0.5rem;
-    color: var(--foreground);
-}
-
-.step-item p {
-    color: var(--muted-foreground);
-    font-size: 1rem;
-}
-
 /* ===== PLANOS ===== */
-.pricing-card {
-    display: flex;
-    flex-direction: column;
-}
-
 .plano-inicial .card-badge {
     background: var(--inicial-light);
     color: var(--inicial);
@@ -730,10 +686,6 @@ img, iframe, video {
 }
 
 /* ===== GARANTIA ===== */
-.garantia-card {
-    text-align: left;
-}
-
 .garantia-card:hover {
     box-shadow: var(--shadow-lg);
     transform: translateY(-4px);
@@ -755,6 +707,31 @@ img, iframe, video {
     color: var(--muted-foreground);
     font-size: 1rem;
     word-wrap: break-word;
+}
+
+/* ===== STEPS ===== */
+.step-number {
+    background: var(--primary);
+    color: white;
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 60px;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.step-item h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: var(--foreground);
+}
+
+.step-item p {
+    color: var(--muted-foreground);
+    font-size: 1rem;
 }
 
 /* ===== CTA ===== */
@@ -943,17 +920,4 @@ img, iframe, video {
         margin-left: auto;
         margin-right: auto;
     }
-}
-
-/* ===== UTILITÁRIOS ===== */
-.text-center {
-    text-align: center;
-}
-
-.w-100 {
-    width: 100%;
-}
-
-.overflow-hidden {
-    overflow: hidden;
 }
