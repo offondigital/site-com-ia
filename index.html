@@ -22,14 +22,13 @@
       gtag('config', 'G-CDGVGTPP75');
     </script>
     
-    <!-- Google Fonts Inter com estratégia de carregamento otimizado -->
+    <!-- Google Fonts Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet"></noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet">
     
-    <!-- CSS separado -->
-    <link rel="stylesheet" href="style.css" media="all">
+    <!-- CSS externo -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body id="top">
     <!-- Google Tag Manager (noscript) -->
@@ -41,14 +40,12 @@
         <div class="container header-flex">
             <span class="logo">Inova<span style="-webkit-text-fill-color:initial; color:var(--blue-500);">SEO</span></span>
             
-            <!-- Botão menu sanduíche -->
             <button class="menu-toggle" id="menuToggle" aria-label="Menu">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
             
-            <!-- Menu de navegação com âncoras suaves -->
             <nav class="nav-links" id="navLinks">
                 <a href="#tecnologia">Tecnologia</a>
                 <a href="#casos">Cases</a>
@@ -58,7 +55,6 @@
         </div>
     </header>
 
-    <!-- HERO com novo título -->
     <section class="hero">
         <div class="container">
             <h1>Domine as primeiras posições do Google da sua região, clientes todos os dias</h1>
@@ -71,7 +67,6 @@
         </div>
     </section>
 
-    <!-- CASOS DE SUCESSO (âncora: cases) -->
     <section id="casos" style="padding: 4rem 0;">
         <div class="container">
             <span class="tagline">📍 resultados reais</span>
@@ -86,7 +81,6 @@
         </div>
     </section>
 
-    <!-- PARA QUEM É (âncora) -->
     <section id="paraquem" style="background: var(--muted); padding: 4rem 0;">
         <div class="container">
             <span class="tagline">👥 público-alvo</span>
@@ -105,7 +99,6 @@
         </div>
     </section>
 
-    <!-- TECNOLOGIA (âncora) -->
     <section id="tecnologia" style="padding: 4rem 0;">
         <div class="container">
             <span class="tagline">🔌 tecnologia</span>
@@ -118,7 +111,6 @@
         </div>
     </section>
 
-    <!-- DEPOIMENTOS -->
     <section style="background: var(--muted); padding: 4rem 0;">
         <div class="container">
             <span class="tagline">💬 depoimentos</span>
@@ -131,7 +123,6 @@
         </div>
     </section>
 
-    <!-- TABELA DIFERENCIAL -->
     <section style="padding: 4rem 0;">
         <div class="container">
             <span class="tagline">🥇 diferencial competitivo</span>
@@ -152,21 +143,19 @@
         </div>
     </section>
 
-    <!-- COMO FUNCIONA -->
     <section style="background: var(--muted); padding: 4rem 0;">
         <div class="container">
             <span class="tagline">⚙️ automatizado</span>
             <h2 class="section-title">Simples, rápido e escalável</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(200px,100%),1fr)); gap: 2rem;">
-                <div><span style="background: var(--primary); color:white; width: 40px; height:40px; display: inline-flex; align-items: center; justify-content: center; border-radius: 60px; font-weight: 700; margin-bottom: 1rem;">1</span><h3>Escolha palavras‑chave e bairros</h3><p>Serviços + regiões que você quer dominar.</p></div>
-                <div><span style="background: var(--primary); color:white; width: 40px; height:40px; display: inline-flex; align-items: center; justify-content: center; border-radius: 60px; font-weight: 700; margin-bottom: 1rem;">2</span><h3>IA cria páginas únicas</h3><p>Conteúdo otimizado, interlinking inteligente.</p></div>
-                <div><span style="background: var(--primary); color:white; width: 40px; height:40px; display: inline-flex; align-items: center; justify-content: center; border-radius: 60px; font-weight: 700; margin-bottom: 1rem;">3</span><h3>Indexação e rankings</h3><p>O Google posiciona seu negócio local.</p></div>
-                <div><span style="background: var(--primary); color:white; width: 40px; height:40px; display: inline-flex; align-items: center; justify-content: center; border-radius: 60px; font-weight: 700; margin-bottom: 1rem;">4</span><h3>Clientes te encontram</h3><p>Aquisição orgânica previsível.</p></div>
+            <div class="steps-grid">
+                <div class="step-item"><span class="step-number">1</span><h3>Escolha palavras‑chave e bairros</h3><p>Serviços + regiões que você quer dominar.</p></div>
+                <div class="step-item"><span class="step-number">2</span><h3>IA cria páginas únicas</h3><p>Conteúdo otimizado, interlinking inteligente.</p></div>
+                <div class="step-item"><span class="step-number">3</span><h3>Indexação e rankings</h3><p>O Google posiciona seu negócio local.</p></div>
+                <div class="step-item"><span class="step-number">4</span><h3>Clientes te encontram</h3><p>Aquisição orgânica previsível.</p></div>
             </div>
         </div>
     </section>
 
-    <!-- GARANTIA & SEGURANÇA -->
     <section style="background: var(--background); padding: 4rem 0;">
         <div class="container">
             <span class="tagline">🔐 confiança</span>
@@ -182,7 +171,6 @@
         </div>
     </section>
 
-    <!-- CTA DUPLO (âncora contato) -->
     <div id="cta" class="container">
         <div class="cta-duplo">
             <h2>Pronto para dominar o Google e multiplicar seus atendimentos?</h2>
@@ -195,7 +183,6 @@
         </div>
     </div>
 
-    <!-- PLANOS -->
     <section style="padding: 2rem 0 4rem;">
         <div class="container">
             <span class="tagline">💰 investimento</span>
@@ -210,7 +197,6 @@
         </div>
     </section>
 
-    <!-- RODAPÉ com links que rolam suavemente para o topo -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
@@ -252,7 +238,6 @@
         </div>
     </footer>
 
-    <!-- JavaScript separado com defer para melhor performance -->
-    <script src="script.js" defer></script>
+    <script src="script.js"></script>
 </body>
 </html>
