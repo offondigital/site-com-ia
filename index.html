@@ -1,1284 +1,773 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Site com IA - Domine as primeiras posições do Google com SEO Programático</title>
-  <meta name="description" content="Criamos milhares de páginas otimizadas automaticamente para que sua empresa conquiste as primeiras posições nos resultados de busca do Google. SEO programático profissional.">
-  <meta name="author" content="Site com IA">
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <meta http-equiv="Pragma" content="no-cache">
-  <meta http-equiv="Expires" content="0">
-  <link rel="canonical" href="index.html">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>InovaSEO · domínio local com IA</title>
+    <!-- Google Fonts Inter com estratégia de carregamento otimizado -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet"></noscript>
+    
+    <style>
+        /* === VARIÁVEIS (exatamente as fornecidas) === */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --background: hsl(210, 40%, 98%);
+            --foreground: hsl(215, 50%, 15%);
+            --card: hsl(0, 0%, 100%);
+            --card-foreground: hsl(215, 50%, 15%);
+            --primary: hsl(217, 91%, 60%);
+            --primary-foreground: hsl(0, 0%, 100%);
+            --secondary: hsl(210, 40%, 96%);
+            --secondary-foreground: hsl(215, 50%, 25%);
+            --muted: hsl(210, 30%, 94%);
+            --muted-foreground: hsl(215, 20%, 50%);
+            --border: hsl(214, 32%, 91%);
+            --blue-50: hsl(214, 100%, 97%);
+            --blue-100: hsl(214, 95%, 93%);
+            --blue-200: hsl(213, 97%, 87%);
+            --blue-400: hsl(213, 94%, 68%);
+            --blue-500: hsl(217, 91%, 60%);
+            --blue-600: hsl(221, 83%, 53%);
+            --blue-700: hsl(224, 76%, 48%);
+            --starter: hsl(142, 76%, 36%);
+            --starter-light: hsl(142, 72%, 94%);
+            --pro: hsl(217, 91%, 60%);
+            --pro-light: hsl(214, 100%, 97%);
+            --enterprise: hsl(24, 95%, 53%);
+            --enterprise-light: hsl(38, 100%, 95%);
+            --ultra: hsl(271, 91%, 65%);
+            --ultra-light: hsl(270, 100%, 98%);
+            --basico: hsl(210, 14%, 53%);
+            --basico-light: hsl(210, 16%, 93%);
+            --inicial: hsl(173, 58%, 39%);
+            --inicial-light: hsl(173, 55%, 93%);
+            --profissional: hsl(217, 91%, 60%);
+            --profissional-light: hsl(214, 100%, 97%);
+            --avancado: hsl(24, 95%, 53%);
+            --avancado-light: hsl(38, 100%, 95%);
+            --empresarial: hsl(271, 91%, 65%);
+            --empresarial-light: hsl(270, 100%, 98%);
+            --gradient-hero: linear-gradient(135deg, hsl(217, 91%, 60%) 0%, hsl(224, 76%, 48%) 50%, hsl(226, 71%, 40%) 100%);
+            --gradient-glow: radial-gradient(ellipse 80% 50% at 50% -20%, hsla(217, 91%, 60%, 0.3), transparent);
+            --shadow-sm: 0 1px 2px 0 hsla(215, 50%, 15%, 0.05);
+            --shadow-md: 0 4px 6px -1px hsla(215, 50%, 15%, 0.1), 0 2px 4px -2px hsla(215, 50%, 15%, 0.1);
+            --shadow-lg: 0 10px 15px -3px hsla(215, 50%, 15%, 0.1), 0 4px 6px -4px hsla(215, 50%, 15%, 0.1);
+            --shadow-xl: 0 20px 25px -5px hsla(215, 50%, 15%, 0.1), 0 8px 10px -6px hsla(215, 50%, 15%, 0.1);
+            --shadow-glow: 0 0 40px hsla(217, 91%, 60%, 0.3);
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: "Inter", system-ui, -apple-system, sans-serif;
+            background-color: var(--background);
+            color: var(--foreground);
+            line-height: 1.5;
+            overflow-x: hidden;
+            width: 100%;
+        }
+        .container { 
+            max-width: 1280px; 
+            margin: 0 auto; 
+            padding: 0 2rem; 
+            width: 100%;
+        }
+        h1, h2, h3 { font-weight: 700; letter-spacing: -0.02em; }
+        
+        /* ========== RESPONSIVIDADE GLOBAL ========== */
+        @media (max-width: 768px) {
+            .container { padding: 0 1.5rem; }
+            h1 { font-size: 2.5rem !important; }
+            h2 { font-size: 2rem !important; }
+            .section-title { font-size: 2rem !important; }
+        }
+        @media (max-width: 480px) {
+            .container { padding: 0 1.2rem; }
+            h1 { font-size: 2rem !important; }
+            h2 { font-size: 1.8rem !important; }
+            .section-title { font-size: 1.8rem !important; }
+        }
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Site com IA - Domine as primeiras posições do Google com SEO Programático">
-  <meta property="og:description" content="Criamos milhares de páginas otimizadas automaticamente para que sua empresa ou seu negócio, conquistando as primeiras posições nos resultados de busca do Google.">
-  <meta property="og:type" content="website">
+        /* ===== HEADER COM MENU SANDUÍCHE ===== */
+        .site-header {
+            padding: 1rem 0;
+            background-color: rgba(255,255,255,0.85);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border);
+            position: sticky; top: 0; z-index: 50;
+            width: 100%;
+        }
+        .header-flex { 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .logo { 
+            font-size: clamp(1.6rem, 5vw, 2rem); 
+            font-weight: 800; 
+            background: var(--gradient-hero); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+            z-index: 60;
+        }
+        
+        /* Menu desktop */
+        .nav-links { 
+            display: flex; 
+            gap: clamp(1rem, 3vw, 2rem); 
+            color: var(--secondary-foreground); 
+            font-weight: 500;
+            flex-wrap: wrap;
+        }
+        .nav-links a { text-decoration: none; color: inherit; font-size: 0.95rem; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--primary); }
+        
+        /* Botão sanduíche (visível apenas em mobile) */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            z-index: 60;
+        }
+        .menu-toggle span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: var(--foreground);
+            margin: 5px 0;
+            transition: all 0.3s ease;
+            border-radius: 3px;
+        }
+        
+        /* Responsivo: mobile menu */
+        @media (max-width: 600px) {
+            .menu-toggle {
+                display: block;
+            }
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                max-width: 300px;
+                height: 100vh;
+                background-color: var(--card);
+                flex-direction: column;
+                padding: 5rem 2rem 2rem;
+                gap: 1.5rem;
+                box-shadow: var(--shadow-xl);
+                transition: right 0.3s ease;
+                z-index: 55;
+                border-left: 1px solid var(--border);
+            }
+            .nav-links.active {
+                right: 0;
+            }
+            .nav-links a {
+                font-size: 1.1rem;
+                padding: 0.5rem 0;
+                border-bottom: 1px solid var(--border);
+            }
+            /* Animação do ícone sanduíche quando ativo */
+            .menu-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+            .menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+            .menu-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
+            }
+        }
+        
+        /* hero responsivo */
+        .hero {
+            background: var(--gradient-hero);
+            color: white;
+            padding: 4rem 0 5rem;
+            position: relative;
+            width: 100%;
+        }
+        .hero .container { position: relative; z-index: 2; }
+        .hero h1 { 
+            font-size: clamp(2rem, 6vw, 3.5rem); 
+            line-height: 1.2; 
+            max-width: 800px; 
+            margin-bottom: 1rem; 
+        }
+        .hero p { 
+            font-size: clamp(1.1rem, 3vw, 1.3rem); 
+            opacity: 0.9; 
+            max-width: 600px; 
+            margin-bottom: 2.5rem; 
+        }
+        .hero-stats {
+            display: flex; 
+            gap: clamp(1.5rem, 4vw, 3rem); 
+            flex-wrap: wrap;
+            background: rgba(0,0,0,0.2); 
+            padding: 1.5rem clamp(1.5rem, 4vw, 2.5rem); 
+            border-radius: 60px; 
+            backdrop-filter: blur(4px);
+            width: fit-content; 
+            border: 1px solid rgba(255,255,255,0.15);
+        }
+        .stat-item { display: flex; flex-direction: column; }
+        .stat-number { font-size: clamp(1.5rem, 4vw, 2rem); font-weight: 800; }
+        .stat-label { font-size: 0.9rem; opacity: 0.8; }
+        @media (max-width: 550px) {
+            .hero-stats { flex-direction: column; gap: 1rem; width: 100%; border-radius: 2rem; }
+        }
+        
+        /* títulos */
+        .section-title {
+            font-size: clamp(2rem, 5vw, 2.5rem); 
+            margin-bottom: 2rem; 
+            color: var(--foreground);
+            border-left: 8px solid var(--primary); 
+            padding-left: 1.5rem;
+        }
+        .tagline { color: var(--primary); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; }
+        
+        /* cases grid responsivo */
+        .cases-grid {
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); 
+            gap: 1.5rem; 
+            margin-top: 2rem;
+        }
+        .case-card {
+            background-color: var(--card); border-radius: 1.8rem; padding: 1.5rem; border: 1px solid var(--border);
+            box-shadow: var(--shadow-md); transition: 0.15s;
+            height: 100%;
+        }
+        .case-rank { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem; }
+        .rank-badge { background: var(--primary); color: white; font-weight: 700; padding: 0.2rem 1rem; border-radius: 40px; font-size: 0.8rem; }
+        .case-url { font-family: monospace; color: var(--primary); font-size: 0.9rem; word-break: break-all; }
+        .case-equivalent { font-size: 0.9rem; color: var(--muted-foreground); border-top: 1px dashed var(--border); margin-top: 1rem; padding-top: 0.8rem; }
+        
+        /* para quem grid responsivo */
+        .para-quem-grid {
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(min(160px, 100%), 1fr)); 
+            gap: 0.8rem; 
+            margin: 2rem 0 3rem;
+        }
+        .nicho-item {
+            background: var(--card); padding: 0.8rem 1rem; border-radius: 60px; border: 1px solid var(--border);
+            font-weight: 500; color: var(--foreground); box-shadow: var(--shadow-sm); transition: 0.1s; 
+            text-align: center; font-size: 0.95rem;
+            white-space: normal;
+            word-break: keep-all;
+        }
+        .nicho-item:hover { background: var(--primary); color: white; border-color: var(--primary); transform: scale(1.02); }
 
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@pagiia">
-  <meta name="twitter:image" content="https://pagi.com.br/logo-pagi.png">
+        /* tecnologia grid responsivo */
+        .tecnologia-grid {
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); 
+            gap: 1.5rem; 
+            margin-top: 2rem;
+        }
+        .tecnologia-card {
+            background: var(--card); border-radius: 2rem; padding: 1.8rem 1.5rem; box-shadow: var(--shadow-lg); border: 1px solid var(--border);
+            height: 100%;
+        }
+        .tecnologia-card h3 { font-size: 1.5rem; margin-bottom: 1.2rem; color: var(--primary); }
+        .tecnologia-list { list-style: none; }
+        .tecnologia-list li { margin-bottom: 0.8rem; padding-left: 1.8rem; position: relative; color: var(--foreground); }
+        .tecnologia-list li::before { content: "▹"; color: var(--primary); font-weight: 700; position: absolute; left: 0; }
+        .tecnologia-list strong { color: var(--blue-700); }
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="apple-touch-icon" href="favicon.svg">
+        /* depoimentos grid */
+        .testimonials-grid {
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); 
+            gap: 1.5rem; 
+            margin: 2rem 0;
+        }
+        .testimonial-card {
+            background: var(--card); border-radius: 2rem; padding: 2rem 2rem 1.8rem;
+            box-shadow: var(--shadow-lg); border: 1px solid var(--border); position: relative;
+        }
+        .testimonial-card::before {
+            content: "“"; font-size: 6rem; color: var(--blue-200); position: absolute; top: -0.5rem; left: 1rem; opacity: 0.4; font-family: serif;
+        }
+        .testimonial-quote { font-size: 1.2rem; font-weight: 500; margin-bottom: 1.5rem; position: relative; z-index: 2; color: var(--foreground); }
+        .testimonial-author { font-weight: 700; color: var(--primary); text-transform: uppercase; font-size: 0.9rem; display: flex; align-items: center; gap: 0.5rem; }
+        .testimonial-author::before { content: "—"; color: var(--muted-foreground); }
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="css/style.css">
+        /* tabela diferencial responsiva */
+        .diff-table-wrapper {
+            background: var(--card); border-radius: 2rem; padding: 1.5rem; box-shadow: var(--shadow-xl); border: 1px solid var(--border); margin: 2rem 0; overflow-x: auto;
+        }
+        .diff-table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            min-width: 600px;
+        }
+        .diff-table th, .diff-table td { 
+            padding: 1rem 0.8rem; 
+            font-size: 0.95rem;
+        }
+        .diff-table th { text-align: left; background: var(--muted); color: var(--secondary-foreground); font-weight: 600; }
+        .diff-table td { border-bottom: 1px solid var(--border); }
+        .diff-table td:last-child { background: var(--blue-50); font-weight: 600; color: var(--blue-700); border-left: 2px solid var(--blue-200); }
+        .diff-table th:last-child { background: var(--blue-100); color: var(--blue-800); }
+        .destaque-positivo { color: var(--blue-600); font-weight: 700; }
+        @media (max-width: 650px) {
+            .diff-table-wrapper { padding: 1rem; }
+        }
+
+        /* planos grid responsivo */
+        .pricing-grid {
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); 
+            gap: 1.5rem; 
+            margin: 2rem 0;
+        }
+        .pricing-card {
+            background: var(--card); border-radius: 2rem; padding: 1.8rem 1.5rem;
+            box-shadow: var(--shadow-lg); border: 1px solid var(--border);
+            display: flex; flex-direction: column;
+            height: 100%;
+        }
+        .plano-inicial .card-badge { background: var(--inicial-light); color: var(--inicial); }
+        .plano-profissional .card-badge { background: var(--profissional-light); color: var(--blue-700); }
+        .plano-avancado .card-badge { background: var(--avancado-light); color: var(--avancado); }
+        .plano-autoridade .card-badge { background: var(--empresarial-light); color: var(--empresarial); }
+        .plano-imperial .card-badge { background: var(--ultra-light); color: var(--ultra); }
+        .card-badge { display: inline-block; font-weight: 600; font-size: 0.8rem; padding: 0.3rem 1.2rem; border-radius: 40px; margin-bottom: 1.5rem; align-self: flex-start; }
+        .preco-unico { font-size: 1.8rem; font-weight: 700; line-height: 1.2; }
+        .preco-unico small { font-size: 1rem; font-weight: 400; color: var(--muted-foreground); }
+        .investimento-unico { color: var(--muted-foreground); font-size: 0.9rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
+        .feature-list { list-style: none; margin: 1.5rem 0 2rem; flex-grow: 1; }
+        .feature-list li { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.8rem; font-size: 0.95rem; }
+        .feature-list li::before { content: "✓"; color: var(--primary); font-weight: 700; }
+        .btn-full {
+            background: var(--primary); color: white; border: none; padding: 0.9rem; border-radius: 60px;
+            font-weight: 600; font-size: 1rem; text-align: center; text-decoration: none; display: inline-block; width: 100%; box-shadow: var(--shadow-md);
+            transition: background 0.2s;
+        }
+        .btn-full:hover { background: var(--blue-600); }
+        
+        /* garantia grid */
+        .garantia-grid {
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); 
+            gap: 1.5rem; 
+            margin-top: 2rem;
+        }
+        .garantia-card {
+            background: var(--card); border-radius: 2rem; padding: 2rem 1.5rem;
+            border: 1px solid var(--border); box-shadow: var(--shadow-md); transition: 0.2s;
+        }
+        .garantia-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+        .garantia-icon { font-size: 2.2rem; margin-bottom: 1rem; display: block; }
+        .garantia-card h3 { font-size: 1.5rem; margin-bottom: 0.8rem; color: var(--foreground); }
+        .garantia-card p { color: var(--muted-foreground); font-size: 1rem; }
+        
+        /* CTA responsivo - com ID para âncora */
+        #cta {
+            scroll-margin-top: 80px;
+        }
+        .cta-duplo {
+            background: linear-gradient(145deg, var(--blue-700) 0%, var(--primary) 40%, var(--blue-400) 100%);
+            border-radius: 3rem 3rem 2rem 2rem; 
+            margin: 3rem auto; 
+            padding: 3rem 1.8rem; 
+            color: white;
+            box-shadow: var(--shadow-xl), 0 0 60px hsla(217, 91%, 60%, 0.4); 
+            width: 100%;
+        }
+        .cta-duplo h2 { 
+            font-size: clamp(1.8rem, 5vw, 2.8rem); 
+            line-height: 1.2; 
+            margin-bottom: 1rem; 
+            max-width: 700px; 
+        }
+        .cta-duplo p { 
+            font-size: clamp(1.1rem, 3vw, 1.3rem); 
+            margin-bottom: 2rem; 
+        }
+        .cta-buttons { 
+            display: flex; 
+            gap: 1.2rem; 
+            flex-wrap: wrap; 
+            align-items: center; 
+        }
+        .btn-cta-primary {
+            background: white; color: var(--blue-700); border: none; padding: 0.9rem 1.8rem; border-radius: 60px; font-weight: 700; font-size: 1.1rem;
+            cursor: pointer; box-shadow: var(--shadow-lg); transition: 0.2s; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;
+        }
+        .btn-cta-primary:hover { background: var(--blue-50); transform: scale(1.05); }
+        .btn-cta-secondary {
+            background: transparent; color: white; border: 2px solid rgba(255,255,255,0.8); padding: 0.9rem 1.8rem; border-radius: 60px; font-weight: 600;
+            font-size: 1.1rem; cursor: pointer; transition: 0.2s; text-decoration: none; backdrop-filter: blur(4px);
+        }
+        .btn-cta-secondary:hover { background: rgba(255,255,255,0.1); border-color: white; }
+        @media (max-width: 500px) {
+            .cta-buttons { flex-direction: column; align-items: stretch; }
+            .btn-cta-primary, .btn-cta-secondary { text-align: center; white-space: normal; }
+        }
+        .meta { display: block; margin-top: 2rem; color: rgba(255,255,255,0.7); font-size: 0.95rem; }
+
+        /* rodapé responsivo */
+        .footer {
+            background: rgb(19, 34, 56);
+            padding: 3rem 0 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            width: 100%;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        @media (max-width: 900px) {
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+        }
+        @media (max-width: 500px) {
+            .footer-grid { grid-template-columns: 1fr; gap: 2rem; text-align: center; }
+            .footer-col p { max-width: 100%; }
+        }
+        .footer-col h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1.2rem;
+            color: white;
+        }
+        .footer-col p {
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 1.5rem;
+            max-width: 300px;
+        }
+        .footer-links {
+            list-style: none;
+        }
+        .footer-links li {
+            margin-bottom: 0.7rem;
+        }
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color 0.1s;
+            font-size: 0.95rem;
+        }
+        .footer-links a:hover {
+            color: white;
+        }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+        }
+
+        /* IDs para âncoras com offset para não esconder atrás do header fixo */
+        #tecnologia, #casos, #paraquem, #cta, #top {
+            scroll-margin-top: 80px;
+        }
+
+        /* Otimização de carregamento - imagens e iframes */
+        img, iframe {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
 </head>
-<body>
-  <!-- ========================================
-       HEADER
-  ======================================== -->
-  <header class="header glass">
-    <div class="header-inner">
-      <!-- Logo -->
-      <a href="index.html" class="logo">
-<div class="logo-icon">P</div>
-            <span class="logo-text">Pagi IA <span>SEO</span></span>
-      </a>
+<body id="top">
+    <header class="site-header">
+        <div class="container header-flex">
+            <span class="logo">Inova<span style="-webkit-text-fill-color:initial; color:var(--blue-500);">SEO</span></span>
+            
+            <!-- Botão menu sanduíche -->
+            <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <!-- Menu de navegação com âncoras suaves -->
+            <nav class="nav-links" id="navLinks">
+                <a href="#tecnologia">Tecnologia</a>
+                <a href="#casos">Cases</a>
+                <a href="#paraquem">Para quem</a>
+                <a href="#cta">Contato</a>
+            </nav>
+        </div>
+    </header>
 
-      <!-- Desktop Navigation -->
-      <nav class="nav-desktop">
-        <a href="index.html#recursos" class="nav-link">Recursos</a>
-        <a href="index.html#precos" class="nav-link">Preços</a>
-        <a href="index.html#casos" class="nav-link">Cases</a>
-        <a href="https://wa.me/5517991181188?text=Ol%C3%A1%21%20Gostaria%20de%20entrar%20em%20contato%20com%20a%20Pagi%20IA%20SEO." class="nav-link" target="_blank">Contato</a>
-      </nav>
-
-      <!-- Desktop CTAs -->
-      <div class="header-ctas">
-        <a href="https://wa.me/5517991181188?text=Ol%C3%A1%21%20Gostaria%20de%20acessar%20minha%20conta%20na%20Pagi%20IA%20SEO." class="btn btn-ghost btn-sm" target="_blank">Entrar</a>
-        <a href="https://wa.me/5517991181188?text=Ol%C3%A1%21%20Quero%20come%C3%A7ar%20agora%20com%20a%20Pagi%20IA%20SEO%21" class="btn btn-primary btn-sm" target="_blank">Começar agora</a>
-      </div>
-
-      <!-- Mobile Menu Button -->
-      <button class="mobile-menu-btn" id="mobile-menu-btn">
-        <svg id="menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="4" x2="20" y1="12" y2="12"></line>
-          <line x1="4" x2="20" y1="6" y2="6"></line>
-          <line x1="4" x2="20" y1="18" y2="18"></line>
-        </svg>
-        <svg id="menu-icon-close" style="display: none;" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M18 6 6 18"></path>
-          <path d="m6 6 12 12"></path>
-        </svg>
-      </button>
-    </div>
-
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobile-menu">
-      <nav>
-        <a href="index.html#recursos" class="nav-link">Recursos</a>
-        <a href="index.html#precos" class="nav-link">Preços</a>
-        <a href="index.html#casos" class="nav-link">Cases</a>
-        <a href="https://wa.me/5517991181188?text=Ol%C3%A1%21%20Gostaria%20de%20entrar%20em%20contato%20com%20a%20Pagi%20IA%20SEO." class="nav-link" target="_blank">Contato</a>
-      </nav>
-      <div class="mobile-menu-ctas">
-        <a href="https://wa.me/5517991181188?text=Ol%C3%A1%21%20Gostaria%20de%20acessar%20minha%20conta%20na%20Pagi%20IA%20SEO." class="btn btn-ghost btn-sm btn-full" target="_blank">Entrar</a>
-        <a href="https://wa.me/5517991181188?text=Ol%C3%A1%21%20Quero%20come%C3%A7ar%20agora%20com%20a%20Pagi%20IA%20SEO%21" class="btn btn-primary btn-sm btn-full" target="_blank">Começar agora</a>
-      </div>
-    </div>
-  </header>
-
-  <!-- ========================================
-       MAIN CONTENT
-  ======================================== -->
-  <main>
-    <!-- ========================================
-         HERO SECTION
-    ======================================== -->
+    <!-- HERO com novo título -->
     <section class="hero">
-      <!-- Background Elements -->
-      <div class="hero-bg"></div>
-      <div class="hero-blob-1"></div>
-      <div class="hero-blob-2"></div>
-      <div class="hero-grid"></div>
-
-      <div class="hero-content">
-        <!-- Badge -->
-        <div class="hero-badge">
-          <span class="hero-badge-dot">
-            <span class="hero-badge-dot-ping"></span>
-            <span class="hero-badge-dot-core"></span>
-          </span>
-          <span class="hero-badge-text">Mais de 500 empresas já confiam em nós</span>
+        <div class="container">
+            <h1>Domine as primeiras posições do Google da sua região, clientes todos os dias</h1>
+            <p>Criamos uma máquina de aquisição orgânica para seu negócio local — com páginas otimizadas, backlinks estratégicos e autoridade.</p>
+            <div class="hero-stats">
+                <div class="stat-item"><span class="stat-number">+500</span><span class="stat-label">empresas confiam</span></div>
+                <div class="stat-item"><span class="stat-number">50k+</span><span class="stat-label">rankings em 1ª página</span></div>
+                <div class="stat-item"><span class="stat-number">100%</span><span class="stat-label">PageSpeed</span></div>
+            </div>
         </div>
-
-        <!-- Headline -->
-        <h1 class="hero-title">
-          Tenha a sua <span class="text-gradient">estrutura de aquisição de clientes</span> no Google Orgânico
-        </h1>
-
-        <!-- Subheadline -->
-        <p class="hero-subtitle">
-          Crie milhares de páginas otimizadas automaticamente, conquiste posições na primeira página e transforme buscas em novos clientes — ideal para prestadores de serviços e empresas locais.
-
-        </p>
-
-        <!-- Benefits -->
-        <div class="hero-benefits">
-          <div class="hero-benefit">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10"></circle>
-              <path d="m9 12 2 2 4-4"></path>
-            </svg>
-            <span>SEO Avançado para Google</span>
-          </div>
-          <div class="hero-benefit">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10"></circle>
-              <path d="m9 12 2 2 4-4"></path>
-            </svg>
-            <span>Conteúdo Único Otimizado em Cada Página</span>
-          </div>
-          <div class="hero-benefit">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10"></circle>
-              <path d="m9 12 2 2 4-4"></path>
-            </svg>
-            <span>Interlinking Interno e Muito Mais!</span>
-          </div>
-        </div>
-
-        <!-- CTAs -->
-        <div class="hero-ctas">
-          <a href="https://wa.me/5517991181188?text=Ol%C3%A1%21%20Quero%20come%C3%A7ar%20agora%20com%20a%20Pagi%20IA%20SEO%21" class="btn btn-hero btn-xl" target="_blank">
-            Começar agora
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14"></path>
-              <path d="m12 5 7 7-7 7"></path>
-            </svg>
-          </a>
-          <a href="https://wa.me/5517991181188?text=Ol%C3%A1%21%20Gostaria%20de%20ver%20uma%20demonstra%C3%A7%C3%A3o%20da%20Pagi%20IA%20SEO." class="btn btn-outline btn-xl" target="_blank">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="6 3 20 12 6 21 6 3"></polygon>
-            </svg>
-            Ver demonstração
-          </a>
-        </div>
-
-        <!-- Stats -->
-        <div class="hero-stats">
-          <div class="hero-stat">
-            <div class="hero-stat-value text-gradient">50000+</div>
-            <div class="hero-stat-label">Rankings primeira página conquistados</div>
-          </div>
-          <div class="hero-stat">
-            <div class="hero-stat-value text-gradient">3BI+</div>
-            <div class="hero-stat-label">Tokens IA Utilizados</div>
-          </div>
-          <div class="hero-stat">
-            <div class="hero-stat-value text-gradient">100%</div>
-            <div class="hero-stat-label">Nota máxima no Google Page Speed</div>
-          </div>
-          <div class="hero-stat">
-            <div class="hero-stat-value text-gradient">TOTAL</div>
-            <div class="hero-stat-label">Otimização orgânica</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Bottom Gradient -->
-      <div class="hero-bottom-gradient"></div>
     </section>
 
-    <!-- ========================================
-         HOW IT WORKS SECTION
-    ======================================== -->
-    <section class="how-it-works" id="recursos">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-badge">⚙️ Como funciona</span>
-          <h2 class="section-title">
-            Simples, rápido e <span class="text-gradient">automatizado</span>
-          </h2>
+    <!-- CASOS DE SUCESSO (âncora: cases) -->
+    <section id="casos" style="padding: 4rem 0;">
+        <div class="container">
+            <span class="tagline">📍 resultados reais</span>
+            <h2 class="section-title">Clientes dominando o Google local</h2>
+            <div class="cases-grid">
+                <div class="case-card"><div class="case-rank"><span class="rank-badge">1º Orgânico</span> <span>🔍</span></div><div><strong>desentupidora em itaquera</strong></div><div class="case-url">desentupidoraita.pagi.com.br</div><div class="case-equivalent">💰 CPC R$ 14,20 · 8.552 cliques/ano · equivalente R$ 121k</div></div>
+                <div class="case-card"><div class="case-rank"><span class="rank-badge">1º Mapas</span> <span>📍</span></div><div><strong>conserto de geladeira zona sul</strong></div><div class="case-url">geladeira24h.pagi.com.br</div><div class="case-equivalent">💰 CPC R$ 13,80 · 7.128 cliques/ano · equivalente R$ 98k</div></div>
+                <div class="case-card"><div class="case-rank"><span class="rank-badge">3º Orgânico</span> <span>🏆</span></div><div><strong>apartamento lançamento salto</strong> <span style="color: var(--muted-foreground);">(venceu VivaReal)</span></div><div class="case-url">casaterrenoapto.pagi.com.br</div><div class="case-equivalent">💰 CPC R$ 32,70 · 155 cliques/ano · equivalente R$ 5k</div></div>
+                <div class="case-card"><div class="case-rank"><span class="rank-badge">1º Orgânico+Mapas</span></div><div><strong>auto elétrica londrina</strong></div><div class="case-url">eletronauto.pagi.com.br</div><div class="case-equivalent">💰 CPC R$ 11,20 · 475 cliques/ano · equivalente R$ 5.322</div></div>
+            </div>
+            <div style="margin-top: 2rem; text-align: right;"><a href="https://wa.me/5545988195137?text=Olá!%20Vim%20pelo%20site%20InovaSEO%20e%20cliquei%20no%20botão%20'ver%20mais%20cases'.%20Gostaria%20de%20saber%20mais%20sobre." target="_blank" rel="noopener noreferrer" style="color: var(--primary); font-weight: 600;">→ ver mais cases</a></div>
         </div>
-
-        <div class="steps-grid">
-          <div class="step-card">
-            <div class="step-number">1</div>
-            <div class="step-icon">🔗</div>
-            <h3 class="step-title">Conecte seu site ou crie um novo</h3>
-            <p class="step-description">Em poucos cliques, você integra seu domínio ou cria um subdomínio.</p>
-          </div>
-
-          <div class="step-card">
-            <div class="step-number">2</div>
-            <div class="step-icon">🎯</div>
-            <h3 class="step-title">Escolha palavras-chave e regiões</h3>
-            <p class="step-description">Defina serviços, bairros, cidades ou termos estratégicos.</p>
-          </div>
-
-          <div class="step-card">
-            <div class="step-number">3</div>
-            <div class="step-icon">🤖</div>
-            <h3 class="step-title">IA cria milhares de páginas otimizadas</h3>
-            <p class="step-description">Conteúdo único, SEO técnico avançado, interlinking inteligente.</p>
-          </div>
-
-          <div class="step-card">
-            <div class="step-number">4</div>
-            <div class="step-icon">📊</div>
-            <h3 class="step-title">Assista seus rankings</h3>
-            <p class="step-description">O Google vai indexar e posicionar sua empresa nos resultados das buscas.</p>
-          </div>
-        </div>
-      </div>
     </section>
 
-    <!-- ========================================
-         WHY USE SECTION
-    ======================================== -->
-    <section class="why-use">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-badge">🚀 Por que usar</span>
-          <h2 class="section-title">
-            Por que usar o <span class="text-gradient">Pagi IA SEO?</span>
-          </h2>
+    <!-- PARA QUEM É (âncora) -->
+    <section id="paraquem" style="background: var(--muted); padding: 4rem 0;">
+        <div class="container">
+            <span class="tagline">👥 público-alvo</span>
+            <h2 class="section-title">Para quem é o InovaSEO</h2>
+            <div class="para-quem-grid">
+                <span class="nicho-item">🔧 Prestadores de serviços</span>
+                <span class="nicho-item">🛠️ Assistências técnicas</span>
+                <span class="nicho-item">💆 Saúde e estética</span>
+                <span class="nicho-item">🏠 Imobiliárias e corretores</span>
+                <span class="nicho-item">🏪 Lojas locais e regionais</span>
+                <span class="nicho-item">🏢 Franquias</span>
+                <span class="nicho-item">💼 Profissionais liberais</span>
+                <span class="nicho-item">📍 Empresas de nicho regional</span>
+                <span class="nicho-item">📈 Agências de marketing</span>
+            </div>
         </div>
-
-        <div class="benefits-grid">
-          <div class="benefit-card">
-            <div class="benefit-icon">📄</div>
-            <p>Criação automática de milhares de páginas otimizadas</p>
-          </div>
-          <div class="benefit-card">
-            <div class="benefit-icon">✨</div>
-            <p>Conteúdo 100% único gerado por IA avançada</p>
-          </div>
-          <div class="benefit-card">
-            <div class="benefit-icon">🔗</div>
-            <p>Interlinking inteligente com foco em autoridade</p>
-          </div>
-          <div class="benefit-card">
-            <div class="benefit-icon">⚡</div>
-            <p>PageSpeed Google SEO 100/100 garantido</p>
-          </div>
-          <div class="benefit-card">
-            <div class="benefit-icon">📍</div>
-            <p>SEO local massivo para dominar bairros, cidades e regiões</p>
-          </div>
-          <div class="benefit-card">
-            <div class="benefit-icon">🌎</div>
-            <p>Escala nacional em poucas horas</p>
-          </div>
-          <div class="benefit-card">
-            <div class="benefit-icon">🛠️</div>
-            <p>Zero manutenção técnica</p>
-          </div>
-          <div class="benefit-card">
-            <div class="benefit-icon">✅</div>
-            <p>Resultados comprovados em múltiplos nichos</p>
-          </div>
-          <div class="benefit-card">
-            <div class="benefit-icon">🎧</div>
-            <p>Suporte especializado para performance</p>
-          </div>
-        </div>
-      </div>
     </section>
 
-    <!-- ========================================
-         SUCCESS CASES SECTION
-    ======================================== -->
-    <section class="success-cases" id="casos">
-      <div class="container">
-        <!-- Header -->
-        <div class="success-header">
-          <span class="success-badge">🏆 Portfolio</span>
-          <h2 class="success-title">
-            Alguns <span class="text-gradient">Casos de Sucesso</span>
-          </h2>
-          <p class="success-subtitle">
-            Clientes que estão dominando o Google Orgânico e Google Mapas. <strong>Faça a busca no Google e comprove você mesmo!</strong>
-          </p><br />
-          <p class="success-subtitle">
-            *As estimativas de CPC, Cliques por ano e Investimento equivalente Google Ads por ano são baseadas <strong>apenas na palavra chave específica mostrada</strong>, os sites posicionam para <strong>diversas palavras chave além das mostradas aqui</strong>
-          </p>
+    <!-- TECNOLOGIA (âncora) -->
+    <section id="tecnologia" style="padding: 4rem 0;">
+        <div class="container">
+            <span class="tagline">🔌 tecnologia</span>
+            <h2 class="section-title">Integrações & Tecnologia</h2>
+            <div class="tecnologia-grid">
+                <div class="tecnologia-card"><h3>📚 Estrutura Semântica</h3><ul class="tecnologia-list"><li><strong>Tecnologia própria</strong> e documentação completa</li><li>Schema.org e Sitemap.xml</li><li>Meta tags otimizadas</li></ul></div>
+                <div class="tecnologia-card"><h3>📱 Conteúdo Dinâmico</h3><ul class="tecnologia-list"><li>Títulos, descrições e H1 dinâmicos</li><li>Otimização automática para mobile</li><li>Geolocalização inteligente por bairro/cidade</li></ul></div>
+                <div class="tecnologia-card"><h3>⚡ Performance & Escala</h3><ul class="tecnologia-list"><li><strong>Interlinking automatizado</strong></li><li>Infraestrutura otimizada para PageSpeed 100</li><li>Escalabilidade massiva: 90 → 5000+ páginas</li></ul></div>
+            </div>
         </div>
-
-        <!-- Cases Grid -->
-        <div class="success-grid">
-          <!-- Case 1 -->
-          <div class="success-card organic">
-            <div class="success-position">
-              <span class="position-number">1º</span>
-              <span class="position-type">Orgânico</span>
-            </div>
-            <div class="success-content">
-              <p class="success-keyword">desentupidora em são luís</p>
-              <a href="https://mdtecdesentupidora.com.br/" target="_blank" rel="nofollow" class="success-link">mdtecdesentupidora.com.br</a>
-            </div>
-            <div class="success-ads-info">
-              <span class="ads-stat"><strong>CPC Google Ads:</strong> R$ 12,55</span>
-              <span class="ads-stat"><strong>Cliques por ano:</strong> 8.552</span>
-              <span class="ads-stat ads-value"><strong>Investimento equivalente Google Ads por ano:</strong> R$ 107.347</span>
-            </div>
-          </div>
-
-          <!-- Case 2 -->
-          <div class="success-card maps">
-            <div class="success-position">
-              <span class="position-number">1º</span>
-              <span class="position-type">Mapas</span>
-            </div>
-            <div class="success-content">
-              <p class="success-keyword">desentupidora em itanhaém</p>
-              <a href="https://desentupidoraitanhaemrapido.pagi.com.br/" target="_blank" rel="nofollow" class="success-link">desentupidoraitanhaemrapido.pagi.com.br</a>
-            </div>
-            <div class="success-ads-info">
-              <span class="ads-stat"><strong>CPC Google Ads:</strong> R$ 9,80</span>
-              <span class="ads-stat"><strong>Cliques por ano:</strong> 388</span>
-              <span class="ads-stat ads-value"><strong>Investimento equivalente Google Ads por ano:</strong> R$ 3.800</span>
-            </div>
-          </div>
-
-          <!-- Case 3 -->
-          <div class="success-card organic">
-            <div class="success-position">
-              <span class="position-number">3º</span>
-              <span class="position-type">Orgânico</span>
-            </div>
-            <div class="success-content">
-              <p class="success-keyword">apartamento lançamento em jardim saltense salto</p>
-              <p class="success-note">Venceu VivaReal, Imovelweb, Apto.vc...</p>
-              <a href="https://casaterrenoapartamento.pagi.com.br/" target="_blank" rel="nofollow" class="success-link">casaterrenoapartamento.pagi.com.br</a>
-            </div>
-            <div class="success-ads-info">
-              <span class="ads-stat"><strong>CPC Google Ads:</strong> R$ 32,70</span>
-              <span class="ads-stat"><strong>Cliques por ano:</strong> 155</span>
-              <span class="ads-stat ads-value"><strong>Investimento equivalente Google Ads por ano:</strong> R$ 5.054</span>
-            </div>
-          </div>
-
-
-          <!-- Case 5 -->
-          <div class="success-card organic">
-            <div class="success-position">
-              <span class="position-number">1º</span>
-              <span class="position-type">Orgânico</span>
-            </div>
-            <div class="success-content">
-              <p class="success-keyword">conserto de geladeira anália franco</p>
-              <a href="https://consertogeladeiraanalia.pagi.com.br/" target="_blank" rel="nofollow" class="success-link">consertogeladeiraanalia.pagi.com.br</a>
-            </div>
-            <div class="success-ads-info">
-              <span class="ads-stat"><strong>CPC Google Ads:</strong> R$ 15,10</span>
-              <span class="ads-stat"><strong>Cliques por ano:</strong> 618</span>
-              <span class="ads-stat ads-value"><strong>Investimento equivalente Google Ads por ano:</strong> R$ 9.328</span>
-            </div>
-          </div>
-
-          <!-- Case 6 -->
-          <div class="success-card organic">
-            <div class="success-position">
-              <span class="position-number">3º</span>
-              <span class="position-type">Orgânico</span>
-            </div>
-            <div class="success-content">
-              <p class="success-keyword">conserto de geladeira tatuapé</p>
-              <a href="https://consertogeladeiratatuape.pagi.com.br/" target="_blank" rel="nofollow" class="success-link">consertogeladeiratatuape.pagi.com.br</a>
-            </div>
-            <div class="success-ads-info">
-              <span class="ads-stat"><strong>CPC Google Ads:</strong> R$ 14,90</span>
-              <span class="ads-stat"><strong>Cliques por ano:</strong> 855</span>
-              <span class="ads-stat ads-value"><strong>Investimento equivalente Google Ads por ano:</strong> R$ 12.744</span>
-            </div>
-          </div>
-
-          <!-- Case 7 -->
-          <div class="success-card maps">
-            <div class="success-position">
-              <span class="position-number">1º</span>
-              <span class="position-type">Mapas</span>
-            </div>
-            <div class="success-content">
-              <p class="success-keyword">conserto de geladeira zona leste sp</p>
-              <a href="https://consertogeladeirazonaleste.pagi.com.br/" target="_blank" rel="nofollow" class="success-link">consertogeladeirazonaleste.pagi.com.br</a>
-            </div>
-            <div class="success-ads-info">
-              <span class="ads-stat"><strong>CPC Google Ads:</strong> R$ 13,80</span>
-              <span class="ads-stat"><strong>Cliques por ano:</strong> 7.128</span>
-              <span class="ads-stat ads-value"><strong>Investimento equivalente Google Ads por ano:</strong> R$ 98.366</span>
-            </div>
-          </div>
-
-          <!-- Case 8 -->
-          <div class="success-card both">
-            <div class="success-position">
-              <span class="position-number">1º</span>
-              <span class="position-type">Orgânico + Mapas</span>
-            </div>
-            <div class="success-content">
-              <p class="success-keyword">ar condicionado automotivo vila guilherme</p>
-              <a href="https://srar.com.br/" target="_blank" rel="nofollow" class="success-link">srar.com.br</a>
-            </div>
-            <div class="success-ads-info">
-              <span class="ads-stat"><strong>CPC Google Ads:</strong> R$ 9,15</span>
-              <span class="ads-stat"><strong>Cliques por ano:</strong> 199</span>
-              <span class="ads-stat ads-value"><strong>Investimento equivalente Google Ads por ano:</strong> R$ 1.818</span>
-            </div>
-          </div>
-
-          <!-- Case 9 -->
-          <div class="success-card organic">
-            <div class="success-position">
-              <span class="position-number">2º</span>
-              <span class="position-type">Orgânico</span>
-            </div>
-            <div class="success-content">
-              <p class="success-keyword">dedetizadora bonfim salvador</p>
-              <a href="https://dedetizadoradesentupidoraba.pagi.com.br/" target="_blank" rel="nofollow" class="success-link">dedetizadoradesentupidoraba.pagi.com.br</a>
-            </div>
-            <div class="success-ads-info">
-              <span class="ads-stat"><strong>CPC Google Ads:</strong> R$ 12,30</span>
-              <span class="ads-stat"><strong>Cliques por ano:</strong> 133</span>
-              <span class="ads-stat ads-value"><strong>Investimento equivalente Google Ads por ano:</strong> R$ 1.639</span>
-            </div>
-          </div>
-
-          <!-- Case 10 -->
-          <div class="success-card organic">
-            <div class="success-position">
-              <span class="position-number">3º</span>
-              <span class="position-type">Orgânico</span>
-            </div>
-            <div class="success-content">
-              <p class="success-keyword">dedetizadora campo grande salvador</p>
-              <a href="https://dedetizadoradesentupidoraba.pagi.com.br/" target="_blank" rel="nofollow" class="success-link">dedetizadoradesentupidoraba.pagi.com.br</a>
-            </div>
-            <div class="success-ads-info">
-              <span class="ads-stat"><strong>CPC Google Ads:</strong> R$ 12,10</span>
-              <span class="ads-stat"><strong>Cliques por ano:</strong> 570</span>
-              <span class="ads-stat ads-value"><strong>Investimento equivalente Google Ads por ano:</strong> R$ 6.899</span>
-            </div>
-          </div>
-
-          <!-- Case 11 -->
-          <div class="success-card maps">
-            <div class="success-position">
-              <span class="position-number">1º</span>
-              <span class="position-type">Mapas</span>
-            </div>
-            <div class="success-content">
-              <p class="success-keyword">detetive particular brasília df</p>
-              <a href="https://detetiveteixeirabrasiliadf.pagi.com.br/" target="_blank" rel="nofollow" class="success-link">detetiveteixeirabrasiliadf.pagi.com.br</a>
-            </div>
-            <div class="success-ads-info">
-              <span class="ads-stat"><strong>CPC Google Ads:</strong> R$ 28,50</span>
-              <span class="ads-stat"><strong>Cliques por ano:</strong> 1.045</span>
-              <span class="ads-stat ads-value"><strong>Investimento equivalente Google Ads por ano:</strong> R$ 29.795</span>
-            </div>
-          </div>
-
-          <!-- Case 12 -->
-          <div class="success-card organic">
-            <div class="success-position">
-              <span class="position-number">1º</span>
-              <span class="position-type">Orgânico</span>
-            </div>
-            <div class="success-content">
-              <p class="success-keyword">dj para festa jardim alto rio preto</p>
-              <a href="https://djjaderteddriopreto.pagi.com.br/" target="_blank" rel="nofollow" class="success-link">djjaderteddriopreto.pagi.com.br</a>
-            </div>
-            <div class="success-ads-info">
-              <span class="ads-stat"><strong>CPC Google Ads:</strong> R$ 7,20</span>
-              <span class="ads-stat"><strong>Cliques por ano:</strong> 238</span>
-              <span class="ads-stat ads-value"><strong>Investimento equivalente Google Ads por ano:</strong> R$ 1.710</span>
-            </div>
-          </div>
-
-          <!-- Case 13 -->
-          <div class="success-card organic">
-            <div class="success-position">
-              <span class="position-number">1º</span>
-              <span class="position-type">Orgânico</span>
-            </div>
-            <div class="success-content">
-              <p class="success-keyword">ortodontista no são jorge manaus</p>
-              <a href="https://drvilmaralmeidaortodontia.pagi.com.br/" target="_blank" rel="nofollow" class="success-link">drvilmaralmeidaortodontia.pagi.com.br</a>
-            </div>
-            <div class="success-ads-info">
-              <span class="ads-stat"><strong>CPC Google Ads:</strong> R$ 14,50</span>
-              <span class="ads-stat"><strong>Cliques por ano:</strong> 428</span>
-              <span class="ads-stat ads-value"><strong>Investimento equivalente Google Ads por ano:</strong> R$ 6.201</span>
-            </div>
-          </div>
-
-          <!-- Case 14 -->
-          <div class="success-card both">
-            <div class="success-position">
-              <span class="position-number">1º</span>
-              <span class="position-type">Orgânico + Mapas</span>
-            </div>
-            <div class="success-content">
-              <p class="success-keyword">auto elétrica no centro cívico londrina</p>
-              <a href="https://eletronautocenter.pagi.com.br/" target="_blank" rel="nofollow" class="success-link">eletronautocenter.pagi.com.br</a>
-            </div>
-            <div class="success-ads-info">
-              <span class="ads-stat"><strong>CPC Google Ads:</strong> R$ 11,20</span>
-              <span class="ads-stat"><strong>Cliques por ano:</strong> 475</span>
-              <span class="ads-stat ads-value"><strong>Investimento equivalente Google Ads por ano:</strong> R$ 5.322</span>
-            </div>
-          </div>
-
-          <!-- Case 15 -->
-          <div class="success-card organic">
-            <div class="success-position">
-              <span class="position-number">1º</span>
-              <span class="position-type">Orgânico</span>
-            </div>
-            <div class="success-content">
-              <p class="success-keyword">caça vazamentos jardim camburi vitória</p>
-              <a href="https://expressodesentupidora.pagi.com.br/" target="_blank" rel="nofollow" class="success-link">expressodesentupidora.pagi.com.br</a>
-            </div>
-            <div class="success-ads-info">
-              <span class="ads-stat"><strong>CPC Google Ads:</strong> R$ 16,80</span>
-              <span class="ads-stat"><strong>Cliques por ano:</strong> 713</span>
-              <span class="ads-stat ads-value"><strong>Investimento equivalente Google Ads por ano:</strong> R$ 11.975</span>
-            </div>
-          </div>
-
-          <!-- Case 16 -->
-          <div class="success-card both">
-            <div class="success-position">
-              <span class="position-number">1º</span>
-              <span class="position-type">Orgânico + Mapas</span>
-            </div>
-            <div class="success-content">
-              <p class="success-keyword">guincho pesado em águas lindas de goiás</p>
-              <a href="https://jjguinchomunklevepesado.pagi.com.br/" target="_blank" rel="nofollow" class="success-link">jjguinchomunklevepesado.pagi.com.br</a>
-            </div>
-            <div class="success-ads-info">
-              <span class="ads-stat"><strong>CPC Google Ads:</strong> R$ 20,10</span>
-              <span class="ads-stat"><strong>Cliques por ano:</strong> 570</span>
-              <span class="ads-stat ads-value"><strong>Investimento equivalente Google Ads por ano:</strong> R$ 11.461</span>
-            </div>
-          </div>
-
-          <!-- Case 17 -->
-          <div class="success-card maps-organic">
-            <div class="success-position">
-              <span class="position-number">1º</span>
-              <span class="position-type">Mapas + 3º Orgânico</span>
-            </div>
-            <div class="success-content">
-              <p class="success-keyword">limpeza de sofá jaboatão</p>
-              <a href="https://limpezadesofarecifejaboatao.pagi.com.br/" target="_blank" rel="nofollow" class="success-link">limpezadesofarecifejaboatao.pagi.com.br</a>
-            </div>
-            <div class="success-ads-info">
-              <span class="ads-stat"><strong>CPC Google Ads:</strong> R$ 8,10</span>
-              <span class="ads-stat"><strong>Cliques por ano:</strong> 662</span>
-              <span class="ads-stat ads-value"><strong>Investimento equivalente Google Ads por ano:</strong> R$ 5.365</span>
-            </div>
-          </div>
-
-          <!-- Case 18 -->
-          <div class="success-card organic">
-            <div class="success-position">
-              <span class="position-number">2º</span>
-              <span class="position-type">Orgânico</span>
-            </div>
-            <div class="success-content">
-              <p class="success-keyword">desentupidora em cohama são luís</p>
-              <a href="https://mdtecdesentupidora.com.br/" target="_blank" rel="nofollow" class="success-link">mdtecdesentupidora.com.br</a>
-            </div>
-            <div class="success-ads-info">
-              <span class="ads-stat"><strong>CPC Google Ads:</strong> R$ 12,80</span>
-              <span class="ads-stat"><strong>Cliques por ano:</strong> 618</span>
-              <span class="ads-stat ads-value"><strong>Investimento equivalente Google Ads por ano:</strong> R$ 7.907</span>
-            </div>
-          </div>
-
-          <!-- Case 19 -->
-          <div class="success-card organic">
-            <div class="success-position">
-              <span class="position-number">1º</span>
-              <span class="position-type">Orgânico</span>
-            </div>
-            <div class="success-content">
-              <p class="success-keyword">desentupidora em turu são luís</p>
-              <a href="https://mdtecdesentupidora.com.br/" target="_blank" rel="nofollow" class="success-link">mdtecdesentupidora.com.br</a>
-            </div>
-            <div class="success-ads-info">
-              <span class="ads-stat"><strong>CPC Google Ads:</strong> R$ 12,75</span>
-              <span class="ads-stat"><strong>Cliques por ano:</strong> 665</span>
-              <span class="ads-stat ads-value"><strong>Investimento equivalente Google Ads por ano:</strong> R$ 8.482</span>
-            </div>
-          </div>
-
-          <!-- Case 20 -->
-          <div class="success-card organic">
-            <div class="success-position">
-              <span class="position-number">1º</span>
-              <span class="position-type">Orgânico</span>
-            </div>
-            <div class="success-content">
-              <p class="success-keyword">neuropsicólogo península rio de janeiro</p>
-              <a href="https://psicologabarradatijuca.pagi.com.br/" target="_blank" rel="nofollow" class="success-link">psicologabarradatijuca.pagi.com.br</a>
-            </div>
-            <div class="success-ads-info">
-              <span class="ads-stat"><strong>CPC Google Ads:</strong> R$ 25,40</span>
-              <span class="ads-stat"><strong>Cliques por ano:</strong> 285</span>
-              <span class="ads-stat ads-value"><strong>Investimento equivalente Google Ads por ano:</strong> R$ 7.242</span>
-            </div>
-          </div>
-
-          <!-- Case 21 -->
-          <div class="success-card both">
-            <div class="success-position">
-              <span class="position-number">1º</span>
-              <span class="position-type">Orgânico + Mapas</span>
-            </div>
-            <div class="success-content">
-              <p class="success-keyword">mdf taboão da serra</p>
-              <a href="https://taboaomadeiras.com.br/" target="_blank" rel="nofollow" class="success-link">taboaomadeiras.com.br</a>
-            </div>
-            <div class="success-ads-info">
-              <span class="ads-stat"><strong>CPC Google Ads:</strong> R$ 6,30</span>
-              <span class="ads-stat"><strong>Cliques por ano:</strong> 713</span>
-              <span class="ads-stat ads-value"><strong>Investimento equivalente Google Ads por ano:</strong> R$ 4.490</span>
-            </div>
-          </div>
-
-          <!-- Case 22 -->
-          <div class="success-card both">
-            <div class="success-position">
-              <span class="position-number">1º</span>
-              <span class="position-type">Orgânico + Mapas</span>
-            </div>
-            <div class="success-content">
-              <p class="success-keyword">fornecedor de tintas taboão da serra</p>
-              <a href="https://twistercolors.com.br/" target="_blank" rel="nofollow" class="success-link">twistercolors.com.br</a>
-            </div>
-            <div class="success-ads-info">
-              <span class="ads-stat"><strong>CPC Google Ads:</strong> R$ 7,80</span>
-              <span class="ads-stat"><strong>Cliques por ano:</strong> 808</span>
-              <span class="ads-stat ads-value"><strong>Investimento equivalente Google Ads por ano:</strong> R$ 6.301</span>
-            </div>
-          </div>
-
-          <!-- Card Final - CTA -->
-          <div class="success-card cta-card">
-            <div class="cta-card-content">
-              <span class="cta-card-icon">🚀</span>
-              <h3 class="cta-card-title">Temos muito mais casos de sucesso!</h3>
-              <p class="cta-card-text">Aqui é só para você ver a potência que te oferecemos e ter uma ideia de como sua empresa vai alavancar e se beneficiar com nossa plataforma!</p>
-              <a href="https://wa.me/5517991181188?text=Ol%C3%A1%21%20Quero%20conhecer%20mais%20casos%20de%20sucesso%20da%20Pagi%21" target="_blank" class="btn btn-hero btn-sm">Ver mais cases</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Footer CTA -->
-        <div class="success-footer">
-          <p>Quer aparecer aqui também? Entre em contato!</p>
-          <a href="https://wa.me/5517991181188?text=Ol%C3%A1%21%20Vi%20os%20casos%20de%20sucesso%20e%20quero%20que%20meu%20neg%C3%B3cio%20tamb%C3%A9m%20domine%20o%20Google%21" class="btn btn-hero btn-lg" target="_blank">Quero dominar o Google</a>
-        </div>
-      </div>
     </section>
 
-    <!-- ========================================
-         FOR WHO SECTION
-    ======================================== -->
-    <section class="for-who">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-badge">👥 Para quem é</span>
-          <h2 class="section-title">
-            Para quem é o <span class="text-gradient">Pagi IA SEO</span>
-          </h2>
-        </div>
-
-        <div class="audience-grid">
-          <div class="audience-card">
-            <span class="audience-icon">🔧</span>
-            <span class="audience-text">Prestadores de serviços</span>
-          </div>
-          <div class="audience-card">
-            <span class="audience-icon">🛠️</span>
-            <span class="audience-text">Assistências técnicas</span>
-          </div>
-          <div class="audience-card">
-            <span class="audience-icon">💆</span>
-            <span class="audience-text">Saúde e estética</span>
-          </div>
-          <div class="audience-card">
-            <span class="audience-icon">🏠</span>
-            <span class="audience-text">Imobiliárias e corretores</span>
-          </div>
-          <div class="audience-card">
-            <span class="audience-icon">🏪</span>
-            <span class="audience-text">Lojas locais e regionais</span>
-          </div>
-          <div class="audience-card">
-            <span class="audience-icon">🏢</span>
-            <span class="audience-text">Franquias</span>
-          </div>
-          <div class="audience-card">
-            <span class="audience-icon">💼</span>
-            <span class="audience-text">Profissionais liberais</span>
-          </div>
-          <div class="audience-card">
-            <span class="audience-icon">📍</span>
-            <span class="audience-text">Empresas de nicho regional</span>
-          </div>
-          <div class="audience-card">
-            <span class="audience-icon">📈</span>
-            <span class="audience-text">Agências de marketing</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========================================
-         INTEGRATIONS SECTION
-    ======================================== -->
-    <section class="integrations">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-badge">🔌 Tecnologia</span>
-          <h2 class="section-title">
-            Integrações & <span class="text-gradient">Tecnologia</span>
-          </h2>
-        </div>
-
-        <div class="tech-grid">
-          <div class="tech-card">
-            <div class="tech-icon">📚</div>
-            <p>Tecnologia própria e documentação completa</p>
-          </div>
-          <div class="tech-card">
-            <div class="tech-icon">🏷️</div>
-            <p>Schema.org e Sitemap.xml</p>
-          </div>
-          <div class="tech-card">
-            <div class="tech-icon">🔍</div>
-            <p>Meta tags otimizadas</p>
-          </div>
-          <div class="tech-card">
-            <div class="tech-icon">📝</div>
-            <p>Títulos, descrições e H1 dinâmicos</p>
-          </div>
-          <div class="tech-card">
-            <div class="tech-icon">📱</div>
-            <p>Otimização automática para mobile</p>
-          </div>
-          <div class="tech-card">
-            <div class="tech-icon">📍</div>
-            <p>Geolocalização inteligente por bairro/cidade</p>
-          </div>
-          <div class="tech-card">
-            <div class="tech-icon">🔗</div>
-            <p>Interlinking automatizado</p>
-          </div>
-          <div class="tech-card">
-            <div class="tech-icon">⚡</div>
-            <p>Infraestrutura otimizada para PageSpeed 100</p>
-          </div>
-          <div class="tech-card">
-            <div class="tech-icon">📊</div>
-            <p>Escalabilidade massiva: 90 → 5000+ páginas</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========================================
-         TESTIMONIALS SECTION
-    ======================================== -->
-    <section class="testimonials">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-badge">💬 Depoimentos</span>
-          <h2 class="section-title">
-            O que nossos <span class="text-gradient">clientes dizem</span>
-          </h2>
-        </div>
-
-        <div class="testimonials-grid">
-          <div class="testimonial-card">
-            <div class="testimonial-quote">"</div>
-            <p class="testimonial-text">Conquistamos 27 posições em primeira página em menos de 30 dias.</p>
-            <div class="testimonial-author">
-              <div class="testimonial-avatar">🏢</div>
-              <div class="testimonial-info">
-                <span class="testimonial-name">Cliente Desentupidora</span>
-              </div>
+    <!-- DEPOIMENTOS -->
+    <section style="background: var(--muted); padding: 4rem 0;">
+        <div class="container">
+            <span class="tagline">💬 depoimentos</span>
+            <h2 class="section-title">O que nossos clientes dizem</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card"><div class="testimonial-quote">Conquistamos 27 posições em primeira página em menos de 30 dias.</div><div class="testimonial-author">Cliente Desentupidora</div></div>
+                <div class="testimonial-card"><div class="testimonial-quote">Viramos referência no bairro inteiro. O telefone não para.</div><div class="testimonial-author">Cliente Lojista</div></div>
+                <div class="testimonial-card"><div class="testimonial-quote">Escala absurda. Hoje temos mais tráfego orgânico que anúncios.</div><div class="testimonial-author">Cliente Serviços</div></div>
             </div>
-          </div>
-
-          <div class="testimonial-card">
-            <div class="testimonial-quote">"</div>
-            <p class="testimonial-text">Viramos referência no bairro inteiro. O telefone não para.</p>
-            <div class="testimonial-author">
-              <div class="testimonial-avatar">🏪</div>
-              <div class="testimonial-info">
-                <span class="testimonial-name">Cliente Lojista</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="testimonial-card">
-            <div class="testimonial-quote">"</div>
-            <p class="testimonial-text">Escala absurda. Hoje temos mais tráfego orgânico que anúncios.</p>
-            <div class="testimonial-author">
-              <div class="testimonial-avatar">🔧</div>
-              <div class="testimonial-info">
-                <span class="testimonial-name">Cliente Serviços</span>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
     </section>
 
-    <!-- ========================================
-         PRICING SECTION
-    ======================================== -->
-    <section class="pricing" id="precos">
-      <div class="container">
-        <!-- Header -->
-        <div class="pricing-header">
-          <span class="pricing-badge">💎 Planos e Preços</span>
-          <h2 class="pricing-title">
-            Escolha o plano ideal para <span class="text-gradient">seu negócio</span>
-          </h2>
-          <p class="pricing-subtitle">
-            Invista em SEO profissional e veja seu negócio aparecer nas primeiras posições do Google
-          </p>
-        </div>
-
-        <!-- Pricing Cards - Linha Principal (3 colunas) -->
-        <div class="pricing-grid pricing-grid-3">
-          <!-- AVANÇADO Plan -->
-          <div class="pricing-card">
-            <div class="pricing-card-inner">
-              <div class="plan-tag avancado">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path>
-                </svg>
-                Plano I
-              </div>
-
-              <div class="plan-price">
-                <span class="plan-price-setup">
-                  R$ 5.000,00<br>
-                  <span>investimento único</span>
-                </span>
-                <span class="plan-price-monthly"><span class="plan-price-value">R$ 500</span><span class="plan-price-period">/mês</span></span>
-                <p class="plan-installment profissional">SEO ACELERAÇÃO COMPETITIVA</p>
-              </div>
-
-              <div class="plan-cta">
-                <a href="https://wa.me/5517991181188?text=Ol%C3%A1%21%20Tenho%20interesse%20no%20Plano%20I%20da%20Pagi%20IA%20SEO." class="btn btn-profissional btn-lg btn-full" target="_blank">Começar agora</a>
-              </div>
-
-              <div class="plan-features">
-                <div class="plan-feature">
-                  <div class="plan-feature-icon profissional">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M20 6 9 17l-5-5"></path>
-                    </svg>
-                  </div>
-                  <div class="plan-feature-content">
-                    <p class="plan-feature-name">Páginas únicas</p>
-                    <p class="plan-feature-value">1.200</p>
-                  </div>
-                </div>
-                <div class="plan-feature">
-                  <div class="plan-feature-icon profissional">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M20 6 9 17l-5-5"></path>
-                    </svg>
-                  </div>
-                  <div class="plan-feature-content">
-                    <p class="plan-feature-name">Backlinks</p>
-                    <p class="plan-feature-value">até 9</p>
-                  </div>
-                </div>
-                <div class="plan-feature">
-                  <div class="plan-feature-icon profissional">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M20 6 9 17l-5-5"></path>
-                    </svg>
-                  </div>
-                  <div class="plan-feature-content">
-                    <p class="plan-feature-name">Nível de SEO</p>
-                    <p class="plan-feature-value">SEO Avançado</p>
-                  </div>
-                </div>
-                <div class="plan-feature">
-                  <div class="plan-feature-icon profissional">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M20 6 9 17l-5-5"></path>
-                    </svg>
-                  </div>
-                  <div class="plan-feature-content">
-                    <p class="plan-feature-name">Conteúdo</p>
-                    <p class="plan-feature-value">100% único em cada página</p>
-                  </div>
-                </div>
-              </div>
+    <!-- TABELA DIFERENCIAL -->
+    <section style="padding: 4rem 0;">
+        <div class="container">
+            <span class="tagline">🥇 diferencial competitivo</span>
+            <h2 class="section-title">Por que somos diferentes?</h2>
+            <div class="diff-table-wrapper">
+                <table class="diff-table">
+                    <thead><tr><th>Tecnologia / Método</th><th>SEO Manual</th><th>Agência Tradicional</th><th>InovaSEO</th></tr></thead>
+                    <tbody>
+                        <tr><td>Velocidade de implementação</td><td>Lenta</td><td>Média</td><td class="destaque-positivo">Rápida</td></tr>
+                        <tr><td>Escala (100+ páginas)</td><td>Impossível</td><td>Caro</td><td class="destaque-positivo">Automático</td></tr>
+                        <tr><td>Conteúdo único</td><td>Limitado</td><td>Parcial</td><td class="destaque-positivo">Ilimitado</td></tr>
+                        <tr><td>Interlinking inteligente</td><td>Não</td><td>Parcial</td><td class="destaque-positivo">Automático</td></tr>
+                        <tr><td>PageSpeed 100</td><td>Não</td><td>Raro</td><td class="destaque-positivo">Sim</td></tr>
+                        <tr><td>Custo por página</td><td>Alto</td><td>Muito alto</td><td class="destaque-positivo">Baixíssimo</td></tr>
+                    </tbody>
+                </table>
             </div>
-          </div>
+        </div>
+    </section>
 
-          <!-- AUTORIDADE Plan -->
-          <div class="pricing-card">
-            <div class="pricing-card-inner">
-              <div class="plan-tag avancado">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M11.562 3.266a.5.5 0 0 1 .876 0L15.39 8.87a1 1 0 0 0 1.516.294L21.183 5.5a.5.5 0 0 1 .798.519l-2.834 10.246a1 1 0 0 1-.956.734H5.81a1 1 0 0 1-.957-.734L2.02 6.02a.5.5 0 0 1 .798-.519l4.276 3.664a1 1 0 0 0 1.516-.294z"></path>
-                  <path d="M5 21h14"></path>
-                </svg>
-                Plano II
-              </div>
-
-              <div class="plan-price">
-                <span class="plan-price-setup">
-                  R$ 12.000,00<br>
-                  <span>investimento único</span>
-                </span>
-                <span class="plan-price-monthly"><span class="plan-price-value">R$ 1.000</span><span class="plan-price-period">/mês</span></span>
-                <p class="plan-installment avancado">SEO AUTORIDADE DO MERCADO</p>
-              </div>
-
-              <div class="plan-cta">
-                <a href="https://wa.me/5517991181188?text=Ol%C3%A1%21%20Tenho%20interesse%20no%20Plano%20II%20da%20Pagi%20IA%20SEO." class="btn btn-avancado btn-lg btn-full" target="_blank">Começar agora</a>
-              </div>
-
-              <div class="plan-features">
-                <div class="plan-feature">
-                  <div class="plan-feature-icon avancado">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M20 6 9 17l-5-5"></path>
-                    </svg>
-                  </div>
-                  <div class="plan-feature-content">
-                    <p class="plan-feature-name">Páginas únicas</p>
-                    <p class="plan-feature-value">3.600</p>
-                  </div>
-                </div>
-                <div class="plan-feature">
-                  <div class="plan-feature-icon avancado">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M20 6 9 17l-5-5"></path>
-                    </svg>
-                  </div>
-                  <div class="plan-feature-content">
-                    <p class="plan-feature-name">Backlinks</p>
-                    <p class="plan-feature-value">até 18</p>
-                  </div>
-                </div>
-                <div class="plan-feature">
-                  <div class="plan-feature-icon avancado">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M20 6 9 17l-5-5"></path>
-                    </svg>
-                  </div>
-                  <div class="plan-feature-content">
-                    <p class="plan-feature-name">Nível de SEO</p>
-                    <p class="plan-feature-value">SEO Escalável</p>
-                  </div>
-                </div>
-                <div class="plan-feature">
-                  <div class="plan-feature-icon avancado">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M20 6 9 17l-5-5"></path>
-                    </svg>
-                  </div>
-                  <div class="plan-feature-content">
-                    <p class="plan-feature-name">Conteúdo</p>
-                    <p class="plan-feature-value">100% único em cada página</p>
-                  </div>
-                </div>
-              </div>
+    <!-- COMO FUNCIONA -->
+    <section style="background: var(--muted); padding: 4rem 0;">
+        <div class="container">
+            <span class="tagline">⚙️ automatizado</span>
+            <h2 class="section-title">Simples, rápido e escalável</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(200px,100%),1fr)); gap: 2rem;">
+                <div><span style="background: var(--primary); color:white; width: 40px; height:40px; display: inline-flex; align-items: center; justify-content: center; border-radius: 60px; font-weight: 700; margin-bottom: 1rem;">1</span><h3>Escolha palavras‑chave e bairros</h3><p>Serviços + regiões que você quer dominar.</p></div>
+                <div><span style="background: var(--primary); color:white; width: 40px; height:40px; display: inline-flex; align-items: center; justify-content: center; border-radius: 60px; font-weight: 700; margin-bottom: 1rem;">2</span><h3>IA cria páginas únicas</h3><p>Conteúdo otimizado, interlinking inteligente.</p></div>
+                <div><span style="background: var(--primary); color:white; width: 40px; height:40px; display: inline-flex; align-items: center; justify-content: center; border-radius: 60px; font-weight: 700; margin-bottom: 1rem;">3</span><h3>Indexação e rankings</h3><p>O Google posiciona seu negócio local.</p></div>
+                <div><span style="background: var(--primary); color:white; width: 40px; height:40px; display: inline-flex; align-items: center; justify-content: center; border-radius: 60px; font-weight: 700; margin-bottom: 1rem;">4</span><h3>Clientes te encontram</h3><p>Aquisição orgânica previsível.</p></div>
             </div>
-          </div>
+        </div>
+    </section>
 
-          <!-- ENTERPRISE Plan -->
-          <div class="pricing-card">
-            <div class="pricing-card-inner">
-              <div class="plan-tag enterprise">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
-                  <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
-                  <path d="M4 22h16"></path>
-                  <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path>
-                  <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path>
-                  <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path>
-                </svg>
-                Plano III
-              </div>
-
-              <div class="plan-price">
-                <span class="plan-price-setup">
-                  R$ 25.000,00<br>
-                  <span>investimento único</span>
-                </span>
-                <span class="plan-price-monthly"><span class="plan-price-value">R$ 2.000</span><span class="plan-price-period">/mês</span></span>
-                <p class="plan-installment enterprise">SEO SUPREMO DOMÍNIO TOTAL</p>
-              </div>
-
-              <div class="plan-cta">
-                <a href="https://wa.me/5517991181188?text=Ol%C3%A1%21%20Tenho%20interesse%20no%20Plano%20III%20da%20Pagi%20IA%20SEO." class="btn btn-enterprise btn-lg btn-full" target="_blank">Começar agora</a>
-              </div>
-
-              <div class="plan-features">
-                <div class="plan-feature">
-                  <div class="plan-feature-icon enterprise">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M20 6 9 17l-5-5"></path>
-                    </svg>
-                  </div>
-                  <div class="plan-feature-content">
-                    <p class="plan-feature-name">Páginas únicas</p>
-                    <p class="plan-feature-value">12.000</p>
-                  </div>
-                </div>
-                <div class="plan-feature">
-                  <div class="plan-feature-icon enterprise">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M20 6 9 17l-5-5"></path>
-                    </svg>
-                  </div>
-                  <div class="plan-feature-content">
-                    <p class="plan-feature-name">Backlinks</p>
-                    <p class="plan-feature-value">até 35</p>
-                  </div>
-                </div>
-                <div class="plan-feature">
-                  <div class="plan-feature-icon enterprise">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M20 6 9 17l-5-5"></path>
-                    </svg>
-                  </div>
-                  <div class="plan-feature-content">
-                    <p class="plan-feature-name">Nível de SEO</p>
-                    <p class="plan-feature-value">SEO Supremo</p>
-                  </div>
-                </div>
-                <div class="plan-feature">
-                  <div class="plan-feature-icon enterprise">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M20 6 9 17l-5-5"></path>
-                    </svg>
-                  </div>
-                  <div class="plan-feature-content">
-                    <p class="plan-feature-name">Conteúdo</p>
-                    <p class="plan-feature-value">100% único em cada página</p>
-                  </div>
-                </div>
-              </div>
+    <!-- GARANTIA & SEGURANÇA -->
+    <section style="background: var(--background); padding: 4rem 0;">
+        <div class="container">
+            <span class="tagline">🔐 confiança</span>
+            <h2 class="section-title">Garantia & Segurança</h2>
+            <div class="garantia-grid">
+                <div class="garantia-card"><span class="garantia-icon">✨</span><h3>Conteúdo único</h3><p>Garantia de conteúdo único em cada página, sem duplicidade.</p></div>
+                <div class="garantia-card"><span class="garantia-icon">⚡</span><h3>SEO otimizado</h3><p>Estrutura SEO otimizada ao extremo, da meta tag ao h1.</p></div>
+                <div class="garantia-card"><span class="garantia-icon">☁️</span><h3>Infraestrutura cloud</h3><p>Servidores na nuvem otimizados para velocidade e uptime.</p></div>
+                <div class="garantia-card"><span class="garantia-icon">🔒</span><h3>SSL automático</h3><p>Certificação SSL automática inclusa em todas as páginas.</p></div>
+                <div class="garantia-card"><span class="garantia-icon">🧠</span><h3>Conteúdo Humanizado</h3><p>Conteúdo passa por detecção de IA, garantindo naturalidade.</p></div>
+                <div class="garantia-card"><span class="garantia-icon">🎧</span><h3>Suporte especializado</h3><p>Equipe pronta para ajudar sempre, com conhecimento técnico.</p></div>
             </div>
-          </div>
         </div>
-
-
-        <!-- Footer CTA -->
-        <div class="pricing-footer">
-          <p>Ainda tem dúvidas? Fale com nossos especialistas</p>
-          <a href="https://wa.me/5517991181188?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20uma%20demonstra%C3%A7%C3%A3o%20da%20Pagi%20IA%20SEO." class="btn btn-outline btn-lg" target="_blank">Agendar uma demonstração</a>
-        </div>
-      </div>
     </section>
 
-    <!-- ========================================
-         COMPARISON SECTION
-    ======================================== -->
-    <section class="comparison">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-badge">🥇 Diferencial</span>
-          <h2 class="section-title">
-            Por que somos <span class="text-gradient">diferentes?</span>
-          </h2>
+    <!-- CTA DUPLO (âncora contato) -->
+    <div id="cta" class="container">
+        <div class="cta-duplo">
+            <h2>Pronto para dominar o Google e multiplicar seus atendimentos?</h2>
+            <p>Comece hoje e veja resultados reais em semanas.</p>
+            <div class="cta-buttons">
+                <a href="https://wa.me/5545988195137?text=Olá!%20Vim%20pelo%20site%20InovaSEO%20e%20cliquei%20no%20botão%20'Começar%20Agora'.%20Quero%20saber%20mais%20sobre." target="_blank" rel="noopener noreferrer" class="btn-cta-primary">⚡ Começar agora →</a>
+                <a href="https://wa.me/5545988195137?text=Olá!%20Vim%20pelo%20site%20InovaSEO%20e%20cliquei%20no%20botão%20'Agendar%20Demonstração'.%20Gostaria%20de%20agendar%20uma%20conversa." target="_blank" rel="noopener noreferrer" class="btn-cta-secondary">📆 Agendar demonstração</a>
+            </div>
+            <small class="meta">✓ sem fidelidade • cancelamento fácil • especialista dedicado</small>
         </div>
-
-        <div class="comparison-table-wrapper">
-          <table class="comparison-table">
-            <thead>
-              <tr>
-                <th>Tecnologia / Método</th>
-                <th>SEO Manual</th>
-                <th>Agência Tradicional</th>
-                <th class="highlight">Pagi IA SEO</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Velocidade de implementação</td>
-                <td><span class="badge bad">Lenta</span></td>
-                <td><span class="badge medium">Média</span></td>
-                <td><span class="badge good">Rápida</span></td>
-              </tr>
-              <tr>
-                <td>Escala (100+ páginas)</td>
-                <td><span class="badge bad">Impossível</span></td>
-                <td><span class="badge medium">Caro</span></td>
-                <td><span class="badge good">Automático</span></td>
-              </tr>
-              <tr>
-                <td>Conteúdo único</td>
-                <td><span class="badge bad">Limitado</span></td>
-                <td><span class="badge medium">Parcial</span></td>
-                <td><span class="badge good">Ilimitado</span></td>
-              </tr>
-              <tr>
-                <td>Interlinking inteligente</td>
-                <td><span class="badge bad">Não</span></td>
-                <td><span class="badge medium">Parcial</span></td>
-                <td><span class="badge good">Automático</span></td>
-              </tr>
-              <tr>
-                <td>PageSpeed 100</td>
-                <td><span class="badge bad">Não</span></td>
-                <td><span class="badge medium">Raro</span></td>
-                <td><span class="badge good">Sim</span></td>
-              </tr>
-              <tr>
-                <td>Custo por página</td>
-                <td><span class="badge bad">Alto</span></td>
-                <td><span class="badge bad">Muito alto</span></td>
-                <td><span class="badge good">Baixíssimo</span></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========================================
-         GUARANTEE SECTION
-    ======================================== -->
-    <section class="guarantee">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-badge">🔐 Garantia</span>
-          <h2 class="section-title">
-            Garantia & <span class="text-gradient">Segurança</span>
-          </h2>
-        </div>
-
-        <div class="guarantee-grid">
-          <div class="guarantee-card">
-            <div class="guarantee-icon">✨</div>
-            <h3>Conteúdo único</h3>
-            <p>Garantia de conteúdo único em cada página</p>
-          </div>
-          <div class="guarantee-card">
-            <div class="guarantee-icon">🎯</div>
-            <h3>SEO otimizado</h3>
-            <p>Estrutura SEO otimizada ao extremo</p>
-          </div>
-          <div class="guarantee-card">
-            <div class="guarantee-icon">☁️</div>
-            <h3>Infraestrutura cloud</h3>
-            <p>Servidores na nuvem otimizados para velocidade</p>
-          </div>
-          <div class="guarantee-card">
-            <div class="guarantee-icon">🔒</div>
-            <h3>SSL automático</h3>
-            <p>Certificação SSL automática inclusa</p>
-          </div>
-          <div class="guarantee-card">
-            <div class="guarantee-icon">👁️</div>
-            <h3>Conteúdo Humanizado</h3>
-            <p>Conteúdo passa por detecção de IA</p>
-          </div>
-          <div class="guarantee-card">
-            <div class="guarantee-icon">🎧</div>
-            <h3>Suporte especializado</h3>
-            <p>Equipe pronta para ajudar sempre</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========================================
-         FINAL CTA SECTION
-    ======================================== -->
-    <section class="final-cta">
-      <div class="container">
-        <div class="final-cta-content">
-          <h2 class="final-cta-title">
-            Pronto para dominar o Google e <span class="text-gradient">multiplicar seus atendimentos?</span>
-          </h2>
-          <p class="final-cta-subtitle">Comece hoje e veja resultados reais em semanas.</p>
-          <div class="final-cta-buttons">
-            <a href="https://wa.me/5517991181188?text=Ol%C3%A1%21%20Quero%20come%C3%A7ar%20agora%20com%20a%20Pagi%20IA%20SEO%21" class="btn btn-hero btn-xl" target="_blank">
-              Começar agora
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M5 12h14"></path>
-                <path d="m12 5 7 7-7 7"></path>
-              </svg>
-            </a>
-            <a href="https://wa.me/5517991181188?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20uma%20demonstra%C3%A7%C3%A3o%20da%20Pagi%20IA%20SEO." class="btn btn-outline btn-xl" target="_blank">
-              Agendar demonstração
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- ========================================
-       FOOTER
-  ======================================== -->
-  <footer class="footer">
-    <div class="footer-grid">
-      <!-- Brand -->
-      <div>
-        <a href="index.html" class="logo footer-brand">
-          <div class="logo-icon">P</div>
-          <span class="footer-brand-text">Pagi IA <span>SEO</span></span>
-        </a>
-        <p class="footer-tagline">A plataforma líder em SEO programático com IA no Brasil.</p>
-      </div>
-
-      <!-- Product Links -->
-      <div class="footer-links">
-        <h4>Produto</h4>
-        <ul>
-          <li><a href="index.html#">Recursos</a></li>
-          <li><a href="index.html#">Preços</a></li>
-          <li><a href="index.html#">Integrações</a></li>
-          <li><a href="index.html#">Atualizações</a></li>
-        </ul>
-      </div>
-
-      <!-- Company Links -->
-      <div class="footer-links">
-        <h4>Empresa</h4>
-        <ul>
-          <li><a href="index.html#">Sobre nós</a></li>
-          <li><a href="index.html#">Blog</a></li>
-          <li><a href="index.html#">Carreiras</a></li>
-          <li><a href="index.html#">Contato</a></li>
-        </ul>
-      </div>
-
-      <!-- Legal Links -->
-      <div class="footer-links">
-        <h4>Legal</h4>
-        <ul>
-          <li><a href="index.html#">Privacidade</a></li>
-          <li><a href="index.html#">Termos</a></li>
-          <li><a href="index.html#">Cookies</a></li>
-          <li><a href="index.html#">Política de IA</a></li>
-        </ul>
-      </div>
     </div>
 
-    <div class="footer-bottom">
-      <p>© Pagi IA SEO. Todos os direitos reservados.</p>
-    </div>
-  </footer>
+    <!-- PLANOS -->
+    <section style="padding: 2rem 0 4rem;">
+        <div class="container">
+            <span class="tagline">💰 investimento</span>
+            <h2 class="section-title">Planos de SEO para cada fase</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card plano-inicial"><span class="card-badge">🔹 INICIAL</span><div class="preco-unico">R$ 597 <small>único</small></div><div class="investimento-unico">+ R$ 349/mês</div><ul class="feature-list"><li>6 páginas únicas</li><li>Backlinks: —</li><li>SEO básico</li><li>Suporte básico</li></ul><a href="https://wa.me/5545988195137?text=Olá!%20Vim%20pelo%20site%20InovaSEO%20e%20cliquei%20no%20botão%20do%20PLANO%20INICIAL.%20Quero%20saber%20mais%20detalhes." target="_blank" rel="noopener noreferrer" class="btn-full">Começar</a></div>
+                <div class="pricing-card plano-profissional"><span class="card-badge">🔹 PROFISSIONAL</span><div class="preco-unico">R$ 1.449 <small>único</small></div><div class="investimento-unico">+ R$ 349/mês</div><ul class="feature-list"><li>90 páginas únicas</li><li>Backlinks: até 3</li><li>SEO de entrada</li><li>Suporte padrão</li></ul><a href="https://wa.me/5545988195137?text=Olá!%20Vim%20pelo%20site%20InovaSEO%20e%20cliquei%20no%20botão%20do%20PLANO%20PROFISSIONAL.%20Quero%20saber%20mais%20detalhes." target="_blank" rel="noopener noreferrer" class="btn-full">Quero esse</a></div>
+                <div class="pricing-card plano-avancado"><span class="card-badge">🔹 AVANÇADO</span><div class="preco-unico">R$ 4.997 <small>único</small></div><div class="investimento-unico">+ R$ 497/mês</div><ul class="feature-list"><li>450 páginas únicas</li><li>Backlinks: até 9</li><li>SEO avançado</li><li>Suporte prioritário</li></ul><a href="https://wa.me/5545988195137?text=Olá!%20Vim%20pelo%20site%20InovaSEO%20e%20cliquei%20no%20botão%20do%20PLANO%20AVANÇADO.%20Quero%20saber%20mais%20detalhes." target="_blank" rel="noopener noreferrer" class="btn-full">Acelerar</a></div>
+                <div class="pricing-card plano-autoridade"><span class="card-badge">🏆 AUTORIDADE</span><div class="preco-unico">R$ 12.000 <small>único</small></div><div class="investimento-unico">+ R$ 1.000/mês</div><ul class="feature-list"><li>1.350 páginas</li><li>Backlinks: até 18</li><li>SEO escalável</li><li>Suporte premium</li></ul><a href="https://wa.me/5545988195137?text=Olá!%20Vim%20pelo%20site%20InovaSEO%20e%20cliquei%20no%20botão%20do%20PLANO%20AUTORIDADE.%20Quero%20saber%20mais%20detalhes." target="_blank" rel="noopener noreferrer" class="btn-full">Contratar</a></div>
+                <div class="pricing-card plano-imperial"><span class="card-badge">🏆 IMPERIAL</span><div class="preco-unico">R$ 20.000 <small>único</small></div><div class="investimento-unico">+ R$ 1.000/mês</div><ul class="feature-list"><li>2.700 páginas</li><li>Backlinks: até 36</li><li>SEO escalável</li><li>Suporte premium</li></ul><small style="color: var(--muted-foreground); display: block; margin-bottom: 0.8rem;">Monopólio digital</small><a href="https://wa.me/5545988195137?text=Olá!%20Vim%20pelo%20site%20InovaSEO%20e%20cliquei%20no%20botão%20do%20PLANO%20IMPERIAL.%20Quero%20saber%20mais%20detalhes." target="_blank" rel="noopener noreferrer" class="btn-full">Falar com especialista</a></div>
+            </div>
+        </div>
+    </section>
 
-  <!-- JavaScript -->
-  <script src="js/script.js"></script>
+    <!-- RODAPÉ com links que rolam suavemente para o topo -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>InovaSEO</h4>
+                    <p>A plataforma referência em SEO programático com IA no Brasil.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Produto</h4>
+                    <ul class="footer-links">
+                        <li><a href="#top">Recursos</a></li>
+                        <li><a href="#top">Preços</a></li>
+                        <li><a href="#top">Integrações</a></li>
+                        <li><a href="#top">Atualizações</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Empresa</h4>
+                    <ul class="footer-links">
+                        <li><a href="#top">Sobre nós</a></li>
+                        <li><a href="#top">Blog</a></li>
+                        <li><a href="#top">Carreiras</a></li>
+                        <li><a href="#top">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#top">Privacidade</a></li>
+                        <li><a href="#top">Termos</a></li>
+                        <li><a href="#top">Cookies</a></li>
+                        <li><a href="#top">Política de IA</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                © InovaSEO. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script com lazy loading e carregamento otimizado -->
+    <script>
+        // Menu sanduíche
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        const body = document.body;
+
+        function toggleMenu() {
+            menuToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : 'auto';
+        }
+
+        menuToggle.addEventListener('click', toggleMenu);
+
+        // Garantir rolagem suave para todas as âncoras
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Fechar menu mobile se estiver aberto
+                    if (navLinks.classList.contains('active')) {
+                        toggleMenu();
+                    }
+                    
+                    // Rolagem suave com offset para o header fixo
+                    const headerOffset = 80;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Fechar menu ao redimensionar para desktop
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 600 && navLinks.classList.contains('active')) {
+                menuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+                body.style.overflow = 'auto';
+            }
+        });
+
+        // Lazy loading para imagens (caso sejam adicionadas no futuro)
+        if ('loading' in HTMLImageElement.prototype) {
+            const images = document.querySelectorAll('img[loading="lazy"]');
+            images.forEach(img => {
+                img.loading = 'lazy';
+            });
+        } else {
+            // Fallback para navegadores antigos (carregar script de lazy loading)
+            const script = document.createElement('script');
+            script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js';
+            document.body.appendChild(script);
+        }
+
+        // Carregar scripts de forma assíncrona
+        const scripts = document.querySelectorAll('script[data-src]');
+        scripts.forEach(script => {
+            script.src = script.dataset.src;
+        });
+    </script>
 </body>
 </html>
