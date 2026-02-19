@@ -175,9 +175,6 @@
         </div>
     </section>
 
-    <!-- O restante do HTML permanece exatamente igual ao seu arquivo original -->
-    <!-- ... (seções posteriores: paraquem, tecnologia, depoimentos, etc.) ... -->
-
     <section id="paraquem" style="background: var(--muted); padding: 4rem 0;">
         <div class="container">
             <span class="tagline">👥 público-alvo</span>
@@ -207,6 +204,63 @@
             </div>
         </div>
     </section>
+
+    <!-- ===== NOVA SEÇÃO DE CARROSSEL - FOCOS NOS PROBLEMAS ===== -->
+    <section class="carrossel-section">
+        <div class="container">
+            <span class="tagline">⚡ em 1,5 segundos</span>
+            <h2 class="section-title">O que você quer evitar?</h2>
+            <p style="color: rgba(255,255,255,0.8); margin-bottom: 1rem; font-size: 1.1rem;">Identificamos os principais desafios que seu negócio local enfrenta hoje</p>
+            
+            <div class="carrossel-container">
+                <div class="carrossel-slides" id="carrosselSlides">
+                    <!-- Slide 1 - Depender de indicação -->
+                    <div class="slide ativo">
+                        <div class="slide-icone">😠</div>
+                        <h3 class="slide-titulo">Depender só de indicação?</h3>
+                        <p class="slide-texto">Clientes vêm quando querem, não quando você precisa. Sua agenda fica refém da boa vontade alheia.</p>
+                    </div>
+                    
+                    <!-- Slide 2 - Google Ads caro -->
+                    <div class="slide">
+                        <div class="slide-icone">💸</div>
+                        <h3 class="slide-titulo">Pagar rios de dinheiro em anúncios?</h3>
+                        <p class="slide-texto">CPCs cada vez mais caros e concorridos. Você paga por cada clique, mesmo sem vender.</p>
+                    </div>
+                    
+                    <!-- Slide 3 - Sumir na concorrência -->
+                    <div class="slide">
+                        <div class="slide-icone">🤔</div>
+                        <h3 class="slide-titulo">Sumir no meio da concorrência?</h3>
+                        <p class="slide-texto">Seu cliente não passa da 2ª página do Google. Se você não está no topo, simplesmente não existe.</p>
+                    </div>
+                    
+                    <!-- Slide 4 - Esperar meses -->
+                    <div class="slide">
+                        <div class="slide-icone">😴</div>
+                        <h3 class="slide-titulo">Esperar meses por resultados?</h3>
+                        <p class="slide-texto">SEO tradicional leva 6+ meses. O SEO programático acelera esse processo para semanas.</p>
+                    </div>
+
+                    <!-- Slide 5 - Perder para concorrentes -->
+                    <div class="slide">
+                        <div class="slide-icone">🏃</div>
+                        <h3 class="slide-titulo">Ver concorrentes avançarem?</h3>
+                        <p class="slide-texto">Enquanto você espera, eles estão ocupando as primeiras posições e faturando.</p>
+                    </div>
+                </div>
+                
+                <!-- Indicadores (bolinhas) serão gerados via JavaScript -->
+                <div class="carrossel-indicadores" id="carrosselIndicadores"></div>
+            </div>
+            
+            <!-- Micro-texto de contexto -->
+            <p style="text-align: center; color: rgba(255,255,255,0.6); margin-top: 1.5rem; font-size: 0.9rem;">
+                ⏱️ Carrossel automático • 1,5 segundos por slide • Toque/passe o mouse para pausar
+            </p>
+        </div>
+    </section>
+    <!-- ===== FIM DA NOVA SEÇÃO DE CARROSSEL ===== -->
 
     <section style="background: var(--muted); padding: 4rem 0;">
         <div class="container">
