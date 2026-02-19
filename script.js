@@ -145,7 +145,7 @@ function initCarrossel() {
     // Função para iniciar o intervalo automático
     function startAutoSlide() {
         stopAutoSlide();
-        slideInterval = setInterval(nextSlide, 1500); // 1.5 segundos
+        slideInterval = setInterval(nextSlide, 1500); // 3.0 segundos
     }
 
     // Função para parar o intervalo automático
