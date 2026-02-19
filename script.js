@@ -68,3 +68,161 @@ const scripts = document.querySelectorAll('script[data-src]');
 scripts.forEach(script => {
     script.src = script.dataset.src;
 });
+
+// ===== CARROSSEL AUTOMÁTICO 1.5s =====
+document.addEventListener('DOMContentLoaded', function() {
+    initCarrossel();
+});
+
+function initCarrossel() {
+    const slidesContainer = document.getElementById('carrosselSlides');
+    const slides = document.querySelectorAll('.slide');
+    const indicadoresContainer = document.getElementById('carrosselIndicadores');
+    
+    // Se não existirem slides na página, não executa
+    if (!slides.length) return;
+    
+    let currentIndex = 0;
+    let slideInterval;
+    let isTransitioning = false;
+
+    // Função para ir para um slide específico
+    function goToSlide(index) {
+        if (isTransitioning) return;
+        isTransitioning = true;
+        
+        // Loop circular
+        if (index >= slides.length) {
+            currentIndex = 0;
+        } else if (index < 0) {
+            currentIndex = slides.length - 1;
+        } else {
+            currentIndex = index;
+        }
+
+        // Move o container de slides
+        if (slidesContainer) {
+            slidesContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+
+        // Remove classe ativo de todos os slides
+        slides.forEach(slide => {
+            slide.classList.remove('ativo');
+        });
+        
+        // Adiciona classe ativo ao slide atual
+        slides[currentIndex].classList.add('ativo');
+
+        // Atualiza indicadores
+        document.querySelectorAll('.indicador').forEach((ind, i) => {
+            if (i === currentIndex) {
+                ind.classList.add('ativo');
+            } else {
+                ind.classList.remove('ativo');
+            }
+        });
+
+        // Libera transição após o tempo da animação
+        setTimeout(() => {
+            isTransitioning = false;
+        }, 500);
+    }
+
+    // Função para avançar para o próximo slide
+    function nextSlide() {
+        if (!isTransitioning) {
+            goToSlide(currentIndex + 1);
+        }
+    }
+
+    // Função para voltar ao slide anterior
+    function prevSlide() {
+        if (!isTransitioning) {
+            goToSlide(currentIndex - 1);
+        }
+    }
+
+    // Função para iniciar o intervalo automático
+    function startAutoSlide() {
+        stopAutoSlide();
+        slideInterval = setInterval(nextSlide, 1500); // 1.5 segundos
+    }
+
+    // Função para parar o intervalo automático
+    function stopAutoSlide() {
+        if (slideInterval) {
+            clearInterval(slideInterval);
+        }
+    }
+
+    // Cria indicadores se o container existir
+    if (indicadoresContainer) {
+        indicadoresContainer.innerHTML = ''; // Limpa indicadores existentes
+        slides.forEach((_, index) => {
+            const indicador = document.createElement('span');
+            indicador.className = `indicador ${index === 0 ? 'ativo' : ''}`;
+            indicador.setAttribute('data-slide', index);
+            indicador.addEventListener('click', () => {
+                stopAutoSlide();
+                goToSlide(index);
+                startAutoSlide();
+            });
+            indicadoresContainer.appendChild(indicador);
+        });
+    }
+
+    // Adiciona setas de navegação (opcional)
+    const carrosselContainer = document.querySelector('.carrossel-container');
+    if (carrosselContainer && !document.querySelector('.carrossel-seta')) {
+        // Seta esquerda
+        const setaEsquerda = document.createElement('button');
+        setaEsquerda.className = 'carrossel-seta esquerda';
+        setaEsquerda.innerHTML = '‹';
+        setaEsquerda.setAttribute('aria-label', 'Slide anterior');
+        
+        // Seta direita
+        const setaDireita = document.createElement('button');
+        setaDireita.className = 'carrossel-seta direita';
+        setaDireita.innerHTML = '›';
+        setaDireita.setAttribute('aria-label', 'Próximo slide');
+        
+        // Eventos das setas
+        setaEsquerda.addEventListener('click', () => {
+            stopAutoSlide();
+            prevSlide();
+            startAutoSlide();
+        });
+        
+        setaDireita.addEventListener('click', () => {
+            stopAutoSlide();
+            nextSlide();
+            startAutoSlide();
+        });
+        
+        carrosselContainer.appendChild(setaEsquerda);
+        carrosselContainer.appendChild(setaDireita);
+    }
+
+    // Inicia o carrossel
+    goToSlide(0);
+    startAutoSlide();
+
+    // Pausar quando o mouse está sobre o carrossel
+    if (carrosselContainer) {
+        carrosselContainer.addEventListener('mouseenter', stopAutoSlide);
+        carrosselContainer.addEventListener('mouseleave', startAutoSlide);
+        
+        // Pausar em dispositivos touch
+        carrosselContainer.addEventListener('touchstart', stopAutoSlide);
+        carrosselContainer.addEventListener('touchend', startAutoSlide);
+    }
+
+    // Retorna funções úteis (para debug, se necessário)
+    return {
+        next: nextSlide,
+        prev: prevSlide,
+        goTo: goToSlide,
+        start: startAutoSlide,
+        stop: stopAutoSlide
+    };
+}
