@@ -1148,3 +1148,230 @@ img, iframe {
     color: rgba(255, 255, 255, 0.6);
     font-size: 0.9rem;
 }
+/* ===================================================
+   DROPDOWN MENU
+   =================================================== */
+
+a.logo {
+    text-decoration: none;
+    display: inline-block;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: var(--secondary-foreground);
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.nav-item:hover {
+    color: var(--primary);
+}
+
+.nav-dropdown {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+.nav-dropdown-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--secondary-foreground);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0;
+    transition: color 0.2s;
+}
+
+.nav-dropdown-toggle:hover,
+.nav-dropdown[data-open] .nav-dropdown-toggle {
+    color: var(--primary);
+}
+
+.nav-arrow {
+    font-size: 0.7rem;
+    transition: transform 0.2s ease;
+    display: inline-block;
+    line-height: 1;
+}
+
+.nav-dropdown[data-open] .nav-arrow {
+    transform: rotate(180deg);
+}
+
+.nav-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 0.75rem);
+    left: 0;
+    min-width: 240px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    box-shadow: var(--shadow-xl);
+    list-style: none;
+    padding: 0.5rem 0;
+    z-index: 200;
+    opacity: 0;
+    transform: translateY(-6px);
+    transition: opacity 0.18s ease, transform 0.18s ease;
+    pointer-events: none;
+}
+
+.nav-dropdown[data-open] .nav-dropdown-menu {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.nav-dropdown-menu > li > a {
+    display: block;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+    color: var(--secondary-foreground);
+    text-decoration: none;
+    transition: background 0.15s, color 0.15s;
+    border-radius: 0.5rem;
+    margin: 0 0.3rem;
+}
+
+.nav-dropdown-menu > li > a:hover {
+    background: var(--blue-50);
+    color: var(--primary);
+}
+
+.nav-dropdown-menu--cidades {
+    min-width: 560px;
+    display: none;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    padding: 1rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(-6px);
+}
+
+.nav-dropdown[data-open] .nav-dropdown-menu--cidades {
+    display: grid;
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+}
+
+.nav-city-group {
+    padding: 0.6rem 0.8rem;
+}
+
+.nav-city-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--primary);
+    margin-bottom: 0.4rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.nav-city-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-city-links li a {
+    display: block;
+    padding: 0.3rem 0.4rem;
+    font-size: 0.85rem;
+    color: var(--secondary-foreground);
+    text-decoration: none;
+    border-radius: 0.4rem;
+    transition: background 0.15s, color 0.15s;
+}
+
+.nav-city-links li a:hover {
+    background: var(--blue-50);
+    color: var(--primary);
+}
+
+.nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 150;
+}
+
+.nav-overlay.active {
+    display: block;
+}
+
+@media (max-width: 600px) {
+
+    .nav-dropdown {
+        display: block;
+        width: 100%;
+    }
+
+    .nav-dropdown-toggle {
+        width: 100%;
+        justify-content: space-between;
+        font-size: 1.1rem;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .nav-dropdown-menu,
+    .nav-dropdown-menu--cidades {
+        position: static;
+        display: none !important;
+        grid-template-columns: 1fr;
+        min-width: 0;
+        width: 100%;
+        box-shadow: none;
+        border: none;
+        border-radius: 0;
+        background: var(--secondary);
+        padding: 0.5rem 0.5rem 0.5rem 1rem;
+        opacity: 1 !important;
+        transform: none !important;
+        pointer-events: auto !important;
+        transition: none;
+    }
+
+    .nav-dropdown[data-open] .nav-dropdown-menu,
+    .nav-dropdown[data-open] .nav-dropdown-menu--cidades {
+        display: block !important;
+    }
+
+    .nav-city-group {
+        padding: 0.4rem 0;
+    }
+
+    .nav-dropdown-menu > li > a,
+    .nav-city-links li a {
+        font-size: 1rem;
+        padding: 0.4rem 0.5rem;
+        border-radius: 0.4rem;
+        margin: 0;
+    }
+
+    .nav-item {
+        font-size: 1.1rem;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid var(--border);
+        display: block;
+        width: 100%;
+    }
+
+    .nav-overlay {
+        display: none !important;
+    }
+}
