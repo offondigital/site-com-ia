@@ -1,75 +1,113 @@
-// Menu sanduíche
 const menuToggle = document.getElementById('menuToggle');
-const navLinks = document.getElementById('navLinks');
-const body = document.body;
+const navLinks   = document.getElementById('navLinks');
+const body       = document.body;
+
+const navOverlay = document.createElement('div');
+navOverlay.className = 'nav-overlay';
+document.body.appendChild(navOverlay);
+
+function openDropdown(dropdown) {
+    dropdown.setAttribute('data-open', '');
+    const btn = dropdown.querySelector('.nav-dropdown-toggle');
+    if (btn) btn.setAttribute('aria-expanded', 'true');
+    navOverlay.classList.add('active');
+}
+
+function closeDropdown(dropdown) {
+    dropdown.removeAttribute('data-open');
+    const btn = dropdown.querySelector('.nav-dropdown-toggle');
+    if (btn) btn.setAttribute('aria-expanded', 'false');
+}
+
+function closeAllDropdowns() {
+    document.querySelectorAll('.nav-dropdown[data-open]').forEach(closeDropdown);
+    navOverlay.classList.remove('active');
+}
 
 function toggleMenu() {
+    const isOpen = navLinks.classList.contains('active');
     menuToggle.classList.toggle('active');
     navLinks.classList.toggle('active');
-    body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : 'auto';
+    menuToggle.setAttribute('aria-expanded', String(!isOpen));
+    body.style.overflow = !isOpen ? 'hidden' : 'auto';
+    if (isOpen) closeAllDropdowns();
 }
 
 if (menuToggle) {
     menuToggle.addEventListener('click', toggleMenu);
 }
 
-// Garantir rolagem suave para todas as âncoras
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
+document.querySelectorAll('.nav-dropdown').forEach(function(dropdown) {
+    const toggle = dropdown.querySelector('.nav-dropdown-toggle');
+    if (!toggle) return;
 
-        const targetId = this.getAttribute('href');
-        if (targetId === '#') return;
+    toggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const isMobile = window.innerWidth <= 600;
 
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-            // Fechar menu mobile se estiver aberto
-            if (navLinks && navLinks.classList.contains('active')) {
-                toggleMenu();
-            }
-
-            // Rolagem suave com offset para o header fixo
-            const headerOffset = 80;
-            const elementPosition = targetElement.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
-            });
+        if (isMobile) {
+            const wasOpen = dropdown.hasAttribute('data-open');
+            wasOpen ? closeDropdown(dropdown) : openDropdown(dropdown);
+        } else {
+            const wasOpen = dropdown.hasAttribute('data-open');
+            closeAllDropdowns();
+            if (!wasOpen) openDropdown(dropdown);
         }
     });
 });
 
-// Fechar menu ao redimensionar para desktop
-window.addEventListener('resize', () => {
-    if (window.innerWidth > 600 && navLinks && navLinks.classList.contains('active')) {
-        menuToggle.classList.remove('active');
-        navLinks.classList.remove('active');
-        body.style.overflow = 'auto';
+navOverlay.addEventListener('click', closeAllDropdowns);
+
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeAllDropdowns();
+        if (navLinks && navLinks.classList.contains('active')) toggleMenu();
     }
 });
 
-// Lazy loading para imagens (caso sejam adicionadas no futuro)
+window.addEventListener('resize', function() {
+    if (window.innerWidth > 600 && navLinks && navLinks.classList.contains('active')) {
+        menuToggle.classList.remove('active');
+        navLinks.classList.remove('active');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        body.style.overflow = 'auto';
+    }
+    if (window.innerWidth <= 600) {
+        navOverlay.classList.remove('active');
+    }
+});
+
+document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+            if (navLinks && navLinks.classList.contains('active')) toggleMenu();
+            closeAllDropdowns();
+            const headerOffset    = 80;
+            const elementPosition = targetElement.getBoundingClientRect().top;
+            const offsetPosition  = elementPosition + window.pageYOffset - headerOffset;
+            window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+        }
+    });
+});
+
 if ('loading' in HTMLImageElement.prototype) {
-    const images = document.querySelectorAll('img[loading="lazy"]');
-    images.forEach(img => {
+    document.querySelectorAll('img[loading="lazy"]').forEach(function(img) {
         img.loading = 'lazy';
     });
 } else {
-    // Fallback para navegadores antigos (carregar script de lazy loading)
     const script = document.createElement('script');
     script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js';
     document.body.appendChild(script);
 }
 
-// Carregar scripts de forma assíncrona (se houver scripts com data-src)
-const scripts = document.querySelectorAll('script[data-src]');
-scripts.forEach(script => {
+document.querySelectorAll('script[data-src]').forEach(function(script) {
     script.src = script.dataset.src;
 });
 
-// ===== CARROSSEL AUTOMÁTICO 1.5s =====
 document.addEventListener('DOMContentLoaded', function() {
     initCarrossel();
 });
@@ -78,151 +116,69 @@ function initCarrossel() {
     const slidesContainer = document.getElementById('carrosselSlides');
     const slides = document.querySelectorAll('.slide');
     const indicadoresContainer = document.getElementById('carrosselIndicadores');
-    
-    // Se não existirem slides na página, não executa
+
     if (!slides.length) return;
-    
+
     let currentIndex = 0;
     let slideInterval;
     let isTransitioning = false;
 
-    // Função para ir para um slide específico
     function goToSlide(index) {
         if (isTransitioning) return;
         isTransitioning = true;
-        
-        // Loop circular
-        if (index >= slides.length) {
-            currentIndex = 0;
-        } else if (index < 0) {
-            currentIndex = slides.length - 1;
-        } else {
-            currentIndex = index;
-        }
-
-        // Move o container de slides
-        if (slidesContainer) {
-            slidesContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
-        }
-
-        // Remove classe ativo de todos os slides
-        slides.forEach(slide => {
-            slide.classList.remove('ativo');
-        });
-        
-        // Adiciona classe ativo ao slide atual
+        if (index >= slides.length) { currentIndex = 0; }
+        else if (index < 0) { currentIndex = slides.length - 1; }
+        else { currentIndex = index; }
+        if (slidesContainer) { slidesContainer.style.transform = `translateX(-${currentIndex * 100}%)`; }
+        slides.forEach(function(slide) { slide.classList.remove('ativo'); });
         slides[currentIndex].classList.add('ativo');
-
-        // Atualiza indicadores
-        document.querySelectorAll('.indicador').forEach((ind, i) => {
-            if (i === currentIndex) {
-                ind.classList.add('ativo');
-            } else {
-                ind.classList.remove('ativo');
-            }
+        document.querySelectorAll('.indicador').forEach(function(ind, i) {
+            ind.classList.toggle('ativo', i === currentIndex);
         });
-
-        // Libera transição após o tempo da animação
-        setTimeout(() => {
-            isTransitioning = false;
-        }, 500);
+        setTimeout(function() { isTransitioning = false; }, 500);
     }
 
-    // Função para avançar para o próximo slide
-    function nextSlide() {
-        if (!isTransitioning) {
-            goToSlide(currentIndex + 1);
-        }
-    }
+    function nextSlide() { if (!isTransitioning) goToSlide(currentIndex + 1); }
+    function prevSlide() { if (!isTransitioning) goToSlide(currentIndex - 1); }
+    function startAutoSlide() { stopAutoSlide(); slideInterval = setInterval(nextSlide, 1500); }
+    function stopAutoSlide() { if (slideInterval) clearInterval(slideInterval); }
 
-    // Função para voltar ao slide anterior
-    function prevSlide() {
-        if (!isTransitioning) {
-            goToSlide(currentIndex - 1);
-        }
-    }
-
-    // Função para iniciar o intervalo automático
-    function startAutoSlide() {
-        stopAutoSlide();
-        slideInterval = setInterval(nextSlide, 1500); // 3.0 segundos
-    }
-
-    // Função para parar o intervalo automático
-    function stopAutoSlide() {
-        if (slideInterval) {
-            clearInterval(slideInterval);
-        }
-    }
-
-    // Cria indicadores se o container existir
     if (indicadoresContainer) {
-        indicadoresContainer.innerHTML = ''; // Limpa indicadores existentes
-        slides.forEach((_, index) => {
+        indicadoresContainer.innerHTML = '';
+        slides.forEach(function(_, index) {
             const indicador = document.createElement('span');
             indicador.className = `indicador ${index === 0 ? 'ativo' : ''}`;
             indicador.setAttribute('data-slide', index);
-            indicador.addEventListener('click', () => {
-                stopAutoSlide();
-                goToSlide(index);
-                startAutoSlide();
-            });
+            indicador.addEventListener('click', function() { stopAutoSlide(); goToSlide(index); startAutoSlide(); });
             indicadoresContainer.appendChild(indicador);
         });
     }
 
-    // Adiciona setas de navegação (opcional)
     const carrosselContainer = document.querySelector('.carrossel-container');
     if (carrosselContainer && !document.querySelector('.carrossel-seta')) {
-        // Seta esquerda
         const setaEsquerda = document.createElement('button');
         setaEsquerda.className = 'carrossel-seta esquerda';
         setaEsquerda.innerHTML = '‹';
         setaEsquerda.setAttribute('aria-label', 'Slide anterior');
-        
-        // Seta direita
         const setaDireita = document.createElement('button');
         setaDireita.className = 'carrossel-seta direita';
         setaDireita.innerHTML = '›';
         setaDireita.setAttribute('aria-label', 'Próximo slide');
-        
-        // Eventos das setas
-        setaEsquerda.addEventListener('click', () => {
-            stopAutoSlide();
-            prevSlide();
-            startAutoSlide();
-        });
-        
-        setaDireita.addEventListener('click', () => {
-            stopAutoSlide();
-            nextSlide();
-            startAutoSlide();
-        });
-        
+        setaEsquerda.addEventListener('click', function() { stopAutoSlide(); prevSlide(); startAutoSlide(); });
+        setaDireita.addEventListener('click',  function() { stopAutoSlide(); nextSlide(); startAutoSlide(); });
         carrosselContainer.appendChild(setaEsquerda);
         carrosselContainer.appendChild(setaDireita);
     }
 
-    // Inicia o carrossel
     goToSlide(0);
     startAutoSlide();
 
-    // Pausar quando o mouse está sobre o carrossel
     if (carrosselContainer) {
         carrosselContainer.addEventListener('mouseenter', stopAutoSlide);
         carrosselContainer.addEventListener('mouseleave', startAutoSlide);
-        
-        // Pausar em dispositivos touch
         carrosselContainer.addEventListener('touchstart', stopAutoSlide);
-        carrosselContainer.addEventListener('touchend', startAutoSlide);
+        carrosselContainer.addEventListener('touchend',   startAutoSlide);
     }
 
-    // Retorna funções úteis (para debug, se necessário)
-    return {
-        next: nextSlide,
-        prev: prevSlide,
-        goTo: goToSlide,
-        start: startAutoSlide,
-        stop: stopAutoSlide
-    };
+    return { next: nextSlide, prev: prevSlide, goTo: goToSlide, start: startAutoSlide, stop: stopAutoSlide };
 }
