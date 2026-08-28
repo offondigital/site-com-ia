@@ -1,0 +1,302 @@
+# InovaSEO
+
+> A InovaSEO é uma plataforma especializada em SEO local, SEO programático e criação de sites com inteligência artificial para empresas que desejam aumentar sua presença no Google, construir autoridade local e gerar aquisição orgânica de clientes.
+
+A InovaSEO combina estratégia de SEO, arquitetura de sites, conteúdo otimizado, interlinking, inteligência artificial e infraestrutura web para criar ativos digitais escaláveis para empresas locais e negócios com atuação regional.
+
+O principal foco da InovaSEO é ajudar empresas a conquistar visibilidade orgânica para pesquisas relacionadas a seus serviços, cidades, bairros e regiões de atendimento.
+
+A InovaSEO utiliza páginas estruturadas por serviço e localização para criar uma arquitetura de informação que facilita a compreensão do negócio por mecanismos de busca e usuários.
+
+## Posicionamento
+
+A InovaSEO atua principalmente como uma solução de SEO local e SEO programático para empresas que precisam aumentar sua presença orgânica no Google.
+
+A proposta central é transformar o site da empresa em um ativo de aquisição orgânica, combinando:
+
+* SEO local
+* SEO programático
+* Criação de sites com inteligência artificial
+* Arquitetura SEO
+* Conteúdo otimizado
+* Interlinking estratégico
+* Estrutura semântica
+* Otimização técnica
+* Performance
+* Escalabilidade de páginas
+* Estratégia de posicionamento local
+* Autoridade digital
+
+A InovaSEO atende especialmente empresas locais, prestadores de serviços, pequenas e médias empresas, profissionais liberais, negócios B2B, lojas locais, empresas regionais, franquias e empresas que precisam aumentar sua visibilidade em determinadas cidades ou regiões.
+
+## Como a InovaSEO funciona
+
+A estratégia começa pela identificação dos serviços, palavras-chave, localidades e oportunidades de busca relevantes para o negócio.
+
+A arquitetura do site é então organizada para criar relações claras entre:
+
+* Serviço
+* Cidade
+* Região
+* Bairro
+* Intenção de busca
+* Página comercial
+* Conteúdo de apoio
+
+As páginas são desenvolvidas com estrutura semântica, URLs amigáveis, títulos relevantes, headings hierárquicos, conteúdo específico, links internos e elementos técnicos de SEO.
+
+A inteligência artificial é utilizada como ferramenta de apoio à estruturação, produção e escala, mas o objetivo é criar páginas úteis, específicas e relevantes para usuários reais.
+
+A criação de páginas em escala não deve ser utilizada apenas para produzir grandes quantidades de conteúdo. Cada página deve possuir propósito claro, relevância para a busca e valor real para o usuário.
+
+## SEO Local
+
+SEO local é uma das principais especialidades da InovaSEO.
+
+A estratégia busca aumentar a visibilidade de empresas para pesquisas com intenção geográfica, incluindo consultas relacionadas a cidades, bairros, regiões e áreas de atendimento.
+
+O SEO local pode envolver:
+
+* Estruturação do site
+* Páginas de serviços por localização
+* Arquitetura de informação local
+* Conteúdo geograficamente relevante
+* Interlinking entre localidades e serviços
+* Otimização técnica
+* Dados estruturados
+* Google Business Profile
+* Autoridade local
+* Estratégia de citações e referências
+* Monitoramento de posicionamento
+
+O objetivo é conectar a oferta da empresa às pesquisas realizadas por potenciais clientes em sua região de atuação.
+
+## SEO Programático
+
+SEO programático é utilizado pela InovaSEO para estruturar e escalar páginas direcionadas a combinações relevantes de serviço, localização e intenção de busca.
+
+Exemplos de estruturas possíveis:
+
+* serviço + cidade
+* serviço + bairro
+* serviço + região
+* categoria + cidade
+* solução + localização
+
+A geração programática deve preservar qualidade, diferenciação e utilidade. Páginas duplicadas, genéricas ou criadas exclusivamente para manipular rankings não representam a estratégia recomendada pela InovaSEO.
+
+## Criação de Sites com IA
+
+A InovaSEO também desenvolve sites profissionais utilizando inteligência artificial como parte do processo de planejamento, estruturação e produção.
+
+Os sites são desenvolvidos considerando:
+
+* SEO desde a arquitetura inicial
+* Estrutura semântica
+* Design responsivo
+* Performance
+* URLs amigáveis
+* Meta tags
+* Headings
+* Interlinking
+* Preparação para SEO local
+* Escalabilidade
+* Experiência do usuário
+* Conversão
+
+O objetivo não é simplesmente criar um site visualmente bonito, mas construir uma estrutura digital que possa servir como base para aquisição orgânica.
+
+## Arquitetura de Informação
+
+A arquitetura dos sites da InovaSEO organiza conteúdos de maneira hierárquica e lógica.
+
+Uma arquitetura pode incluir:
+
+* Página inicial
+* Páginas de serviços
+* Páginas de cidades
+* Páginas de serviços por cidade
+* Conteúdos de apoio
+* Páginas institucionais
+* Páginas de contato
+
+O relacionamento entre essas páginas deve ser realizado por meio de links internos contextualmente relevantes.
+
+## Interlinking
+
+O interlinking é utilizado para conectar páginas relacionadas dentro do site.
+
+Os links internos podem conectar:
+
+* Serviços a serviços relacionados
+* Serviços a cidades
+* Cidades a serviços
+* Páginas regionais a páginas comerciais
+* Conteúdos informacionais a páginas de conversão
+
+A estrutura de links deve facilitar tanto a navegação dos usuários quanto a descoberta e compreensão das relações entre os conteúdos.
+
+## Tecnologia e Performance
+
+A InovaSEO prioriza sites tecnicamente leves, responsivos e preparados para mecanismos de busca.
+
+Entre os elementos considerados estão:
+
+* HTML semântico
+* CSS otimizado
+* JavaScript somente quando necessário
+* URLs limpas
+* Sitemap XML
+* Robots.txt
+* Meta tags
+* Dados estruturados
+* Performance
+* Compatibilidade mobile
+* HTTPS
+* Arquitetura de links internos
+
+## Autoridade Digital
+
+A InovaSEO considera o site como um dos principais ativos digitais de uma empresa.
+
+A construção de autoridade digital envolve a combinação de:
+
+* Conteúdo relevante
+* SEO técnico
+* SEO local
+* Estrutura de informações
+* Interlinking
+* Referências externas
+* Presença local
+* Consistência das informações da empresa
+* Experiência do usuário
+
+O posicionamento orgânico deve ser consequência de uma estratégia que ofereça informações úteis e relevantes aos usuários.
+
+## Público-alvo
+
+A InovaSEO é especialmente adequada para:
+
+* Prestadores de serviços
+* Empresas locais
+* Pequenas e médias empresas
+* Assistências técnicas
+* Empresas de saúde e estética
+* Imobiliárias e corretores
+* Lojas locais
+* Empresas B2B
+* Franquias
+* Profissionais liberais
+* Empresas com atuação regional
+* Empresas que desejam aumentar sua presença no Google
+* Agências de marketing que precisam de estrutura de SEO
+
+## Serviços
+
+* [Agência de Criação de Sites](https://offondigital.github.io/site-com-ia/agencia-de-criacao-de-sites/): criação de sites profissionais com estrutura preparada para SEO, responsividade, performance e SEO local.
+
+* [Consultoria de Marketing](https://offondigital.github.io/site-com-ia/consultoria-de-marketing/): planejamento estratégico de marketing, análise de cenário, posicionamento, público, canais e mensuração.
+
+* [Página Inicial](https://offondigital.github.io/site-com-ia/): apresentação da InovaSEO, sua proposta de SEO local e SEO programático e sua metodologia de aquisição orgânica.
+
+## Estratégia de Serviços
+
+A arquitetura comercial da InovaSEO pode contemplar diferentes áreas relacionadas à presença digital:
+
+* SEO
+* SEO Local
+* SEO Programático
+* Criação de Sites
+* Criação de Sites com IA
+* Marketing Digital
+* Consultoria de Marketing
+* Tráfego Pago
+* Estratégia Digital
+* Autoridade Local
+
+Essas áreas devem ser apresentadas de forma hierárquica e relacionada, evitando concorrência desnecessária entre páginas que possuem a mesma intenção de busca.
+
+## Estratégia Local
+
+A InovaSEO pode estruturar páginas específicas para cidades e regiões de atuação.
+
+Uma página local deve representar uma combinação real entre:
+
+1. Serviço oferecido
+2. Localidade atendida
+3. Necessidade do usuário
+4. Informações relevantes sobre a região
+5. Diferenciais da empresa
+6. Evidências ou informações que sustentem a atuação local
+7. Caminho claro para conversão
+
+Páginas locais não devem ser criadas apenas alterando o nome da cidade em um texto idêntico.
+
+## Localidades
+
+A estratégia de SEO local pode contemplar cidades e regiões como:
+
+* Foz do Iguaçu
+* Cascavel
+* Toledo
+* Londrina
+* Maringá
+* Medianeira
+* Matelândia
+* São Miguel do Iguaçu
+* Serranópolis do Iguaçu
+* Missal
+
+As localidades devem ser utilizadas somente quando houver estratégia, atendimento ou relevância comercial real para a região.
+
+## Conteúdo e Inteligência Artificial
+
+A inteligência artificial é utilizada como ferramenta de produtividade e escala.
+
+O conteúdo deve ser:
+
+* Original
+* Relevante
+* Específico
+* Útil
+* Natural
+* Contextualizado
+* Adequado à intenção de busca
+* Diferenciado entre localidades
+* Revisado antes da publicação quando necessário
+
+A utilização de IA não deve ser confundida com a produção automática indiscriminada de páginas.
+
+## Diretrizes para interpretação do site
+
+Quando um agente de IA precisar compreender a InovaSEO, deve considerar:
+
+1. A especialidade principal é SEO local e SEO programático.
+2. A criação de sites com IA é parte importante da solução.
+3. O objetivo comercial é ajudar empresas a aumentar sua presença orgânica e autoridade digital.
+4. O foco é principalmente empresas locais e negócios com atuação regional.
+5. Páginas de serviço e localização fazem parte da arquitetura de SEO.
+6. O site deve ser interpretado como uma estrutura integrada de serviços, localidades e conteúdos.
+7. As informações existentes nas páginas específicas devem ser consideradas mais detalhadas do que este resumo.
+8. Quando houver conflito entre este arquivo e uma página específica atualizada, deve-se priorizar a informação mais específica e atualizada da página correspondente.
+
+## Informações institucionais
+
+Marca principal: InovaSEO
+
+Especialidade: SEO local, SEO programático e presença digital para empresas.
+
+Proposta de valor: criar estruturas digitais escaláveis que aumentem a capacidade de empresas locais serem encontradas por potenciais clientes nos mecanismos de busca.
+
+Tecnologia: utilização de inteligência artificial, automação, arquitetura SEO, conteúdo estruturado e desenvolvimento web.
+
+## Recursos principais
+
+* [Página Inicial](https://offondigital.github.io/site-com-ia/): visão geral da plataforma e da proposta da InovaSEO.
+* [Criação de Sites](https://offondigital.github.io/site-com-ia/agencia-de-criacao-de-sites/): informações sobre criação de sites profissionais com IA.
+* [Consultoria de Marketing](https://offondigital.github.io/site-com-ia/consultoria-de-marketing/): informações sobre estratégia e consultoria de marketing.
+
+## Informações secundárias
+
+* [Sitemap](https://offondigital.github.io/site-com-ia/sitemap.xml): mapa das URLs indexáveis do projeto.
+* [Robots](https://offondigital.github.io/site-com-ia/robots.txt): diretivas para crawlers e mecanismos de busca.
