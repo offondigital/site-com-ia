@@ -30,16 +30,21 @@
     <link rel="icon" href="/site-com-ia/assets/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/site-com-ia/assets/apple-touch-icon.png">
     
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-TVDF63GF');</script>
-    <!-- End Google Tag Manager -->
+    <!-- Rastreadores (Tag Manager, Analytics, Clarity): carregam na primeira interação do visitante ou 8 s após o carregamento -->
+    <script>
+    (function(w,d){var ok=false,ev=['scroll','mousemove','touchstart','keydown','click'];
+    function add(src){var j=d.createElement('script');j.async=true;j.src=src;d.head.appendChild(j);}
+    function go(){if(ok)return;ok=true;
+      w.dataLayer=w.dataLayer||[];w.dataLayer.push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+      add('https://www.googletagmanager.com/gtm.js?id=GTM-TVDF63GF');
+      add('https://www.googletagmanager.com/gtag/js?id=G-CDGVGTPP75');
+      w.clarity=w.clarity||function(){(w.clarity.q=w.clarity.q||[]).push(arguments)};add('https://www.clarity.ms/tag/vive8opj1h');}
+    ev.forEach(function(e){w.addEventListener(e,go,{once:true,passive:true});});
+    w.addEventListener('load',function(){setTimeout(go,8000);});
+    })(window,document);
+    </script>
     
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CDGVGTPP75"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -47,14 +52,6 @@
       gtag('config', 'G-CDGVGTPP75');
     </script>
     
-    <!-- Microsoft Clarity -->
-    <script type="text/javascript">
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-        })(window, document, "clarity", "script", "vive8opj1h");
-    </script>
     
     <!-- Google Fonts Inter -->
     <link rel="preload" href="/site-com-ia/assets/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
