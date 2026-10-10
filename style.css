@@ -256,6 +256,40 @@ img, iframe {
     z-index: 2;
 }
 
+/* Hero com vídeo de fundo: a película azul-escura garante o contraste do texto branco */
+.hero--video {
+    overflow: hidden;
+    background: hsl(226, 71%, 18%);
+}
+
+.hero-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.hero--video::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(100deg, hsla(226, 71%, 14%, 0.9) 0%, hsla(224, 76%, 22%, 0.8) 55%, hsla(217, 91%, 30%, 0.65) 100%);
+    pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-video {
+        display: none;
+    }
+    .hero--video {
+        background: linear-gradient(100deg, hsla(226, 71%, 14%, 0.9), hsla(217, 91%, 30%, 0.7)), url("/site-com-ia/assets/hero-agencia.jpg") center / cover no-repeat;
+    }
+}
+
 .hero h1 {
     font-size: clamp(2rem, 6vw, 3.5rem);
     line-height: 1.2;
