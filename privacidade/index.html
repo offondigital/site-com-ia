@@ -195,6 +195,8 @@
         .site-header { padding: 1rem 0; background-color: rgba(255,255,255,0.85); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 50; width: 100%; }
         .header-flex { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
         .logo { font-size: clamp(1.6rem, 5vw, 2rem); font-weight: 800; background: var(--gradient-hero); -webkit-background-clip: text; -webkit-text-fill-color: transparent; z-index: 60; text-decoration: none; }
+        @media (max-width: 600px) { .site-header { overflow-x: clip; } }
+        @media (min-width: 601px) { .nav-links .nav-item-dropdown:last-of-type > .dropdown-menu { left: auto; right: 0; } .dropdown-menu .submenu-dropdown { left: auto; right: 100%; } }
         .nav-links { display: flex; gap: clamp(1rem, 3vw, 2rem); color: var(--secondary-foreground); font-weight: 500; flex-wrap: wrap; align-items: center; }
         .nav-links a { text-decoration: none; color: inherit; font-size: 0.95rem; transition: color 0.2s; }
         .nav-links a:hover { color: var(--primary); }
@@ -219,7 +221,9 @@
         
         @media (max-width: 600px) {
             .menu-toggle { display: block; }
-            .nav-links { position: fixed; top: 0; right: -100%; width: 70%; max-width: 300px; height: 100vh; background-color: var(--card); flex-direction: column; padding: 5rem 2rem 2rem; gap: 1.5rem; box-shadow: var(--shadow-xl); transition: right 0.3s ease; z-index: 55; border-left: 1px solid var(--border); overflow-y: auto; }
+            .nav-links { position: fixed; top: 0; right: -100%; width: 70%; max-width: 300px; height: 100vh; background-color: var(--card); flex-direction: column; padding: 5rem 2rem 2rem; gap: 1.5rem; box-shadow: var(--shadow-xl); transition: right 0.3s ease; z-index: 55; border-left: 1px solid var(--border); overflow-y: auto; flex-wrap: nowrap; }
+            .nav-links > * { flex-shrink: 0; }
+            .dropdown-menu, .submenu-dropdown { min-width: 0; }
             .nav-links.active { right: 0; }
             .nav-links a { font-size: 1.1rem; padding: 0.5rem 0; border-bottom: 1px solid var(--border); width: 100%; }
             .menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }

@@ -149,6 +149,12 @@ img, iframe {
     z-index: 60;
 }
 
+@media (max-width: 600px) {
+    .site-header {
+        overflow-x: clip;
+    }
+}
+
 /* Menu desktop */
 .nav-links {
     display: flex;
@@ -209,6 +215,12 @@ img, iframe {
         transition: right 0.3s ease;
         z-index: 55;
         border-left: 1px solid var(--border);
+        flex-wrap: nowrap;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    .nav-links > * {
+        flex-shrink: 0;
     }
     .nav-links.active {
         right: 0;
@@ -1306,7 +1318,7 @@ a.logo {
     display: none;
     position: fixed;
     inset: 0;
-    z-index: 150;
+    z-index: 40;
 }
 
 .nav-overlay.active {

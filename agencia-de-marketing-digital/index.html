@@ -246,6 +246,24 @@
 
     .nav-links a:hover { color: var(--primary); }
 
+    @media (max-width: 600px) { .site-header { overflow-x: clip; } }
+        @media (min-width: 601px) { .nav-links .nav-item-dropdown:last-of-type > .dropdown-menu { left: auto; right: 0; } .dropdown-menu .submenu-dropdown { left: auto; right: 100%; } }
+        .nav-item-dropdown { position: relative; cursor: pointer; }
+        .nav-item-dropdown > a { display: flex; align-items: center; gap: 0.3rem; }
+        .nav-item-dropdown > a::after { content: "▼"; font-size: 0.6rem; transition: transform 0.2s; }
+        .nav-item-dropdown:hover > a::after { transform: rotate(180deg); }
+        .dropdown-menu { display: none; position: absolute; top: 100%; left: 0; background: var(--card); border-radius: 1.2rem; padding: 0.8rem 0; min-width: 240px; box-shadow: var(--shadow-xl); border: 1px solid var(--border); z-index: 100; }
+        .nav-item-dropdown:hover .dropdown-menu { display: block; }
+        .dropdown-menu li { list-style: none; }
+        .dropdown-menu a { display: block; padding: 0.6rem 1.5rem; color: var(--foreground); text-decoration: none; font-size: 0.9rem; transition: all 0.15s; }
+        .dropdown-menu a:hover { background: var(--blue-50); color: var(--primary); }
+        .dropdown-menu .submenu-item { position: relative; }
+        .dropdown-menu .submenu-item > a::after { content: "▶"; font-size: 0.5rem; float: right; margin-left: 1rem; }
+        .submenu-dropdown { display: none; position: absolute; left: 100%; top: 0; background: var(--card); border-radius: 1.2rem; padding: 0.8rem 0; min-width: 200px; box-shadow: var(--shadow-xl); border: 1px solid var(--border); }
+        .submenu-item:hover .submenu-dropdown { display: block; }
+        .submenu-dropdown a { padding: 0.5rem 1.2rem; }
+
+
     .menu-toggle {
       display: none;
       background: none;
@@ -290,6 +308,15 @@
       .menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
       .menu-toggle.active span:nth-child(2) { opacity: 0; }
       .menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
+      .nav-links { flex-wrap: nowrap; overflow-y: auto; align-items: stretch; }
+      .nav-links > * { flex-shrink: 0; }
+      .dropdown-menu, .submenu-dropdown { min-width: 0; }
+            .nav-item-dropdown { width: 100%; }
+            .nav-item-dropdown > a { justify-content: space-between; }
+            .dropdown-menu { position: static; display: none; box-shadow: none; border: none; padding-left: 1rem; background: var(--muted); border-radius: 0.8rem; margin-top: 0.5rem; }
+            .nav-item-dropdown.active .dropdown-menu { display: block; }
+            .submenu-dropdown { position: static; box-shadow: none; border: none; padding-left: 1rem; background: var(--secondary); border-radius: 0.8rem; margin-top: 0.5rem; display: none; }
+            .submenu-item.active .submenu-dropdown { display: block; }
     }
 
     /* BREADCRUMB */
@@ -960,11 +987,32 @@
           <span></span><span></span><span></span>
         </button>
         <nav class="nav-links" id="navLinks">
-          <a href="/site-com-ia/#tecnologia">Tecnologia</a>
-          <a href="/site-com-ia/#casos">Cases</a>
-          <a href="/site-com-ia/#paraquem">Para quem</a>
-          <a href="https://wa.me/5545988195137?text=Olá!%20Vim%20pelo%20site%20Inova%20SEO%20e%20quero%20saber%20mais.">Contato</a>
-        </nav>
+                <a href="/site-com-ia/">Início</a>
+                <div class="nav-item-dropdown">
+                    <a href="#" onclick="return false;">Serviços</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/site-com-ia/agencia-de-marketing-digital/">Agência de Marketing Digital</a></li>
+                        <li><a href="/site-com-ia/agencia-de-criacao-de-sites/">Criação de Sites</a></li>
+                        <li><a href="/site-com-ia/agencia-de-seo/">Agência de SEO</a></li>
+                        <li><a href="/site-com-ia/agencia-de-trafego-pago/">Tráfego Pago</a></li>
+                        <li><a href="/site-com-ia/consultoria-de-marketing/">Consultoria de Marketing</a></li>
+                        <li><a href="/site-com-ia/marketing-digital-para-pequenas-empresas/">Marketing Digital para Pequenas Empresas</a></li>
+                    </ul>
+                </div>
+                <div class="nav-item-dropdown">
+                    <a href="#" onclick="return false;">Cidades</a>
+                    <ul class="dropdown-menu">
+                        <li class="submenu-item"><a href="#">Foz do Iguaçu</a><ul class="submenu-dropdown"><li><a href="/site-com-ia/agencia-de-marketing-digital-em-foz-do-iguacu/">Marketing Digital</a></li><li><a href="/site-com-ia/agencia-de-criacao-de-sites-em-foz-do-iguacu/">Criação de Sites</a></li><li><a href="/site-com-ia/agencia-de-seo-em-foz-do-iguacu/">SEO</a></li><li><a href="/site-com-ia/agencia-de-trafego-pago-em-foz-do-iguacu/">Tráfego Pago</a></li></ul></li>
+                        <li class="submenu-item"><a href="#">Medianeira</a><ul class="submenu-dropdown"><li><a href="/site-com-ia/agencia-de-marketing-digital-em-medianeira/">Marketing Digital</a></li><li><a href="/site-com-ia/agencia-de-criacao-de-sites-em-medianeira/">Criação de Sites</a></li><li><a href="/site-com-ia/agencia-de-seo-em-medianeira/">SEO</a></li><li><a href="/site-com-ia/agencia-de-trafego-pago-em-medianeira/">Tráfego Pago</a></li></ul></li>
+                        <li class="submenu-item"><a href="#">Cascavel</a><ul class="submenu-dropdown"><li><a href="/site-com-ia/agencia-de-marketing-digital-em-cascavel/">Marketing Digital</a></li><li><a href="/site-com-ia/agencia-de-criacao-de-sites-em-cascavel/">Criação de Sites</a></li><li><a href="/site-com-ia/agencia-de-seo-em-cascavel/">SEO</a></li><li><a href="/site-com-ia/agencia-de-trafego-pago-em-cascavel/">Tráfego Pago</a></li></ul></li>
+                        <li class="submenu-item"><a href="#">Toledo</a><ul class="submenu-dropdown"><li><a href="/site-com-ia/agencia-de-marketing-digital-em-toledo/">Marketing Digital</a></li><li><a href="/site-com-ia/agencia-de-criacao-de-sites-em-toledo/">Criação de Sites</a></li><li><a href="/site-com-ia/agencia-de-seo-em-toledo/">SEO</a></li><li><a href="/site-com-ia/agencia-de-trafego-pago-em-toledo/">Tráfego Pago</a></li></ul></li>
+                        <li class="submenu-item"><a href="#">São Miguel do Iguaçu</a><ul class="submenu-dropdown"><li><a href="/site-com-ia/agencia-de-marketing-digital-em-sao-miguel-do-iguacu/">Marketing Digital</a></li><li><a href="/site-com-ia/agencia-de-criacao-de-sites-em-sao-miguel-do-iguacu/">Criação de Sites</a></li><li><a href="/site-com-ia/agencia-de-seo-em-sao-miguel-do-iguacu/">SEO</a></li><li><a href="/site-com-ia/agencia-de-trafego-pago-em-sao-miguel-do-iguacu/">Tráfego Pago</a></li></ul></li>
+                        <li class="submenu-item"><a href="#">Matelândia</a><ul class="submenu-dropdown"><li><a href="/site-com-ia/agencia-de-marketing-digital-em-matelandia/">Marketing Digital</a></li><li><a href="/site-com-ia/agencia-de-criacao-de-sites-em-matelandia/">Criação de Sites</a></li><li><a href="/site-com-ia/agencia-de-seo-em-matelandia/">SEO</a></li><li><a href="/site-com-ia/agencia-de-trafego-pago-em-matelandia/">Tráfego Pago</a></li></ul></li>
+                        <li class="submenu-item"><a href="#">Marechal Cândido Rondon</a><ul class="submenu-dropdown"><li><a href="/site-com-ia/agencia-de-marketing-digital-em-marechal-candido-rondon/">Marketing Digital</a></li><li><a href="/site-com-ia/agencia-de-criacao-de-sites-em-marechal-candido-rondon/">Criação de Sites</a></li><li><a href="/site-com-ia/agencia-de-seo-em-marechal-candido-rondon/">SEO</a></li><li><a href="/site-com-ia/agencia-de-trafego-pago-em-marechal-candido-rondon/">Tráfego Pago</a></li></ul></li>
+                    </ul>
+                </div>
+                <a href="https://wa.me/5545988195137?text=Olá!%20Vim%20pelo%20site%20Inova%20SEO%20e%20quero%20saber%20mais.">Contato</a>
+            </nav>
       </div>
     </div>
   </header>
@@ -1362,10 +1410,18 @@
     });
 
     // Fecha menu ao clicar em link
-    nav.querySelectorAll('a').forEach(link => {
+    nav.querySelectorAll('a:not([href="#"])').forEach(link => {
       link.addEventListener('click', () => {
         toggle.classList.remove('active');
         nav.classList.remove('active');
+      });
+    });
+
+    // Submenus (Serviços e Cidades) no celular
+    nav.querySelectorAll('.nav-item-dropdown > a, .submenu-item > a').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        if (window.innerWidth <= 600) link.parentElement.classList.toggle('active');
       });
     });
 

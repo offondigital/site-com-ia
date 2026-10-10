@@ -58,6 +58,10 @@ document.querySelectorAll('.nav-dropdown').forEach(function(dropdown) {
 
 navOverlay.addEventListener('click', closeAllDropdowns);
 
+document.addEventListener('click', function(e) {
+    if (!e.target.closest('.nav-dropdown')) closeAllDropdowns();
+});
+
 document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
         closeAllDropdowns();
