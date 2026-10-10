@@ -27,6 +27,7 @@
 
     <!-- Google Fonts Inter -->
     <link rel="preload" href="/site-com-ia/assets/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/site-com-ia/assets/hero-agencia.jpg" as="image" fetchpriority="high">
     <style>@font-face{font-family:"Inter";font-style:normal;font-weight:100 900;font-display:swap;src:url(/site-com-ia/assets/inter-latin.woff2) format("woff2")}</style>
 
     <!-- CSS externo -->
@@ -256,9 +257,18 @@
 <main>
 
     <section class="hero hero--video">
-        <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="/site-com-ia/assets/hero-agencia.jpg" aria-hidden="true" tabindex="-1">
-            <source src="/site-com-ia/assets/hero-agencia.mp4" type="video/mp4">
-        </video>
+        <video class="hero-video" muted loop playsinline preload="none" poster="/site-com-ia/assets/hero-agencia.jpg" data-src="/site-com-ia/assets/hero-agencia.mp4" aria-hidden="true" tabindex="-1"></video>
+        <script>
+        // O vídeo só é baixado depois que a página termina de carregar, para não disputar banda com o conteúdo principal
+        window.addEventListener('load', function () {
+            var v = document.querySelector('.hero-video');
+            var c = navigator.connection;
+            if (!v || (c && c.saveData) || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+            v.src = v.dataset.src;
+            var p = v.play();
+            if (p && p.catch) p.catch(function () {});
+        });
+        </script>
         <div class="container">
             <h1>Domine as primeiras posições do Google da sua região, clientes todos os dias</h1>
             <p>Criamos uma máquina de aquisição orgânica para seu negócio local — com páginas otimizadas, backlinks estratégicos e autoridade.</p>
