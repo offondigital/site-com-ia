@@ -304,6 +304,13 @@ img, iframe {
     margin-bottom: 2.5rem;
 }
 
+.hero p.hero-sede {
+    font-size: 1rem;
+    opacity: 0.9;
+    max-width: none;
+    margin: 1.5rem 0 0;
+}
+
 .hero-stats {
     display: flex;
     gap: clamp(1.5rem, 4vw, 3rem);
