@@ -1,0 +1,143 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Mini Auditoria Tortajada</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=JetBrains+Mono:wght@400;500&family=Public+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: relatório curto de leitura única, uma coluna estreita, diagnóstico visível e receita trancada. Versão para enviar ao cliente. */
+:root{
+  --bg:#f6f8f7; --surface:#ffffff; --ink:#15211f; --muted:#5a6b68; --line:#dbe3e0;
+  --accent:#0d6b63; --accent-ink:#ffffff; --accent-soft:#e0f1ee;
+  --ok:#1b6e45; --ok-soft:#dcf1e5; --warn:#8f5206; --warn-soft:#fbebd0; --lock:#eef2f1;
+  --f-display:'Bricolage Grotesque','Segoe UI',system-ui,sans-serif;
+  --f-body:'Public Sans','Segoe UI',system-ui,sans-serif;
+  --f-mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0e1615; --surface:#162221; --ink:#e6efec; --muted:#9db1ac; --line:#27383a;
+  --accent:#43c9b9; --accent-ink:#06201d; --accent-soft:#12312e;
+  --ok:#5fcf93; --ok-soft:#10301f; --warn:#f0b35c; --warn-soft:#352709; --lock:#1b2a29; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0e1615; --surface:#162221; --ink:#e6efec; --muted:#9db1ac; --line:#27383a;
+  --accent:#43c9b9; --accent-ink:#06201d; --accent-soft:#12312e;
+  --ok:#5fcf93; --ok-soft:#10301f; --warn:#f0b35c; --warn-soft:#352709; --lock:#1b2a29; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.6;padding-block:32px 72px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:36px}
+h1,h2,h3{font-family:var(--f-display);line-height:1.15;margin:0;text-wrap:balance}
+h1{font-size:clamp(28px,6vw,42px);font-weight:700}
+h2{font-size:23px;font-weight:700}
+h3{font-size:18px;font-weight:600}
+p{margin:0}
+.eyebrow{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.muted{color:var(--muted)}
+header{display:grid;gap:12px;padding-bottom:24px;border-bottom:1px solid var(--line)}
+.sub{color:var(--muted);font-size:15px}
+.lead{font-size:18px;line-height:1.55}
+section{display:grid;gap:14px}
+.list{display:grid;gap:10px;margin:0;padding:0;list-style:none}
+.list li{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 16px}
+.areas{display:grid;gap:8px}
+.area{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 14px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 16px}
+.area .d{grid-column:1/-1;color:var(--muted);font-size:14px}
+.pill{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.04em;text-transform:uppercase;padding:3px 10px;border-radius:99px;white-space:nowrap}
+.p-forte{background:var(--ok-soft);color:var(--ok)}
+.p-atencao{background:var(--warn-soft);color:var(--warn)}
+.p-completa{background:var(--lock);color:var(--muted)}
+.op{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;display:grid;gap:10px}
+.op .n{font-family:var(--f-mono);font-size:12px;color:var(--accent);letter-spacing:.06em;text-transform:uppercase}
+.guard{display:flex;gap:10px;align-items:flex-start;background:var(--lock);border-radius:8px;padding:10px 12px;font-size:14px;color:var(--muted)}
+.guard svg{flex:none;margin-top:3px}
+.full{background:var(--lock);border:1px dashed var(--line);border-radius:12px;padding:20px;display:grid;gap:12px}
+.full ul{margin:0;padding:0;list-style:none;display:grid;gap:8px}
+.full li{display:flex;gap:10px;align-items:flex-start}
+.full svg{flex:none;margin-top:4px;color:var(--muted)}
+.cta{background:var(--accent);color:var(--accent-ink);border-radius:12px;padding:24px;display:grid;gap:10px}
+.cta p{color:inherit}
+footer{color:var(--muted);font-size:13px;display:grid;gap:6px;border-top:1px solid var(--line);padding-top:16px}
+</style>
+
+<div class="wrap">
+  <header>
+    <span class="eyebrow">Mini auditoria de presença digital · 21 de outubro de 2026</span>
+    <h1>Dra. Juliana Tortajada</h1>
+    <p class="sub">drajulianatortajada.com.br · Preparada por Cezar Dias, Off Digital</p>
+  </header>
+
+  <section>
+    <p class="lead">Olhei o site da doutora como uma paciente em Foz do Iguaçu o veria e como o Google o lê. A base é boa. O que limita o crescimento hoje é a estrutura do site e a falta de medição, e é aí que estão as três oportunidades abaixo.</p>
+    <p class="muted">Esta é a versão resumida. Ela mostra onde estão os pontos e o efeito de cada um. O como, o quê e a ordem estão na auditoria completa, que apresento em reunião.</p>
+  </section>
+
+  <section>
+    <h2>O que já funciona</h2>
+    <ul class="list">
+      <li>O título, a descrição e a chamada principal já dizem “dermatologista em Foz do Iguaçu”.</li>
+      <li>Clínica e endereço completos, escritos em texto, e CRM e RQE visíveis em vários pontos.</li>
+      <li>Os avisos do CFM, a política de privacidade e o aviso de cookies estão presentes.</li>
+      <li>O site está aberto para os buscadores tradicionais e para os de inteligência artificial, e tem sitemap.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Panorama das sete áreas analisadas</h2>
+    <div class="areas">
+      <div class="area"><b>Posição nas buscas</b><span class="pill p-completa">Na auditoria completa</span><span class="d">Medida com buscas reais, feitas por tratamento.</span></div>
+      <div class="area"><b>Perfil no Google</b><span class="pill p-completa">Na auditoria completa</span><span class="d">Nota, avaliações, categorias e informações do perfil.</span></div>
+      <div class="area"><b>Nome, endereço e telefone</b><span class="pill p-completa">Na auditoria completa</span><span class="d">Comparados entre o site e o Google.</span></div>
+      <div class="area"><b>Estrutura do site</b><span class="pill p-atencao">Oportunidade</span><span class="d">Principal ponto de crescimento.</span></div>
+      <div class="area"><b>Base técnica</b><span class="pill p-forte">Forte</span><span class="d">Os sinais essenciais estão em ordem.</span></div>
+      <div class="area"><b>Contato e medição</b><span class="pill p-atencao">Oportunidade</span><span class="d">Há espaço para entender melhor de onde vêm as pacientes.</span></div>
+      <div class="area"><b>Comparação com a concorrência local</b><span class="pill p-completa">Na auditoria completa</span><span class="d">Feita com clínicas que aparecem nas buscas de Foz do Iguaçu.</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Três oportunidades</h2>
+
+    <article class="op">
+      <span class="n">Oportunidade 1</span>
+      <h3>Cada tratamento merece o seu próprio endereço na internet</h3>
+      <p>Hoje os tratamentos da doutora estão apresentados em uma única página. Quando uma paciente pesquisa um tratamento específico, o Google tem pouco material do site para mostrar e a paciente tem pouco para ler antes de decidir chamar.</p>
+      <div class="guard"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span>Na auditoria completa: quais páginas, em que ordem, com quais termos e como escrevê-las dentro das regras do CFM.</span></div>
+    </article>
+
+    <article class="op">
+      <span class="n">Oportunidade 2</span>
+      <h3>Saber qual tratamento e qual canal trouxe cada paciente</h3>
+      <p>Hoje não é possível dizer, com precisão, o que despertou o interesse de cada paciente que chega pelo site. Sem isso, fica difícil decidir onde investir e o que merece mais atenção na agenda.</p>
+      <div class="guard"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span>Na auditoria completa: o que medir, como configurar e como ler os números.</span></div>
+    </article>
+
+    <article class="op">
+      <span class="n">Oportunidade 3</span>
+      <h3>Mostrar o reconhecimento das pacientes onde a nova paciente decide</h3>
+      <p>As pacientes elogiam a consulta sem pressa e o atendimento da doutora. Quem pesquisa o nome dela no Google costuma procurar esse reconhecimento antes de marcar. Vale confirmar se ele está tão visível lá quanto está no consultório.</p>
+      <div class="guard"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span>Na auditoria completa: situação do perfil no Google e plano para construir avaliações de forma ética.</span></div>
+    </article>
+  </section>
+
+  <section class="full">
+    <h2>O que a auditoria completa entrega</h2>
+    <ul>
+      <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span>Medição real da posição do site nas buscas dos tratamentos da doutora, em Foz do Iguaçu.</span></li>
+      <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span>Mapa de páginas e termos prioritários, com a ordem de execução.</span></li>
+      <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span>Leitura completa do perfil no Google e da consistência dos dados da clínica.</span></li>
+      <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span>Comparação com as clínicas que aparecem à frente nas buscas locais.</span></li>
+      <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span>Plano de 90 dias com prioridades, indicadores e conformidade com a Resolução CFM 2.336/2023.</span></li>
+      <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span>Estimativa de retorno com os números da própria clínica.</span></li>
+    </ul>
+  </section>
+
+  <section class="cta">
+    <h2>Quer ver a auditoria completa?</h2>
+    <p>Apresento tudo em uma conversa de 30 minutos, no horário que for melhor para a doutora e para a equipe. Responda a mensagem em que enviei este link e combinamos o dia.</p>
+    <p>Cezar Dias · Off Digital</p>
+  </section>
+
+  <footer>
+    <span>Análise feita em 21/10/2026 com informações públicas do site. Os itens que dependem do perfil no Google e de buscas reais são medidos na auditoria completa.</span>
+    <span>Este documento não promete posição nem volume de pacientes. Qualquer ação de comunicação seguiria a Resolução CFM 2.336/2023.</span>
+  </footer>
+</div>
+
+</body></html>
