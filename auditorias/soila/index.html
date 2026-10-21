@@ -98,9 +98,10 @@ input{font:inherit;padding:10px 12px;border-radius:5px;border:1px solid var(--li
 
 <script>
 /* Senha: grave aqui o SHA-256 (hex) da senha única. Gerar no terminal: printf '%s' 'SUASENHA' | sha256sum
+   Hash pré-configurado (senha única das auditorias do Cezar).
    Atenção: esta tela é uma barreira simples no navegador; quem abrir o código-fonte vê o conteúdo.
    Para proteção de verdade, hospede atrás de um serviço com autenticação. */
-const PASSWORD_SHA256 = "";
+const PASSWORD_SHA256 = "ffe79430aa4ec5b5db0d0cea9234d30eb0370ddd4c2bcabcfbc64f6bed953c69";
 async function sha(t){const b=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(t));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,"0")).join("");}
 window.dataLayer=window.dataLayer||[];
 document.getElementById("gate").addEventListener("submit",async e=>{
