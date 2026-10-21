@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Auditoria parcial – Emagrecentro Foz</title>
+<!-- GTM do Cezar (Inova SEO / Off Digital) -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-TVDF63GF');</script>
+<!-- GA4 direto (G-CDGVGTPP75). Se o contêiner GTM-TVDF63GF já tiver uma tag de configuração do GA4 para esta propriedade, remova este bloco para não contar cada visita duas vezes. -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CDGVGTPP75"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CDGVGTPP75');</script>
+<style>
+/* Cores do site emagrecentrofoz.com.br (verificado no CSS do Elementor): amarelo #FFD30B nos botões, grafite #2B2B2B e #424242, fundo #F8F8F8. Texto escuro sobre o amarelo (contraste alto); hero em grafite com texto branco. */
+:root{--bg:#F8F8F8;--surface:#ffffff;--fg:#212121;--muted:#54595F;--line:#dedede;
+  --brand:#2B2B2B;--brand-2:#424242;--brand-fg:#ffffff;--btn:#FFD30B;--btn-fg:#212121}
+@media (prefers-color-scheme:dark){:root{--bg:#121212;--surface:#1c1c1c;--fg:#f2f2f2;--muted:#b5b5b5;--line:#333333;--brand:#2B2B2B;--brand-2:#424242;color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 system-ui,"Segoe UI",sans-serif;
+  padding-left:env(safe-area-inset-left,0px);padding-right:env(safe-area-inset-right,0px)}
+h1{font-size:clamp(1.6rem,5vw,2.2rem);line-height:1.15;margin:0}
+h2{font-size:1.1rem;margin:0}
+p{margin:0}
+.hero{position:relative;overflow:hidden;background:linear-gradient(135deg,var(--brand),var(--brand-2));color:var(--brand-fg)}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+.hero-shade{position:absolute;inset:0;background:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.6))}
+.hero.sem-img .hero-shade{display:none}
+.hero-txt{position:relative;max-width:720px;margin:0 auto;padding:56px 16px;display:flex;flex-direction:column;gap:10px}
+.data{font-size:.85rem;opacity:.85}
+main{max-width:720px;margin:0 auto;padding:24px 16px 64px;display:flex;flex-direction:column;gap:18px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:18px;display:flex;flex-direction:column;gap:8px}
+.lead{color:var(--muted);font-size:.95rem}
+.btn{background:var(--btn);color:var(--btn-fg);border:0;border-radius:5px;padding:12px 18px;font:inherit;font-weight:600;text-decoration:none;display:inline-block;width:fit-content;cursor:pointer}
+.btn:focus-visible,input:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
+.aviso{color:var(--muted);font-size:.9rem}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--brand);z-index:30}
+.prazo{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--brand);color:var(--brand-fg);padding:8px 16px;display:flex;flex-wrap:wrap;gap:2px 14px;align-items:center;justify-content:center;font-size:.85rem;text-align:center}
+.prazo strong{font-variant-numeric:tabular-nums}
+.centro{max-width:360px;margin:15vh auto 0;padding:0 16px}
+#gate .card{gap:10px}
+input{font:inherit;padding:10px 12px;border-radius:5px;border:1px solid var(--line);background:var(--bg);color:var(--fg);width:100%}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TVDF63GF" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<div id="expirada" class="centro" hidden>
+  <div class="card">
+    <h1 style="font-size:1.3rem">Esta auditoria expirou</h1>
+    <p>O prazo para ver esta análise terminou. Se ainda fizer sentido para você, peça a reativação e eu envio um novo prazo.</p>
+    <a class="btn" id="reativar" href="https://wa.me/5545988195137?text=Ol%C3%A1%2C%20a%20auditoria%20parcial%20do%20Emagrecentro%20Foz%20expirou%20e%20gostaria%20de%20pedir%20a%20reativa%C3%A7%C3%A3o." target="_blank" rel="noopener noreferrer">Pedir reativação pelo WhatsApp</a>
+  </div>
+</div>
+
+<form id="gate" class="centro">
+  <div class="card">
+    <h1 style="font-size:1.3rem">Auditoria parcial</h1>
+    <label for="pw" class="aviso">Digite a senha que enviamos junto com o link.</label>
+    <input id="pw" type="password" autocomplete="off" required>
+    <button class="btn" type="submit">Entrar</button>
+    <p id="msg" class="aviso" role="alert"></p>
+  </div>
+</form>
+
+<div id="conteudo" hidden>
+  <div class="prazo" role="timer" aria-live="off">
+    <span>Disponível até <strong id="prazo-data"></strong></span>
+    <span id="prazo-resta"></span>
+  </div>
+  <header class="hero" id="hero">
+    <!-- Para usar uma imagem: a imagem é foto.webp nesta pasta. Sem o arquivo, a hero fica só com a cor. -->
+    <img class="hero-img" src="foto.webp" alt="" onerror="this.parentNode.classList.add('sem-img');this.remove()">
+    <span class="hero-shade"></span>
+    <div class="hero-txt">
+      <p class="data">Auditoria parcial · 21/10/2026 · emagrecentrofoz.com.br</p>
+      <h1>Emagrecentro Foz: o que encontramos no site</h1>
+      <p class="data">Um resumo do que observamos nas páginas públicas. O passo a passo de como corrigir cada ponto fica para a conversa.</p>
+      <p class="data" id="prazo-motivo"></p>
+    </div>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>O que já funciona</h2>
+      <p>O site abre em HTTPS, tem sitemap, o botão de WhatsApp vem com a mensagem pronta e a oferta da avaliação gratuita está clara. O método em 4 fases é explicado com a duração de cada etapa. É uma boa base de venda.</p>
+    </section>
+
+    <section class="card">
+      <h2>1. O site não escreve onde fica a unidade</h2>
+      <p>Depois do título "Escolha a unidade mais próxima de você", aparece só um mapa. Endereço, telefone e horário não estão escritos em nenhuma parte da página, e o código também não informa esses dados ao Google. O único contato é o link de WhatsApp.</p>
+    </section>
+
+    <section class="card">
+      <h2>2. É uma página só, com pouco para o Google ler</h2>
+      <p>O título da página é "Emagrecentro Foz", sem descrição e sem título principal (H1). O nome Foz do Iguaçu não aparece no texto visível: o conteúdo é o da rede nacional, sem nada sobre a unidade daqui.</p>
+    </section>
+
+    <section class="card">
+      <h2>3. Sobras da instalação do WordPress estão no ar</h2>
+      <p>As páginas "Hello world!" e "Sample Page", a categoria "Uncategorized" e a página do autor, com um e-mail no título, respondem normalmente e estão no mapa do site. Na página inicial ainda aparece o texto "Adicione o texto do seu título aqui".</p>
+    </section>
+
+    <section class="card">
+      <h2>Próximo passo</h2>
+      <p>Vamos conversar sobre o que faria mais diferença primeiro para a agenda da unidade.</p>
+      <!-- WhatsApp da Off Digital -->
+      <a class="btn" id="cta" href="https://wa.me/5545988195137?text=Ol%C3%A1%2C%20vi%20a%20auditoria%20parcial%20do%20Emagrecentro%20Foz%20e%20gostaria%20de%20marcar%20a%20reuni%C3%A3o." target="_blank" rel="noopener noreferrer">Chamar no WhatsApp para marcar a reunião</a>
+      <p class="aviso">A reunião pode durar de 12 a 21 minutos.</p>
+      <p class="lead">Off Digital · Inova SEO</p>
+    </section>
+  </main>
+</div>
+
+<script>
+/* Senha: grave aqui o SHA-256 (hex) da senha única. Gerar no terminal: printf '%s' 'SUASENHA' | sha256sum
+   Hash pré-configurado (senha única das auditorias do Cezar).
+   Atenção: esta tela é uma barreira simples no navegador; quem abrir o código-fonte vê o conteúdo.
+   Para proteção de verdade, hospede atrás de um serviço com autenticação. */
+const PASSWORD_SHA256 = "ffe79430aa4ec5b5db0d0cea9234d30eb0370ddd4c2bcabcfbc64f6bed953c69";
+async function sha(t){const b=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(t));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,"0")).join("");}
+window.dataLayer=window.dataLayer||[];
+document.getElementById("gate").addEventListener("submit",async e=>{
+  e.preventDefault();
+  if(expirou()){mostrarExpirada();return;}
+  const msg=document.getElementById("msg");
+  if(!PASSWORD_SHA256){msg.textContent="Senha ainda não configurada nesta página.";return;}
+  if(await sha(document.getElementById("pw").value)===PASSWORD_SHA256){
+    document.getElementById("gate").hidden=true;document.getElementById("conteudo").hidden=false;
+    dataLayer.push({event:"auditoria_parcial_aberta",cliente:"emagrecentro-foz"});
+  } else msg.textContent="Senha incorreta.";
+});
+document.getElementById("cta").addEventListener("click",()=>{dataLayer.push({event:"auditoria_parcial_cta",cliente:"emagrecentro-foz"});});
+
+/* PRAZO: data e hora fixas, gravadas no arquivo. Ajuste esta linha no dia do envio (envio + 48 horas), fuso -03:00.
+   O relógio não reinicia a cada abertura. É uma barreira no navegador: para expirar de verdade, apague a pasta no GitHub. */
+const EXPIRA_EM = new Date("2026-10-23T18:00:00-03:00");
+const MOTIVO = "Os dados desta análise (buscas e páginas do site) são de 21/10/2026. Depois do prazo, a análise precisa ser refeita.";
+function expirou(){return Date.now()>=EXPIRA_EM.getTime();}
+let jaExpirou=false;
+function mostrarExpirada(){
+  document.getElementById("gate").hidden=true;
+  document.getElementById("conteudo").hidden=true;
+  document.getElementById("expirada").hidden=false;
+  if(!jaExpirou){jaExpirou=true;dataLayer.push({event:"auditoria_expirada",cliente:"emagrecentro-foz"});}
+}
+function atualizarPrazo(){
+  const ms=EXPIRA_EM.getTime()-Date.now();
+  if(ms<=0){mostrarExpirada();return;}
+  const t=Math.floor(ms/1000),hh=Math.floor(t/3600),mm=Math.floor(t%3600/60),ss=t%60;
+  document.getElementById("prazo-resta").textContent="Restam "+hh+"h "+String(mm).padStart(2,"0")+"min "+String(ss).padStart(2,"0")+"s";
+}
+document.getElementById("prazo-data").textContent=EXPIRA_EM.toLocaleString("pt-BR",{day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit",timeZone:"America/Sao_Paulo"});
+document.getElementById("prazo-motivo").textContent=MOTIVO;
+document.getElementById("reativar").addEventListener("click",()=>{dataLayer.push({event:"auditoria_reativacao_clique",cliente:"emagrecentro-foz"});});
+if(expirou()){mostrarExpirada();}else{atualizarPrazo();setInterval(atualizarPrazo,1000);}
+</script>
+</body>
+</html>
