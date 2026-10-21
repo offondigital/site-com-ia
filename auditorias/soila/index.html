@@ -33,7 +33,10 @@ main{max-width:720px;margin:0 auto;padding:24px 16px 64px;display:flex;flex-dire
 .btn{background:var(--btn);color:var(--btn-fg);border:0;border-radius:5px;padding:12px 18px;font:inherit;font-weight:600;text-decoration:none;display:inline-block;width:fit-content;cursor:pointer}
 .btn:focus-visible,input:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
 .aviso{color:var(--muted);font-size:.9rem}
-#gate{max-width:360px;margin:15vh auto 0;padding:0 16px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--brand);z-index:30}
+.prazo{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--brand);color:var(--brand-fg);padding:8px 16px;display:flex;flex-wrap:wrap;gap:2px 14px;align-items:center;justify-content:center;font-size:.85rem;text-align:center}
+.prazo strong{font-variant-numeric:tabular-nums}
+.centro{max-width:360px;margin:15vh auto 0;padding:0 16px}
 #gate .card{gap:10px}
 input{font:inherit;padding:10px 12px;border-radius:5px;border:1px solid var(--line);background:var(--bg);color:var(--fg);width:100%}
 [hidden]{display:none!important}
@@ -42,7 +45,15 @@ input{font:inherit;padding:10px 12px;border-radius:5px;border:1px solid var(--li
 <body>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TVDF63GF" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-<form id="gate">
+<div id="expirada" class="centro" hidden>
+  <div class="card">
+    <h1 style="font-size:1.3rem">Esta auditoria expirou</h1>
+    <p>O prazo para ver esta análise terminou. Se ainda fizer sentido para você, peça a reativação e eu envio um novo prazo.</p>
+    <a class="btn" id="reativar" href="https://wa.me/5545988195137?text=Ol%C3%A1%2C%20a%20auditoria%20parcial%20do%20Soila%20Medical%20Institute%20expirou%20e%20gostaria%20de%20pedir%20a%20reativa%C3%A7%C3%A3o." target="_blank" rel="noopener noreferrer">Pedir reativação pelo WhatsApp</a>
+  </div>
+</div>
+
+<form id="gate" class="centro">
   <div class="card">
     <h1 style="font-size:1.3rem">Auditoria parcial</h1>
     <label for="pw" class="aviso">Digite a senha que enviamos junto com o link.</label>
@@ -53,6 +64,10 @@ input{font:inherit;padding:10px 12px;border-radius:5px;border:1px solid var(--li
 </form>
 
 <div id="conteudo" hidden>
+  <div class="prazo" role="timer" aria-live="off">
+    <span>Disponível até <strong id="prazo-data"></strong></span>
+    <span id="prazo-resta"></span>
+  </div>
   <header class="hero" id="hero">
     <!-- Para usar uma imagem: salve o arquivo como hero.jpg nesta pasta. Sem o arquivo, a hero fica só com a cor. -->
     <img class="hero-img" src="hero.jpg" alt="" onerror="this.parentNode.classList.add('sem-img');this.remove()">
@@ -61,6 +76,7 @@ input{font:inherit;padding:10px 12px;border-radius:5px;border:1px solid var(--li
       <p class="data">Auditoria parcial · 21/10/2026 · soila.com.br</p>
       <h1>Soila Medical Institute: o que encontramos no site</h1>
       <p class="data">Um resumo do que observamos nas páginas públicas. O passo a passo de como corrigir cada ponto fica para a conversa.</p>
+      <p class="data" id="prazo-motivo"></p>
     </div>
   </header>
 
@@ -106,6 +122,7 @@ async function sha(t){const b=await crypto.subtle.digest("SHA-256",new TextEncod
 window.dataLayer=window.dataLayer||[];
 document.getElementById("gate").addEventListener("submit",async e=>{
   e.preventDefault();
+  if(expirou()){mostrarExpirada();return;}
   const msg=document.getElementById("msg");
   if(!PASSWORD_SHA256){msg.textContent="Senha ainda não configurada nesta página.";return;}
   if(await sha(document.getElementById("pw").value)===PASSWORD_SHA256){
@@ -114,6 +131,29 @@ document.getElementById("gate").addEventListener("submit",async e=>{
   } else msg.textContent="Senha incorreta.";
 });
 document.getElementById("cta").addEventListener("click",()=>{dataLayer.push({event:"auditoria_parcial_cta",cliente:"soila"});});
+
+/* PRAZO: data e hora fixas, gravadas no arquivo. Ajuste esta linha no dia do envio (envio + 48 horas), fuso -03:00.
+   O relógio não reinicia a cada abertura. É uma barreira no navegador: para expirar de verdade, apague a pasta no GitHub. */
+const EXPIRA_EM = new Date("2026-10-23T14:30:00-03:00");
+const MOTIVO = "Os dados desta análise (buscas e páginas do site) são de 21/10/2026. Depois do prazo, a análise precisa ser refeita.";
+function expirou(){return Date.now()>=EXPIRA_EM.getTime();}
+let jaExpirou=false;
+function mostrarExpirada(){
+  document.getElementById("gate").hidden=true;
+  document.getElementById("conteudo").hidden=true;
+  document.getElementById("expirada").hidden=false;
+  if(!jaExpirou){jaExpirou=true;dataLayer.push({event:"auditoria_expirada",cliente:"soila"});}
+}
+function atualizarPrazo(){
+  const ms=EXPIRA_EM.getTime()-Date.now();
+  if(ms<=0){mostrarExpirada();return;}
+  const t=Math.floor(ms/1000),hh=Math.floor(t/3600),mm=Math.floor(t%3600/60),ss=t%60;
+  document.getElementById("prazo-resta").textContent="Restam "+hh+"h "+String(mm).padStart(2,"0")+"min "+String(ss).padStart(2,"0")+"s";
+}
+document.getElementById("prazo-data").textContent=EXPIRA_EM.toLocaleString("pt-BR",{day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit",timeZone:"America/Sao_Paulo"});
+document.getElementById("prazo-motivo").textContent=MOTIVO;
+document.getElementById("reativar").addEventListener("click",()=>{dataLayer.push({event:"auditoria_reativacao_clique",cliente:"soila"});});
+if(expirou()){mostrarExpirada();}else{atualizarPrazo();setInterval(atualizarPrazo,1000);}
 </script>
 </body>
 </html>
