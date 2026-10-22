@@ -117,7 +117,11 @@ input{font:inherit;padding:10px 12px;border-radius:5px;border:1px solid var(--li
    Hash pré-configurado (senha única das auditorias do Cezar).
    Atenção: esta tela é uma barreira simples no navegador; quem abrir o código-fonte vê o conteúdo.
    Para proteção de verdade, hospede atrás de um serviço com autenticação. */
-const PASSWORD_SHA256 = "ffe79430aa4ec5b5db0d0cea9234d30eb0370ddd4c2bcabcfbc64f6bed953c69";
+const PASSWORD_SHA256 = "ffe79430aa4ec5b5db0d0cea9234d30eb0370ddd4c2bcabcfbc64f6bed953c69"; /* perfil: prospecto */
+const OWNER_SHA256 = "8fb8a865a1dfa42cb06d69e93a87a3d8ec0272006e84ec7b8c586fb31e6d0763"; /* perfil: dono (acesso do Cezar, não gera aviso) */
+const AVISO_URL = ""; /* URL do Apps Script que avisa no WhatsApp; vazio = sem aviso */
+function dispositivo(){const u=navigator.userAgent;if(/iPad|Tablet/i.test(u)||(/Android/i.test(u)&&!/Mobile/i.test(u)))return "tablet";return /Mobi|iPhone|Android/i.test(u)?"mobile":"desktop";}
+function avisar(d){if(!AVISO_URL)return;try{fetch(AVISO_URL,{method:"POST",mode:"no-cors",keepalive:true,headers:{"Content-Type":"text/plain"},body:JSON.stringify(d)});}catch(e){}}
 async function sha(t){const b=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(t));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,"0")).join("");}
 window.dataLayer=window.dataLayer||[];
 document.getElementById("gate").addEventListener("submit",async e=>{
@@ -125,9 +129,12 @@ document.getElementById("gate").addEventListener("submit",async e=>{
   if(expirou()){mostrarExpirada();return;}
   const msg=document.getElementById("msg");
   if(!PASSWORD_SHA256){msg.textContent="Senha ainda não configurada nesta página.";return;}
-  if(await sha(document.getElementById("pw").value)===PASSWORD_SHA256){
+  const h=await sha(document.getElementById("pw").value);const perfil=h===PASSWORD_SHA256?"prospecto":(h===OWNER_SHA256?"dono":null);
+  if(perfil){
     document.getElementById("gate").hidden=true;document.getElementById("conteudo").hidden=false;
-    dataLayer.push({event:"auditoria_parcial_aberta",cliente:"soila"});
+    const info={cliente:"soila",perfil_acesso:perfil,dispositivo:dispositivo(),data_hora:new Date().toLocaleString("pt-BR",{timeZone:"America/Sao_Paulo"})};
+    dataLayer.push(Object.assign({event:"auditoria_parcial_aberta"},info));
+    avisar(info);
   } else msg.textContent="Senha incorreta.";
 });
 document.getElementById("cta").addEventListener("click",()=>{dataLayer.push({event:"auditoria_parcial_cta",cliente:"soila"});});
