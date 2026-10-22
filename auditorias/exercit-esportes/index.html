@@ -119,7 +119,7 @@ input{font:inherit;padding:10px 12px;border-radius:5px;border:1px solid var(--li
    Para proteção de verdade, hospede atrás de um serviço com autenticação. */
 const PASSWORD_SHA256 = "ffe79430aa4ec5b5db0d0cea9234d30eb0370ddd4c2bcabcfbc64f6bed953c69"; /* perfil: prospecto */
 const OWNER_SHA256 = "8fb8a865a1dfa42cb06d69e93a87a3d8ec0272006e84ec7b8c586fb31e6d0763"; /* perfil: dono (acesso do Cezar, não gera aviso) */
-const AVISO_URL = ""; /* URL do Apps Script que avisa no WhatsApp; vazio = sem aviso */
+const AVISO_URL = "https://script.google.com/macros/s/AKfycbxcoFgihWxI51tOExb75D3I3rE8UBhin-Z_xa5PfwPd4Elz5tx2bXYJy83WP3UrG5G1/exec"; /* URL do Apps Script que avisa no WhatsApp; vazio = sem aviso */
 function dispositivo(){const u=navigator.userAgent;if(/iPad|Tablet/i.test(u)||(/Android/i.test(u)&&!/Mobile/i.test(u)))return "tablet";return /Mobi|iPhone|Android/i.test(u)?"mobile":"desktop";}
 function avisar(d){if(!AVISO_URL)return;try{fetch(AVISO_URL,{method:"POST",mode:"no-cors",keepalive:true,headers:{"Content-Type":"text/plain"},body:JSON.stringify(d)});}catch(e){}}
 async function sha(t){const b=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(t));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,"0")).join("");}
