@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Auditoria parcial – Suzete Ponzio</title>
+<!-- GTM do Cezar (Inova SEO / Off Digital) -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-TVDF63GF');</script>
+<!-- GA4 direto (G-CDGVGTPP75). Se o contêiner GTM-TVDF63GF já tiver uma tag de configuração do GA4 para esta propriedade, remova este bloco para não contar cada visita duas vezes. -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CDGVGTPP75"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CDGVGTPP75');</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500;600&display=swap">
+<style>
+/* Cores e fontes do site analisado (suzeteponzio.com.br): variáveis --bg-deep #241D1B, --bg #322A27, --gold #C99B3C, --text #ECE3D7; fontes Cormorant Garamond e Jost. */
+:root{--bg:#322a27;--surface:#3b322e;--ink:#ece3d7;--muted:#c9bcb1;--line:#5a4b45;--brand:#241d1b;--brand-2:#473a36;--brand-fg:#ece3d7;--gold:#c99b3c;--gold-fg:#241d1b;--rule:#c99b3c;color-scheme:dark;
+--display:'Cormorant Garamond',Georgia,serif;--body:'Jost',system-ui,sans-serif}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f6f0e6;--surface:#fffdf9;--ink:#241d1b;--muted:#5d4f49;--line:#dccfbe;--rule:#a87e2c;color-scheme:light}}
+:root[data-theme="light"]{--bg:#f6f0e6;--surface:#fffdf9;--ink:#241d1b;--muted:#5d4f49;--line:#dccfbe;--rule:#a87e2c;color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 var(--body);padding-left:max(0px,env(safe-area-inset-left,0px));padding-right:max(0px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.15;margin:0;text-wrap:balance}
+p{margin:0}
+.wrap{max-width:720px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.hero{position:relative;overflow:hidden;background:linear-gradient(135deg,var(--brand),var(--brand-2));color:var(--brand-fg)}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero-shade{position:absolute;inset:0;background:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.6))}
+.hero.sem-img .hero-shade{display:none}
+.hero-txt{position:relative;padding-block:56px 48px;display:flex;flex-direction:column;gap:14px}
+.hero-txt .data{font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+.hero h1{font-size:clamp(2rem,6vw,3rem);color:var(--brand-fg)}
+.hero .rule{width:56px;height:2px;background:var(--gold)}
+main{padding-block:32px 64px;display:flex;flex-direction:column;gap:24px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:20px;display:flex;flex-direction:column;gap:10px}
+.card h2{font-size:1.6rem}
+.card h3{font-size:1.3rem}
+.lab{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.ok{border-left:3px solid var(--rule)}
+ul{margin:0;padding-left:1.15em;display:flex;flex-direction:column;gap:6px}
+.btn{background:var(--gold);color:var(--gold-fg);border:0;border-radius:4px;padding:14px 22px;font:600 1rem var(--body);text-decoration:none;display:inline-block;width:fit-content;max-width:100%;cursor:pointer}
+.btn:focus-visible,input:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.aviso{color:var(--muted);font-size:.92rem}
+#gate{max-width:420px;margin:12vh auto;padding:20px}
+input{font:inherit;background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:4px;padding:12px;width:100%}
+.erro{color:var(--ink);font-size:.92rem}
+.nota{font-size:.82rem;color:var(--muted)}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TVDF63GF" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<form id="gate" class="card" autocomplete="off">
+  <span class="lab">Auditoria parcial</span>
+  <h2>Acesso restrito</h2>
+  <p class="aviso">Digite a senha enviada com este link.</p>
+  <label for="senha" class="lab">Senha</label>
+  <input id="senha" type="password" autocomplete="off" required>
+  <button class="btn" type="submit">Entrar</button>
+  <p class="erro" id="erro" role="alert" hidden></p>
+</form>
+
+<div id="conteudo" hidden>
+  <header class="hero" id="hero">
+    <img class="hero-img" src="hero.jpg" alt="" onerror="this.parentNode.classList.add('sem-img');this.remove()">
+    <span class="hero-shade"></span>
+    <div class="wrap hero-txt">
+      <p class="data">Auditoria parcial · 22/10/2026 · suzeteponzio.com.br</p>
+      <h1>Suzete Ponzio: o que encontramos no site</h1>
+      <span class="rule"></span>
+    </div>
+  </header>
+  <main class="wrap">
+    <section class="card ok">
+      <span class="lab">O que já funciona</span>
+      <h2>Uma base de texto e imagem bem cuidada</h2>
+      <ul>
+        <li>A proposta ‘natural e sem exageros’ aparece logo no topo e se repete até o fim da página.</li>
+        <li>O título da página e a descrição já trazem o serviço e Foz do Iguaçu.</li>
+        <li>Todas as imagens têm texto alternativo e o site abre com segurança (HTTPS).</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <span class="lab">Ponto 1</span>
+      <h3>O Google recebe poucas informações sobre o site</h3>
+      <p><strong>O que vimos:</strong> o endereço /sitemap.xml e o /robots.txt não existem (erro 404), e o código da página não traz canonical nem dados estruturados (schema) sobre a clínica.</p>
+      <p><strong>Por que importa:</strong> são os sinais que ajudam o Google a entender o que o site oferece e onde. Sem eles, o site depende de o Google adivinhar.</p>
+    </section>
+
+    <section class="card">
+      <span class="lab">Ponto 2</span>
+      <h3>Quatro tratamentos dividem uma única página</h3>
+      <p><strong>O que vimos:</strong> toxina botulínica, bioestimulador de colágeno, microagulhamento e depilação a luz pulsada ficam na mesma página, e o menu leva apenas a pontos dela.</p>
+      <p><strong>Por que importa:</strong> quem pesquisa um procedimento específico em Foz tende a encontrar páginas dedicadas ao assunto. Aqui cada tratamento divide o espaço com os outros três.</p>
+    </section>
+
+    <section class="card">
+      <span class="lab">Ponto 3</span>
+      <h3>O site ainda não mede de onde vêm as pacientes</h3>
+      <p><strong>O que vimos:</strong> não há Google Tag Manager nem Google Analytics instalados, e os botões de WhatsApp não têm nenhuma marcação de clique.</p>
+      <p><strong>Por que importa:</strong> sem esses números, não dá para saber quantas pessoas visitam o site, de onde chegam e quantas pedem para agendar.</p>
+    </section>
+
+    <section class="card">
+      <span class="lab">Próximo passo</span>
+      <h2>Vamos conversar sobre o que faria mais diferença primeiro</h2>
+      <p>Esta é uma leitura parcial. Na reunião mostramos o quadro completo e definimos por onde começar.</p>
+      <a class="btn" id="cta" href="https://wa.me/5545988195137?text=Ol%C3%A1%2C%20vi%20a%20auditoria%20parcial%20do%20site%20da%20Suzete%20Ponzio%20e%20gostaria%20de%20marcar%20a%20reuni%C3%A3o." target="_blank" rel="noopener noreferrer">Chamar no WhatsApp para marcar a reunião</a>
+      <p class="aviso">A reunião pode durar de 12 a 21 minutos.</p>
+    </section>
+
+    <p class="nota">Cores e fontes desta página seguem as do site analisado. Leitura feita em 22/10/2026 a partir do que o site publica.</p>
+  </main>
+</div>
+
+<script>
+const PASSWORD_SHA256="ffe79430aa4ec5b5db0d0cea9234d30eb0370ddd4c2bcabcfbc64f6bed953c69"; /* perfil: prospecto. Barreira simples no navegador: quem abre o código-fonte vê o conteúdo. */
+const OWNER_SHA256="8fb8a865a1dfa42cb06d69e93a87a3d8ec0272006e84ec7b8c586fb31e6d0763"; /* perfil: dono (acesso do Cezar, não gera aviso) */
+const AVISO_URL="https://script.google.com/macros/s/AKfycbxcoFgihWxI51tOExb75D3I3rE8UBhin-Z_xa5PfwPd4Elz5tx2bXYJy83WP3UrG5G1/exec"; /* Apps Script que avisa o Cezar no Telegram; vazio = sem aviso */
+const SLUG="suzete-ponzio";
+function dispositivo(){const u=navigator.userAgent;if(/iPad|Tablet/i.test(u)||(/Android/i.test(u)&&!/Mobile/i.test(u)))return "tablet";return /Mobi|iPhone|Android/i.test(u)?"mobile":"desktop";}
+function avisar(d){if(!AVISO_URL)return;try{fetch(AVISO_URL,{method:"POST",mode:"no-cors",keepalive:true,headers:{"Content-Type":"text/plain"},body:JSON.stringify(d)});}catch(e){}}
+async function sha(t){const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(t));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')}
+window.dataLayer=window.dataLayer||[];
+document.getElementById('gate').addEventListener('submit',async e=>{
+  e.preventDefault();
+  const erro=document.getElementById('erro');
+  try{
+    if(!window.crypto||!crypto.subtle){throw new Error('sem-crypto')}
+    const h=await sha(document.getElementById('senha').value);
+    const perfil=h===PASSWORD_SHA256?"prospecto":(h===OWNER_SHA256?"dono":null);
+    if(perfil){
+      document.getElementById('gate').hidden=true;
+      document.getElementById('conteudo').hidden=false;
+      const info={cliente:SLUG,perfil_acesso:perfil,dispositivo:dispositivo(),data_hora:new Date().toLocaleString("pt-BR",{timeZone:"America/Sao_Paulo"})};
+      dataLayer.push(Object.assign({event:'auditoria_parcial_aberta'},info));
+      avisar(info);
+    }else{erro.textContent='Senha incorreta. Confira o texto e tente de novo.';erro.hidden=false}
+  }catch(err){erro.textContent='Este navegador não consegue validar a senha. Abra o link em outro navegador.';erro.hidden=false}
+});
+document.getElementById('cta').addEventListener('click',()=>{dataLayer.push({event:'auditoria_parcial_cta',cliente:SLUG})});
+</script>
+</body>
+</html>
