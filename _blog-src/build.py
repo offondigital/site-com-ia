@@ -357,7 +357,7 @@ def main():
     <div class="container">
         <nav class="breadcrumb" aria-label="Breadcrumb"><a href="{BASE}/">Início</a><span aria-hidden="true">›</span><span>Blog</span></nav>
         <h1>Blog da InovaSEO</h1>
-        <p>Como fazer a sua empresa aparecer no Google, no Maps e nas respostas das IAs. Guias práticos para negócios de Foz do Iguaçu e do Oeste do Paraná.</p>
+        <p>O que eu explico todo dia para donos de negócio sobre Google, Maps, sites e IA, escrito para quem tem empresa em Foz do Iguaçu e no Oeste do Paraná. Dois textos novos por semana.</p>
     </div>
 </section>
 <section class="page-section"><div class="container"><div class="blog-grid">{cards}</div></div></section>'''
