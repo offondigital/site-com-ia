@@ -144,4 +144,14 @@
     <loc>https://offondigital.github.io/site-com-ia/privacidade/</loc>
     <lastmod>2026-10-10</lastmod>
   </url>
+  <!-- blog:start -->
+  <url>
+    <loc>https://offondigital.github.io/site-com-ia/blog/</loc>
+    <lastmod>2026-10-23</lastmod>
+  </url>
+  <url>
+    <loc>https://offondigital.github.io/site-com-ia/blog/como-aparecer-no-google/</loc>
+    <lastmod>2026-10-23</lastmod>
+  </url>
+  <!-- blog:end -->
 </urlset>

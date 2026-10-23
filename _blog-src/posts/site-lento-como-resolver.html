@@ -1,0 +1,57 @@
+<p>Site lento perde cliente antes de mostrar qualquer coisa. A pessoa clica no resultado do Google, vê a tela branca por três, quatro segundos, e volta para clicar no concorrente. Você nem fica sabendo que ela passou por ali.</p>
+
+<p>E o Google sabe. Velocidade e estabilidade da página fazem parte do que ele chama de experiência na página, e entram na conta de quem aparece primeiro.</p>
+
+<div class="resposta"><p><strong>Resposta curta:</strong> teste o site no PageSpeed Insights (pagespeed.web.dev) no modo celular. As causas mais comuns de lentidão são imagens pesadas, excesso de plugins e scripts, vídeo que carrega sozinho, fontes externas e hospedagem fraca. Comprimir imagens em WebP, adiar scripts de terceiros e remover o que não é usado costuma resolver a maior parte.</p></div>
+
+<h2>Como testar a velocidade</h2>
+
+<ol>
+<li>Abra pagespeed.web.dev e cole o endereço do site.</li>
+<li>Olhe primeiro a aba <strong>Celular</strong>. É onde está a maioria das buscas locais, e onde o site costuma ir pior.</li>
+<li>Veja duas coisas: os dados de usuários reais (quando aparecem, no topo) e a nota de desempenho do teste de laboratório.</li>
+<li>Role até "Diagnóstico". Ali o Google lista o que está atrasando.</li>
+</ol>
+
+<p>A nota de laboratório varia um pouco a cada teste. Não se preocupe com 3 ou 4 pontos de diferença. Preocupe-se se ela está abaixo de 50.</p>
+
+<h2>O que são as Core Web Vitals</h2>
+
+<p>São as três métricas que o Google usa para medir a experiência de carregamento:</p>
+
+<div class="tabela"><table>
+<tr><th>Métrica</th><th>O que mede</th><th>Bom</th></tr>
+<tr><td>LCP (maior elemento visível)</td><td>Quanto tempo o conteúdo principal leva para aparecer</td><td>Até 2,5 s</td></tr>
+<tr><td>INP (interação até a próxima pintura)</td><td>Quanto tempo a página demora para reagir a um toque ou clique</td><td>Até 200 ms</td></tr>
+<tr><td>CLS (mudança de layout)</td><td>O quanto as coisas pulam de lugar enquanto carrega</td><td>Até 0,1</td></tr>
+</table></div>
+
+<h2>As causas mais comuns e como resolver</h2>
+
+<h3>Imagens pesadas</h3>
+<p>É o vilão número um. Foto de 4 MB tirada no celular e colocada direto no site. Solução: reduzir para o tamanho exibido (raramente precisa de mais de 1.600 px de largura), salvar em WebP e carregar as imagens de baixo da página só quando o visitante rolar (lazy loading). Mas não use lazy loading na imagem principal do topo.</p>
+
+<h3>Plugins e scripts demais</h3>
+<p>Chat, pixel do Facebook, Google Analytics, mapas, widgets de avaliação, pop-ups. Cada um carrega código. Remova o que não usa e faça os de terceiros carregarem depois do conteúdo principal.</p>
+
+<h3>Vídeo no topo</h3>
+<p>Vídeo de fundo é bonito e pesado. No celular, troque por uma imagem.</p>
+
+<h3>Fontes externas</h3>
+<p>Fontes carregadas de outro servidor atrasam o texto. Hospede a fonte no próprio site e use só os pesos necessários.</p>
+
+<h3>Hospedagem fraca</h3>
+<p>Hospedagem muito barata e lotada demora para responder. Se o tempo de resposta do servidor aparece como problema no PageSpeed, considere trocar ou usar uma CDN.</p>
+
+<h3>Construtor pesado</h3>
+<p>Alguns construtores de site e temas carregam muito código que você não usa. Às vezes a solução mais barata é refazer o site mais enxuto. Comparamos isso em [[post criar-site-com-ia | criar site com IA: vale a pena?]].</p>
+
+[[cta-wa meio | Seu site está lento? | Mande o link. A gente roda o teste, identifica o que mais pesa e diz o que dá para resolver sem refazer tudo. | Testar meu site]]
+
+<h2>Velocidade é SEO, mas não é tudo</h2>
+
+<p>Site rápido sem conteúdo bom não sobe. Site ótimo e lento perde parte do potencial. Velocidade é uma das peças, ao lado do conteúdo e da estrutura, como explicamos em [[post como-fazer-seo-no-site | como fazer SEO no site]].</p>
+
+<p>Os sites que fazemos aqui são construídos para abrir rápido no celular desde o primeiro dia, porque corrigir depois sempre custa mais.</p>
+
+[[cta-link fim | Sites que abrem rápido no celular | A InovaSEO cria sites leves, com imagens otimizadas e nota alta no PageSpeed, pensados para o Google e para o cliente. | Ver criação de sites]]

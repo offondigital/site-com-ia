@@ -1,0 +1,32 @@
+name: Publicar blog
+
+# Todo dia as 06:00 (Brasilia) publica os posts cuja data ja chegou.
+# Tambem roda quando algo muda em _blog-src/ e pelo botao "Run workflow".
+on:
+  schedule:
+    - cron: "0 9 * * *"
+  workflow_dispatch:
+  push:
+    paths:
+      - "_blog-src/**"
+
+permissions:
+  contents: write
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python3 _blog-src/build.py
+      - name: Avisar buscadores (IndexNow)
+        run: python3 _blog-src/indexnow.py
+      - name: Salvar se algo mudou
+        run: |
+          git config user.name "blog-bot"
+          git config user.email "blog-bot@users.noreply.github.com"
+          git add -A blog sitemap.xml index.html '*/index.html' _blog-src/indexnow-enviados.json
+          git diff --cached --quiet || (git commit -m "Blog: publica posts do dia" && git push)
