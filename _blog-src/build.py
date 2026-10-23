@@ -305,7 +305,8 @@ NICHO_SLUGS = {n["slug"] for n in NICHOS}
 
 
 def wa_nicho(n, pos, label, classe="btn-cta-primary"):
-    texto = (f"Olá! Vi a página de marketing para {n['nome']} da InovaSEO e quero conversar sobre o meu negócio. "
+    assunto = n["h1"].lower() if n.get("grupo") == "servico" else f"marketing para {n['nome']}"
+    texto = (f"Olá! Vi a página de {assunto} da InovaSEO e quero conversar sobre o meu negócio. "
              f"(Origem: utm_source=site&utm_medium=whatsapp&utm_campaign=nicho-{n['slug']}&utm_content={pos})")
     return (f'<a class="{classe}" href="https://wa.me/{TEL}?text={quote(texto, safe="")}" target="_blank" rel="noopener noreferrer" '
             f'data-cta="whatsapp" data-pos="{pos}" data-post="{n["slug"]}">{html.escape(label)}</a>')
@@ -337,14 +338,19 @@ def gerar_nichos(pub_slugs, por_slug):
         if lidos:
             ler = ('<nav class="post-next" aria-label="Para entender antes de decidir"><h2>Para entender antes de decidir</h2><ul>'
                    + "".join(f'<li><a href="{link_post(s)}">{html.escape(por_slug[s]["title"])}</a></li>' for s in lidos) + "</ul></nav>")
-        outros = [o for o in NICHOS if o["slug"] != n["slug"]]
-        irmaos = ('<nav class="post-next" aria-label="Outros segmentos"><h2>Outros segmentos que atendemos</h2><ul>'
+        servico = n.get("grupo") == "servico"
+        outros = [o for o in NICHOS if o["slug"] != n["slug"] and (o.get("grupo") == "servico") == servico]
+        if not servico:  # vizinhos variam por pagina para espalhar os links
+            k = NICHOS.index(n) % max(1, len(outros)); outros = outros[k:] + outros[:k]
+        irmaos = (f'<nav class="post-next" aria-label="Outros"><h2>{"Outros serviços" if servico else "Outros segmentos que atendemos"}</h2><ul>'
                   + "".join(f'<li><a href="{BASE}/{o["slug"]}/">{html.escape(o["h1"])}</a></li>' for o in outros[:6])
                   + f'<li><a href="{BASE}/segmentos/">Ver todos os segmentos</a></li></ul></nav>')
+        trilha_nome, trilha_url = ("Agência de marketing digital", "/agencia-de-marketing-digital/") if servico else ("Segmentos", "/segmentos/")
+        fim = n.get("fim") or f"Atendemos {n['nome']} de todo o Brasil, com reuniões on-line e relatórios mensais de cliques, ligações e contatos."
         canon = f"{SITE}/{n['slug']}/"
         miolo = f'''<section class="page-hero">
     <div class="container post-narrow">
-        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="{BASE}/">Início</a><span aria-hidden="true">›</span><a href="{BASE}/segmentos/">Segmentos</a><span aria-hidden="true">›</span><span>{html.escape(n["nome"].capitalize())}</span></nav>
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="{BASE}/">Início</a><span aria-hidden="true">›</span><a href="{BASE}{trilha_url}">{trilha_nome}</a><span aria-hidden="true">›</span><span>{html.escape(n["nome"][0].upper() + n["nome"][1:])}</span></nav>
         <h1>{html.escape(n["h1"])}</h1>
         <p>{html.escape(n["sub"])}</p>
         <div class="post-cta-btns" style="margin-top:1.4rem">{wa_nicho(n, "hero", "Falar com especialista")}<a class="btn-cta-secondary" href="{BASE}/#planos" data-cta="pagina" data-pos="hero-planos" data-post="{n["slug"]}">Ver planos</a></div>
@@ -352,24 +358,25 @@ def gerar_nichos(pub_slugs, por_slug):
 </section>
 <article class="post"><div class="container post-narrow content-text">
 {corpo}
-<aside class="post-cta post-cta-fim" id="cta"><p class="post-cta-tit">{html.escape(n["cta"])}</p><p>Atendemos {html.escape(n["nome"])} de todo o Brasil, com reuniões on-line e relatórios mensais de cliques, ligações e contatos.</p>
+<aside class="post-cta post-cta-fim" id="cta"><p class="post-cta-tit">{html.escape(n["cta"])}</p><p>{html.escape(fim)}</p>
 <div class="post-cta-btns">{wa_nicho(n, "cta-fim", "Falar no WhatsApp")}<a class="btn-cta-secondary" href="{BASE}/agencia-de-marketing-digital/" data-cta="pagina" data-pos="cta-fim-servico" data-post="{n["slug"]}">Conhecer a agência</a></div></aside>
 {ler}
 {irmaos}
 </div></article>'''
-        servico = {"@context": "https://schema.org", "@type": "Service", "name": n["h1"], "serviceType": "Marketing digital",
-                   "description": n["desc"], "provider": {"@id": SITE + "/#organization"}, "areaServed": {"@type": "Country", "name": "Brasil"},
-                   "audience": {"@type": "BusinessAudience", "name": n["nome"].capitalize()}, "url": canon}
+        servico_ld = {"@context": "https://schema.org", "@type": "Service", "name": n["h1"], "serviceType": n.get("tipo", "Marketing digital"),
+                   "description": n["desc"], "provider": {"@id": SITE + "/#organization"}, "areaServed": {"@type": "Country", "name": "Brasil"}, "url": canon}
+        if not servico:
+            servico_ld["audience"] = {"@type": "BusinessAudience", "name": n["nome"][0].upper() + n["nome"][1:]}
         trilha = {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
             {"@type": "ListItem", "position": 1, "name": "Início", "item": SITE + "/"},
-            {"@type": "ListItem", "position": 2, "name": "Segmentos", "item": SITE + "/segmentos/"},
+            {"@type": "ListItem", "position": 2, "name": trilha_nome, "item": SITE + trilha_url},
             {"@type": "ListItem", "position": 3, "name": n["h1"], "item": canon}]}
         (ROOT / n["slug"]).mkdir(exist_ok=True)
         (ROOT / n["slug"] / "index.html").write_text(
-            pagina(n["title"], n["desc"], canon, f"{SITE}/assets/blog/{n['slug']}.jpg", "website", [ld(servico), ld(trilha)], miolo, "", "segmentos"),
+            pagina(n["title"], n["desc"], canon, f"{SITE}/assets/blog/{n['slug']}.jpg", "website", [ld(servico_ld), ld(trilha)], miolo, "", "" if servico else "segmentos"),
             encoding="utf-8")
     cards = "".join(f'<a class="blog-card" href="{BASE}/{n["slug"]}/"><img src="{BASE}/assets/blog/{n["slug"]}.webp" width="1200" height="630" alt="" loading="lazy" decoding="async">'
-                    f'<div class="blog-card-body"><h3>{html.escape(n["h1"])}</h3><p>{html.escape(n["sub"])}</p></div></a>' for n in NICHOS)
+                    f'<div class="blog-card-body"><h3>{html.escape(n["h1"])}</h3><p>{html.escape(n["sub"])}</p></div></a>' for n in NICHOS if n.get("grupo") != "servico")
     miolo = f'''<section class="page-hero"><div class="container">
     <nav class="breadcrumb" aria-label="Breadcrumb"><a href="{BASE}/">Início</a><span aria-hidden="true">›</span><span>Segmentos</span></nav>
     <h1>Marketing digital por segmento</h1>

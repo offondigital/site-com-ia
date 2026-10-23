@@ -217,5 +217,196 @@
    "como-aparecer-no-google-maps",
    "como-ganhar-clientes-pela-internet"
   ]
+ },
+ {
+  "slug": "agencia-de-marketing-para-fisioterapeutas",
+  "nome": "fisioterapeutas",
+  "h1": "Agência de marketing para fisioterapeutas",
+  "title": "Agência de marketing para fisioterapeutas | InovaSEO",
+  "desc": "Pacientes particulares e de convênio para clínicas de fisioterapia e pilates, com Google Maps, site e conteúdo dentro das regras do COFFITO.",
+  "sub": "Pacientes particulares e de convênio para clínicas de fisioterapia e pilates, com Google Maps, site e conteúdo dentro das regras do COFFITO.",
+  "cta": "Quer a agenda da clínica de fisioterapia cheia?",
+  "posts": [
+   "marketing-digital-para-clinicas",
+   "como-aparecer-no-google-maps",
+   "seo-local-o-que-e"
+  ]
+ },
+ {
+  "slug": "agencia-de-marketing-para-nutricionistas",
+  "nome": "nutricionistas",
+  "h1": "Agência de marketing para nutricionistas",
+  "title": "Agência de marketing para nutricionistas | InovaSEO",
+  "desc": "Consultas presenciais e on-line para nutricionistas, com site, Google e Instagram, respeitando o Código de Ética do CFN.",
+  "sub": "Consultas presenciais e on-line para nutricionistas, com site, Google e Instagram, respeitando o Código de Ética do CFN.",
+  "cta": "Quer mais pacientes, no consultório ou on-line?",
+  "posts": [
+   "marketing-digital-para-clinicas",
+   "empresa-precisa-de-site",
+   "como-aparecer-no-chatgpt"
+  ]
+ },
+ {
+  "slug": "agencia-de-marketing-para-veterinarios",
+  "nome": "clínicas veterinárias",
+  "h1": "Agência de marketing para clínicas veterinárias",
+  "title": "Agência de marketing para clínicas veterinárias | InovaSEO",
+  "desc": "Consultas, cirurgias e emergências para clínicas e hospitais veterinários, com Google Maps, site por serviço e anúncios.",
+  "sub": "Consultas, cirurgias e emergências para clínicas e hospitais veterinários, com Google Maps, site por serviço e anúncios.",
+  "cta": "Quer mais tutores confiando na sua clínica?",
+  "posts": [
+   "como-aparecer-no-google-maps",
+   "como-conseguir-avaliacoes-no-google",
+   "seo-local-o-que-e"
+  ]
+ },
+ {
+  "slug": "agencia-de-marketing-para-personal-trainers",
+  "nome": "personal trainers",
+  "h1": "Agência de marketing para personal trainers",
+  "title": "Agência de marketing para personal trainers | InovaSEO",
+  "desc": "Alunos novos para personal trainers e estúdios, presenciais e on-line, com Instagram, Google e página de venda.",
+  "sub": "Alunos novos para personal trainers e estúdios, presenciais e on-line, com Instagram, Google e página de venda.",
+  "cta": "Quer a agenda de alunos sempre cheia?",
+  "posts": [
+   "como-ganhar-clientes-pela-internet",
+   "landing-page-o-que-e",
+   "trafego-pago-como-funciona"
+  ]
+ },
+ {
+  "slug": "agencia-de-marketing-para-industrias",
+  "nome": "indústrias e empresas B2B",
+  "h1": "Agência de marketing para indústrias e B2B",
+  "title": "Agência de marketing para indústrias e B2B | InovaSEO",
+  "desc": "Pedidos de orçamento qualificados para indústrias e empresas B2B, com SEO técnico por produto, Google Ads e LinkedIn.",
+  "sub": "Pedidos de orçamento qualificados para indústrias e empresas B2B, com SEO técnico por produto, Google Ads e LinkedIn.",
+  "cta": "Quer orçamentos de compradores, e não de curiosos?",
+  "posts": [
+   "seo-ou-google-ads",
+   "palavras-chave-para-seo",
+   "landing-page-o-que-e"
+  ]
+ },
+ {
+  "slug": "agencia-de-marketing-para-escolas",
+  "nome": "escolas e cursos",
+  "h1": "Agência de marketing educacional para escolas",
+  "title": "Agência de marketing educacional para escolas | InovaSEO",
+  "desc": "Matrículas para escolas, colégios e cursos livres, com Google Maps, site, campanhas na época de matrícula e conteúdo para pais.",
+  "sub": "Matrículas para escolas, colégios e cursos livres, com Google Maps, site, campanhas na época de matrícula e conteúdo para pais.",
+  "cta": "Quer mais matrículas na próxima temporada?",
+  "posts": [
+   "como-aparecer-no-google-maps",
+   "trafego-pago-como-funciona",
+   "seo-local-o-que-e"
+  ]
+ },
+ {
+  "slug": "agencia-de-marketing-para-arquitetos",
+  "nome": "arquitetos",
+  "h1": "Agência de marketing para arquitetos",
+  "title": "Agência de marketing para arquitetos | InovaSEO",
+  "desc": "Projetos novos para arquitetos e designers de interiores, com portfólio que aparece no Google, Instagram e anúncios.",
+  "sub": "Projetos novos para arquitetos e designers de interiores, com portfólio que aparece no Google, Instagram e anúncios.",
+  "cta": "Quer clientes que valorizam o seu projeto?",
+  "posts": [
+   "empresa-precisa-de-site",
+   "seo-local-o-que-e",
+   "como-conseguir-avaliacoes-no-google"
+  ]
+ },
+ {
+  "slug": "agencia-de-marketing-para-lojas-de-roupas",
+  "nome": "lojas de roupas",
+  "h1": "Agência de marketing para lojas de roupas",
+  "title": "Agência de marketing para lojas de roupas | InovaSEO",
+  "desc": "Vendas na loja física e on-line para lojas de roupas e moda, com Instagram, Google Shopping, Maps e WhatsApp.",
+  "sub": "Vendas na loja física e on-line para lojas de roupas e moda, com Instagram, Google Shopping, Maps e WhatsApp.",
+  "cta": "Quer vender mais na loja e no on-line?",
+  "posts": [
+   "como-aumentar-vendas-ecommerce",
+   "como-aparecer-no-google-maps",
+   "trafego-pago-como-funciona"
+  ]
+ },
+ {
+  "slug": "agencia-de-marketing-para-eventos",
+  "nome": "empresas de eventos",
+  "h1": "Agência de marketing para eventos",
+  "title": "Agência de marketing para eventos | InovaSEO",
+  "desc": "Orçamentos para buffets, espaços de festa, fotógrafos, DJs e organizadores de eventos, com Google, Instagram e anúncios.",
+  "sub": "Orçamentos para buffets, espaços de festa, fotógrafos, DJs e organizadores de eventos, com Google, Instagram e anúncios.",
+  "cta": "Quer a agenda de eventos fechada com antecedência?",
+  "posts": [
+   "seo-local-o-que-e",
+   "como-conseguir-avaliacoes-no-google",
+   "landing-page-o-que-e"
+  ]
+ },
+ {
+  "slug": "agencia-de-marketing-esportivo",
+  "nome": "negócios do esporte",
+  "h1": "Agência de marketing esportivo",
+  "title": "Agência de marketing esportivo | InovaSEO",
+  "desc": "Marketing para clubes, escolinhas, assessorias esportivas, lojas e eventos esportivos: público, patrocínio e inscrições.",
+  "sub": "Marketing para clubes, escolinhas, assessorias esportivas, lojas e eventos esportivos: público, patrocínio e inscrições.",
+  "cta": "Quer mais alunos, inscritos e patrocinadores?",
+  "posts": [
+   "como-ganhar-clientes-pela-internet",
+   "trafego-pago-como-funciona",
+   "como-conseguir-alunos-para-academia"
+  ]
+ },
+ {
+  "slug": "agencia-de-performance",
+  "nome": "marketing de performance",
+  "h1": "Agência de marketing de performance",
+  "title": "Agência de marketing de performance | InovaSEO",
+  "desc": "Anúncios e SEO pagos por resultado medido: custo por lead, custo por venda e retorno sobre o investimento, mês a mês.",
+  "sub": "Anúncios e SEO pagos por resultado medido: custo por lead, custo por venda e retorno sobre o investimento, mês a mês.",
+  "cta": "Quer marketing medido em vendas, e não em curtidas?",
+  "posts": [
+   "quanto-custa-google-ads",
+   "o-que-faz-agencia-de-trafego-pago",
+   "seo-ou-google-ads"
+  ],
+  "grupo": "servico",
+  "tipo": "Marketing de performance",
+  "fim": "Atendemos empresas de todo o Brasil, com relatório mensal de investimento, contatos, vendas e custo por cliente."
+ },
+ {
+  "slug": "agencia-de-marketing-de-conteudo",
+  "nome": "marketing de conteúdo",
+  "h1": "Agência de marketing de conteúdo",
+  "title": "Agência de marketing de conteúdo | InovaSEO",
+  "desc": "Blog, páginas e materiais que respondem o que seu cliente pesquisa no Google e nas IAs, com publicação automática e SEO.",
+  "sub": "Blog, páginas e materiais que respondem o que seu cliente pesquisa no Google e nas IAs, com publicação automática e SEO.",
+  "cta": "Quer conteúdo que traz cliente pelo Google?",
+  "posts": [
+   "palavras-chave-para-seo",
+   "seo-e-geo-diferenca",
+   "como-fazer-seo-no-site"
+  ],
+  "grupo": "servico",
+  "tipo": "Marketing de conteúdo",
+  "fim": "Atendemos empresas de todo o Brasil, com calendário editorial, publicação automática e relatório mensal de visitas e contatos."
+ },
+ {
+  "slug": "seo-white-label",
+  "nome": "SEO white label",
+  "h1": "SEO white label para agências",
+  "title": "SEO white label para agências | InovaSEO",
+  "desc": "Revenda SEO local e programático com a marca da sua agência: nós executamos, você entrega ao seu cliente e fica com a margem.",
+  "sub": "Revenda SEO local e programático com a marca da sua agência: nós executamos, você entrega ao seu cliente e fica com a margem.",
+  "cta": "Quer oferecer SEO aos seus clientes sem montar equipe?",
+  "posts": [
+   "seo-programatico",
+   "quanto-custa-seo",
+   "como-escolher-agencia-de-seo"
+  ],
+  "grupo": "servico",
+  "tipo": "SEO white label",
+  "fim": "Trabalhamos com agências de todo o Brasil, com relatórios sem a nossa marca e contato direto com a sua equipe."
  }
 ]

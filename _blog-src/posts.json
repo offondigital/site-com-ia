@@ -421,7 +421,7 @@
   "title": "Como contratar uma agência de marketing digital",
   "cover": "Como contratar uma agência de marketing sem errar",
   "desc": "Como contratar uma agência de marketing digital: o que definir antes, perguntas para a reunião, sinais de alerta e como medir os primeiros 90 dias.",
-  "kw": "como contratar uma agência de marketing, contratar agência de marketing digital, porque contratar uma agência de marketing",
+  "kw": "como contratar uma agência de marketing, contratar agência de marketing digital, porque contratar uma agência de marketing, melhor agência de marketing digital, qual a melhor agência de marketing",
   "page": "agencia-de-marketing-digital",
   "cluster": "c7",
   "to": [
@@ -506,7 +506,7 @@
   "title": "O que faz uma agência de tráfego pago",
   "cover": "O que faz uma agência de tráfego pago",
   "desc": "O que uma agência de tráfego pago faz: planejamento, campanhas no Google e no Meta, medição de contatos e ajustes, e como avaliar o trabalho.",
-  "kw": "o que faz uma agência de tráfego pago, o que é uma agência de tráfego pago, como funciona uma agência de tráfego pago",
+  "kw": "o que faz uma agência de tráfego pago, o que é uma agência de tráfego pago, como funciona uma agência de tráfego pago, melhor agência de tráfego pago, melhor agência de tráfego pago para advogados",
   "page": "agencia-de-trafego-pago",
   "cluster": "c7",
   "to": [
@@ -582,6 +582,35 @@
   "to": [
    "empresa-precisa-de-site",
    "marketing-digital-para-clinicas"
+  ]
+ },
+ {
+  "slug": "marketing-digital-o-que-e",
+  "date": "2027-03-19",
+  "title": "Marketing digital: o que é e como funciona",
+  "cover": "Marketing digital: o que é e como funciona",
+  "desc": "O que é marketing digital, como funciona na ordem em que o cliente compra, os principais canais e como medir se está dando resultado.",
+  "kw": "marketing digital o que é, marketing digital como funciona, o que é marketing digital e como funciona",
+  "page": "agencia-de-marketing-digital",
+  "cluster": "c7",
+  "to": [
+   "marketing-digital-vale-a-pena",
+   "o-que-faz-agencia-de-marketing-digital",
+   "o-que-e-seo"
+  ]
+ },
+ {
+  "slug": "agencia-de-marketing-x-publicidade",
+  "date": "2027-03-23",
+  "title": "Agência de marketing ou de publicidade: qual a diferença?",
+  "cover": "Agência de marketing ou de publicidade?",
+  "desc": "A diferença entre agência de marketing digital e agência de publicidade, o que cada uma entrega, como mede resultado e quando contratar cada uma.",
+  "kw": "agência de marketing x agência de publicidade, diferença entre agência de marketing e publicidade, agência de propaganda",
+  "page": "agencia-de-marketing-digital",
+  "cluster": "c7",
+  "to": [
+   "o-que-faz-agencia-de-marketing-digital",
+   "como-contratar-agencia-de-marketing"
   ]
  }
 ]
