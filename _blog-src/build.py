@@ -341,13 +341,16 @@ def gerar_nichos(pub_slugs, por_slug):
         servico = n.get("grupo") in ("servico", "cidade")
         outros = [o for o in NICHOS if o["slug"] != n["slug"] and (o.get("grupo") or "segmento") == (n.get("grupo") or "segmento")]
         if n.get("grupo") == "cidade":
-            outros = [o for o in NICHOS if o.get("grupo") == "servico"]
+            outros = [o for o in NICHOS if o.get("cidade") == n.get("cidade") and o["slug"] != n["slug"]]
+            outros += [o for o in NICHOS if o.get("grupo") == "servico"][: max(0, 4 - len(outros))]
         if not servico:  # vizinhos variam por pagina para espalhar os links
             k = NICHOS.index(n) % max(1, len(outros)); outros = outros[k:] + outros[:k]
-        irmaos = (f'<nav class="post-next" aria-label="Outros"><h2>{"Outros serviços" if servico else "Outros segmentos que atendemos"}</h2><ul>'
+        titulo_irmaos = (f"Outros serviços em {n['cidade_nome']}" if n.get("grupo") == "cidade" and n.get("cidade_nome") else
+                         "Outros serviços" if servico else "Outros segmentos que atendemos")
+        irmaos = (f'<nav class="post-next" aria-label="Outros"><h2>{titulo_irmaos}</h2><ul>'
                   + "".join(f'<li><a href="{BASE}/{o["slug"]}/">{html.escape(o["h1"])}</a></li>' for o in outros[:6])
                   + f'<li><a href="{BASE}/segmentos/">Ver todos os segmentos</a></li></ul></nav>')
-        trilha_nome, trilha_url = ("Agência de marketing digital", "/agencia-de-marketing-digital/") if servico else ("Segmentos", "/segmentos/")
+        trilha_nome, trilha_url = (n["trilha"] if n.get("trilha") else ("Agência de marketing digital", "/agencia-de-marketing-digital/") if servico else ("Segmentos", "/segmentos/"))
         fim = n.get("fim") or f"Atendemos {n['nome']} de todo o Brasil, com reuniões on-line e relatórios mensais de cliques, ligações e contatos."
         canon = f"{SITE}/{n['slug']}/"
         miolo = f'''<section class="page-hero">

@@ -424,7 +424,9 @@
   ],
   "grupo": "cidade",
   "tipo": "Marketing digital",
-  "fim": "Atendemos empresas de Londrina e do norte do Paraná com reuniões on-line e relatório mensal de cliques, ligações e contatos."
+  "fim": "Atendemos empresas de Londrina e do norte do Paraná com reuniões on-line e relatório mensal de cliques, ligações e contatos.",
+  "cidade": "londrina",
+  "cidade_nome": "Londrina"
  },
  {
   "slug": "anuncios-no-instagram",
@@ -442,5 +444,212 @@
   "grupo": "servico",
   "tipo": "Anúncios no Instagram e Facebook (Meta Ads)",
   "fim": "Atendemos empresas de todo o Brasil, com a conta de anúncios no nome da sua empresa e relatório mensal de investimento, contatos e custo por cliente."
+ },
+ {
+  "slug": "agencia-de-marketing-digital-em-curitiba",
+  "nome": "empresas de Curitiba",
+  "h1": "Agência de marketing digital em Curitiba",
+  "title": "Agência de Marketing Digital em Curitiba | InovaSEO",
+  "desc": "SEO, Google Maps, sites e anúncios para empresas de Curitiba, do Batel ao CIC, com páginas por bairro e cada contato medido.",
+  "sub": "SEO, Google Maps, sites e anúncios para empresas de Curitiba, do Batel ao CIC, com páginas por bairro e cada contato medido.",
+  "cta": "Quer sua empresa entre as primeiras do Google em Curitiba?",
+  "posts": [
+   "seo-local-o-que-e",
+   "como-aparecer-no-google-maps",
+   "quanto-custa-agencia-de-marketing"
+  ],
+  "grupo": "cidade",
+  "tipo": "Marketing digital",
+  "cidade": "curitiba",
+  "cidade_nome": "Curitiba",
+  "trilha": [
+   "Agência de marketing digital",
+   "/agencia-de-marketing-digital/"
+  ],
+  "fim": "Atendemos empresas de Curitiba com reuniões on-line, relatório mensal e contato direto pelo WhatsApp."
+ },
+ {
+  "slug": "agencia-de-seo-em-curitiba",
+  "nome": "empresas de Curitiba",
+  "h1": "Agência de SEO em Curitiba",
+  "title": "Agência de SEO em Curitiba | InovaSEO",
+  "desc": "SEO local e programático para empresas de Curitiba aparecerem no Google e no Maps em cada bairro onde atendem.",
+  "sub": "SEO local e programático para empresas de Curitiba aparecerem no Google e no Maps em cada bairro onde atendem.",
+  "cta": "Quer aparecer no Google nos bairros de Curitiba?",
+  "posts": [
+   "seo-local-o-que-e",
+   "seo-programatico",
+   "quanto-custa-seo"
+  ],
+  "grupo": "cidade",
+  "tipo": "SEO",
+  "cidade": "curitiba",
+  "cidade_nome": "Curitiba",
+  "trilha": [
+   "Agência de SEO",
+   "/agencia-de-seo/"
+  ],
+  "fim": "Atendemos empresas de Curitiba com reuniões on-line, relatório mensal e contato direto pelo WhatsApp."
+ },
+ {
+  "slug": "agencia-de-criacao-de-sites-em-curitiba",
+  "nome": "empresas de Curitiba",
+  "h1": "Criação de sites em Curitiba",
+  "title": "Criação de Sites em Curitiba | InovaSEO",
+  "desc": "Sites rápidos, com uma página por serviço e por bairro, para empresas de Curitiba que querem clientes pelo Google.",
+  "sub": "Sites rápidos, com uma página por serviço e por bairro, para empresas de Curitiba que querem clientes pelo Google.",
+  "cta": "Quer um site que traga cliente em Curitiba?",
+  "posts": [
+   "quanto-custa-um-site",
+   "site-lento-como-resolver",
+   "criar-site-com-ia"
+  ],
+  "grupo": "cidade",
+  "tipo": "Criação de sites",
+  "cidade": "curitiba",
+  "cidade_nome": "Curitiba",
+  "trilha": [
+   "Criação de sites",
+   "/agencia-de-criacao-de-sites/"
+  ],
+  "fim": "Atendemos empresas de Curitiba com reuniões on-line, relatório mensal e contato direto pelo WhatsApp."
+ },
+ {
+  "slug": "agencia-de-trafego-pago-em-curitiba",
+  "nome": "empresas de Curitiba",
+  "h1": "Agência de tráfego pago em Curitiba",
+  "title": "Agência de Tráfego Pago em Curitiba | InovaSEO",
+  "desc": "Google Ads e anúncios no Instagram para empresas de Curitiba, segmentados por bairro e com custo por cliente medido.",
+  "sub": "Google Ads e anúncios no Instagram para empresas de Curitiba, segmentados por bairro e com custo por cliente medido.",
+  "cta": "Quer anúncios que viram cliente em Curitiba?",
+  "posts": [
+   "quanto-custa-google-ads",
+   "trafego-pago-como-funciona",
+   "quanto-cobra-agencia-de-trafego-pago"
+  ],
+  "grupo": "cidade",
+  "tipo": "Tráfego pago",
+  "cidade": "curitiba",
+  "cidade_nome": "Curitiba",
+  "trilha": [
+   "Tráfego pago",
+   "/agencia-de-trafego-pago/"
+  ],
+  "fim": "Atendemos empresas de Curitiba com reuniões on-line, relatório mensal e contato direto pelo WhatsApp."
+ },
+ {
+  "slug": "agencia-de-marketing-digital-em-sao-jose-dos-pinhais",
+  "nome": "empresas de São José dos Pinhais",
+  "h1": "Agência de marketing digital em São José dos Pinhais",
+  "title": "Agência de Marketing Digital em São José dos Pinhais | InovaSEO",
+  "desc": "SEO, Google Maps, sites e anúncios para empresas de São José dos Pinhais, com páginas por bairro e foco em quem procura perto.",
+  "sub": "SEO, Google Maps, sites e anúncios para empresas de São José dos Pinhais, com páginas por bairro e foco em quem procura perto.",
+  "cta": "Quer sua empresa no topo do Google em São José dos Pinhais?",
+  "posts": [
+   "seo-local-o-que-e",
+   "como-aparecer-no-google-maps",
+   "como-ganhar-clientes-pela-internet"
+  ],
+  "grupo": "cidade",
+  "tipo": "Marketing digital",
+  "cidade": "sao-jose-dos-pinhais",
+  "cidade_nome": "São José dos Pinhais",
+  "trilha": [
+   "Agência de marketing digital",
+   "/agencia-de-marketing-digital/"
+  ],
+  "fim": "Atendemos empresas de São José dos Pinhais com reuniões on-line, relatório mensal e contato direto pelo WhatsApp."
+ },
+ {
+  "slug": "agencia-de-marketing-digital-em-ponta-grossa",
+  "nome": "empresas de Ponta Grossa",
+  "h1": "Agência de marketing digital em Ponta Grossa",
+  "title": "Agência de Marketing Digital em Ponta Grossa | InovaSEO",
+  "desc": "SEO, Google Maps, sites e anúncios para empresas de Ponta Grossa e dos Campos Gerais, com cada contato medido.",
+  "sub": "SEO, Google Maps, sites e anúncios para empresas de Ponta Grossa e dos Campos Gerais, com cada contato medido.",
+  "cta": "Quer sua empresa entre as primeiras do Google em Ponta Grossa?",
+  "posts": [
+   "seo-local-o-que-e",
+   "como-aparecer-no-google-maps",
+   "quanto-custa-agencia-de-marketing"
+  ],
+  "grupo": "cidade",
+  "tipo": "Marketing digital",
+  "cidade": "ponta-grossa",
+  "cidade_nome": "Ponta Grossa",
+  "trilha": [
+   "Agência de marketing digital",
+   "/agencia-de-marketing-digital/"
+  ],
+  "fim": "Atendemos empresas de Ponta Grossa com reuniões on-line, relatório mensal e contato direto pelo WhatsApp."
+ },
+ {
+  "slug": "agencia-de-seo-em-ponta-grossa",
+  "nome": "empresas de Ponta Grossa",
+  "h1": "Agência de SEO em Ponta Grossa",
+  "title": "Agência de SEO em Ponta Grossa | InovaSEO",
+  "desc": "SEO local para empresas de Ponta Grossa aparecerem no Google e no Maps, na cidade e nos Campos Gerais.",
+  "sub": "SEO local para empresas de Ponta Grossa aparecerem no Google e no Maps, na cidade e nos Campos Gerais.",
+  "cta": "Quer aparecer no Google em Ponta Grossa?",
+  "posts": [
+   "seo-local-o-que-e",
+   "otimizar-perfil-da-empresa-no-google",
+   "seo-vale-a-pena"
+  ],
+  "grupo": "cidade",
+  "tipo": "SEO",
+  "cidade": "ponta-grossa",
+  "cidade_nome": "Ponta Grossa",
+  "trilha": [
+   "Agência de SEO",
+   "/agencia-de-seo/"
+  ],
+  "fim": "Atendemos empresas de Ponta Grossa com reuniões on-line, relatório mensal e contato direto pelo WhatsApp."
+ },
+ {
+  "slug": "agencia-de-criacao-de-sites-em-ponta-grossa",
+  "nome": "empresas de Ponta Grossa",
+  "h1": "Criação de sites em Ponta Grossa",
+  "title": "Criação de Sites em Ponta Grossa | InovaSEO",
+  "desc": "Criação de sites rápidos e pensados para o Google para empresas de Ponta Grossa e região dos Campos Gerais.",
+  "sub": "Criação de sites rápidos e pensados para o Google para empresas de Ponta Grossa e região dos Campos Gerais.",
+  "cta": "Quer um site que traga cliente em Ponta Grossa?",
+  "posts": [
+   "quanto-custa-um-site",
+   "empresa-precisa-de-site",
+   "landing-page-o-que-e"
+  ],
+  "grupo": "cidade",
+  "tipo": "Criação de sites",
+  "cidade": "ponta-grossa",
+  "cidade_nome": "Ponta Grossa",
+  "trilha": [
+   "Criação de sites",
+   "/agencia-de-criacao-de-sites/"
+  ],
+  "fim": "Atendemos empresas de Ponta Grossa com reuniões on-line, relatório mensal e contato direto pelo WhatsApp."
+ },
+ {
+  "slug": "agencia-de-trafego-pago-em-ponta-grossa",
+  "nome": "empresas de Ponta Grossa",
+  "h1": "Agência de tráfego pago em Ponta Grossa",
+  "title": "Agência de Tráfego Pago em Ponta Grossa | InovaSEO",
+  "desc": "Google Ads e anúncios no Instagram para empresas de Ponta Grossa e dos Campos Gerais, com custo por cliente medido.",
+  "sub": "Google Ads e anúncios no Instagram para empresas de Ponta Grossa e dos Campos Gerais, com custo por cliente medido.",
+  "cta": "Quer anúncios que viram cliente em Ponta Grossa?",
+  "posts": [
+   "quanto-custa-google-ads",
+   "trafego-pago-como-funciona",
+   "seo-ou-google-ads"
+  ],
+  "grupo": "cidade",
+  "tipo": "Tráfego pago",
+  "cidade": "ponta-grossa",
+  "cidade_nome": "Ponta Grossa",
+  "trilha": [
+   "Tráfego pago",
+   "/agencia-de-trafego-pago/"
+  ],
+  "fim": "Atendemos empresas de Ponta Grossa com reuniões on-line, relatório mensal e contato direto pelo WhatsApp."
  }
 ]
