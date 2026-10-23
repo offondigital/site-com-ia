@@ -375,7 +375,26 @@ def gerar_nichos(pub_slugs, por_slug):
     <h1>Marketing digital por segmento</h1>
     <p>Cada tipo de negócio é encontrado de um jeito no Google. Escolha o seu e veja como trabalhamos SEO, Google Maps, site e anúncios para ele, em qualquer cidade do Brasil.</p>
 </div></section>
-<section class="page-section"><div class="container"><div class="blog-grid">{cards}</div></div></section>'''
+<section class="page-section"><div class="container"><div class="blog-grid">{cards}</div></div></section>
+<section class="page-section page-section--alt"><div class="container post-narrow post">
+<h2 style="margin-top:0">Resultados de clientes</h2>
+<p>Posições reais no Google, que você pode conferir pesquisando a busca. O valor equivalente é o que custaria comprar os mesmos cliques no Google Ads, só para a palavra mostrada.</p>
+<div class="tabela"><table>
+<tr><th>Busca</th><th>Posição</th><th>Equivalente em anúncio por ano</th></tr>
+<tr><td>desentupidora em Itaquera (SP)</td><td>1º orgânico</td><td>cerca de R$ 121 mil</td></tr>
+<tr><td>desentupidora em São Luís (MA)</td><td>1º orgânico</td><td>R$ 107.347</td></tr>
+<tr><td>conserto de geladeira zona leste SP</td><td>1º no mapa</td><td>R$ 98.366</td></tr>
+<tr><td>detetive particular Brasília DF</td><td>1º no mapa</td><td>R$ 29.795</td></tr>
+<tr><td>conserto de geladeira Tatuapé (SP)</td><td>3º orgânico</td><td>R$ 12.744</td></tr>
+<tr><td>caça vazamentos Jardim Camburi, Vitória (ES)</td><td>1º orgânico</td><td>R$ 11.975</td></tr>
+<tr><td>guincho pesado em Águas Lindas de Goiás (GO)</td><td>1º orgânico e mapa</td><td>R$ 11.461</td></tr>
+<tr><td>ortodontista no São Jorge, Manaus (AM)</td><td>1º orgânico</td><td>R$ 6.201</td></tr>
+<tr><td>auto elétrica no Centro Cívico, Londrina (PR)</td><td>1º orgânico e mapa</td><td>R$ 5.322</td></tr>
+<tr><td>apartamento lançamento em Jardim Saltense, Salto (SP)</td><td>1º orgânico, acima do VivaReal</td><td>R$ 5.054</td></tr>
+<tr><td>DJ para festa Jardim Alto Rio Preto (SP)</td><td>1º orgânico</td><td>R$ 1.710</td></tr>
+<tr><td>limpeza de sofá Recife e Jaboatão (PE)</td><td>1º orgânico</td><td>posição de destaque</td></tr>
+</table></div>
+</div></section>'''
     (ROOT / "segmentos").mkdir(exist_ok=True)
     (ROOT / "segmentos" / "index.html").write_text(
         pagina("Marketing digital por segmento | InovaSEO", "Agência de marketing para dentistas, advogados, imobiliárias, restaurantes, academias e outros segmentos, em todo o Brasil.",
