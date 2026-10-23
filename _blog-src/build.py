@@ -86,7 +86,7 @@ def wa_btn(p, content, label, classe="btn-cta-primary"):
 
 
 def link_post(slug):
-    return f"{BASE}/blog/{slug}/"
+    return f"{BASE}/{OUT_NAME}/{slug}/"
 
 
 def expandir(corpo, p, pub_slugs, por_slug):
