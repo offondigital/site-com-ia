@@ -286,7 +286,7 @@ img, iframe {
         display: none;
     }
     .hero--video {
-        background: linear-gradient(100deg, hsla(226, 71%, 14%, 0.9), hsla(217, 91%, 30%, 0.7)), url("/site-com-ia/assets/hero-agencia.webp") center / cover no-repeat;
+        background: linear-gradient(100deg, hsla(226, 71%, 14%, 0.9), hsla(217, 91%, 30%, 0.7)), url("/assets/hero-agencia.webp") center / cover no-repeat;
     }
 }
 

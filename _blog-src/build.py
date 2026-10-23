@@ -20,8 +20,8 @@ from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "_blog-src"
-BASE = "/site-com-ia"
-SITE = "https://offondigital.github.io" + BASE
+BASE = ""
+SITE = "https://inovaseo.com.br"
 TEL = "5545988195137"
 PREVIEW = "--all" in sys.argv
 OUT_NAME = "blog-preview" if PREVIEW else "blog"
@@ -34,17 +34,17 @@ AUTOR_NOME = "Cezar Dias"
 AUTOR = {"@type": "Person", "@id": SITE + "/#cezar-dias", "name": AUTOR_NOME,
          "jobTitle": "Especialista em SEO local", "worksFor": {"@id": SITE + "/#organization"}}
 GRUPOS = {"c1": "Google e Maps", "c2": "SEO", "c3": "SEO para IA", "c4": "Sites", "c5": "Tráfego pago",
-          "c6": "Marketing por segmento", "pilar": "Guia"}
+          "c6": "Marketing por segmento", "c7": "Contratar agência", "pilar": "Guia"}
 
 # pagina de servico -> posts que ela deve linkar (bloco "Para entender antes de decidir")
 REVERSO = {
     "index": [PILAR, "seo-local-o-que-e", "quanto-custa-um-site", "seo-vale-a-pena"],
     "seo": ["o-que-e-seo", "seo-vale-a-pena", "quanto-custa-seo", "como-escolher-agencia-de-seo"],
     "sites": ["quanto-custa-um-site", "criar-site-com-ia", "landing-page-o-que-e", "empresa-precisa-de-site"],
-    "trafego": ["quanto-custa-google-ads", "trafego-pago-como-funciona", "seo-ou-google-ads"],
-    "marketing": [PILAR, "como-ganhar-clientes-pela-internet", "seo-ou-google-ads", "ia-para-pequenas-empresas"],
+    "trafego": ["quanto-custa-google-ads", "quanto-cobra-agencia-de-trafego-pago", "trafego-pago-como-funciona", "seo-ou-google-ads"],
+    "marketing": ["quanto-custa-agencia-de-marketing", "como-contratar-agencia-de-marketing", PILAR, "como-ganhar-clientes-pela-internet"],
     "consultoria": ["como-escolher-agencia-de-seo", "seo-vale-a-pena", "seo-ou-google-ads"],
-    "pequenas": ["como-ganhar-clientes-pela-internet", "como-colocar-minha-empresa-no-google", "ia-para-pequenas-empresas"],
+    "pequenas": ["marketing-digital-vale-a-pena", "como-ganhar-clientes-pela-internet", "como-colocar-minha-empresa-no-google"],
     "seo-cidade": ["seo-local-o-que-e", "como-aparecer-no-google-maps", "como-conseguir-avaliacoes-no-google"],
     "sites-cidade": ["quanto-custa-um-site", "empresa-precisa-de-site", "site-lento-como-resolver"],
     "trafego-cidade": ["quanto-custa-google-ads", "seo-ou-google-ads", "trafego-pago-como-funciona"],
@@ -186,7 +186,24 @@ document.addEventListener('click', function (e) {
 </script>"""
 
 
-def pagina(titulo, desc, canon, og_img, tipo_og, ld_blocos, miolo, preload=""):
+def menu_com_links(txt):
+    """Garante os links Blog e Segmentos no menu (antes de Contato) e no rodape (depois de Consultoria/Inicio/Precos)."""
+    for rot, alvo in (("Blog", f"{BASE}/blog/"), ("Segmentos", f"{BASE}/segmentos/")):
+        i, j = txt.find("<header"), txt.find("</header>")
+        if i >= 0 and j > i and f'href="{alvo}"' not in txt[i:j]:
+            cab = re.sub(r'(\n[ \t]*)(<a href="[^"]*"( class="nav-item")?>Contato</a>)',
+                         lambda m: f'{m.group(1)}<a href="{alvo}"{m.group(3) or ""}>{rot}</a>{m.group(1)}{m.group(2)}', txt[i:j], count=1)
+            txt = txt[:i] + cab + txt[j:]
+        i = txt.find("<footer")
+        if i >= 0 and f'<li><a href="{alvo}">{rot}</a></li>' not in txt[i:]:
+            ancora = (rf'<li><a href="{BASE}/blog/">Blog</a></li>' if rot == "Segmentos" else
+                      rf'<li><a href="{BASE}/consultoria-de-marketing/">Consultoria</a></li>|<li><a href="{BASE}/">Início</a></li>|<li><a href="#planos">Preços</a></li>')
+            rod = re.sub(rf'(\n[ \t]*)({ancora})', lambda m: f'{m.group(1)}{m.group(2)}{m.group(1)}<li><a href="{alvo}">{rot}</a></li>', txt[i:], count=1)
+            txt = txt[:i] + rod
+    return txt
+
+
+def pagina(titulo, desc, canon, og_img, tipo_og, ld_blocos, miolo, preload="", atual="blog"):
     t, d = html.escape(titulo), html.escape(desc)
     return f'''<!DOCTYPE html>
 <html lang="pt-BR">
@@ -219,11 +236,11 @@ def pagina(titulo, desc, canon, og_img, tipo_og, ld_blocos, miolo, preload=""):
 </head>
 <body id="top">
     {NOSCRIPT}
-    {HEADER.replace(f'href="{BASE}/blog/" class="nav-item">', f'href="{BASE}/blog/" class="nav-item" aria-current="page">')}
+    {menu_com_links(HEADER).replace(f'href="{BASE}/{atual}/" class="nav-item">', f'href="{BASE}/{atual}/" class="nav-item" aria-current="page">')}
 <main>
 {miolo}
 </main>
-    {FOOTER}
+    {menu_com_links(FOOTER)}
     <script src="{BASE}/script.js?v=2"></script>
 {RASTREIO_CTA}
 </body>
@@ -257,24 +274,12 @@ def atualizar_paginas_do_site(pub, por_slug):
     arquivos = [ROOT / "index.html"] + sorted(ROOT.glob("*/index.html"))
     for f in arquivos:
         pasta = "" if f.parent == ROOT else f.parent.name
-        if pasta in ("blog", "blog-preview", "auditorias") or pasta.startswith("_"):
+        if pasta in ("blog", "blog-preview", "auditorias", "segmentos") or pasta.startswith("_") or pasta in NICHO_SLUGS:
             continue
         txt = f.read_text(encoding="utf-8")
         novo = txt
         if pub:
-            # menu: link Blog antes de Contato
-            i, j = novo.find("<header"), novo.find("</header>")
-            if i >= 0 and j > i and f'href="{BASE}/blog/"' not in novo[i:j]:
-                cab = re.sub(r'(\n[ \t]*)(<a href="[^"]*"( class="nav-item")?>Contato</a>)',
-                             lambda m: f'{m.group(1)}<a href="{BASE}/blog/"{m.group(3) or ""}>Blog</a>{m.group(1)}{m.group(2)}',
-                             novo[i:j], count=1)
-                novo = novo[:i] + cab + novo[j:]
-            # rodape: link Blog na coluna Empresa
-            i = novo.find("<footer")
-            if i >= 0 and f'<li><a href="{BASE}/blog/">Blog</a></li>' not in novo[i:]:
-                rod = re.sub(rf'(\n[ \t]*)(<li><a href="{BASE}/consultoria-de-marketing/">Consultoria</a></li>|<li><a href="{BASE}/">Início</a></li>|<li><a href="#planos">Preços</a></li>)',
-                             lambda m: f'{m.group(1)}{m.group(2)}{m.group(1)}<li><a href="{BASE}/blog/">Blog</a></li>', novo[i:], count=1)
-                novo = novo[:i] + rod
+            novo = menu_com_links(novo)
         tipo = tipo_pagina(pasta)
         novo = re.sub(r"\n?<!-- blog-links:start -->.*?<!-- blog-links:end -->\n?", "\n", novo, flags=re.S)
         lista = [s for s in REVERSO.get(tipo, []) if s in pub_slugs][:3] if tipo else []
@@ -292,6 +297,92 @@ def atualizar_paginas_do_site(pub, por_slug):
             f.write_text(novo, encoding="utf-8")
             alteradas += 1
     return alteradas
+
+
+# ---------------------------------------------------------------- paginas por segmento (nichos)
+NICHOS = json.loads((SRC / "nichos.json").read_text(encoding="utf-8")) if (SRC / "nichos.json").exists() else []
+NICHO_SLUGS = {n["slug"] for n in NICHOS}
+
+
+def wa_nicho(n, pos, label, classe="btn-cta-primary"):
+    texto = (f"Olá! Vi a página de marketing para {n['nome']} da InovaSEO e quero conversar sobre o meu negócio. "
+             f"(Origem: utm_source=site&utm_medium=whatsapp&utm_campaign=nicho-{n['slug']}&utm_content={pos})")
+    return (f'<a class="{classe}" href="https://wa.me/{TEL}?text={quote(texto, safe="")}" target="_blank" rel="noopener noreferrer" '
+            f'data-cta="whatsapp" data-pos="{pos}" data-post="{n["slug"]}">{html.escape(label)}</a>')
+
+
+def gerar_nichos(pub_slugs, por_slug):
+    if not NICHOS:
+        return 0
+    for n in NICHOS:
+        capa({"slug": n["slug"], "title": n["h1"], "cover": n["h1"], "cluster": "c6"})
+        corpo = (SRC / "nichos" / f"{n['slug']}.html").read_text(encoding="utf-8")
+        if "\u2014" in corpo or "\u2013" in corpo:
+            raise SystemExit(f"travessao no nicho {n['slug']}")
+
+        def f_post(m):
+            alvo, ancora = [x.strip() for x in m.group(1).split("|", 1)]
+            if alvo not in por_slug:
+                raise SystemExit(f"[[post]] inexistente no nicho {n['slug']}: {alvo}")
+            return f'<a href="{link_post(alvo)}">{html.escape(ancora)}</a>' if alvo in pub_slugs else html.escape(ancora)
+
+        def f_wa(m):
+            pos, tit, txt, btn = [x.strip() for x in m.group(1).split("|", 3)]
+            return (f'<aside class="post-cta"><p class="post-cta-tit">{html.escape(tit)}</p><p>{html.escape(txt)}</p>'
+                    f'{wa_nicho(n, "cta-" + pos, btn)}</aside>')
+        corpo = re.sub(r"\[\[post ([^\]]+)\]\]", f_post, corpo)
+        corpo = re.sub(r"\[\[cta-wa ([^\]]+)\]\]", f_wa, corpo)
+        lidos = [s for s in n.get("posts", []) if s in pub_slugs][:4]
+        ler = ""
+        if lidos:
+            ler = ('<nav class="post-next" aria-label="Para entender antes de decidir"><h2>Para entender antes de decidir</h2><ul>'
+                   + "".join(f'<li><a href="{link_post(s)}">{html.escape(por_slug[s]["title"])}</a></li>' for s in lidos) + "</ul></nav>")
+        outros = [o for o in NICHOS if o["slug"] != n["slug"]]
+        irmaos = ('<nav class="post-next" aria-label="Outros segmentos"><h2>Outros segmentos que atendemos</h2><ul>'
+                  + "".join(f'<li><a href="{BASE}/{o["slug"]}/">{html.escape(o["h1"])}</a></li>' for o in outros[:6])
+                  + f'<li><a href="{BASE}/segmentos/">Ver todos os segmentos</a></li></ul></nav>')
+        canon = f"{SITE}/{n['slug']}/"
+        miolo = f'''<section class="page-hero">
+    <div class="container post-narrow">
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="{BASE}/">Início</a><span aria-hidden="true">›</span><a href="{BASE}/segmentos/">Segmentos</a><span aria-hidden="true">›</span><span>{html.escape(n["nome"].capitalize())}</span></nav>
+        <h1>{html.escape(n["h1"])}</h1>
+        <p>{html.escape(n["sub"])}</p>
+        <div class="post-cta-btns" style="margin-top:1.4rem">{wa_nicho(n, "hero", "Falar com especialista")}<a class="btn-cta-secondary" href="{BASE}/#planos" data-cta="pagina" data-pos="hero-planos" data-post="{n["slug"]}">Ver planos</a></div>
+    </div>
+</section>
+<article class="post"><div class="container post-narrow content-text">
+{corpo}
+<aside class="post-cta post-cta-fim" id="cta"><p class="post-cta-tit">{html.escape(n["cta"])}</p><p>Atendemos {html.escape(n["nome"])} de todo o Brasil, com reuniões on-line e relatórios mensais de cliques, ligações e contatos.</p>
+<div class="post-cta-btns">{wa_nicho(n, "cta-fim", "Falar no WhatsApp")}<a class="btn-cta-secondary" href="{BASE}/agencia-de-marketing-digital/" data-cta="pagina" data-pos="cta-fim-servico" data-post="{n["slug"]}">Conhecer a agência</a></div></aside>
+{ler}
+{irmaos}
+</div></article>'''
+        servico = {"@context": "https://schema.org", "@type": "Service", "name": n["h1"], "serviceType": "Marketing digital",
+                   "description": n["desc"], "provider": {"@id": SITE + "/#organization"}, "areaServed": {"@type": "Country", "name": "Brasil"},
+                   "audience": {"@type": "BusinessAudience", "name": n["nome"].capitalize()}, "url": canon}
+        trilha = {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Início", "item": SITE + "/"},
+            {"@type": "ListItem", "position": 2, "name": "Segmentos", "item": SITE + "/segmentos/"},
+            {"@type": "ListItem", "position": 3, "name": n["h1"], "item": canon}]}
+        (ROOT / n["slug"]).mkdir(exist_ok=True)
+        (ROOT / n["slug"] / "index.html").write_text(
+            pagina(n["title"], n["desc"], canon, f"{SITE}/assets/blog/{n['slug']}.jpg", "website", [ld(servico), ld(trilha)], miolo, "", "segmentos"),
+            encoding="utf-8")
+    cards = "".join(f'<a class="blog-card" href="{BASE}/{n["slug"]}/"><img src="{BASE}/assets/blog/{n["slug"]}.webp" width="1200" height="630" alt="" loading="lazy" decoding="async">'
+                    f'<div class="blog-card-body"><h3>{html.escape(n["h1"])}</h3><p>{html.escape(n["sub"])}</p></div></a>' for n in NICHOS)
+    miolo = f'''<section class="page-hero"><div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="{BASE}/">Início</a><span aria-hidden="true">›</span><span>Segmentos</span></nav>
+    <h1>Marketing digital por segmento</h1>
+    <p>Cada tipo de negócio é encontrado de um jeito no Google. Escolha o seu e veja como trabalhamos SEO, Google Maps, site e anúncios para ele, em qualquer cidade do Brasil.</p>
+</div></section>
+<section class="page-section"><div class="container"><div class="blog-grid">{cards}</div></div></section>'''
+    (ROOT / "segmentos").mkdir(exist_ok=True)
+    (ROOT / "segmentos" / "index.html").write_text(
+        pagina("Marketing digital por segmento | InovaSEO", "Agência de marketing para dentistas, advogados, imobiliárias, restaurantes, academias e outros segmentos, em todo o Brasil.",
+               SITE + "/segmentos/", SITE + "/assets/og-inovaseo.jpg", "website",
+               [ld({"@context": "https://schema.org", "@type": "CollectionPage", "name": "Marketing digital por segmento", "url": SITE + "/segmentos/"})], miolo, "", "segmentos"),
+        encoding="utf-8")
+    return len(NICHOS)
 
 
 def main():
@@ -370,6 +461,7 @@ def main():
             encoding="utf-8")
 
     if not PREVIEW:
+        print(f"paginas de segmento: {gerar_nichos(pub_slugs, por_slug)}")
         sm = ROOT / "sitemap.xml"
         txt = sm.read_text(encoding="utf-8")
         txt = re.sub(r"\s*<!-- blog:start -->.*?<!-- blog:end -->", "", txt, flags=re.S)
@@ -377,6 +469,10 @@ def main():
             urls = [f"  <url>\n    <loc>{SITE}/blog/</loc>\n    <lastmod>{pub[0]['date']}</lastmod>\n  </url>"]
             urls += [f"  <url>\n    <loc>{SITE}/blog/{o['slug']}/</loc>\n    <lastmod>{o.get('updated', o['date'])}</lastmod>\n  </url>" for o in pub]
             txt = txt.replace("</urlset>", "  <!-- blog:start -->\n" + "\n".join(urls) + "\n  <!-- blog:end -->\n</urlset>")
+        txt = re.sub(r"\s*<!-- nichos:start -->.*?<!-- nichos:end -->", "", txt, flags=re.S)
+        if NICHOS:
+            urls = [f"  <url>\n    <loc>{SITE}/segmentos/</loc>\n  </url>"] + [f"  <url>\n    <loc>{SITE}/{n['slug']}/</loc>\n  </url>" for n in NICHOS]
+            txt = txt.replace("</urlset>", "  <!-- nichos:start -->\n" + "\n".join(urls) + "\n  <!-- nichos:end -->\n</urlset>")
         sm.write_text(txt, encoding="utf-8")
         n = atualizar_paginas_do_site(pub, por_slug)
         print(f"paginas do site atualizadas: {n}")

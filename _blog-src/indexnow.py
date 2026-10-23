@@ -9,8 +9,8 @@ import json, re, sys, urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-HOST = "offondigital.github.io"
-SITE = f"https://{HOST}/site-com-ia"
+HOST = "inovaseo.com.br"
+SITE = f"https://{HOST}"
 ESTADO = ROOT / "_blog-src" / "indexnow-enviados.json"
 
 

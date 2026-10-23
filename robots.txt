@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://offondigital.github.io/site-com-ia/sitemap.xml
+Sitemap: https://inovaseo.com.br/sitemap.xml

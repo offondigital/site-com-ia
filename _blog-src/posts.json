@@ -379,11 +379,209 @@
   "cover": "Marketing jurídico: o que a OAB permite",
   "desc": "O que advogados podem fazer no marketing digital pelo Provimento 205/2021 da OAB: site, Google, Instagram, anúncios e o que segue proibido.",
   "kw": "marketing digital para advogados, google ads para advogados, seo para advogados, marketing jurídico",
-  "page": "agencia-de-marketing-digital",
+  "page": "agencia-de-marketing-para-advogados",
   "cluster": "c6",
   "to": [
    "seo-local-o-que-e",
    "seo-ou-google-ads"
+  ]
+ },
+ {
+  "slug": "quanto-custa-agencia-de-marketing",
+  "date": "2027-01-26",
+  "title": "Quanto custa uma agência de marketing digital?",
+  "cover": "Quanto custa uma agência de marketing digital em 2026",
+  "desc": "Quanto custa uma agência de marketing digital em 2026, o que entra no preço, por que a verba de anúncio é separada e como saber se compensa.",
+  "kw": "quanto custa uma agência de marketing, quanto cobra uma agência de marketing, marketing digital quanto custa, marketing digital valor mensal",
+  "page": "agencia-de-marketing-digital",
+  "cluster": "c7",
+  "to": [
+   "como-contratar-agencia-de-marketing",
+   "quanto-custa-seo",
+   "quanto-cobra-agencia-de-trafego-pago"
+  ]
+ },
+ {
+  "slug": "como-conseguir-pacientes-dentista",
+  "date": "2027-01-29",
+  "title": "Como conseguir mais pacientes para dentista",
+  "cover": "Como conseguir mais pacientes no consultório",
+  "desc": "Como dentistas conseguem mais pacientes com Google Maps, avaliações, páginas por tratamento, anúncios e retorno, dentro das regras do CFO.",
+  "kw": "como conseguir pacientes dentista, marketing para dentistas, marketing odontológico",
+  "page": "agencia-de-marketing-para-dentistas",
+  "cluster": "c6",
+  "to": [
+   "marketing-digital-para-clinicas",
+   "como-conseguir-avaliacoes-no-google"
+  ]
+ },
+ {
+  "slug": "como-contratar-agencia-de-marketing",
+  "date": "2027-02-02",
+  "title": "Como contratar uma agência de marketing digital",
+  "cover": "Como contratar uma agência de marketing sem errar",
+  "desc": "Como contratar uma agência de marketing digital: o que definir antes, perguntas para a reunião, sinais de alerta e como medir os primeiros 90 dias.",
+  "kw": "como contratar uma agência de marketing, contratar agência de marketing digital, porque contratar uma agência de marketing",
+  "page": "agencia-de-marketing-digital",
+  "cluster": "c7",
+  "to": [
+   "quanto-custa-agencia-de-marketing",
+   "o-que-faz-agencia-de-marketing-digital",
+   "como-escolher-agencia-de-seo"
+  ]
+ },
+ {
+  "slug": "como-captar-clientes-imobiliaria",
+  "date": "2027-02-05",
+  "title": "Como captar clientes para imobiliária e imóveis",
+  "cover": "Como captar clientes e imóveis para a imobiliária",
+  "desc": "Como imobiliárias captam compradores, inquilinos e proprietários com páginas por bairro, anúncios, Google Maps e atendimento rápido.",
+  "kw": "como captar clientes imobiliária, marketing para imobiliárias, como captar imóveis",
+  "page": "agencia-de-marketing-para-imobiliarias",
+  "cluster": "c6",
+  "to": [
+   "seo-programatico",
+   "landing-page-o-que-e"
+  ]
+ },
+ {
+  "slug": "o-que-faz-agencia-de-marketing-digital",
+  "date": "2027-02-12",
+  "title": "O que faz uma agência de marketing digital",
+  "cover": "O que faz uma agência de marketing digital",
+  "desc": "O que uma agência de marketing digital faz na prática: estratégia, anúncios, SEO, site, redes sociais e medição, e o que ela não resolve.",
+  "kw": "o que faz uma agência de marketing digital, o que uma empresa de marketing digital oferece, agência de marketing digital",
+  "page": "agencia-de-marketing-digital",
+  "cluster": "c7",
+  "to": [
+   "quanto-custa-agencia-de-marketing",
+   "como-contratar-agencia-de-marketing"
+  ]
+ },
+ {
+  "slug": "como-divulgar-restaurante",
+  "date": "2027-02-16",
+  "title": "Como divulgar um restaurante e atrair mais clientes",
+  "cover": "Como divulgar um restaurante e encher as mesas",
+  "desc": "Como divulgar um restaurante: perfil no Google, avaliações, pedido direto sem comissão, Instagram e anúncios no raio e no horário certos.",
+  "kw": "como divulgar restaurante, marketing para restaurantes, como atrair clientes para restaurante",
+  "page": "agencia-de-marketing-para-restaurantes",
+  "cluster": "c6",
+  "to": [
+   "como-aparecer-no-google-maps",
+   "otimizar-perfil-da-empresa-no-google"
+  ]
+ },
+ {
+  "slug": "quanto-cobra-agencia-de-trafego-pago",
+  "date": "2027-02-19",
+  "title": "Quanto cobra uma agência de tráfego pago?",
+  "cover": "Quanto cobra uma agência de tráfego pago",
+  "desc": "Quanto uma agência de tráfego pago cobra por mês, os modelos de cobrança (fixo, percentual, misto) e como calcular o custo real por cliente.",
+  "kw": "quanto cobra agência de tráfego pago, quanto custa uma agência de tráfego pago, gestão de tráfego preço",
+  "page": "agencia-de-trafego-pago",
+  "cluster": "c7",
+  "to": [
+   "o-que-faz-agencia-de-trafego-pago",
+   "quanto-custa-google-ads"
+  ]
+ },
+ {
+  "slug": "como-conseguir-alunos-para-academia",
+  "date": "2027-02-23",
+  "title": "Como conseguir alunos para academia o ano inteiro",
+  "cover": "Como conseguir alunos para a academia o ano todo",
+  "desc": "Como academias conseguem alunos fora de janeiro: Google Maps, páginas por modalidade, aula experimental, anúncios nos meses fracos e retenção.",
+  "kw": "como conseguir alunos para academia, marketing para academias, como atrair alunos",
+  "page": "agencia-de-marketing-para-academias",
+  "cluster": "c6",
+  "to": [
+   "como-aparecer-no-google-maps",
+   "trafego-pago-como-funciona"
+  ]
+ },
+ {
+  "slug": "o-que-faz-agencia-de-trafego-pago",
+  "date": "2027-02-26",
+  "title": "O que faz uma agência de tráfego pago",
+  "cover": "O que faz uma agência de tráfego pago",
+  "desc": "O que uma agência de tráfego pago faz: planejamento, campanhas no Google e no Meta, medição de contatos e ajustes, e como avaliar o trabalho.",
+  "kw": "o que faz uma agência de tráfego pago, o que é uma agência de tráfego pago, como funciona uma agência de tráfego pago",
+  "page": "agencia-de-trafego-pago",
+  "cluster": "c7",
+  "to": [
+   "quanto-cobra-agencia-de-trafego-pago",
+   "trafego-pago-como-funciona"
+  ]
+ },
+ {
+  "slug": "como-conseguir-clientes-contabilidade",
+  "date": "2027-03-02",
+  "title": "Como conseguir clientes para contabilidade",
+  "cover": "Como conseguir clientes para o escritório contábil",
+  "desc": "Como escritórios de contabilidade conseguem clientes: páginas por serviço, nicho, Google Maps, conteúdo fiscal, anúncios sazonais e indicação.",
+  "kw": "como conseguir clientes contabilidade, marketing para contabilidade, marketing contábil",
+  "page": "agencia-de-marketing-para-contabilidade",
+  "cluster": "c6",
+  "to": [
+   "palavras-chave-para-seo",
+   "como-ganhar-clientes-pela-internet"
+  ]
+ },
+ {
+  "slug": "marketing-digital-vale-a-pena",
+  "date": "2027-03-05",
+  "title": "Marketing digital vale a pena para pequena empresa?",
+  "cover": "Marketing digital vale a pena para pequena empresa?",
+  "desc": "Quando o marketing digital vale a pena para pequena empresa, quando ainda não vale, por onde começar com pouco dinheiro e como medir.",
+  "kw": "marketing digital vale a pena, vale a pena investir em marketing digital, marketing para pequenas empresas",
+  "page": "marketing-digital-para-pequenas-empresas",
+  "cluster": "c7",
+  "to": [
+   "como-ganhar-clientes-pela-internet",
+   "seo-ou-google-ads"
+  ]
+ },
+ {
+  "slug": "como-vender-energia-solar",
+  "date": "2027-03-09",
+  "title": "Como vender energia solar: clientes para integradores",
+  "cover": "Como vender energia solar e conseguir mais clientes",
+  "desc": "Como integradores vendem energia solar hoje: conteúdo de preço e retorno, páginas por cidade, anúncios, filtro de leads e proposta clara.",
+  "kw": "como vender energia solar, marketing para energia solar, como conseguir clientes de energia solar",
+  "page": "agencia-de-marketing-para-energia-solar",
+  "cluster": "c6",
+  "to": [
+   "seo-programatico",
+   "quanto-custa-google-ads"
+  ]
+ },
+ {
+  "slug": "como-aumentar-vendas-ecommerce",
+  "date": "2027-03-12",
+  "title": "Como aumentar as vendas do e-commerce",
+  "cover": "Como aumentar as vendas da loja virtual",
+  "desc": "Como aumentar as vendas do e-commerce com SEO de categoria, velocidade, checkout simples, Google Shopping por margem e recompra.",
+  "kw": "como aumentar vendas ecommerce, marketing para ecommerce, seo para ecommerce",
+  "page": "agencia-de-marketing-para-ecommerce",
+  "cluster": "c6",
+  "to": [
+   "palavras-chave-para-seo",
+   "site-lento-como-resolver"
+  ]
+ },
+ {
+  "slug": "como-conseguir-pacientes-psicologo",
+  "date": "2027-03-16",
+  "title": "Como conseguir pacientes sendo psicólogo, com ética",
+  "cover": "Como conseguir pacientes para psicólogo, com ética",
+  "desc": "Como psicólogos conseguem pacientes presenciais e on-line com site por demanda, perfil no Google e conteúdo, dentro do Código de Ética.",
+  "kw": "como conseguir pacientes psicólogo, marketing para psicólogos, divulgar consultório de psicologia",
+  "page": "agencia-de-marketing-para-psicologos",
+  "cluster": "c6",
+  "to": [
+   "empresa-precisa-de-site",
+   "marketing-digital-para-clinicas"
   ]
  }
 ]
