@@ -305,7 +305,7 @@ NICHO_SLUGS = {n["slug"] for n in NICHOS}
 
 
 def wa_nicho(n, pos, label, classe="btn-cta-primary"):
-    assunto = n["h1"].lower() if n.get("grupo") == "servico" else f"marketing para {n['nome']}"
+    assunto = n["h1"].lower() if n.get("grupo") in ("servico", "cidade") else f"marketing para {n['nome']}"
     texto = (f"Olá! Vi a página de {assunto} da InovaSEO e quero conversar sobre o meu negócio. "
              f"(Origem: utm_source=site&utm_medium=whatsapp&utm_campaign=nicho-{n['slug']}&utm_content={pos})")
     return (f'<a class="{classe}" href="https://wa.me/{TEL}?text={quote(texto, safe="")}" target="_blank" rel="noopener noreferrer" '
@@ -338,8 +338,10 @@ def gerar_nichos(pub_slugs, por_slug):
         if lidos:
             ler = ('<nav class="post-next" aria-label="Para entender antes de decidir"><h2>Para entender antes de decidir</h2><ul>'
                    + "".join(f'<li><a href="{link_post(s)}">{html.escape(por_slug[s]["title"])}</a></li>' for s in lidos) + "</ul></nav>")
-        servico = n.get("grupo") == "servico"
-        outros = [o for o in NICHOS if o["slug"] != n["slug"] and (o.get("grupo") == "servico") == servico]
+        servico = n.get("grupo") in ("servico", "cidade")
+        outros = [o for o in NICHOS if o["slug"] != n["slug"] and (o.get("grupo") or "segmento") == (n.get("grupo") or "segmento")]
+        if n.get("grupo") == "cidade":
+            outros = [o for o in NICHOS if o.get("grupo") == "servico"]
         if not servico:  # vizinhos variam por pagina para espalhar os links
             k = NICHOS.index(n) % max(1, len(outros)); outros = outros[k:] + outros[:k]
         irmaos = (f'<nav class="post-next" aria-label="Outros"><h2>{"Outros serviços" if servico else "Outros segmentos que atendemos"}</h2><ul>'
@@ -376,7 +378,7 @@ def gerar_nichos(pub_slugs, por_slug):
             pagina(n["title"], n["desc"], canon, f"{SITE}/assets/blog/{n['slug']}.jpg", "website", [ld(servico_ld), ld(trilha)], miolo, "", "" if servico else "segmentos"),
             encoding="utf-8")
     cards = "".join(f'<a class="blog-card" href="{BASE}/{n["slug"]}/"><img src="{BASE}/assets/blog/{n["slug"]}.webp" width="1200" height="630" alt="" loading="lazy" decoding="async">'
-                    f'<div class="blog-card-body"><h3>{html.escape(n["h1"])}</h3><p>{html.escape(n["sub"])}</p></div></a>' for n in NICHOS if n.get("grupo") != "servico")
+                    f'<div class="blog-card-body"><h3>{html.escape(n["h1"])}</h3><p>{html.escape(n["sub"])}</p></div></a>' for n in NICHOS if n.get("grupo") not in ("servico", "cidade"))
     miolo = f'''<section class="page-hero"><div class="container">
     <nav class="breadcrumb" aria-label="Breadcrumb"><a href="{BASE}/">Início</a><span aria-hidden="true">›</span><span>Segmentos</span></nav>
     <h1>Marketing digital por segmento</h1>

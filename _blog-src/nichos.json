@@ -408,5 +408,39 @@
   "grupo": "servico",
   "tipo": "SEO white label",
   "fim": "Trabalhamos com agências de todo o Brasil, com relatórios sem a nossa marca e contato direto com a sua equipe."
+ },
+ {
+  "slug": "agencia-de-marketing-digital-em-londrina",
+  "nome": "empresas de Londrina",
+  "h1": "Agência de marketing digital em Londrina",
+  "title": "Agência de Marketing Digital em Londrina | InovaSEO",
+  "desc": "SEO local, Google Maps, sites e anúncios para empresas de Londrina (PR). Temos cliente em 1º lugar no Google na cidade. Fale com a InovaSEO.",
+  "sub": "SEO local, Google Maps, sites e anúncios para empresas de Londrina e região, com cliente em primeiro lugar no Google na cidade.",
+  "cta": "Quer sua empresa no topo do Google em Londrina?",
+  "posts": [
+   "seo-local-o-que-e",
+   "como-aparecer-no-google-maps",
+   "como-conseguir-avaliacoes-no-google"
+  ],
+  "grupo": "cidade",
+  "tipo": "Marketing digital",
+  "fim": "Atendemos empresas de Londrina e do norte do Paraná com reuniões on-line e relatório mensal de cliques, ligações e contatos."
+ },
+ {
+  "slug": "anuncios-no-instagram",
+  "nome": "anúncios no Instagram",
+  "h1": "Agência de anúncios no Instagram e Facebook",
+  "title": "Agência de Anúncios no Instagram e Facebook | InovaSEO",
+  "desc": "Gestão de anúncios no Instagram e no Facebook (Meta Ads) com foco em contato no WhatsApp, vendas e custo por cliente medido.",
+  "sub": "Gestão de anúncios no Instagram e no Facebook (Meta Ads) com foco em contato no WhatsApp, vendas e custo por cliente medido.",
+  "cta": "Quer anúncios no Instagram que viram cliente?",
+  "posts": [
+   "trafego-pago-como-funciona",
+   "quanto-cobra-agencia-de-trafego-pago",
+   "o-que-faz-agencia-de-trafego-pago"
+  ],
+  "grupo": "servico",
+  "tipo": "Anúncios no Instagram e Facebook (Meta Ads)",
+  "fim": "Atendemos empresas de todo o Brasil, com a conta de anúncios no nome da sua empresa e relatório mensal de investimento, contatos e custo por cliente."
  }
 ]
