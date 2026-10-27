@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Auditoria parcial – Olsen</title>
+<!-- GTM do Cezar (Inova SEO / Off Digital) -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-TVDF63GF');</script>
+<!-- GA4 direto (G-CDGVGTPP75). Se o contêiner GTM-TVDF63GF já tiver uma tag de configuração do GA4 para esta propriedade, remova este bloco para não contar cada visita duas vezes. -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CDGVGTPP75"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CDGVGTPP75');</script>
+<style>
+/* Paleta neutra: a cor da marca Olsen não pôde ser confirmada na leitura do site. Troque --brand e --brand-2 pelo hex oficial. */
+:root{--bg:#f5f6f7;--surface:#fff;--fg:#1b1f22;--muted:#565d63;--line:#dadee1;
+  --brand:#2f3a42;--brand-2:#4a5862;--brand-fg:#fff}
+@media (prefers-color-scheme:dark){:root{--bg:#111416;--surface:#1a1e21;--fg:#eceff1;--muted:#a3abb1;--line:#2c3236;--brand:#3d4a54;--brand-2:#56656f;color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 system-ui,"Segoe UI",Roboto,sans-serif;
+  padding-left:max(0px,env(safe-area-inset-left,0px));padding-right:max(0px,env(safe-area-inset-right,0px))}
+main{max-width:720px;margin:0 auto;padding:24px 16px 64px;display:flex;flex-direction:column;gap:18px}
+h1,h2{line-height:1.2;text-wrap:balance;margin:0}
+h1{font-size:clamp(1.6rem,5vw,2.3rem)}h2{font-size:1.2rem}
+p{margin:0}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:18px;display:flex;flex-direction:column;gap:8px}
+.tag{font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600}
+ul{margin:0;padding-left:1.2rem;display:flex;flex-direction:column;gap:6px}
+.btn{background:var(--brand);color:var(--brand-fg);border:0;border-radius:5px;padding:12px 18px;font:inherit;font-weight:600;text-decoration:none;display:inline-block;width:fit-content;cursor:pointer}
+.btn:focus-visible,input:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
+.aviso{color:var(--muted);font-size:.9rem}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+[hidden]{display:none!important}
+.hero{position:relative;overflow:hidden;background:linear-gradient(135deg,var(--brand),var(--brand-2));color:var(--brand-fg)}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero-shade{position:absolute;inset:0;background:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.6))}
+.hero.sem-img .hero-shade{display:none}
+.hero-txt{position:relative;max-width:720px;margin:0 auto;padding:56px 16px;display:flex;flex-direction:column;gap:10px}
+.hero .data{font-size:.85rem;opacity:.9}
+#gate{max-width:420px;margin:15vh auto 0;margin-left:max(16px,calc(50% - 210px));margin-right:max(16px,calc(50% - 210px))}
+#gate input{font:inherit;padding:10px;border:1px solid var(--line);border-radius:5px;background:var(--bg);color:var(--fg);width:100%}
+#erro{color:#b3261e}
+@media (prefers-color-scheme:dark){#erro{color:#ff8a80}}
+</style>
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TVDF63GF" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<form id="gate" class="card">
+  <h2>Auditoria parcial · Olsen</h2>
+  <label for="senha" class="aviso">Digite a senha que você recebeu para abrir o relatório.</label>
+  <input id="senha" type="password" autocomplete="current-password" required>
+  <button class="btn" type="submit">Entrar</button>
+  <p id="erro" hidden>Senha incorreta. Confira a senha enviada junto com o link.</p>
+</form>
+
+<div id="conteudo" hidden>
+  <header class="hero" id="hero">
+    <img class="hero-img" src="hero.jpg" alt="" onerror="this.parentNode.classList.add('sem-img');this.remove()">
+    <span class="hero-shade"></span>
+    <div class="hero-txt">
+      <p class="data">Auditoria parcial · 27/10/2026 · olsen.odo.br</p>
+      <h1>Olsen: o que encontramos no site</h1>
+    </div>
+  </header>
+  <main>
+    <section class="card">
+      <span class="tag">O que já funciona</span>
+      <ul>
+        <li>Linhas de produto bem apresentadas: consultórios Infinity, Logic, Siena e Sprint, Black Edition, linha médica e linha veterinária, com páginas próprias para os equipamentos vet.</li>
+        <li>Contato direto em todo o site: WhatsApp geral, internacional e por filial, telefone clicável e e-mails por área.</li>
+        <li>Conteúdo vivo: blog com cobertura de feiras de 2026, podcast e páginas atualizadas neste mês.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <span class="tag">Ponto 1</span>
+      <h2>As 25 filiais não têm uma página própria</h2>
+      <p><strong>O que vimos:</strong> todas as filiais, incluindo Curitiba, Ponta Grossa, Campinas e Recife, ficam reunidas em uma única página de pontos de venda, acessível por um filtro de estado e cidade. Nenhuma filial tem endereço próprio dentro do site.</p>
+      <p><strong>Por que importa:</strong> o dentista que está montando um consultório costuma pesquisar pela cidade dele. Sem uma página da filial daquela cidade, essa busca tende a ir para revendas e outras marcas, mesmo havendo um showroom da Olsen a poucos quilômetros.</p>
+    </section>
+
+    <section class="card">
+      <span class="tag">Ponto 2</span>
+      <h2>Três botões de WhatsApp de filiais com o número fora do padrão</h2>
+      <p><strong>O que vimos:</strong> no rodapé, os botões das filiais de Campo Belo, Sorocaba e João Pessoa levam a números gravados em formato diferente do padrão internacional usado pelo WhatsApp.</p>
+      <p><strong>Por que importa:</strong> o rodapé aparece em todas as páginas. Quem clica nesses botões já decidiu falar com a Olsen; se a conversa não abre, esse contato se perde no último passo, sem que ninguém fique sabendo.</p>
+    </section>
+
+    <section class="card">
+      <span class="tag">Ponto 3</span>
+      <h2>O menu aponta para endereços diferentes dos principais</h2>
+      <p><strong>O que vimos:</strong> o menu e o rodapé levam às linhas de equipamentos por endereços provisórios, enquanto as próprias páginas informam ao Google outro endereço como o principal.</p>
+      <p><strong>Por que importa:</strong> os links internos são o principal sinal que o site dá ao Google sobre quais páginas são importantes. Quando eles apontam para um endereço e a página indica outro, a força das páginas que mais vendem fica dividida.</p>
+    </section>
+
+    <section class="card">
+      <h2>Próximo passo</h2>
+      <p>Esta é uma parte do que analisamos. Vamos conversar sobre o que faria mais diferença primeiro para as filiais.</p>
+      <div class="cta-row">
+        <a class="btn" id="cta" href="https://wa.me/5545988195137?text=Ol%C3%A1%2C%20vi%20a%20auditoria%20parcial%20da%20Olsen%20e%20gostaria%20de%20marcar%20a%20reuni%C3%A3o." target="_blank" rel="noopener noreferrer">Chamar no WhatsApp para marcar a reunião</a>
+        <p class="aviso">A reunião pode durar de 12 a 21 minutos.</p>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script>
+const PASSWORD_SHA256 = "ffe79430aa4ec5b5db0d0cea9234d30eb0370ddd4c2bcabcfbc64f6bed953c69"; /* perfil: prospecto */
+const OWNER_SHA256 = "8fb8a865a1dfa42cb06d69e93a87a3d8ec0272006e84ec7b8c586fb31e6d0763"; /* perfil: dono (acesso do Cezar, não gera aviso) */
+const AVISO_URL = "https://script.google.com/macros/s/AKfycbxcoFgihWxI51tOExb75D3I3rE8UBhin-Z_xa5PfwPd4Elz5tx2bXYJy83WP3UrG5G1/exec"; /* Apps Script que avisa no Telegram; vazio = sem aviso */
+const CLIENTE = "olsen";
+function dispositivo(){const u=navigator.userAgent;if(/iPad|Tablet/i.test(u)||(/Android/i.test(u)&&!/Mobile/i.test(u)))return "tablet";return /Mobi|iPhone|Android/i.test(u)?"mobile":"desktop";}
+function avisar(d){if(!AVISO_URL)return;try{fetch(AVISO_URL,{method:"POST",mode:"no-cors",keepalive:true,headers:{"Content-Type":"text/plain"},body:JSON.stringify(d)});}catch(e){}}
+async function sha(t){const b=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(t));return Array.from(new Uint8Array(b)).map(x=>x.toString(16).padStart(2,"0")).join("");}
+document.getElementById("gate").addEventListener("submit",async function(e){
+  e.preventDefault();
+  const erro=document.getElementById("erro");
+  if(!PASSWORD_SHA256){erro.textContent="Senha ainda não configurada.";erro.hidden=false;return;}
+  const h=await sha(document.getElementById("senha").value);
+  const perfil=h===PASSWORD_SHA256?"prospecto":(h===OWNER_SHA256?"dono":null);
+  if(perfil){
+    this.hidden=true;document.getElementById("conteudo").hidden=false;
+    const info={cliente:CLIENTE,perfil_acesso:perfil,dispositivo:dispositivo(),data_hora:new Date().toLocaleString("pt-BR",{timeZone:"America/Sao_Paulo"})};
+    window.dataLayer=window.dataLayer||[];dataLayer.push(Object.assign({event:"auditoria_parcial_aberta"},info));
+    avisar(info);
+  }else{erro.hidden=false;}
+});
+document.getElementById("cta").addEventListener("click",function(){window.dataLayer=window.dataLayer||[];dataLayer.push({event:"auditoria_parcial_cta",cliente:CLIENTE});});
+</script>
+</body>
+</html>
