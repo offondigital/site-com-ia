@@ -178,7 +178,7 @@ footer{text-align:center;color:var(--muted);font-size:.82rem;padding:8px 16px 40
   function avisar(evento){
     if(DONO||!CFG.aviso||!once("tg_"+evento))return;
     try{fetch(CFG.aviso,{method:"POST",mode:"no-cors",keepalive:true,headers:{"Content-Type":"text/plain"},
-      body:JSON.stringify({cliente:(CFG.cliente+" \u00b7 "+ROTULO[evento]).slice(0,60),perfil_acesso:"prospecto",dispositivo:dispositivo(),
+      body:JSON.stringify({cliente:(CFG.cliente+" \u00b7 "+ROTULO[evento]).slice(0,60),perfil_acesso:"prospecto",proposta:CFG.slug,evento:evento,empresa:CFG.cliente,dispositivo:dispositivo(),
         data_hora:new Date().toLocaleString("pt-BR",{timeZone:"America/Sao_Paulo"})})});}catch(e){}
   }
 
