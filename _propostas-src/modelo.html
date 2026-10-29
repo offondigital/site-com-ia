@@ -144,7 +144,7 @@ footer{text-align:center;color:var(--muted);font-size:.82rem;padding:8px 16px 40
     <h1>Proposta comercial para {{CLIENTE}}</h1>
     <p>Esta proposta é confidencial. Para abrir, digite a senha que você recebeu.</p>
     <label for="senha">Senha</label>
-    <input id="senha" name="senha" type="password" inputmode="numeric" autocomplete="off" required>
+    <input id="senha" name="senha" type="password" inputmode="{{INPUTMODE}}" autocomplete="off" required>
     <button type="submit" id="entrar">Abrir proposta</button>
     <p id="erro" role="alert" hidden>Senha incorreta. Confira a senha enviada junto com o link.</p>
   </form>
@@ -161,7 +161,7 @@ footer{text-align:center;color:var(--muted);font-size:.82rem;padding:8px 16px 40
   function ev(nome,params){try{gtag("event",nome,Object.assign({proposta:CFG.slug},params||{}));}catch(e){}}
   function px(tipo,nome,params){try{fbq(tipo,nome,Object.assign({proposta:CFG.slug},params||{}));}catch(e){}}
   function b64(s){var b=atob(s),u=new Uint8Array(b.length);for(var i=0;i<b.length;i++)u[i]=b.charCodeAt(i);return u;}
-  function normalizar(t){var d=String(t).replace(/\D/g,"");if((d.length===12||d.length===13)&&d.indexOf("55")===0)d=d.slice(2);return d;}
+  function normalizar(t){t=String(t).trim();if(t.indexOf("@")>-1)return t.toLowerCase();var d=t.replace(/\D/g,"");if((d.length===12||d.length===13)&&d.indexOf("55")===0)d=d.slice(2);return d;}
 
   async function abrir(senha){
     var base=await crypto.subtle.importKey("raw",new TextEncoder().encode(senha),"PBKDF2",false,["deriveKey"]);

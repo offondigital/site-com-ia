@@ -5,9 +5,12 @@ O conteúdo da proposta é criptografado (AES-256-GCM, chave derivada da senha
 com PBKDF2-SHA256, 600.000 iterações). O HTML publicado não contém o texto da
 proposta em claro: sem a senha, nem o código-fonte da página revela nada.
 
-A senha é sempre o telefone do prospecto, só com dígitos e com DDD
-(ex.: 81997950880). A página aceita o número digitado com ou sem
-parênteses, espaços, traço ou +55.
+Regra da senha (nesta ordem):
+  1. o número do botão flutuante de WhatsApp do site do prospecto;
+  2. se o site não tiver WhatsApp, o e-mail do site;
+  3. se não tiver e-mail, o telefone do site.
+Telefone: a página aceita com ou sem parênteses, espaços, traço ou +55.
+E-mail: a página ignora maiúsculas/minúsculas e espaços nas pontas.
 
 IMPORTANTE: este repositório é público. Nunca faça commit do arquivo de
 conteúdo em claro; mantenha-o fora do repositório.
@@ -15,7 +18,7 @@ conteúdo em claro; mantenha-o fora do repositório.
 Uso:
   python3 _propostas-src/gerar_proposta.py \
       --cliente "Jet Point" --slug jet-point --data 29/10/2026 \
-      --telefone "(81) 9 9795-0880" --conteudo /caminho/fora/do/repo/conteudo.html
+      --senha "(81) 9 9795-0880"   (ou --senha contato@empresa.com.br) --conteudo /caminho/fora/do/repo/conteudo.html
 
 Saída: propostas/<slug>-<dd-mm-aaaa>.html
 """
@@ -39,7 +42,12 @@ RAIZ = Path(__file__).resolve().parent.parent
 MODELO = Path(__file__).resolve().parent / "modelo.html"
 
 
-def normalizar_telefone(t: str) -> str:
+def normalizar_senha(t: str) -> str:
+    t = t.strip()
+    if "@" in t:
+        if not re.fullmatch(r"[^@\s]+@[^@\s]+\.[^@\s]+", t):
+            sys.exit(f"E-mail inválido: '{t}'")
+        return t.lower()
     d = re.sub(r"\D", "", t)
     if len(d) in (12, 13) and d.startswith("55"):
         d = d[2:]
@@ -63,7 +71,8 @@ def main():
     p.add_argument("--cliente", required=True)
     p.add_argument("--slug", required=True)
     p.add_argument("--data", required=True, help="dd/mm/aaaa (data de envio)")
-    p.add_argument("--telefone", required=True)
+    p.add_argument("--senha", "--telefone", dest="senha", required=True,
+                   help="WhatsApp do botão flutuante; sem WhatsApp, e-mail; sem e-mail, telefone")
     p.add_argument("--conteudo", required=True)
     a = p.parse_args()
 
@@ -75,7 +84,7 @@ def main():
     if RAIZ in conteudo.parents:
         sys.exit("O conteúdo em claro não pode ficar dentro do repositório (ele é público).")
 
-    senha = normalizar_telefone(a.telefone)
+    senha = normalizar_senha(a.senha)
     c = criptografar(conteudo.read_text(encoding="utf-8"), senha)
     nome = f"{a.slug}-{a.data.replace('/', '-')}"
 
@@ -88,6 +97,7 @@ def main():
         "{{PIXEL_ID}}": PIXEL_ID,
         "{{WHATSAPP}}": WHATSAPP,
         "{{ITERACOES}}": str(ITERACOES),
+        "{{INPUTMODE}}": "email" if "@" in senha else "numeric",
         "{{SAL}}": c["sal"],
         "{{IV}}": c["iv"],
         "{{DADOS}}": c["dados"],
