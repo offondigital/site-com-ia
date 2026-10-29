@@ -172,9 +172,14 @@ footer{text-align:center;color:var(--muted);font-size:.82rem;padding:8px 16px 40
   if(DONO){window["ga-disable-{{GA4_ID}}"]=true;}
 
   function once(chave){try{var k="av_"+CFG.slug+"_"+chave;if(sessionStorage.getItem(k))return false;sessionStorage.setItem(k,"1");return true;}catch(e){return true;}}
+  var ROTULO={aberta:"proposta VISUALIZADA",rolou50:"proposta: lendo (50%)",rolou100:"proposta: leu at\u00e9 o fim",cta:"proposta: clicou no WhatsApp"};
+  function dispositivo(){var u=navigator.userAgent;if(/iPad|Tablet/i.test(u)||(/Android/i.test(u)&&!/Mobile/i.test(u)))return "tablet";return /Mobi|iPhone|Android/i.test(u)?"mobile":"desktop";}
+  // Mesmo Apps Script das auditorias (POST text/plain, sem CORS). O texto vai no campo "cliente".
   function avisar(evento){
     if(DONO||!CFG.aviso||!once("tg_"+evento))return;
-    try{new Image().src=CFG.aviso+"?e="+evento+"&p="+encodeURIComponent(CFG.slug)+"&c="+encodeURIComponent(CFG.cliente)+"&t="+Date.now();}catch(e){}
+    try{fetch(CFG.aviso,{method:"POST",mode:"no-cors",keepalive:true,headers:{"Content-Type":"text/plain"},
+      body:JSON.stringify({cliente:(CFG.cliente+" \u00b7 "+ROTULO[evento]).slice(0,60),perfil_acesso:"prospecto",dispositivo:dispositivo(),
+        data_hora:new Date().toLocaleString("pt-BR",{timeZone:"America/Sao_Paulo"})})});}catch(e){}
   }
 
   // Rolagem (25/50/75/100%), tempo de leitura com a aba visível e seções vistas.
