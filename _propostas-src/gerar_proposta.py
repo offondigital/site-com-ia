@@ -38,6 +38,8 @@ ITERACOES = 600_000
 GA4_ID = "G-CDGVGTPP75"          # ID de medição (fluxo da web) do GA4
 PIXEL_ID = "1098807029734790"    # Pixel do Facebook/Meta
 WHATSAPP = "5545988195137"
+# Endereço (/exec) do Apps Script "aviso-telegram.gs". Vazio = sem aviso no Telegram.
+AVISO_URL = os.environ.get("AVISO_URL", "")
 RAIZ = Path(__file__).resolve().parent.parent
 MODELO = Path(__file__).resolve().parent / "modelo.html"
 
@@ -96,6 +98,7 @@ def main():
         "{{GA4_ID}}": GA4_ID,
         "{{PIXEL_ID}}": PIXEL_ID,
         "{{WHATSAPP}}": WHATSAPP,
+        "{{AVISO_URL}}": AVISO_URL,
         "{{ITERACOES}}": str(ITERACOES),
         "{{INPUTMODE}}": "email" if "@" in senha else "numeric",
         "{{SAL}}": c["sal"],
