@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Auditoria parcial – Doutor Face</title>
+<!-- GTM do Cezar (Inova SEO / Off Digital) -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-TVDF63GF');</script>
+<!-- GA4 direto (G-CDGVGTPP75). Se o contêiner GTM-TVDF63GF já tiver uma tag de configuração do GA4 para esta propriedade, remova este bloco para não contar cada visita duas vezes. -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CDGVGTPP75"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CDGVGTPP75');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* Cores do site doutorface.com.br, lidas no estilo computado da home em 30/10/2026:
+   marrom dos botões "Saiba Mais" #65301B, cinza do rodapé e botões secundários #696969, texto #777777, fundo branco.
+   Fontes do site: Bebas Neue (títulos) e Roboto (texto). */
+:root{--bg:#F6F4F2;--surface:#ffffff;--fg:#2a2522;--muted:#5f5955;--line:#e2dcd7;
+  --brand:#65301B;--brand-2:#3f1e11;--brand-fg:#ffffff;--btn:#65301B;--btn-fg:#ffffff;--accent:#696969}
+@media (prefers-color-scheme:dark){:root{--bg:#141110;--surface:#1e1a18;--fg:#f1ece8;--muted:#b9b0aa;--line:#38302b;--btn:#8a4a2e;--btn-fg:#ffffff;color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 Roboto,system-ui,"Segoe UI",sans-serif;
+  padding-left:env(safe-area-inset-left,0px);padding-right:env(safe-area-inset-right,0px)}
+h1{font-family:"Bebas Neue",Roboto,sans-serif;font-weight:400;letter-spacing:.02em;font-size:clamp(2rem,7vw,2.8rem);line-height:1.05;margin:0}
+h2{font-size:1.1rem;margin:0}
+p{margin:0}
+.hero{position:relative;overflow:hidden;background:linear-gradient(135deg,var(--brand),var(--brand-2));color:var(--brand-fg);border-bottom:4px solid var(--accent)}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero-shade{position:absolute;inset:0;background:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.62))}
+.hero.sem-img .hero-shade{display:none}
+.hero-txt{position:relative;max-width:720px;margin:0 auto;padding:56px 16px;display:flex;flex-direction:column;gap:10px}
+.data{font-size:.85rem;opacity:.9}
+main{max-width:720px;margin:0 auto;padding:24px 16px 64px;display:flex;flex-direction:column;gap:18px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:18px;display:flex;flex-direction:column;gap:8px}
+.card.prob{border-left:4px solid var(--brand)}
+.lead{color:var(--muted);font-size:.95rem}
+.nums{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:4px 0}
+.num{border:1px solid var(--line);border-radius:5px;padding:10px 12px}
+.num strong{display:block;font-size:1.5rem;line-height:1.1;font-variant-numeric:tabular-nums}
+.num span{font-size:.8rem;color:var(--muted)}
+.btn{background:var(--btn);color:var(--btn-fg);border:0;border-radius:5px;padding:12px 18px;font:inherit;font-weight:600;text-decoration:none;display:inline-block;width:fit-content;cursor:pointer}
+.btn:focus-visible,input:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
+.aviso{color:var(--muted);font-size:.9rem}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--brand);z-index:30}
+.prazo{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--brand);color:var(--brand-fg);padding:8px 16px;display:flex;flex-wrap:wrap;gap:2px 14px;align-items:center;justify-content:center;font-size:.85rem;text-align:center}
+.prazo strong{font-variant-numeric:tabular-nums}
+.centro{max-width:360px;margin:15vh auto 0;padding:0 16px}
+#gate .card{gap:10px}
+input{font:inherit;padding:10px 12px;border-radius:5px;border:1px solid var(--line);background:var(--bg);color:var(--fg);width:100%}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TVDF63GF" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<div id="expirada" class="centro" hidden>
+  <div class="card">
+    <h1 style="font-size:1.6rem">Esta auditoria expirou</h1>
+    <p>O prazo para ver esta análise terminou. Se ainda fizer sentido para você, peça a reativação e eu envio um novo prazo.</p>
+    <a class="btn" id="reativar" href="https://wa.me/5545988195137?text=Ol%C3%A1%2C%20a%20auditoria%20parcial%20da%20Doutor%20Face%20expirou%20e%20gostaria%20de%20pedir%20a%20reativa%C3%A7%C3%A3o." target="_blank" rel="noopener noreferrer">Pedir reativação pelo WhatsApp</a>
+  </div>
+</div>
+
+<form id="gate" class="centro">
+  <div class="card">
+    <h1 style="font-size:1.6rem">Auditoria parcial</h1>
+    <label for="pw" class="aviso">Digite a senha que enviamos junto com o link.</label>
+    <input id="pw" type="password" autocomplete="off" required>
+    <button class="btn" type="submit">Entrar</button>
+    <p id="msg" class="aviso" role="alert"></p>
+  </div>
+</form>
+
+<div id="conteudo" hidden>
+  <div class="prazo" role="timer" aria-live="off">
+    <span>Disponível até <strong id="prazo-data"></strong></span>
+    <span id="prazo-resta"></span>
+  </div>
+  <header class="hero" id="hero">
+    <!-- Para usar uma imagem: salve como hero.jpg nesta pasta. Sem o arquivo, a hero fica só com a cor. -->
+    <img class="hero-img" src="hero.jpg" alt="" onerror="this.parentNode.classList.add('sem-img');this.remove()">
+    <span class="hero-shade"></span>
+    <div class="hero-txt">
+      <p class="data">Auditoria parcial · 30/10/2026 · doutorface.com.br</p>
+      <h1>Doutor Face: o que encontramos no site</h1>
+      <p class="data">Um resumo do que observamos nas páginas públicas e no teste do Google. O passo a passo de como corrigir cada ponto fica para a conversa.</p>
+      <p class="data" id="prazo-motivo"></p>
+    </div>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>O que já funciona</h2>
+      <p>O site tem uma página para cada um dos 29 procedimentos, cada uma com perguntas frequentes. As duas unidades (Cascavel e Santo Antônio do Sudoeste) aparecem com endereço e horário, o botão de WhatsApp está em todas as páginas e a home traz depoimentos de pacientes e o registro profissional do responsável. É uma base boa: o que falta é o Google conseguir ler e mostrar isso.</p>
+    </section>
+
+    <section class="card prob">
+      <h2>1. No celular, o site demora muito para mostrar o conteúdo principal</h2>
+      <p>Rodamos o teste oficial do Google (PageSpeed Insights, versão celular) em 30/10/2026:</p>
+      <div class="nums">
+        <div class="num"><strong>55</strong><span>Desempenho, de 100</span></div>
+        <div class="num"><strong>17,2 s</strong><span>Até o conteúdo principal aparecer</span></div>
+        <div class="num"><strong>17,9 MB</strong><span>Peso total da página</span></div>
+      </div>
+      <p>O próprio Google considera bom até 2,5 segundos. Na home, várias imagens pesam entre 1 e 2 MB cada. Quem chega pelo celular, com internet comum, vê a tela incompleta por muitos segundos, e boa parte desiste antes de chamar no WhatsApp. A velocidade também entra na conta do Google na hora de decidir quem aparece primeiro.</p>
+    </section>
+
+    <section class="card prob">
+      <h2>2. Os procedimentos mais procurados não estão escritos do jeito que as pessoas buscam</h2>
+      <p>Não há uma página de harmonização facial (existe só a de harmonização de glúteo), e a palavra "botox", que é como a maioria das pessoas pesquisa, não aparece no site. Na página de toxina botulínica, o título que o Google lê e o endereço da página estão escritos "Toxina butolinica", com as letras trocadas.</p>
+      <p>Além disso, nas páginas de procedimento que conferimos, Cascavel e Santo Antônio do Sudoeste só aparecem no rodapé. O texto de cada procedimento não diz onde ele é feito, e isso pesa quando alguém busca "preenchimento labial em Cascavel".</p>
+    </section>
+
+    <section class="card prob">
+      <h2>3. O Google recebe poucas informações para entender e apresentar a clínica</h2>
+      <p>O site não tem mapa de páginas para o Google (o endereço /sitemap.xml não existe), nenhuma das páginas que conferimos tem a descrição que aparece embaixo do título nos resultados de busca, e o código não identifica a Doutor Face como clínica, com endereço, telefone e horário. Na home, 9 das 14 imagens estão sem descrição ou com a palavra "Image" no lugar dela.</p>
+      <p>Sem essas informações, o Google decide sozinho o que mostrar da clínica, quando mostra.</p>
+    </section>
+
+    <section class="card">
+      <h2>Próximo passo</h2>
+      <p>Vamos conversar sobre o que faria mais diferença primeiro para as duas unidades.</p>
+      <!-- WhatsApp da Off Digital -->
+      <a class="btn" id="cta" href="https://wa.me/5545988195137?text=Ol%C3%A1%2C%20vi%20a%20auditoria%20parcial%20da%20Doutor%20Face%20e%20gostaria%20de%20marcar%20a%20reuni%C3%A3o." target="_blank" rel="noopener noreferrer">Chamar no WhatsApp para marcar a reunião</a>
+      <p class="aviso">A reunião pode durar de 12 a 21 minutos.</p>
+      <p class="lead">Off Digital · Inova SEO</p>
+    </section>
+  </main>
+</div>
+
+<script>
+/* Senha: SHA-256 (hex) da senha única. Gerar no terminal: printf '%s' 'SUASENHA' | sha256sum
+   Atenção: esta tela é uma barreira simples no navegador; quem abrir o código-fonte vê o conteúdo.
+   Para proteção de verdade, hospede atrás de um serviço com autenticação. */
+const PASSWORD_SHA256 = "ffe79430aa4ec5b5db0d0cea9234d30eb0370ddd4c2bcabcfbc64f6bed953c69"; /* perfil: prospecto */
+const OWNER_SHA256 = "8fb8a865a1dfa42cb06d69e93a87a3d8ec0272006e84ec7b8c586fb31e6d0763"; /* perfil: dono (acesso do Cezar, não gera aviso) */
+const AVISO_URL = "https://script.google.com/macros/s/AKfycbxcoFgihWxI51tOExb75D3I3rE8UBhin-Z_xa5PfwPd4Elz5tx2bXYJy83WP3UrG5G1/exec"; /* URL do Apps Script que avisa no WhatsApp; vazio = sem aviso */
+const CLIENTE = "doutor-face";
+function dispositivo(){const u=navigator.userAgent;if(/iPad|Tablet/i.test(u)||(/Android/i.test(u)&&!/Mobile/i.test(u)))return "tablet";return /Mobi|iPhone|Android/i.test(u)?"mobile":"desktop";}
+function avisar(d){if(!AVISO_URL)return;try{fetch(AVISO_URL,{method:"POST",mode:"no-cors",keepalive:true,headers:{"Content-Type":"text/plain"},body:JSON.stringify(d)});}catch(e){}}
+async function sha(t){const b=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(t));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,"0")).join("");}
+window.dataLayer=window.dataLayer||[];
+document.getElementById("gate").addEventListener("submit",async e=>{
+  e.preventDefault();
+  if(expirou()){mostrarExpirada();return;}
+  const msg=document.getElementById("msg");
+  if(!PASSWORD_SHA256){msg.textContent="Senha ainda não configurada nesta página.";return;}
+  const h=await sha(document.getElementById("pw").value);const perfil=h===PASSWORD_SHA256?"prospecto":(h===OWNER_SHA256?"dono":null);
+  if(perfil){
+    document.getElementById("gate").hidden=true;document.getElementById("conteudo").hidden=false;
+    const info={cliente:CLIENTE,perfil_acesso:perfil,dispositivo:dispositivo(),data_hora:new Date().toLocaleString("pt-BR",{timeZone:"America/Sao_Paulo"})};
+    dataLayer.push(Object.assign({event:"auditoria_parcial_aberta"},info));
+    avisar(info);
+  } else msg.textContent="Senha incorreta.";
+});
+document.getElementById("cta").addEventListener("click",()=>{dataLayer.push({event:"auditoria_parcial_cta",cliente:CLIENTE});});
+
+/* PRAZO: data e hora fixas, gravadas no arquivo. Ajuste esta linha no dia do envio (envio + 48 horas), fuso -03:00.
+   O relógio não reinicia a cada abertura. É uma barreira no navegador: para expirar de verdade, apague a pasta no GitHub. */
+const EXPIRA_EM = new Date("2026-11-01T15:00:00-03:00");
+const MOTIVO = "Os dados desta análise (teste do Google e páginas do site) são de 30/10/2026. Depois do prazo, a análise precisa ser refeita.";
+function expirou(){return Date.now()>=EXPIRA_EM.getTime();}
+let jaExpirou=false;
+function mostrarExpirada(){
+  document.getElementById("gate").hidden=true;
+  document.getElementById("conteudo").hidden=true;
+  document.getElementById("expirada").hidden=false;
+  if(!jaExpirou){jaExpirou=true;dataLayer.push({event:"auditoria_expirada",cliente:CLIENTE});}
+}
+function atualizarPrazo(){
+  const ms=EXPIRA_EM.getTime()-Date.now();
+  if(ms<=0){mostrarExpirada();return;}
+  const t=Math.floor(ms/1000),hh=Math.floor(t/3600),mm=Math.floor(t%3600/60),ss=t%60;
+  document.getElementById("prazo-resta").textContent="Restam "+hh+"h "+String(mm).padStart(2,"0")+"min "+String(ss).padStart(2,"0")+"s";
+}
+document.getElementById("prazo-data").textContent=EXPIRA_EM.toLocaleString("pt-BR",{day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit",timeZone:"America/Sao_Paulo"});
+document.getElementById("prazo-motivo").textContent=MOTIVO;
+document.getElementById("reativar").addEventListener("click",()=>{dataLayer.push({event:"auditoria_reativacao_clique",cliente:CLIENTE});});
+if(expirou()){mostrarExpirada();}else{atualizarPrazo();setInterval(atualizarPrazo,1000);}
+</script>
+</body>
+</html>
