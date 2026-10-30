@@ -7,6 +7,7 @@
   var AVISO = 'https://script.google.com/macros/s/AKfycbxcoFgihWxI51tOExb75D3I3rE8UBhin-Z_xa5PfwPd4Elz5tx2bXYJy83WP3UrG5G1/exec';
   var WHATS = '5545988195137';
   var DIAS_DISPENSA = 7, DIAS_ENVIADO = 30;
+  var SEM_SITE = false; /* opção "Ainda não tenho site": ligar (true) só depois de atualizar o Apps Script */
 
   var ATIVO = true;
   if (!ATIVO) return;
@@ -54,6 +55,8 @@
     '.pp .pp-mini a{color:hsl(221,83%,40%);text-decoration:underline}' +
     '.pp .pp-lgpd{margin:10px 0 0;font-size:.72rem;line-height:1.35;color:hsl(215,15%,45%)}' +
     '.pp .pp-lgpd a{color:inherit;text-decoration:underline}' +
+    '.pp .pp-semsite-p{margin:-4px 0 10px;font-size:.82rem}' +
+    '.pp .pp-semsite{color:hsl(221,83%,40%);text-decoration:underline;cursor:pointer}' +
     '.pp .pp-erro{color:#b91c1c;font-size:.8rem;margin:-4px 0 8px;min-height:0}' +
     '.pp .pp-iscas{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}' +
     '.pp--compacta form,.pp--compacta .pp-mini,.pp--compacta .pp-lgpd{display:none}' +
@@ -94,6 +97,7 @@
       '<form novalidate>' +
       '<label for="pp-site">Endereço do seu site</label>' +
       '<input id="pp-site" name="site" type="text" inputmode="url" autocomplete="url" placeholder="www.suaempresa.com.br" required>' +
+      (SEM_SITE ? '<p class="pp-semsite-p"><a href="#" class="pp-semsite" role="button">Ainda não tenho site</a></p>' : '') +
       '<label for="pp-zap">Seu WhatsApp (com DDD)</label>' +
       '<input id="pp-zap" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" placeholder="(45) 99999-9999" required>' +
       '<div class="pp-iscas" aria-hidden="true"><label>Não preencha<input type="text" name="confirme_email" tabindex="-1" autocomplete="off"></label></div>' +
@@ -108,6 +112,24 @@
 
     caixa.querySelector('.pp-x').addEventListener('click', function () { fechar('x'); });
     caixa.querySelector('form').addEventListener('submit', enviar);
+    var tg = caixa.querySelector('.pp-semsite');
+    if (tg) tg.addEventListener('click', function (ev2) {
+      ev2.preventDefault();
+      var f = caixa.querySelector('form'), semSite = f.getAttribute('data-sem-site') !== '1';
+      f.setAttribute('data-sem-site', semSite ? '1' : '0');
+      caixa.querySelector('label[for="pp-site"]').textContent = semSite ? 'Nome da empresa e cidade' : 'Endereço do seu site';
+      var inp = caixa.querySelector('#pp-site');
+      inp.placeholder = semSite ? 'Ex.: Clínica Sol, Cascavel' : 'www.suaempresa.com.br';
+      inp.setAttribute('inputmode', semSite ? 'text' : 'url'); inp.setAttribute('autocomplete', semSite ? 'organization' : 'url');
+      inp.value = ''; inp.focus();
+      tg.textContent = semSite ? 'Tenho site' : 'Ainda não tenho site';
+      caixa.querySelector('.pp-sub').innerHTML = semSite
+        ? 'Sem problema. Receba uma <strong>análise gratuita</strong> de como sua empresa aparece hoje no Google e do que um site traria de clientes.'
+        : 'Receba uma <strong>auditoria gratuita</strong> do seu site em até 24 h e veja o que está impedindo sua empresa de aparecer na primeira página.';
+      caixa.querySelector('.pp-ok:not(.pp-abre)').textContent = semSite ? 'Quero minha análise grátis' : 'Quero minha auditoria grátis';
+      caixa.querySelector('.pp-erro').textContent = '';
+      ev('popup_sem_site', { ativo: semSite, pagina: path });
+    });
     caixa.querySelector('.pp-abre').addEventListener('click', function () {
       caixa.classList.remove('pp--compacta');
       var i = caixa.querySelector('#pp-site'); if (i) i.focus();
@@ -152,26 +174,27 @@
     e.preventDefault();
     var f = e.target, erro = f.querySelector('.pp-erro');
     var site = f.site.value.trim(), zap = f.whatsapp.value.trim();
-    if (!siteValido(site)) { erro.textContent = 'Informe o endereço do site, por exemplo www.suaempresa.com.br'; f.site.focus(); return; }
+    var semSite = f.getAttribute('data-sem-site') === '1';
+    if (semSite ? site.length < 4 : !siteValido(site)) { erro.textContent = semSite ? 'Informe o nome da empresa e a cidade, por exemplo Clínica Sol, Cascavel' : 'Informe o endereço do site, por exemplo www.suaempresa.com.br'; f.site.focus(); return; }
     if (!zapValido(zap)) { erro.textContent = 'Informe o WhatsApp com DDD, por exemplo (45) 99999-9999'; f.whatsapp.focus(); return; }
     erro.textContent = '';
     var btn = f.querySelector('.pp-ok'); btn.disabled = true; btn.textContent = 'Enviando…';
     var corpo = JSON.stringify({
-      perfil_acesso: 'lead_popup', cliente: 'lead popup', site: site, whatsapp: zap,
+      perfil_acesso: 'lead_popup', cliente: 'lead popup', site: site, sem_site: semSite, whatsapp: zap,
       pagina: path, confirme_email: f.confirme_email.value, data_hora: new Date().toISOString()
     });
     var ok = function () {
       ls('pp_enviado', String(Date.now()));
-      ev('popup_enviado', { pagina: path });
-      ev('generate_lead', { lead_source: 'popup', pagina: path });
+      ev('popup_enviado', { pagina: path, sem_site: semSite });
+      ev('generate_lead', { lead_source: semSite ? 'popup_sem_site' : 'popup', pagina: path });
       var c = caixa && caixa.querySelector('#pp-conteudo');
-      if (c) c.innerHTML = '<h2 id="pp-t">Recebemos seu pedido!</h2><p>Vamos analisar o site <strong></strong> e chamar você no WhatsApp em até 24 h.</p>' +
+      if (c) c.innerHTML = '<h2 id="pp-t">Recebemos seu pedido!</h2><p>' + (semSite ? 'Vamos analisar como a empresa <strong></strong> aparece no Google e chamar você no WhatsApp em até 24 h.' : 'Vamos analisar o site <strong></strong> e chamar você no WhatsApp em até 24 h.') + '</p>' +
         '<button type="button" class="pp-ok" id="pp-fim">Fechar</button>';
       if (c) { c.querySelector('strong').textContent = site; c.querySelector('#pp-fim').addEventListener('click', function () { fechar('concluido'); }); }
     };
     var falha = function () {
-      btn.disabled = false; btn.textContent = 'Quero minha auditoria grátis';
-      erro.innerHTML = 'Não conseguimos enviar agora. <a href="https://wa.me/' + WHATS + '?text=' + encodeURIComponent('Olá! Quero a auditoria gratuita do site ' + site) + '" target="_blank" rel="noopener">Peça pelo WhatsApp</a>.';
+      btn.disabled = false; btn.textContent = semSite ? 'Quero minha análise grátis' : 'Quero minha auditoria grátis';
+      erro.innerHTML = 'Não conseguimos enviar agora. <a href="https://wa.me/' + WHATS + '?text=' + encodeURIComponent((semSite ? 'Olá! Ainda não tenho site e quero a análise gratuita da minha empresa: ' : 'Olá! Quero a auditoria gratuita do site ') + site) + '" target="_blank" rel="noopener">Peça pelo WhatsApp</a>.';
     };
     try {
       fetch(AVISO, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: corpo, keepalive: true }).then(ok, falha);
