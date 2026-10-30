@@ -419,6 +419,16 @@
   ]
 }
     </script>
+    <script>
+    /* Clique no WhatsApp -> GA4 (cta_click / generate_lead); a tag do GTM repassa à Meta como Lead */
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href*="wa.me"]');
+      if (!a || typeof window.gtag !== 'function') return;
+      var d = { cta_tipo: 'whatsapp', cta_texto: (a.textContent || '').trim().slice(0, 80), cta_destino: (a.getAttribute('href') || '').slice(0, 100), pagina: location.pathname };
+      window.gtag('event', 'cta_click', d);
+      window.gtag('event', 'generate_lead', { lead_source: 'site', pagina: location.pathname });
+    });
+    </script>
 </head>
 <body id="top">
     <!-- Google Tag Manager (noscript) -->
