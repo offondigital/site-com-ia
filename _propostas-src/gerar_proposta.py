@@ -9,6 +9,9 @@ Regra da senha (nesta ordem):
   1. o número do botão flutuante de WhatsApp do site do prospecto;
   2. se o site não tiver WhatsApp, o e-mail do site;
   3. se não tiver e-mail, o telefone do site.
+  Opcional: --senha auto gera uma senha aleatória de 12 caracteres (mais segura,
+  para propostas com preço ou dados sensíveis; o prospecto não a "descobre" sozinho,
+  então envie a senha a ele por WhatsApp).
 Telefone: a página aceita com ou sem parênteses, espaços, traço ou +55.
 E-mail: a página ignora maiúsculas/minúsculas e espaços nas pontas.
 
@@ -23,6 +26,7 @@ Uso:
 Saída: propostas/<slug>-<dd-mm-aaaa>.html
 """
 import argparse
+import secrets
 import base64
 import html
 import os
@@ -44,8 +48,15 @@ RAIZ = Path(__file__).resolve().parent.parent
 MODELO = Path(__file__).resolve().parent / "modelo.html"
 
 
+def senha_aleatoria() -> str:
+    alfabeto = "abcdefghjkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ23456789"  # sem 0/O/1/l/I
+    return "".join(secrets.choice(alfabeto) for _ in range(12))
+
+
 def normalizar_senha(t: str) -> str:
     t = t.strip()
+    if t == "auto":
+        return senha_aleatoria()
     if "@" in t:
         if not re.fullmatch(r"[^@\s]+@[^@\s]+\.[^@\s]+", t):
             sys.exit(f"E-mail inválido: '{t}'")
@@ -86,6 +97,7 @@ def main():
     if RAIZ in conteudo.parents:
         sys.exit("O conteúdo em claro não pode ficar dentro do repositório (ele é público).")
 
+    livre = a.senha.strip() == "auto"
     senha = normalizar_senha(a.senha)
     c = criptografar(conteudo.read_text(encoding="utf-8"), senha)
     nome = f"{a.slug}-{a.data.replace('/', '-')}"
@@ -100,7 +112,8 @@ def main():
         "{{WHATSAPP}}": WHATSAPP,
         "{{AVISO_URL}}": AVISO_URL,
         "{{ITERACOES}}": str(ITERACOES),
-        "{{INPUTMODE}}": "email" if "@" in senha else "numeric",
+        "{{INPUTMODE}}": "text" if livre else ("email" if "@" in senha else "numeric"),
+        "{{SENHA_LIVRE}}": "true" if livre else "false",
         "{{SAL}}": c["sal"],
         "{{IV}}": c["iv"],
         "{{DADOS}}": c["dados"],

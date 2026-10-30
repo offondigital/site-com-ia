@@ -161,7 +161,7 @@ footer{text-align:center;color:var(--muted);font-size:.82rem;padding:8px 16px 40
   function ev(nome,params){try{gtag("event",nome,Object.assign({proposta:CFG.slug},params||{}));}catch(e){}}
   function px(tipo,nome,params){try{fbq(tipo,nome,Object.assign({proposta:CFG.slug},params||{}));}catch(e){}}
   function b64(s){var b=atob(s),u=new Uint8Array(b.length);for(var i=0;i<b.length;i++)u[i]=b.charCodeAt(i);return u;}
-  function normalizar(t){t=String(t).trim();if(t.indexOf("@")>-1)return t.toLowerCase();var d=t.replace(/\D/g,"");if((d.length===12||d.length===13)&&d.indexOf("55")===0)d=d.slice(2);return d;}
+  var LIVRE={{SENHA_LIVRE}};function normalizar(t){t=String(t).trim();if(LIVRE)return t;if(t.indexOf("@")>-1)return t.toLowerCase();var d=t.replace(/\D/g,"");if((d.length===12||d.length===13)&&d.indexOf("55")===0)d=d.slice(2);return d;}
 
 
   // --- Modo dono: abra a proposta com ?dono=1 uma vez neste navegador e suas visitas deixam de contar/avisar.
