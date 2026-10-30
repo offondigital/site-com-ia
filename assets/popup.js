@@ -30,7 +30,7 @@
   }
 
   var celular = !window.matchMedia('(hover: hover) and (pointer: fine)').matches || window.innerWidth < 900;
-  var aberto = false, caixa = null, ultimoFoco = null, inicio = Date.now();
+  var aberto = false, caixa = null, ultimoFoco = null, inicio = Date.now(), abertoEm = 0;
 
   /* ---------- estilo ---------- */
   var css = '' +
@@ -77,7 +77,7 @@
   function abrir(origem) {
     if (aberto) return; aberto = true;
     injetarCss();
-    ultimoFoco = document.activeElement;
+    ultimoFoco = document.activeElement; abertoEm = Date.now();
     var modal = !celular;
     if (modal) {
       var f = document.createElement('div'); f.className = 'pp-fundo'; f.id = 'pp-fundo';
@@ -203,6 +203,19 @@
       fetch(AVISO, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: corpo, keepalive: true }).then(ok, falha);
     } catch (x) { falha(); }
   }
+
+  /* celular: tocar na página, fora da faixa, recolhe o formulário; tocar de novo fecha (a janela do desktop já fecha ao clicar no fundo) */
+  document.addEventListener('click', function (e) {
+    if (!aberto || !caixa || !celular) return;
+    if (Date.now() - abertoEm < 600) return;      // o mesmo toque que abriu não conta
+    if (caixa.contains(e.target)) return;
+    if (!caixa.classList.contains('pp--compacta') && caixa.querySelector('form') && caixa.querySelector('#pp-fim') === null) {
+      caixa.classList.add('pp--compacta');        // só recolhe; o que foi digitado fica guardado
+      ev('popup_recolhido', { pagina: path });
+    } else {
+      fechar('toque_fora');
+    }
+  }, true);
 
   /* quem já clicou no WhatsApp do site não recebe o popup nas próximas visitas */
   document.addEventListener('click', function (e) {
