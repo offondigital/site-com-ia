@@ -88,7 +88,7 @@
     caixa.innerHTML =
       '<button type="button" class="pp-x" aria-label="Fechar">&times;</button>' +
       '<div id="pp-conteudo">' +
-      '<h2 id="pp-t">Seu site aparece no Google?</h2>' +
+      '<h2 id="pp-t">Seu site está aparecendo pra quem busca no Google?</h2>' +
       '<p class="pp-sub">Receba uma <strong>auditoria gratuita</strong> do seu site em até 24 h e veja o que está impedindo sua empresa de aparecer na primeira página.</p>' +
       '<button type="button" class="pp-ok pp-abre">Quero minha auditoria grátis</button>' +
       '<form novalidate>' +
