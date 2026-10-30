@@ -8,7 +8,7 @@
   var WHATS = '5545988195137';
   var DIAS_DISPENSA = 7, DIAS_ENVIADO = 30;
 
-  var ATIVO = false; /* ligar (true) só depois que o script do Apps Script for atualizado e testado */
+  var ATIVO = true;
   if (!ATIVO) return;
 
   var path = location.pathname;
