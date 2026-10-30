@@ -36,7 +36,7 @@
   var css = '' +
     '.pp-fundo{position:fixed;inset:0;background:rgba(15,23,42,.55);z-index:99998;opacity:0;transition:opacity .2s}' +
     '.pp-fundo.on{opacity:1}' +
-    '.pp{position:fixed;z-index:99999;background:#fff;color:hsl(215,50%,15%);font-family:Inter,system-ui,sans-serif;box-shadow:0 20px 60px rgba(15,23,42,.35);' +
+    '.pp{position:fixed;z-index:99999;background:linear-gradient(160deg,hsl(221,83%,47%),hsl(226,71%,33%));color:#fff;font-family:Inter,system-ui,sans-serif;box-shadow:0 20px 60px rgba(15,23,42,.35);' +
     'opacity:0;transition:opacity .2s,transform .25s}' +
     '.pp.on{opacity:1;transform:none}' +
     '.pp--modal{left:50%;top:50%;width:min(440px,calc(100vw - 32px));border-radius:16px;padding:28px 26px 22px;transform:translate(-50%,-46%)}' +
@@ -44,23 +44,24 @@
     '.pp--faixa{left:0;right:0;bottom:0;border-radius:16px 16px 0 0;padding:18px 16px calc(16px + env(safe-area-inset-bottom));transform:translateY(24px)}' +
     '.pp h2{margin:0 0 6px;font-size:1.25rem;line-height:1.25;font-weight:700;padding-right:28px}' +
     '.pp--faixa h2{font-size:1.05rem}' +
-    '.pp p{margin:0 0 14px;font-size:.92rem;line-height:1.45;color:hsl(215,20%,35%)}' +
+    '.pp p{margin:0 0 14px;font-size:.92rem;line-height:1.45;color:rgba(255,255,255,.92)}' +
     '.pp--faixa p{font-size:.85rem;margin-bottom:10px}' +
     '.pp label{display:block;font-size:.8rem;font-weight:600;margin:0 0 4px}' +
-    '.pp input[type=text],.pp input[type=tel],.pp input[type=url]{width:100%;box-sizing:border-box;font:inherit;font-size:16px;padding:11px 12px;border:1px solid hsl(214,32%,80%);border-radius:10px;margin:0 0 10px;background:#fff;color:inherit}' +
-    '.pp input:focus{outline:2px solid hsl(217,91%,60%);outline-offset:1px;border-color:transparent}' +
-    '.pp .pp-ok{display:block;width:100%;border:0;cursor:pointer;font:inherit;font-weight:700;font-size:1rem;padding:13px 16px;border-radius:10px;background:hsl(217,91%,50%);color:#fff}' +
-    '.pp .pp-ok:hover{background:hsl(221,83%,43%)}' +
+    '.pp input[type=text],.pp input[type=tel],.pp input[type=url]{width:100%;box-sizing:border-box;font:inherit;font-size:16px;padding:11px 12px;border:1px solid transparent;border-radius:10px;margin:0 0 10px;background:#fff;color:hsl(215,50%,15%)}' +
+    '.pp input:focus{outline:3px solid #fdba74;outline-offset:1px;border-color:transparent}' +
+    '.pp .pp-ok{display:block;width:100%;border:0;cursor:pointer;font:inherit;font-weight:700;font-size:1rem;padding:13px 16px;border-radius:10px;background:#cf450a;color:#fff;box-shadow:0 4px 14px rgba(0,0,0,.25)}' +
+    '.pp .pp-ok:hover{background:#b83c08}' +
     '.pp .pp-ok[disabled]{opacity:.6;cursor:wait}' +
-    '.pp .pp-x{position:absolute;top:10px;right:10px;width:36px;height:36px;border:0;border-radius:50%;background:transparent;cursor:pointer;font-size:24px;line-height:1;color:hsl(215,20%,40%)}' +
-    '.pp .pp-x:hover{background:hsl(210,30%,94%)}' +
+    '.pp .pp-x{position:absolute;top:10px;right:10px;width:36px;height:36px;border:0;border-radius:50%;background:transparent;cursor:pointer;font-size:24px;line-height:1;color:#fff}' +
+    '.pp .pp-x:hover{background:rgba(255,255,255,.18)}' +
     '.pp .pp-mini{margin:12px 0 0;text-align:center;font-size:.82rem}' +
-    '.pp .pp-mini a{color:hsl(221,83%,40%);text-decoration:underline}' +
-    '.pp .pp-lgpd{margin:10px 0 0;font-size:.72rem;line-height:1.35;color:hsl(215,15%,45%)}' +
+    '.pp .pp-mini a{color:#fff;font-weight:600;text-decoration:underline}' +
+    '.pp .pp-lgpd{margin:10px 0 0;font-size:.72rem;line-height:1.35;color:rgba(255,255,255,.78)}' +
     '.pp .pp-lgpd a{color:inherit;text-decoration:underline}' +
     '.pp .pp-semsite-p{margin:-4px 0 10px;font-size:.82rem}' +
-    '.pp .pp-semsite{color:hsl(221,83%,40%);text-decoration:underline;cursor:pointer}' +
-    '.pp .pp-erro{color:#b91c1c;font-size:.8rem;margin:-4px 0 8px;min-height:0}' +
+    '.pp .pp-semsite{color:#fff;font-weight:600;text-decoration:underline;cursor:pointer}' +
+    '.pp .pp-erro a{color:#fff;text-decoration:underline}' +
+    '.pp .pp-erro{color:#fecaca;font-weight:600;font-size:.8rem;margin:-4px 0 8px;min-height:0}' +
     '.pp .pp-iscas{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}' +
     '.pp--compacta form,.pp--compacta .pp-mini,.pp--compacta .pp-lgpd{display:none}' +
     '.pp .pp-abre{display:none}' +
