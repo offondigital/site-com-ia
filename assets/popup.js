@@ -18,9 +18,12 @@
   function ls(k, v) {
     try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { return null; }
   }
-  if (ls('prop_dono')) return; // modo dono (?dono=1): não incomoda e não mede
-  function recente(k, dias) { var t = parseInt(ls(k) || '0', 10); return t && (Date.now() - t) < dias * 864e5; }
+  /* link de teste: /qualquer-pagina/?popup=teste abre o popup em ~3 s, ignorando modo dono, "já fechou" e "já enviou"; não grava nada no aparelho */
+  var TESTE = /[?&]popup=teste(&|$)/.test(location.search);
+  if (!TESTE && ls('prop_dono')) return; // modo dono (?dono=1): não incomoda e não mede
+  function recente(k, dias) { if (TESTE) return false; var t = parseInt(ls(k) || '0', 10); return t && (Date.now() - t) < dias * 864e5; }
   if (recente('pp_enviado', DIAS_ENVIADO) || recente('pp_dispensado', DIAS_DISPENSA)) return;
+  var gravar = function (k, v) { if (!TESTE) ls(k, v); };
 
   function ev(nome, extra) {
     try { if (typeof window.gtag === 'function') window.gtag('event', nome, extra || {}); } catch (e) {}
@@ -137,7 +140,7 @@
     caixa.querySelector('[data-pp="reuniao"]').addEventListener('click', function () {
       ev('popup_reuniao', { pagina: path });
       ev('generate_lead', { lead_source: 'popup_reuniao', pagina: path });
-      ls('pp_enviado', String(Date.now()));
+      gravar('pp_enviado', String(Date.now()));
     });
     document.addEventListener('keydown', teclas);
     if (modal) setTimeout(function () { var i = caixa && caixa.querySelector('#pp-site'); if (i) i.focus(); }, 250);
@@ -158,7 +161,7 @@
   function fechar(como) {
     if (!aberto) return; aberto = false;
     document.removeEventListener('keydown', teclas);
-    if (!recente('pp_enviado', DIAS_ENVIADO)) { ls('pp_dispensado', String(Date.now())); ev('popup_fechado', { como: como, pagina: path }); }
+    if (!recente('pp_enviado', DIAS_ENVIADO)) { gravar('pp_dispensado', String(Date.now())); ev('popup_fechado', { como: como, pagina: path }); }
     var f = document.getElementById('pp-fundo');
     if (caixa) caixa.classList.remove('on');
     if (f) f.classList.remove('on');
@@ -184,7 +187,7 @@
       pagina: path, confirme_email: f.confirme_email.value, data_hora: new Date().toISOString()
     });
     var ok = function () {
-      ls('pp_enviado', String(Date.now()));
+      gravar('pp_enviado', String(Date.now()));
       ev('popup_enviado', { pagina: path, sem_site: semSite });
       ev('generate_lead', { lead_source: semSite ? 'popup_sem_site' : 'popup', pagina: path });
       var c = caixa && caixa.querySelector('#pp-conteudo');
@@ -204,11 +207,12 @@
   /* quem já clicou no WhatsApp do site não recebe o popup nas próximas visitas */
   document.addEventListener('click', function (e) {
     var a = e.target.closest && e.target.closest('a[href*="wa.me"]');
-    if (a && !a.closest('.pp')) { ls('pp_enviado', String(Date.now())); if (aberto) fechar('whatsapp'); }
+    if (a && !a.closest('.pp')) { gravar('pp_enviado', String(Date.now())); if (aberto) fechar('whatsapp'); }
   });
 
   /* ---------- gatilhos ---------- */
-  if (!celular) {
+  if (TESTE) { setTimeout(function () { abrir('teste'); }, 3000); }
+  else if (!celular) {
     document.addEventListener('mouseout', function (e) {
       if (aberto || e.relatedTarget || e.clientY > 0) return;
       if (Date.now() - inicio < 15000) return;
