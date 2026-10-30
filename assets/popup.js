@@ -61,6 +61,10 @@
     '.pp .pp-semsite-p{margin:-4px 0 10px;font-size:.82rem}' +
     '.pp .pp-semsite{color:#fff;font-weight:600;text-decoration:underline;cursor:pointer}' +
     '.pp .pp-erro a{color:#fff;text-decoration:underline}' +
+    '.pp .pp-conf{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.35);border-radius:10px;padding:10px 12px;margin:0 0 10px;font-size:.9rem;line-height:1.45}' +
+    '.pp .pp-conf[hidden]{display:none}' +
+    '.pp .pp-conf strong{color:#fff;word-break:break-all}' +
+    '.pp .pp-conf a{color:#fff;font-weight:700;text-decoration:underline;cursor:pointer}' +
     '.pp .pp-erro{color:#fecaca;font-weight:600;font-size:.8rem;margin:-4px 0 8px;min-height:0}' +
     '.pp .pp-iscas{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}' +
     '.pp--compacta form,.pp--compacta .pp-mini,.pp--compacta .pp-lgpd{display:none}' +
@@ -105,6 +109,7 @@
       '<label for="pp-zap">Seu WhatsApp (com DDD)</label>' +
       '<input id="pp-zap" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" placeholder="(45) 99999-9999" required>' +
       '<div class="pp-iscas" aria-hidden="true"><label>Não preencha<input type="text" name="confirme_email" tabindex="-1" autocomplete="off"></label></div>' +
+      '<div class="pp-conf" hidden></div>' +
       '<div class="pp-erro" role="alert"></div>' +
       '<button type="submit" class="pp-ok">Quero minha auditoria grátis</button>' +
       '</form>' +
@@ -116,6 +121,13 @@
 
     caixa.querySelector('.pp-x').addEventListener('click', function () { fechar('x'); });
     caixa.querySelector('form').addEventListener('submit', enviar);
+    var fz = caixa.querySelector('#pp-zap'), fs = caixa.querySelector('#pp-site'), ultimos = '';
+    fz.addEventListener('input', function (ev3) {
+      var d = fz.value.replace(/\D/g, '');
+      if (ev3.inputType && ev3.inputType.indexOf('delete') === 0 && d === ultimos) d = d.slice(0, -1); /* apagar a máscara apaga o último dígito */
+      fz.value = mascara(d); ultimos = fz.value.replace(/\D/g, ''); desconfirmar(caixa);
+    });
+    fs.addEventListener('input', function () { desconfirmar(caixa); });
     var tg = caixa.querySelector('.pp-semsite');
     if (tg) tg.addEventListener('click', function (ev2) {
       ev2.preventDefault();
@@ -131,7 +143,7 @@
         ? 'Sem problema. Receba uma <strong>análise gratuita</strong> de como sua empresa aparece hoje no Google e do que um site traria de clientes.'
         : 'Receba uma <strong>auditoria gratuita</strong> do seu site em até 24 h e veja o que está impedindo sua empresa de aparecer na primeira página.';
       caixa.querySelector('.pp-ok:not(.pp-abre)').textContent = semSite ? 'Quero minha análise grátis' : 'Quero minha auditoria grátis';
-      caixa.querySelector('.pp-erro').textContent = '';
+      caixa.querySelector('.pp-erro').textContent = ''; desconfirmar(caixa);
       ev('popup_sem_site', { ativo: semSite, pagina: path });
     });
     caixa.querySelector('.pp-abre').addEventListener('click', function () {
@@ -172,7 +184,19 @@
 
   /* ---------- envio ---------- */
   function siteValido(v) { return /^(https?:\/\/)?([a-z0-9-]+\.)+[a-z]{2,}(\/\S*)?$/i.test(v.trim()); }
-  function zapValido(v) { var n = v.replace(/\D/g, ''); if (n.indexOf('55') === 0 && n.length > 11) n = n.slice(2); return n.length === 10 || n.length === 11; }
+  function digitos(v) { var n = String(v).replace(/\D/g, ''); if (n.length > 11 && n.indexOf('55') === 0) n = n.slice(2); return n.replace(/^0+/, '').slice(0, 11); }
+  function mascara(v) {
+    var n = digitos(v); if (!n) return '';
+    if (n.length <= 2) return '(' + n;
+    var r = n.slice(2); return '(' + n.slice(0, 2) + ') ' + r.slice(0, 5) + (r.length > 5 ? '-' + r.slice(5) : '');
+  }
+  /* celular com DDD: 11 dígitos, DDD 11-99 e o terceiro dígito é 9 */
+  function zapValido(v) { return /^[1-9][1-9]9\d{8}$/.test(digitos(v)); }
+  function rotulo(f) { return f.getAttribute('data-sem-site') === '1' ? 'Quero minha análise grátis' : 'Quero minha auditoria grátis'; }
+  function desconfirmar(cx) {
+    var f = cx && cx.querySelector('form'); if (!f || f.getAttribute('data-conf') !== '1') return;
+    f.setAttribute('data-conf', '0'); cx.querySelector('.pp-conf').hidden = true; f.querySelector('.pp-ok').textContent = rotulo(f);
+  }
 
   function enviar(e) {
     e.preventDefault();
@@ -180,11 +204,21 @@
     var site = f.site.value.trim(), zap = f.whatsapp.value.trim();
     var semSite = f.getAttribute('data-sem-site') === '1';
     if (semSite ? site.length < 4 : !siteValido(site)) { erro.textContent = semSite ? 'Informe o nome da empresa e a cidade, por exemplo Clínica Sol, Cascavel' : 'Informe o endereço do site, por exemplo www.suaempresa.com.br'; f.site.focus(); return; }
-    if (!zapValido(zap)) { erro.textContent = 'Informe o WhatsApp com DDD, por exemplo (45) 99999-9999'; f.whatsapp.focus(); return; }
+    if (!zapValido(zap)) { erro.textContent = 'Número inválido. Digite o WhatsApp com DDD e o 9 na frente, por exemplo (45) 99999-9999'; f.whatsapp.focus(); return; }
     erro.textContent = '';
+    if (f.getAttribute('data-conf') !== '1') { /* 1º toque: pede para conferir os dados */
+      var cf = caixa.querySelector('.pp-conf');
+      cf.innerHTML = 'Confira se está tudo certo:<br>' + (semSite ? 'Empresa: ' : 'Site: ') + '<strong class="c1"></strong><br>WhatsApp: <strong class="c2"></strong><br>Vamos chamar você neste número. <a href="#" class="c3">Corrigir</a>';
+      cf.querySelector('.c1').textContent = site; cf.querySelector('.c2').textContent = mascara(zap);
+      cf.querySelector('.c3').addEventListener('click', function (e3) { e3.preventDefault(); desconfirmar(caixa); f.whatsapp.focus(); });
+      cf.hidden = false; f.setAttribute('data-conf', '1');
+      f.querySelector('.pp-ok').textContent = 'Está correto, enviar';
+      ev('popup_confirmar', { pagina: path });
+      return;
+    }
     var btn = f.querySelector('.pp-ok'); btn.disabled = true; btn.textContent = 'Enviando…';
     var corpo = JSON.stringify({
-      perfil_acesso: 'lead_popup', cliente: 'lead popup', site: site, sem_site: semSite, whatsapp: zap,
+      perfil_acesso: 'lead_popup', cliente: 'lead popup', site: site, sem_site: semSite, whatsapp: mascara(zap),
       pagina: path, confirme_email: f.confirme_email.value, data_hora: new Date().toISOString()
     });
     var ok = function () {
@@ -197,7 +231,7 @@
       if (c) { c.querySelector('strong').textContent = site; c.querySelector('#pp-fim').addEventListener('click', function () { fechar('concluido'); }); }
     };
     var falha = function () {
-      btn.disabled = false; btn.textContent = semSite ? 'Quero minha análise grátis' : 'Quero minha auditoria grátis';
+      btn.disabled = false; btn.textContent = 'Está correto, enviar';
       erro.innerHTML = 'Não conseguimos enviar agora. <a href="https://wa.me/' + WHATS + '?text=' + encodeURIComponent((semSite ? 'Olá! Ainda não tenho site e quero a análise gratuita da minha empresa: ' : 'Olá! Quero a auditoria gratuita do site ') + site) + '" target="_blank" rel="noopener">Peça pelo WhatsApp</a>.';
     };
     try {
