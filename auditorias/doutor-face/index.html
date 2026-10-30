@@ -5,11 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>Auditoria parcial – Doutor Face</title>
+<!-- Modo dono: depois que o Cezar entra com a senha dele uma vez neste navegador, GTM e GA4 não carregam mais aqui (mesma marca "prop_dono" das propostas). -->
+<script>var DONO=false;try{DONO=localStorage.getItem("prop_dono")==="1";}catch(e){}if(DONO){window["ga-disable-G-CDGVGTPP75"]=true;}</script>
 <!-- GTM do Cezar (Inova SEO / Off Digital) -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-TVDF63GF');</script>
+<script>if(!DONO)(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-TVDF63GF');</script>
 <!-- GA4 direto (G-CDGVGTPP75). Se o contêiner GTM-TVDF63GF já tiver uma tag de configuração do GA4 para esta propriedade, remova este bloco para não contar cada visita duas vezes. -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-CDGVGTPP75"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CDGVGTPP75');</script>
+<script>if(!DONO){var g=document.createElement("script");g.async=true;g.src="https://www.googletagmanager.com/gtag/js?id=G-CDGVGTPP75";document.head.appendChild(g);}</script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}if(!DONO){gtag('js',new Date());gtag('config','G-CDGVGTPP75');}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
@@ -138,7 +140,6 @@ input{font:inherit;padding:10px 12px;border-radius:5px;border:1px solid var(--li
       <p>Preparamos uma proposta para corrigir esses pontos e criar as páginas que as pacientes das duas unidades procuram.</p>
       <!-- Funil: auditoria → proposta → WhatsApp -->
       <a class="btn" id="cta" href="/propostas/doutor-face-30-10-2026-bb68d0.html">Consultar proposta</a>
-      <p class="aviso">A senha da proposta é o número de WhatsApp da clínica, com DDD.</p>
       <p class="lead">Off Digital · Inova SEO</p>
     </section>
   </main>
@@ -148,7 +149,7 @@ input{font:inherit;padding:10px 12px;border-radius:5px;border:1px solid var(--li
 /* Senha: SHA-256 (hex) da senha única. Gerar no terminal: printf '%s' 'SUASENHA' | sha256sum
    Atenção: esta tela é uma barreira simples no navegador; quem abrir o código-fonte vê o conteúdo.
    Para proteção de verdade, hospede atrás de um serviço com autenticação. */
-const PASSWORD_SHA256 = "ffe79430aa4ec5b5db0d0cea9234d30eb0370ddd4c2bcabcfbc64f6bed953c69"; /* perfil: prospecto */
+const PASSWORD_SHA256 = "2167178bf19eec740b5f7c951c6060a83607eaea59422259ca583a53d2031ffc"; /* perfil: prospecto = WhatsApp do site da clínica, só dígitos com DDD: (45) 99951-0548 */
 const OWNER_SHA256 = "8fb8a865a1dfa42cb06d69e93a87a3d8ec0272006e84ec7b8c586fb31e6d0763"; /* perfil: dono (acesso do Cezar, não gera aviso) */
 const AVISO_URL = "https://script.google.com/macros/s/AKfycbxcoFgihWxI51tOExb75D3I3rE8UBhin-Z_xa5PfwPd4Elz5tx2bXYJy83WP3UrG5G1/exec"; /* URL do Apps Script que avisa no WhatsApp; vazio = sem aviso */
 const CLIENTE = "doutor-face";
@@ -161,15 +162,30 @@ document.getElementById("gate").addEventListener("submit",async e=>{
   if(expirou()){mostrarExpirada();return;}
   const msg=document.getElementById("msg");
   if(!PASSWORD_SHA256){msg.textContent="Senha ainda não configurada nesta página.";return;}
-  const h=await sha(document.getElementById("pw").value);const perfil=h===PASSWORD_SHA256?"prospecto":(h===OWNER_SHA256?"dono":null);
+  const bruto=document.getElementById("pw").value.trim();
+  const perfil=(await sha(normTel(bruto)))===PASSWORD_SHA256?"prospecto":((await sha(bruto))===OWNER_SHA256?"dono":null);
   if(perfil){
     document.getElementById("gate").hidden=true;document.getElementById("conteudo").hidden=false;
+    if(perfil==="dono"){
+      /* Acesso do Cezar: marca o navegador como dono e não registra nada (nem GA4, nem aviso). */
+      DONO=true;window["ga-disable-G-CDGVGTPP75"]=true;try{localStorage.setItem("prop_dono","1");}catch(e){}
+      return;
+    }
+    if(DONO)return;
     const info={cliente:CLIENTE,perfil_acesso:perfil,dispositivo:dispositivo(),data_hora:new Date().toLocaleString("pt-BR",{timeZone:"America/Sao_Paulo"})};
     dataLayer.push(Object.assign({event:"auditoria_parcial_aberta"},info));
     avisar(info);
   } else msg.textContent="Senha incorreta.";
 });
-document.getElementById("cta").addEventListener("click",()=>{dataLayer.push({event:"auditoria_parcial_cta",cliente:CLIENTE,destino:"proposta"});avisar({cliente:"Doutor Face · auditoria: clicou em Consultar proposta",perfil_acesso:"prospecto",evento:"auditoria_cta_proposta",empresa:"Doutor Face",dispositivo:dispositivo(),data_hora:new Date().toLocaleString("pt-BR",{timeZone:"America/Sao_Paulo"})});});
+/* Aceita o número com ou sem parênteses, espaços, traço ou +55. */
+function normTel(t){let d=String(t).replace(/\D/g,"");if((d.length===12||d.length===13)&&d.startsWith("55"))d=d.slice(2);return d;}
+/* Ao ir para a proposta, deixa a senha dela na sessão desta aba: a proposta abre sozinha, sem pedir senha. */
+const PROPOSTA_SLUG = "doutor-face-30-10-2026-bb68d0";
+const PROPOSTA_SENHA = "45999510548";
+document.getElementById("cta").addEventListener("click",()=>{
+  try{sessionStorage.setItem("prop_"+PROPOSTA_SLUG,PROPOSTA_SENHA);}catch(e){}
+  if(DONO)return;
+  dataLayer.push({event:"auditoria_parcial_cta",cliente:CLIENTE,destino:"proposta"});avisar({cliente:"Doutor Face · auditoria: clicou em Consultar proposta",perfil_acesso:"prospecto",evento:"auditoria_cta_proposta",empresa:"Doutor Face",dispositivo:dispositivo(),data_hora:new Date().toLocaleString("pt-BR",{timeZone:"America/Sao_Paulo"})});});
 
 /* PRAZO: data e hora fixas, gravadas no arquivo. Ajuste esta linha no dia do envio (envio + 48 horas), fuso -03:00.
    O relógio não reinicia a cada abertura. É uma barreira no navegador: para expirar de verdade, apague a pasta no GitHub. */
@@ -181,7 +197,7 @@ function mostrarExpirada(){
   document.getElementById("gate").hidden=true;
   document.getElementById("conteudo").hidden=true;
   document.getElementById("expirada").hidden=false;
-  if(!jaExpirou){jaExpirou=true;dataLayer.push({event:"auditoria_expirada",cliente:CLIENTE});}
+  if(!jaExpirou&&!DONO){jaExpirou=true;dataLayer.push({event:"auditoria_expirada",cliente:CLIENTE});}
 }
 function atualizarPrazo(){
   const ms=EXPIRA_EM.getTime()-Date.now();
@@ -191,7 +207,7 @@ function atualizarPrazo(){
 }
 document.getElementById("prazo-data").textContent=EXPIRA_EM.toLocaleString("pt-BR",{day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit",timeZone:"America/Sao_Paulo"});
 document.getElementById("prazo-motivo").textContent=MOTIVO;
-document.getElementById("reativar").addEventListener("click",()=>{dataLayer.push({event:"auditoria_reativacao_clique",cliente:CLIENTE});});
+document.getElementById("reativar").addEventListener("click",()=>{if(DONO)return;dataLayer.push({event:"auditoria_reativacao_clique",cliente:CLIENTE});});
 if(expirou()){mostrarExpirada();}else{atualizarPrazo();setInterval(atualizarPrazo,1000);}
 </script>
 </body>
