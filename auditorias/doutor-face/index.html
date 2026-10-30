@@ -135,10 +135,10 @@ input{font:inherit;padding:10px 12px;border-radius:5px;border:1px solid var(--li
 
     <section class="card">
       <h2>Próximo passo</h2>
-      <p>Vamos conversar sobre o que faria mais diferença primeiro para as duas unidades.</p>
-      <!-- WhatsApp da Off Digital -->
-      <a class="btn" id="cta" href="https://wa.me/5545988195137?text=Ol%C3%A1%2C%20vi%20a%20auditoria%20parcial%20da%20Doutor%20Face%20e%20gostaria%20de%20marcar%20a%20reuni%C3%A3o." target="_blank" rel="noopener noreferrer">Chamar no WhatsApp para marcar a reunião</a>
-      <p class="aviso">A reunião pode durar de 12 a 21 minutos.</p>
+      <p>Preparamos uma proposta para corrigir esses pontos e criar as páginas que as pacientes das duas unidades procuram.</p>
+      <!-- Funil: auditoria → proposta → WhatsApp -->
+      <a class="btn" id="cta" href="/propostas/doutor-face-30-10-2026-bb68d0.html">Consultar proposta</a>
+      <p class="aviso">A senha da proposta é o número de WhatsApp da clínica, com DDD.</p>
       <p class="lead">Off Digital · Inova SEO</p>
     </section>
   </main>
@@ -169,7 +169,7 @@ document.getElementById("gate").addEventListener("submit",async e=>{
     avisar(info);
   } else msg.textContent="Senha incorreta.";
 });
-document.getElementById("cta").addEventListener("click",()=>{dataLayer.push({event:"auditoria_parcial_cta",cliente:CLIENTE});});
+document.getElementById("cta").addEventListener("click",()=>{dataLayer.push({event:"auditoria_parcial_cta",cliente:CLIENTE,destino:"proposta"});avisar({cliente:"Doutor Face · auditoria: clicou em Consultar proposta",perfil_acesso:"prospecto",evento:"auditoria_cta_proposta",empresa:"Doutor Face",dispositivo:dispositivo(),data_hora:new Date().toLocaleString("pt-BR",{timeZone:"America/Sao_Paulo"})});});
 
 /* PRAZO: data e hora fixas, gravadas no arquivo. Ajuste esta linha no dia do envio (envio + 48 horas), fuso -03:00.
    O relógio não reinicia a cada abertura. É uma barreira no navegador: para expirar de verdade, apague a pasta no GitHub. */
