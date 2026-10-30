@@ -96,6 +96,16 @@
       gtag('js', new Date());
       /* a configuração do GA4 (G-CDGVGTPP75) é feita pela tag do GTM; evita contar em dobro */
     </script>
+    <script>
+    /* Clique no WhatsApp -> GA4 (cta_click / generate_lead); a tag do GTM repassa à Meta como Lead */
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href*="wa.me"]');
+      if (!a || typeof window.gtag !== 'function') return;
+      var d = { cta_tipo: 'whatsapp', cta_texto: (a.textContent || '').trim().slice(0, 80), cta_destino: (a.getAttribute('href') || '').slice(0, 100), pagina: location.pathname };
+      window.gtag('event', 'cta_click', d);
+      window.gtag('event', 'generate_lead', { lead_source: 'site', pagina: location.pathname });
+    });
+    </script>
     <script src="/assets/popup.js?v=14" defer></script>
 </head>
 <body id="top">
@@ -276,7 +286,7 @@
 <li>Site rápido no celular. A maioria das buscas locais é feita pelo telefone, muitas vezes no 4G.</li>
 </ul>
 
-<p>Se você quer entender a base, comece por o que é SEO e para que serve. Se o assunto é o mapa e a cidade, vá para SEO local: o que é e como fazer.</p>
+<p>Se você quer entender a base, comece por o que é SEO e para que serve. Se o assunto é o mapa e a cidade, vá para <a href="/blog/seo-local-o-que-e/">SEO local: o que é e como fazer</a>.</p>
 
 <h2>Passo 4: nome, endereço e telefone iguais em todo lugar</h2>
 
@@ -337,10 +347,10 @@
 <p>Em cidades menores, como Medianeira, Matelândia ou Santa Helena, a resposta costuma ser mais rápida. Em capitais, mais lenta. Quem quiser entender a conta completa pode ler se SEO vale a pena.</p>
 <!-- /extra -->
 
-<nav class="post-next" aria-label="Para continuar"><h2>Para continuar</h2><ul><li><a href="/blog/como-colocar-minha-empresa-no-google/">Como colocar minha empresa no Google Maps de graça</a></li></ul></nav><aside class="post-cta post-cta-fim" id="cta"><p class="post-cta-tit">Quer aparecer no Google da sua cidade?</p><p>A InovaSEO cuida do perfil da empresa, do site e do SEO local para negócios de Foz do Iguaçu e do Oeste do Paraná.</p><div class="post-cta-btns"><a class="btn-cta-primary" href="/agencia-de-seo/" data-cta="pagina" data-pos="cta-fim" data-post="como-aparecer-no-google">Conhecer o serviço de SEO</a><a class="btn-cta-secondary" href="https://wa.me/5545988195137?text=Ol%C3%A1%21%20Li%20o%20texto%20%22Como%20aparecer%20no%20Google%3A%20guia%20para%20empresas%20locais%22%20no%20blog%20da%20InovaSEO%20e%20quero%20conversar%20sobre%20a%20minha%20empresa.%20%28Origem%3A%20utm_source%3Dblog%26utm_medium%3Dwhatsapp%26utm_campaign%3Dcomo-aparecer-no-google%26utm_content%3Dcta-fim-whatsapp%29" target="_blank" rel="noopener noreferrer" data-cta="whatsapp" data-pos="cta-fim-whatsapp" data-post="como-aparecer-no-google">Falar no WhatsApp</a></div></aside>
+<nav class="post-next" aria-label="Para continuar"><h2>Para continuar</h2><ul><li><a href="/blog/como-colocar-minha-empresa-no-google/">Como colocar minha empresa no Google Maps de graça</a></li><li><a href="/blog/seo-local-o-que-e/">SEO local: o que é e como fazer para sua empresa</a></li></ul></nav><aside class="post-cta post-cta-fim" id="cta"><p class="post-cta-tit">Quer aparecer no Google da sua cidade?</p><p>A InovaSEO cuida do perfil da empresa, do site e do SEO local para negócios de Foz do Iguaçu e do Oeste do Paraná.</p><div class="post-cta-btns"><a class="btn-cta-primary" href="/agencia-de-seo/" data-cta="pagina" data-pos="cta-fim" data-post="como-aparecer-no-google">Conhecer o serviço de SEO</a><a class="btn-cta-secondary" href="https://wa.me/5545988195137?text=Ol%C3%A1%21%20Li%20o%20texto%20%22Como%20aparecer%20no%20Google%3A%20guia%20para%20empresas%20locais%22%20no%20blog%20da%20InovaSEO%20e%20quero%20conversar%20sobre%20a%20minha%20empresa.%20%28Origem%3A%20utm_source%3Dblog%26utm_medium%3Dwhatsapp%26utm_campaign%3Dcomo-aparecer-no-google%26utm_content%3Dcta-fim-whatsapp%29" target="_blank" rel="noopener noreferrer" data-cta="whatsapp" data-pos="cta-fim-whatsapp" data-post="como-aparecer-no-google">Falar no WhatsApp</a></div></aside>
 
 </div></article>
-<section class="page-section page-section--alt"><div class="container"><h2 class="section-title">Leia também</h2><div class="blog-grid"><a class="blog-card" href="/blog/como-colocar-minha-empresa-no-google/"><img src="/assets/blog/como-colocar-minha-empresa-no-google.webp" width="1200" height="630" alt="" loading="lazy" decoding="async"><div class="blog-card-body"><time datetime="2026-10-27">27 de outubro de 2026</time><h3>Como colocar minha empresa no Google Maps de graça</h3></div></a></div></div></section>
+<section class="page-section page-section--alt"><div class="container"><h2 class="section-title">Leia também</h2><div class="blog-grid"><a class="blog-card" href="/blog/seo-local-o-que-e/"><img src="/assets/blog/seo-local-o-que-e.webp" width="1200" height="630" alt="" loading="lazy" decoding="async"><div class="blog-card-body"><time datetime="2026-10-30">30 de outubro de 2026</time><h3>SEO local: o que é e como fazer para sua empresa</h3></div></a><a class="blog-card" href="/blog/como-colocar-minha-empresa-no-google/"><img src="/assets/blog/como-colocar-minha-empresa-no-google.webp" width="1200" height="630" alt="" loading="lazy" decoding="async"><div class="blog-card-body"><time datetime="2026-10-27">27 de outubro de 2026</time><h3>Como colocar minha empresa no Google Maps de graça</h3></div></a></div></div></section>
 </main>
     <footer class="footer">
         <div class="container">

@@ -101,6 +101,16 @@
       gtag('js', new Date());
       /* a configuração do GA4 (G-CDGVGTPP75) é feita pela tag do GTM; evita contar em dobro */
     </script>
+    <script>
+    /* Clique no WhatsApp -> GA4 (cta_click / generate_lead); a tag do GTM repassa à Meta como Lead */
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href*="wa.me"]');
+      if (!a || typeof window.gtag !== 'function') return;
+      var d = { cta_tipo: 'whatsapp', cta_texto: (a.textContent || '').trim().slice(0, 80), cta_destino: (a.getAttribute('href') || '').slice(0, 100), pagina: location.pathname };
+      window.gtag('event', 'cta_click', d);
+      window.gtag('event', 'generate_lead', { lead_source: 'site', pagina: location.pathname });
+    });
+    </script>
     <script src="/assets/popup.js?v=14" defer></script>
 </head>
 <body id="top">
@@ -338,7 +348,7 @@
 <nav class="post-next" aria-label="Para continuar"><h2>Para continuar</h2><ul><li>Visão geral: <a href="/blog/como-aparecer-no-google/">Como aparecer no Google: guia para empresas locais</a></li></ul></nav><aside class="post-cta post-cta-fim" id="cta"><p class="post-cta-tit">Quer o perfil da sua empresa bem feito desde o começo?</p><p>A InovaSEO cria, verifica e otimiza o perfil da empresa no Google para negócios de Foz do Iguaçu e região.</p><div class="post-cta-btns"><a class="btn-cta-primary" href="/agencia-de-seo-em-foz-do-iguacu/" data-cta="pagina" data-pos="cta-fim" data-post="como-colocar-minha-empresa-no-google">Ver SEO local em Foz do Iguaçu</a><a class="btn-cta-secondary" href="https://wa.me/5545988195137?text=Ol%C3%A1%21%20Li%20o%20texto%20%22Como%20colocar%20minha%20empresa%20no%20Google%20Maps%20de%20gra%C3%A7a%22%20no%20blog%20da%20InovaSEO%20e%20quero%20conversar%20sobre%20a%20minha%20empresa.%20%28Origem%3A%20utm_source%3Dblog%26utm_medium%3Dwhatsapp%26utm_campaign%3Dcomo-colocar-minha-empresa-no-google%26utm_content%3Dcta-fim-whatsapp%29" target="_blank" rel="noopener noreferrer" data-cta="whatsapp" data-pos="cta-fim-whatsapp" data-post="como-colocar-minha-empresa-no-google">Falar no WhatsApp</a></div></aside>
 
 </div></article>
-<section class="page-section page-section--alt"><div class="container"><h2 class="section-title">Leia também</h2><div class="blog-grid"><a class="blog-card" href="/blog/como-aparecer-no-google/"><img src="/assets/blog/como-aparecer-no-google.webp" width="1200" height="630" alt="" loading="lazy" decoding="async"><div class="blog-card-body"><time datetime="2026-10-23">23 de outubro de 2026</time><h3>Como aparecer no Google: guia para empresas locais</h3></div></a></div></div></section>
+<section class="page-section page-section--alt"><div class="container"><h2 class="section-title">Leia também</h2><div class="blog-grid"><a class="blog-card" href="/blog/seo-local-o-que-e/"><img src="/assets/blog/seo-local-o-que-e.webp" width="1200" height="630" alt="" loading="lazy" decoding="async"><div class="blog-card-body"><time datetime="2026-10-30">30 de outubro de 2026</time><h3>SEO local: o que é e como fazer para sua empresa</h3></div></a><a class="blog-card" href="/blog/como-aparecer-no-google/"><img src="/assets/blog/como-aparecer-no-google.webp" width="1200" height="630" alt="" loading="lazy" decoding="async"><div class="blog-card-body"><time datetime="2026-10-23">23 de outubro de 2026</time><h3>Como aparecer no Google: guia para empresas locais</h3></div></a></div></div></section>
 </main>
     <footer class="footer">
         <div class="container">

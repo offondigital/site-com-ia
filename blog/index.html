@@ -56,6 +56,16 @@
       gtag('js', new Date());
       /* a configuração do GA4 (G-CDGVGTPP75) é feita pela tag do GTM; evita contar em dobro */
     </script>
+    <script>
+    /* Clique no WhatsApp -> GA4 (cta_click / generate_lead); a tag do GTM repassa à Meta como Lead */
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href*="wa.me"]');
+      if (!a || typeof window.gtag !== 'function') return;
+      var d = { cta_tipo: 'whatsapp', cta_texto: (a.textContent || '').trim().slice(0, 80), cta_destino: (a.getAttribute('href') || '').slice(0, 100), pagina: location.pathname };
+      window.gtag('event', 'cta_click', d);
+      window.gtag('event', 'generate_lead', { lead_source: 'site', pagina: location.pathname });
+    });
+    </script>
     <script src="/assets/popup.js?v=14" defer></script>
 </head>
 <body id="top">
@@ -185,7 +195,7 @@
         <p>O que eu explico todo dia para donos de negócio sobre Google, Maps, sites e IA, escrito para quem tem empresa em Foz do Iguaçu e no Oeste do Paraná. Dois textos novos por semana.</p>
     </div>
 </section>
-<section class="page-section"><div class="container"><div class="blog-grid"><a class="blog-card" href="/blog/como-colocar-minha-empresa-no-google/"><img src="/assets/blog/como-colocar-minha-empresa-no-google.webp" width="1200" height="630" alt="" loading="lazy" decoding="async"><div class="blog-card-body"><time datetime="2026-10-27">27 de outubro de 2026</time><h3>Como colocar minha empresa no Google Maps de graça</h3><p>Como cadastrar sua empresa no Google Maps de graça: criar o perfil, verificar, aparecer sem endereço e o que fazer sem CNPJ.</p></div></a><a class="blog-card" href="/blog/como-aparecer-no-google/"><img src="/assets/blog/como-aparecer-no-google.webp" width="1200" height="630" alt="" loading="lazy" decoding="async"><div class="blog-card-body"><time datetime="2026-10-23">23 de outubro de 2026</time><h3>Como aparecer no Google: guia para empresas locais</h3><p>Como sua empresa aparece no Google, no Maps e nas IAs: perfil da empresa, site, SEO local, avaliações e anúncios. Guia para negócios do Oeste do PR.</p></div></a></div></div></section>
+<section class="page-section"><div class="container"><div class="blog-grid"><a class="blog-card" href="/blog/seo-local-o-que-e/"><img src="/assets/blog/seo-local-o-que-e.webp" width="1200" height="630" alt="" loading="lazy" decoding="async"><div class="blog-card-body"><time datetime="2026-10-30">30 de outubro de 2026</time><h3>SEO local: o que é e como fazer para sua empresa</h3><p>O que é SEO local, como o Google escolhe quem aparece no mapa e o passo a passo para sua empresa ser encontrada por clientes da sua cidade.</p></div></a><a class="blog-card" href="/blog/como-colocar-minha-empresa-no-google/"><img src="/assets/blog/como-colocar-minha-empresa-no-google.webp" width="1200" height="630" alt="" loading="lazy" decoding="async"><div class="blog-card-body"><time datetime="2026-10-27">27 de outubro de 2026</time><h3>Como colocar minha empresa no Google Maps de graça</h3><p>Como cadastrar sua empresa no Google Maps de graça: criar o perfil, verificar, aparecer sem endereço e o que fazer sem CNPJ.</p></div></a><a class="blog-card" href="/blog/como-aparecer-no-google/"><img src="/assets/blog/como-aparecer-no-google.webp" width="1200" height="630" alt="" loading="lazy" decoding="async"><div class="blog-card-body"><time datetime="2026-10-23">23 de outubro de 2026</time><h3>Como aparecer no Google: guia para empresas locais</h3><p>Como sua empresa aparece no Google, no Maps e nas IAs: perfil da empresa, site, SEO local, avaliações e anúncios. Guia para negócios do Oeste do PR.</p></div></a></div></div></section>
 </main>
     <footer class="footer">
         <div class="container">

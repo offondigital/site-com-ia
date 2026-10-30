@@ -87,6 +87,16 @@
       gtag('js', new Date());
       /* a configuração do GA4 (G-CDGVGTPP75) é feita pela tag do GTM; evita contar em dobro */
     </script>
+    <script>
+    /* Clique no WhatsApp -> GA4 (cta_click / generate_lead); a tag do GTM repassa à Meta como Lead */
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href*="wa.me"]');
+      if (!a || typeof window.gtag !== 'function') return;
+      var d = { cta_tipo: 'whatsapp', cta_texto: (a.textContent || '').trim().slice(0, 80), cta_destino: (a.getAttribute('href') || '').slice(0, 100), pagina: location.pathname };
+      window.gtag('event', 'cta_click', d);
+      window.gtag('event', 'generate_lead', { lead_source: 'site', pagina: location.pathname });
+    });
+    </script>
     <script src="/assets/popup.js?v=14" defer></script>
 </head>
 <body id="top">
@@ -255,7 +265,7 @@
 
 <aside class="post-cta post-cta-fim" id="cta"><p class="post-cta-tit">Quer aparecer no Google em Ponta Grossa?</p><p>Atendemos empresas de Ponta Grossa com reuniões on-line, relatório mensal e contato direto pelo WhatsApp.</p>
 <div class="post-cta-btns"><a class="btn-cta-primary" href="https://wa.me/5545988195137?text=Ol%C3%A1%21%20Vi%20a%20p%C3%A1gina%20de%20ag%C3%AAncia%20de%20seo%20em%20ponta%20grossa%20da%20InovaSEO%20e%20quero%20conversar%20sobre%20o%20meu%20neg%C3%B3cio.%20%28Origem%3A%20utm_source%3Dsite%26utm_medium%3Dwhatsapp%26utm_campaign%3Dnicho-agencia-de-seo-em-ponta-grossa%26utm_content%3Dcta-fim%29" target="_blank" rel="noopener noreferrer" data-cta="whatsapp" data-pos="cta-fim" data-post="agencia-de-seo-em-ponta-grossa">Falar no WhatsApp</a><a class="btn-cta-secondary" href="/agencia-de-marketing-digital/" data-cta="pagina" data-pos="cta-fim-servico" data-post="agencia-de-seo-em-ponta-grossa">Conhecer a agência</a></div></aside>
-
+<nav class="post-next" aria-label="Para entender antes de decidir"><h2>Para entender antes de decidir</h2><ul><li><a href="/blog/seo-local-o-que-e/">SEO local: o que é e como fazer para sua empresa</a></li></ul></nav>
 <nav class="post-next" aria-label="Outros"><h2>Outros serviços em Ponta Grossa</h2><ul><li><a href="/agencia-de-marketing-digital-em-ponta-grossa/">Agência de marketing digital em Ponta Grossa</a></li><li><a href="/agencia-de-criacao-de-sites-em-ponta-grossa/">Criação de sites em Ponta Grossa</a></li><li><a href="/agencia-de-trafego-pago-em-ponta-grossa/">Agência de tráfego pago em Ponta Grossa</a></li><li><a href="/agencia-de-performance/">Agência de marketing de performance</a></li><li><a href="/segmentos/">Ver todos os segmentos</a></li></ul></nav>
 </div></article>
 </main>
