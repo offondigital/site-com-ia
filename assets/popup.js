@@ -219,7 +219,7 @@
     var btn = f.querySelector('.pp-ok'); btn.disabled = true; btn.textContent = 'Enviando…';
     var corpo = JSON.stringify({
       perfil_acesso: 'lead_popup', cliente: 'lead popup', site: site, sem_site: semSite, whatsapp: mascara(zap),
-      pagina: path, confirme_email: f.confirme_email.value, data_hora: new Date().toISOString()
+      pagina: path, confirme_email: f.confirme_email.value, tempo_ms: Date.now() - abertoEm, data_hora: new Date().toISOString()
     });
     var ok = function () {
       gravar('pp_enviado', String(Date.now()));
