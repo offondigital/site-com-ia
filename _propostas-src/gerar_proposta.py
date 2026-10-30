@@ -23,7 +23,8 @@ Uso:
       --cliente "Jet Point" --slug jet-point --data 29/10/2026 \
       --senha "(81) 9 9795-0880"   (ou --senha contato@empresa.com.br) --conteudo /caminho/fora/do/repo/conteudo.html
 
-Saída: propostas/<slug>-<dd-mm-aaaa>.html
+Saída: propostas/<slug>-<dd-mm-aaaa>-<código aleatório>.html
+(preencha a coluna Q do CRM com o nome impresso, sem .html, para a tag "Proposta aberta")
 """
 import argparse
 import secrets
@@ -100,7 +101,8 @@ def main():
     livre = a.senha.strip() == "auto"
     senha = normalizar_senha(a.senha)
     c = criptografar(conteudo.read_text(encoding="utf-8"), senha)
-    nome = f"{a.slug}-{a.data.replace('/', '-')}"
+    codigo = secrets.token_hex(3)  # 6 caracteres aleatórios: o endereço deixa de ser adivinhável
+    nome = f"{a.slug}-{a.data.replace('/', '-')}-{codigo}"
 
     pagina = MODELO.read_text(encoding="utf-8")
     trocas = {
