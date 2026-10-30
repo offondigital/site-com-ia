@@ -7,7 +7,7 @@
   var AVISO = 'https://script.google.com/macros/s/AKfycbxcoFgihWxI51tOExb75D3I3rE8UBhin-Z_xa5PfwPd4Elz5tx2bXYJy83WP3UrG5G1/exec';
   var WHATS = '5545988195137';
   var DIAS_DISPENSA = 7, DIAS_ENVIADO = 30;
-  var SEM_SITE = false; /* opção "Ainda não tenho site": ligar (true) só depois de atualizar o Apps Script */
+  var SEM_SITE = true; /* opção "Ainda não tenho site": ligar (true) só depois de atualizar o Apps Script */
 
   var ATIVO = true;
   if (!ATIVO) return;
