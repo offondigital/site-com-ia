@@ -37,11 +37,12 @@
     '.pp-fundo{position:fixed;inset:0;background:rgba(15,23,42,.55);z-index:99998;opacity:0;transition:opacity .2s}' +
     '.pp-fundo.on{opacity:1}' +
     '.pp{position:fixed;z-index:99999;background:linear-gradient(160deg,hsl(221,83%,47%),hsl(226,71%,33%));color:#fff;font-family:Inter,system-ui,sans-serif;box-shadow:0 20px 60px rgba(15,23,42,.35);' +
-    'opacity:0;transition:opacity .2s,transform .25s}' +
+    'opacity:0;transition:opacity .3s,transform .5s cubic-bezier(.22,1,.36,1)}' +
     '.pp.on{opacity:1;transform:none}' +
-    '.pp--modal{left:50%;top:50%;width:min(440px,calc(100vw - 32px));border-radius:16px;padding:28px 26px 22px;transform:translate(-50%,-46%)}' +
-    '.pp--modal.on{transform:translate(-50%,-50%)}' +
-    '.pp--faixa{left:0;right:0;bottom:0;border-radius:16px 16px 0 0;padding:18px 16px calc(16px + env(safe-area-inset-bottom));transform:translateY(24px)}' +
+    /* desktop: painel no canto inferior direito, entra deslizando da direita e sai para a direita */
+    '.pp--lado{right:24px;bottom:24px;width:min(400px,calc(100vw - 48px));max-height:calc(100vh - 48px);overflow:auto;border-radius:16px;padding:26px 24px 20px;border:1px solid rgba(255,255,255,.28);transform:translateX(calc(100% + 48px))}' +
+    /* celular: faixa na base, também deslizando pela direita */
+    '.pp--faixa{left:0;right:0;bottom:0;border-radius:16px 16px 0 0;padding:18px 16px calc(16px + env(safe-area-inset-bottom));transform:translateX(105%)}' +
     '.pp h2{margin:0 0 6px;font-size:1.25rem;line-height:1.25;font-weight:700;padding-right:28px}' +
     '.pp--faixa h2{font-size:1.05rem}' +
     '.pp p{margin:0 0 14px;font-size:.92rem;line-height:1.45;color:rgba(255,255,255,.92)}' +
@@ -72,7 +73,7 @@
     '.pp--compacta .pp-abre{display:block;margin:0}' +
     '.pp--compacta p.pp-sub{display:none}' +
     '.pp--compacta h2{font-size:1rem;margin-bottom:10px}' +
-    '@media (prefers-reduced-motion:reduce){.pp,.pp-fundo{transition:none}}';
+    '@media (prefers-reduced-motion:reduce){.pp,.pp-fundo{transition:none}.pp--lado,.pp--faixa{transform:none}}';
 
   function injetarCss() {
     var s = document.createElement('style'); s.textContent = css; document.head.appendChild(s);
@@ -83,19 +84,12 @@
     if (aberto) return; aberto = true;
     injetarCss();
     ultimoFoco = document.activeElement; abertoEm = Date.now();
-    var modal = !celular;
-    if (modal) {
-      var f = document.createElement('div'); f.className = 'pp-fundo'; f.id = 'pp-fundo';
-      f.addEventListener('click', function () { fechar('fundo'); });
-      document.body.appendChild(f);
-      requestAnimationFrame(function () { f.classList.add('on'); });
-    }
+    var modal = !celular; /* true = desktop (painel lateral, sem fundo escuro nem bloqueio da página) */
     caixa = document.createElement('div');
-    caixa.className = 'pp ' + (modal ? 'pp--modal' : 'pp--faixa');
+    caixa.className = 'pp ' + (modal ? 'pp--lado' : 'pp--faixa');
     if (!modal) caixa.className += ' pp--compacta';
     caixa.setAttribute('role', 'dialog');
     caixa.setAttribute('aria-labelledby', 'pp-t');
-    if (modal) caixa.setAttribute('aria-modal', 'true');
     caixa.innerHTML =
       '<button type="button" class="pp-x" aria-label="Fechar">&times;</button>' +
       '<div id="pp-conteudo">' +
@@ -117,7 +111,8 @@
       '<p class="pp-lgpd">Ao enviar, você autoriza o contato por WhatsApp sobre a auditoria. <a href="/privacidade/">Política de privacidade</a>.</p>' +
       '</div>';
     document.body.appendChild(caixa);
-    requestAnimationFrame(function () { caixa.classList.add('on'); });
+    void caixa.offsetWidth; /* fixa o estado inicial (fora da tela) para a animação de entrada rodar */
+    requestAnimationFrame(function () { requestAnimationFrame(function () { if (caixa) caixa.classList.add('on'); }); });
 
     caixa.querySelector('.pp-x').addEventListener('click', function () { fechar('x'); });
     caixa.querySelector('form').addEventListener('submit', enviar);
@@ -156,13 +151,12 @@
       gravar('pp_enviado', String(Date.now()));
     });
     document.addEventListener('keydown', teclas);
-    if (modal) setTimeout(function () { var i = caixa && caixa.querySelector('#pp-site'); if (i) i.focus(); }, 250);
     ev('popup_exibido', { gatilho: origem, formato: modal ? 'janela' : 'faixa', pagina: path });
   }
 
   function teclas(e) {
     if (e.key === 'Escape') { fechar('esc'); return; }
-    if (e.key === 'Tab' && caixa && !celular) { // mantém o foco dentro da janela
+    if (false) { // painel lateral não prende o foco
       var els = caixa.querySelectorAll('button,a[href],input:not([tabindex="-1"])');
       if (!els.length) return;
       var a = els[0], b = els[els.length - 1];
@@ -178,7 +172,7 @@
     var f = document.getElementById('pp-fundo');
     if (caixa) caixa.classList.remove('on');
     if (f) f.classList.remove('on');
-    setTimeout(function () { if (caixa) caixa.remove(); if (f) f.remove(); caixa = null; }, 260);
+    setTimeout(function () { if (caixa) caixa.remove(); if (f) f.remove(); caixa = null; }, 520);
     try { if (ultimoFoco && ultimoFoco.focus) ultimoFoco.focus(); } catch (e) {}
   }
 
