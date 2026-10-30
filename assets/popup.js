@@ -1,6 +1,6 @@
 /* Popup "Auditoria gratuita do seu site" - InovaSEO
    Desktop: janela ao intencionar sair (mouse sobe para fora da página), após 15 s.
-   Celular: faixa NÃO bloqueante na parte de baixo, após 40 s ou 50% de rolagem (sem tela cheia, por causa do Google).
+   Celular: faixa NÃO bloqueante na parte de baixo, após 20 s ou 50% de rolagem (sem tela cheia, por causa do Google).
    Envia o lead (site + WhatsApp) ao Apps Script, que cria a linha no CRM e avisa no Telegram. */
 (function () {
   'use strict';
@@ -221,7 +221,7 @@
   } else {
     var disparado = false;
     var dispara = function (o) { if (disparado || aberto) return; disparado = true; abrir(o); };
-    setTimeout(function () { dispara('tempo'); }, 40000);
+    setTimeout(function () { dispara('tempo'); }, 20000);
     window.addEventListener('scroll', function () {
       var h = document.documentElement, rolou = (window.scrollY + window.innerHeight) / Math.max(h.scrollHeight, 1);
       if (rolou >= 0.5 && Date.now() - inicio > 8000) dispara('rolagem');
