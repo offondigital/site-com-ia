@@ -24,7 +24,7 @@ Uso:
       --senha "(81) 9 9795-0880"   (ou --senha contato@empresa.com.br) --conteudo /caminho/fora/do/repo/conteudo.html
 
 Saída: propostas/<slug>-<dd-mm-aaaa>-<código aleatório>.html
-(preencha a coluna Q do CRM com o nome impresso, sem .html, para a tag "Proposta aberta")
+(a tag "Proposta aberta" do CRM acha a linha pelo nome da empresa na coluna A, igual ao --cliente; a coluna Q é só reforço)
 """
 import argparse
 import secrets
