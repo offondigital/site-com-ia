@@ -453,6 +453,7 @@
       add('https://www.googletagmanager.com/gtm.js?id=GTM-TVDF63GF');
       add('https://www.googletagmanager.com/gtag/js?id=G-CDGVGTPP75');}
     ev.forEach(function(e){w.addEventListener(e,go,{once:true,passive:true});});
+    if(/[?&]utm_/.test(location.search))go();
     w.addEventListener('load',function(){setTimeout(go,8000);});
     })(window,document);
     </script>

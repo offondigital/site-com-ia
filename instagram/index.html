@@ -6,9 +6,39 @@
 <title>InovaSEO</title>
 <meta name="robots" content="noindex,follow">
 <link rel="canonical" href="https://inovaseo.com.br/">
-<!-- Link da bio do Instagram: leva para a home com UTM (registrado no GA4 como instagram / social) -->
-<meta http-equiv="refresh" content="0; url=/?utm_source=instagram&amp;utm_medium=social&amp;utm_campaign=perfil_instagram&amp;utm_content=link_bio">
-<script>location.replace("/?utm_source=instagram&utm_medium=social&utm_campaign=perfil_instagram&utm_content=link_bio");</script>
+<!-- Link da bio do Instagram. Registra o evento "acesso_instagram" no GA4 (G-CDGVGTPP75)
+     com origem instagram / social e depois leva para a home com a mesma UTM.
+     Sem JavaScript, o refresh de 3 s leva direto (a home registra pela UTM). -->
+<noscript><meta http-equiv="refresh" content="0; url=/?utm_source=instagram&amp;utm_medium=social&amp;utm_campaign=perfil_instagram&amp;utm_content=link_bio"></noscript>
+<script>
+(function () {
+  var destino = "/?utm_source=instagram&utm_medium=social&utm_campaign=perfil_instagram&utm_content=link_bio";
+  var foi = false;
+  function ir() { if (foi) return; foi = true; location.replace(destino); }
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag("js", new Date());
+  gtag("config", "G-CDGVGTPP75", {
+    send_page_view: false,
+    campaign_source: "instagram",
+    campaign_medium: "social",
+    campaign_name: "perfil_instagram",
+    campaign_content: "link_bio"
+  });
+  gtag("event", "acesso_instagram", {
+    origem: "bio_instagram",
+    event_callback: ir,
+    event_timeout: 1500
+  });
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://www.googletagmanager.com/gtag/js?id=G-CDGVGTPP75";
+  s.onerror = ir;
+  document.head.appendChild(s);
+  setTimeout(ir, 1800); /* se o Analytics for bloqueado, segue mesmo assim */
+})();
+</script>
+<style>body{font-family:system-ui,sans-serif;display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0;color:#334155}</style>
 </head>
-<body><p><a href="/?utm_source=instagram&amp;utm_medium=social&amp;utm_campaign=perfil_instagram&amp;utm_content=link_bio">Ir para o site da InovaSEO</a></p></body>
+<body><p>Abrindo o site da InovaSEO… <a href="/?utm_source=instagram&amp;utm_medium=social&amp;utm_campaign=perfil_instagram&amp;utm_content=link_bio">toque aqui se não abrir</a></p></body>
 </html>

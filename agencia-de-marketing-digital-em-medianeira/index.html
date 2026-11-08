@@ -40,6 +40,7 @@
       add('https://www.googletagmanager.com/gtag/js?id=G-CDGVGTPP75');
       w.clarity=w.clarity||function(){(w.clarity.q=w.clarity.q||[]).push(arguments)};add('https://www.clarity.ms/tag/vive8opj1h');}
     ev.forEach(function(e){w.addEventListener(e,go,{once:true,passive:true});});
+    if(/[?&]utm_/.test(location.search))go();
     w.addEventListener('load',function(){setTimeout(go,8000);});
     })(window,document);
     </script>
