@@ -259,7 +259,7 @@ def pagina(titulo, desc, canon, og_img, tipo_og, ld_blocos, miolo, preload="", a
     {preload}
     <style>@font-face{{font-family:"Inter";font-style:normal;font-weight:100 900;font-display:swap;src:url({BASE}/assets/inter-latin.woff2) format("woff2")}}</style>
     <link rel="stylesheet" href="{BASE}/style.css?v=2">
-    <link rel="stylesheet" href="{BASE}/{OUT_NAME}/blog.css?v=2">
+    <link rel="stylesheet" href="{BASE}/{OUT_NAME}/blog.css?v=3">
 {chr(10).join(ld_blocos)}
     {RASTREIO_HEAD}
 </head>
