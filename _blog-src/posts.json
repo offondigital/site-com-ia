@@ -10,7 +10,7 @@
   "cluster": "pilar",
   "to": [
    "como-colocar-minha-empresa-no-google",
-   "seo-local-o-que-e",
+   "seo-local",
    "o-que-e-seo"
   ]
  },
@@ -31,20 +31,25 @@
   ]
  },
  {
-  "slug": "seo-local-o-que-e",
+  "slug": "seo-local",
   "date": "2026-10-30",
-  "title": "SEO local: o que é e como fazer para sua empresa",
-  "cover": "SEO local: o que é e como fazer na sua cidade",
-  "desc": "O que é SEO local, como o Google escolhe quem aparece no mapa e o passo a passo para sua empresa ser encontrada por clientes da sua cidade.",
-  "kw": "seo local, seo local o que é, seo local como fazer, seo local google meu negócio, seo local para empresas",
-  "page": "agencia-de-seo-em-foz-do-iguacu",
+  "title": "SEO local: o guia completo para dominar o Google na sua cidade",
+  "cover": "SEO local: o guia completo para dominar o Google na sua cidade",
+  "desc": "O que é SEO local e como fazer: perfil da empresa no Google, páginas por cidade, avaliações, NAP, links locais e checklist com 20 itens.",
+  "kw": "seo local, o que é seo local, como fazer seo local, google meu negócio, google business profile, seo para negócios locais, aparecer no google maps, ranquear na minha cidade",
+  "page": "agencia-de-seo",
   "cluster": "c1",
   "to": [
    "como-aparecer-no-google-maps",
    "otimizar-perfil-da-empresa-no-google",
-   "o-que-e-seo",
-   "marketing-digital-para-advogados",
-   "como-conseguir-pacientes-dentista"
+   "como-conseguir-avaliacoes-no-google",
+   "seo-programatico",
+   "palavras-chave-para-seo"
+  ],
+  "updated": "2026-11-08",
+  "seo_title": "SEO local: guia completo para aparecer na sua cidade",
+  "redirect_from": [
+   "seo-local-o-que-e"
   ]
  },
  {
@@ -89,7 +94,7 @@
   "to": [
    "otimizar-perfil-da-empresa-no-google",
    "como-conseguir-avaliacoes-no-google",
-   "seo-local-o-que-e",
+   "seo-local",
    "como-conseguir-alunos-para-academia"
   ]
  },
@@ -362,7 +367,7 @@
   "cluster": "c2",
   "to": [
    "palavras-chave-para-seo",
-   "seo-local-o-que-e",
+   "seo-local",
    "como-vender-energia-solar",
    "como-captar-clientes-imobiliaria"
   ]
@@ -396,7 +401,7 @@
   "page": "agencia-de-marketing-digital",
   "cluster": "c6",
   "to": [
-   "seo-local-o-que-e",
+   "seo-local",
    "como-conseguir-avaliacoes-no-google",
    "como-conseguir-pacientes-dentista",
    "como-conseguir-pacientes-psicologo"
@@ -412,7 +417,7 @@
   "page": "agencia-de-marketing-para-advogados",
   "cluster": "c6",
   "to": [
-   "seo-local-o-que-e",
+   "seo-local",
    "seo-ou-google-ads",
    "como-conseguir-clientes-contabilidade"
   ]

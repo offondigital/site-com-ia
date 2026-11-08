@@ -38,14 +38,14 @@ GRUPOS = {"c1": "Google e Maps", "c2": "SEO", "c3": "SEO para IA", "c4": "Sites"
 
 # pagina de servico -> posts que ela deve linkar (bloco "Para entender antes de decidir")
 REVERSO = {
-    "index": [PILAR, "seo-local-o-que-e", "quanto-custa-um-site", "seo-vale-a-pena"],
+    "index": [PILAR, "seo-local", "quanto-custa-um-site", "seo-vale-a-pena"],
     "seo": ["o-que-e-seo", "seo-vale-a-pena", "quanto-custa-seo", "como-escolher-agencia-de-seo"],
     "sites": ["quanto-custa-um-site", "criar-site-com-ia", "landing-page-o-que-e", "empresa-precisa-de-site"],
     "trafego": ["quanto-custa-google-ads", "quanto-cobra-agencia-de-trafego-pago", "trafego-pago-como-funciona", "seo-ou-google-ads"],
     "marketing": ["quanto-custa-agencia-de-marketing", "como-contratar-agencia-de-marketing", PILAR, "como-ganhar-clientes-pela-internet"],
     "consultoria": ["como-escolher-agencia-de-seo", "seo-vale-a-pena", "seo-ou-google-ads"],
     "pequenas": ["marketing-digital-vale-a-pena", "como-ganhar-clientes-pela-internet", "como-colocar-minha-empresa-no-google"],
-    "seo-cidade": ["seo-local-o-que-e", "como-aparecer-no-google-maps", "como-conseguir-avaliacoes-no-google"],
+    "seo-cidade": ["seo-local", "como-aparecer-no-google-maps", "como-conseguir-avaliacoes-no-google"],
     "sites-cidade": ["quanto-custa-um-site", "empresa-precisa-de-site", "site-lento-como-resolver"],
     "trafego-cidade": ["quanto-custa-google-ads", "seo-ou-google-ads", "trafego-pago-como-funciona"],
     "marketing-cidade": [PILAR, "como-colocar-minha-empresa-no-google", "como-ganhar-clientes-pela-internet"],
@@ -160,6 +160,35 @@ def capa(p):
     marca.write_text(titulo, encoding="utf-8")
 
 
+def faq_ld(corpo):
+    """FAQPage a partir do trecho <!-- faq:start --> ... <!-- faq:end --> (cada <h3> e os <p> seguintes)."""
+    m = re.search(r"<!-- faq:start -->(.*?)<!-- faq:end -->", corpo, re.S)
+    if not m:
+        return None
+    limpo = lambda x: html.unescape(re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", x))).strip()
+    itens = [{"@type": "Question", "name": limpo(q), "acceptedAnswer": {"@type": "Answer", "text": limpo(r)}}
+             for q, r in re.findall(r"<h3>(.*?)</h3>(.*?)(?=<h3>|$)", m.group(1), re.S)]
+    return {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": itens} if itens else None
+
+
+def redirecionar(antigo, novo):
+    """GitHub Pages nao tem 301: pagina com refresh 0 + canonical, que o Google trata como redirecionamento permanente."""
+    alvo = f"{SITE}/blog/{novo}/"
+    (OUT / antigo).mkdir(exist_ok=True)
+    (OUT / antigo / "index.html").write_text(f'''<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Página movida | InovaSEO</title>
+<link rel="canonical" href="{alvo}">
+<meta http-equiv="refresh" content="0; url={alvo}">
+<script>location.replace("{alvo}" + location.hash)</script>
+</head>
+<body><p>Este texto mudou de endereço: <a href="{alvo}">{alvo}</a></p></body>
+</html>
+''', encoding="utf-8")
+
+
 def ld(obj):
     return '<script type="application/ld+json">\n' + json.dumps(obj, ensure_ascii=False, indent=2) + "\n</script>"
 
@@ -230,7 +259,7 @@ def pagina(titulo, desc, canon, og_img, tipo_og, ld_blocos, miolo, preload="", a
     {preload}
     <style>@font-face{{font-family:"Inter";font-style:normal;font-weight:100 900;font-display:swap;src:url({BASE}/assets/inter-latin.woff2) format("woff2")}}</style>
     <link rel="stylesheet" href="{BASE}/style.css?v=2">
-    <link rel="stylesheet" href="{BASE}/{OUT_NAME}/blog.css?v=1">
+    <link rel="stylesheet" href="{BASE}/{OUT_NAME}/blog.css?v=2">
 {chr(10).join(ld_blocos)}
     {RASTREIO_HEAD}
 </head>
@@ -470,8 +499,11 @@ def main():
         preload = f'<link rel="preload" as="image" href="{BASE}/assets/blog/{slug}.webp" type="image/webp" fetchpriority="high">'
         (OUT / slug).mkdir()
         (OUT / slug / "index.html").write_text(
-            pagina(p.get("seo_title", p["title"] + " | InovaSEO"), p["desc"], canon, og, "article", [ld(artigo), ld(trilha)], miolo, preload),
+            pagina(p.get("seo_title", p["title"] + " | InovaSEO"), p["desc"], canon, og, "article",
+                   [ld(artigo), ld(trilha)] + ([ld(faq)] if (faq := faq_ld(corpo)) else []), miolo, preload),
             encoding="utf-8")
+        for antigo in p.get("redirect_from", []):
+            redirecionar(antigo, slug)
 
     if pub:
         cards = "".join(card(o, True) for o in pub)

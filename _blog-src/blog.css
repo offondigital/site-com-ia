@@ -42,3 +42,13 @@
 .page-section{padding:3rem 0}
 .page-section--alt{background:var(--muted)}
 @media(max-width:600px){.page-hero{padding:2.2rem 0 2.8rem}.post-hero{padding-bottom:4.5rem}.post-capa{margin-top:-3.2rem}.post-cta{padding:1.5rem 1.2rem}}
+.post pre{background:#0f172a;color:#e2e8f0;padding:1rem 1.2rem;border-radius:10px;overflow-x:auto;font-size:.82rem;line-height:1.5;margin:1rem 0 1.4rem}
+.post pre code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre}
+.post .checklist{list-style:none;padding-left:0}
+.post .checklist li{margin:.35rem 0}
+.post .checklist label{display:flex;gap:.6rem;align-items:flex-start;cursor:pointer}
+.post .checklist input{width:1.1rem;height:1.1rem;margin-top:.3rem;flex:none;accent-color:var(--primary)}
+.post .checklist input:checked+*,.post .checklist label:has(input:checked){color:var(--muted-foreground,#64748b);text-decoration:line-through}
+.post-autor{border:1px solid var(--border,#e2e8f0);border-radius:12px;padding:1rem 1.2rem;margin:2rem 0}
+.post-autor p{margin:.2rem 0}
+.post-autor .post-autor-nome{font-weight:700}
