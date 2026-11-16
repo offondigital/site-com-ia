@@ -133,7 +133,10 @@ footer{border-top:1px solid var(--line);padding:30px 0;color:var(--mut);font-siz
 <header class="top">
   <div class="wrap">
     <div class="logo">Off<i>.</i>Digital <span style="color:var(--mut);font-weight:500;font-size:14px">× Inova SEO</span></div>
-    <div class="tag-val">Proposta válida por <b id="topCd">--</b></div>
+    <div style="display:flex;align-items:center;gap:16px">
+      <div class="tag-val">Proposta válida por <b id="topCd">--</b></div>
+      <a class="btn" id="ctaTop" href="pagamento/" style="padding:9px 18px;font-size:14px">Fechar agora</a>
+    </div>
   </div>
 </header>
 
@@ -285,6 +288,7 @@ footer{border-top:1px solid var(--line);padding:30px 0;color:var(--mut);font-siz
       <div><div class="lab">Hospedagem</div><div class="v" id="vHost"></div><p>Servidor rápido e seguro para o site ficar sempre no ar.</p></div>
     </div>
     <p class="anchor reveal" id="anchorTxt"></p>
+    <p class="reveal" style="margin-top:28px"><a class="btn" id="ctaPrice" href="pagamento/">Quero aparecer no Google →</a></p>
   </div>
 </section>
 
@@ -326,8 +330,8 @@ footer{border-top:1px solid var(--line);padding:30px 0;color:var(--mut);font-siz
     <h2 class="reveal">Sua concorrente não vai esperar. <span class="acc">E você?</span></h2>
     <p class="lead reveal">Esta proposta e os valores são válidos por tempo limitado. Fechando dentro do prazo, o projeto entra na fila de produção.</p>
     <div class="cd reveal"><div><b id="cdD">--</b><span>dias</span></div><div><b id="cdH">--</b><span>horas</span></div><div><b id="cdM">--</b><span>min</span></div><div><b id="cdS">--</b><span>seg</span></div></div>
-    <a class="btn reveal" id="ctaWa" href="#" target="_blank" rel="noopener">Quero aparecer no Google →</a>
-    <p style="color:var(--mut);font-size:14px;margin-top:18px" class="reveal">Resposta direto com o Cezar, sem call center.</p>
+    <a class="btn reveal" id="ctaWa" href="pagamento/">Quero aparecer no Google →</a>
+    <p style="color:var(--mut);font-size:14px;margin-top:18px" class="reveal">Prefere conversar antes? <a id="ctaWa2" href="#" target="_blank" rel="noopener" style="color:var(--acc)">Chame o Cezar no WhatsApp</a>.</p>
   </div>
 </section>
 
@@ -396,7 +400,8 @@ $('anchorTxt').innerHTML = `Para dar a partida: <b>${brl(entrada)}</b> (50% do s
 $('faqInfra').textContent = `O domínio ${CFG.dominio} custa ${brl(CFG.dominioValor)} por 5 anos. A hospedagem fica entre ${brl(CFG.hospMin)} e ${brl(CFG.hospMax)} por mês e mantém o site rápido e sempre no ar.`;
 
 const msg = encodeURIComponent(`Oi Cezar! Vi a proposta dos 90 sites pelo preço de um para a ${CFG.empresa} e quero seguir. Podemos conversar?`);
-$('ctaWa').href = `https://wa.me/${CFG.whatsapp}?text=${msg}`;
+$('ctaWa2').href = `https://wa.me/${CFG.whatsapp}?text=${msg}`;
+['ctaWa','ctaPrice','ctaTop'].forEach(id => $(id).href = 'pagamento/');
 
 const grid = $('pagesGrid');
 CFG.palavras.forEach((p,i)=>{
