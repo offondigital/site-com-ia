@@ -142,7 +142,7 @@ footer{border-top:1px solid var(--line);padding:30px 0;color:var(--mut);font-siz
   <div class="wrap">
     <div class="eyebrow reveal">Proposta para <span data-c="empresa"></span></div>
     <h1 class="reveal">Quando alguém pesquisa harmonização facial, <span class="acc">quem aparece?</span></h1>
-    <p class="lead reveal">Quem está na primeira página do Google recebe o contato. O resto fica olhando. Esta proposta é para colocar o seu nome onde as pacientes já estão procurando: <b>90 sites pelo preço de um</b>, todos estruturados para o Google, com tecnologia de IA trabalhando todo mês para fortalecê-los.</p>
+    <p class="lead reveal">Quem está na primeira página do Google recebe o contato. O resto fica olhando. Esta proposta é para colocar o seu nome onde as pacientes já estão procurando: <b>90 sites pelo preço de um</b>, todos estruturados para o Google, com tecnologia de IA trabalhando todo mês para fortalecê-los e anúncios no Instagram para colocar o seu trabalho diante de quem procura.</p>
     <a class="btn reveal" href="#investimento">Ver o investimento ↓</a>
 
     <div class="serp reveal" aria-label="Simulação de busca no Google">
@@ -199,6 +199,7 @@ footer{border-top:1px solid var(--line);padding:30px 0;color:var(--mut);font-siz
       <div class="step reveal"><div><h3>Construímos o site</h3><p>Design profissional e estrutura de SEO em todas as páginas, do título ao carregamento rápido.</p></div></div>
       <div class="step reveal"><div><h3>Você aprova e publicamos</h3><p>Você vê tudo pronto, pede os ajustes e o site vai ao ar no seu domínio.</p></div></div>
       <div class="step reveal"><div><h3>A IA trabalha todo mês</h3><p>Ferramentas de inteligência artificial estruturam e fortalecem o site no Google de forma contínua.</p></div></div>
+      <div class="step reveal"><div><h3>Anúncios no ar</h3><p>Campanhas no Instagram levam o seu trabalho ao público certo, com a opção de remanejar a verba para o Google Ads.</p></div></div>
     </div>
   </div>
 </section>
@@ -213,6 +214,19 @@ footer{border-top:1px solid var(--line);padding:30px 0;color:var(--mut);font-siz
       <div class="card reveal"><h3>Estrutura pensada para o Google</h3><p>Cada página organizada do jeito que o Google entende e valoriza.</p></div>
       <div class="card reveal"><h3>Conteúdo alinhado às buscas</h3><p>Textos construídos em torno do que as pacientes realmente pesquisam.</p></div>
       <div class="card reveal"><h3>Trabalho contínuo</h3><p>Não é uma entrega única. O site segue sendo trabalhado todos os meses.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--bg2);border-block:1px solid var(--line)">
+  <div class="wrap">
+    <div class="eyebrow reveal">Instagram</div>
+    <h2 class="reveal">Seu trabalho diante de quem procura, <span class="acc">todos os dias.</span></h2>
+    <p class="lead reveal">O Google captura quem já está pesquisando. O Instagram mostra o seu trabalho para quem ainda vai descobrir. Os dois juntos formam uma presença completa.</p>
+    <div class="grid3">
+      <div class="card reveal"><h3>Mostre o seu trabalho</h3><p>Anúncios que apresentam sua clínica e levam o público ao seu perfil e ao site.</p></div>
+      <div class="card reveal"><h3>Público certo</h3><p>Segmentação por região e interesse, para falar com quem faz sentido para o seu atendimento.</p></div>
+      <div class="card reveal"><h3>Verba flexível</h3><p id="flexTxt"></p></div>
     </div>
   </div>
 </section>
@@ -245,8 +259,19 @@ footer{border-top:1px solid var(--line);padding:30px 0;color:var(--mut);font-siz
         <ul>
           <li>Ferramentas de IA para estruturar o site</li>
           <li>Trabalho contínuo, mês a mês</li>
-          <li>Foco no crescimento orgânico, sem pagar por clique</li>
+          <li>Foco no crescimento orgânico no Google</li>
           <li>Objetivo: levar o site à primeira página do Google</li>
+        </ul>
+      </div>
+      <div class="pc reveal">
+        <div class="lab">Gestão de anúncios no Instagram</div>
+        <div class="val" id="vIG"></div>
+        <div class="sub">Gestão profissional das campanhas. A verba dos anúncios é separada e paga direto à plataforma.</div>
+        <ul>
+          <li>Criação e configuração das campanhas</li>
+          <li>Segmentação por região e interesse</li>
+          <li>Acompanhamento e otimização</li>
+          <li id="liVerba"></li>
         </ul>
       </div>
     </div>
@@ -285,6 +310,7 @@ footer{border-top:1px solid var(--line);padding:30px 0;color:var(--mut);font-siz
     <div class="reveal" style="margin-top:28px">
       <details><summary>Como funciona o pagamento do site?</summary><p>50% para iniciar o projeto e 50% quando o site estiver pronto. Você só quita a segunda parte depois de ver o resultado.</p></details>
       <details><summary>O que é a mensalidade de R$ 847?</summary><p>É o investimento nas ferramentas de inteligência artificial usadas para estruturar o seu site no Google. O trabalho é contínuo e voltado ao crescimento orgânico.</p></details>
+      <details><summary>Posso usar a verba dos anúncios no Google Ads?</summary><p id="faqVerba"></p></details>
       <details><summary>Como funciona a comissão?</summary><p id="faqCom"></p></details>
       <details><summary>Em quanto tempo o site aparece no Google?</summary><p>O Google valoriza consistência, então o ganho de posição é construído mês a mês. Por isso o trabalho é contínuo, e não uma entrega única.</p></details>
       <details><summary>E o domínio e a hospedagem?</summary><p id="faqInfra"></p></details>
@@ -330,6 +356,8 @@ const CFG = {
   paginas: 90,
   mensalIA: 847,
   mensalDe: 1890,
+  gestaoIG: 1000,
+  verbaAds: 1200,
   comissao: "6,1%",
   dominioValor: 184,
   dominioTxt: "Registro por 5 anos. Pago uma única vez.",
@@ -353,6 +381,11 @@ $('vEntrada').textContent = brl(entrada);
 $('vFinal').textContent = brl(entrada);
 $('vPorPagina').textContent = `Só ${(CFG.valorSite/CFG.paginas).toLocaleString('pt-BR',{style:'currency',currency:'BRL'})} por site, com design e SEO em cada um.`;
 $('vMensal').innerHTML = `<span style="display:block;text-decoration:line-through;text-decoration-color:var(--warn);color:var(--mut);font-size:22px;font-weight:500">de ${brl(CFG.mensalDe)}</span>por ${brl(CFG.mensalIA)} <small>por mês</small>`;
+$('vIG').innerHTML = `${brl(CFG.gestaoIG)} <small>por mês</small>`;
+const verbaTxt = `Verba de anúncios de ${brl(CFG.verbaAds)}, paga direto à plataforma. Pode ser remanejada total ou parcialmente para Google Ads.`;
+$('liVerba').textContent = verbaTxt;
+$('flexTxt').textContent = `Os ${brl(CFG.verbaAds)} de verba podem ser remanejados, total ou parcialmente, para anúncios no Google Ads. Você escolhe onde investir.`;
+$('faqVerba').textContent = `Sim. A verba de ${brl(CFG.verbaAds)} é separada do valor da gestão e paga direto à plataforma. Ela pode ser remanejada, total ou parcialmente, do Instagram para o Google Ads, conforme a estratégia que combinarmos.`;
 $('vCom').textContent = `${CFG.comissao} por procedimento e por avaliação`;
 $('vComTxt').textContent = `Além do investimento mensal, propomos uma comissão sobre cada procedimento e cada avaliação originados pelo site. O percentual ideal é ${CFG.comissao}, e ele precisa ser negociado e alinhado entre as partes antes do início do projeto.`;
 $('faqCom').textContent = `A comissão é um percentual sobre cada procedimento e cada avaliação que vierem pelo site. O ideal é ${CFG.comissao}, mas o número exato é negociado com você antes de começarmos, para ficar justo para os dois lados.`;
@@ -410,8 +443,8 @@ $('bHoje').onclick = ()=>{clearTimeout(auto);pos(false)};
 $('bDepois').onclick = ()=>{clearTimeout(auto);pos(true)};
 
 /* Calculadora: site + domínio + 1º mês de IA + 1º mês de hospedagem (valor máximo) */
-const inicio = CFG.valorSite + CFG.dominioValor + CFG.mensalIA + CFG.hospMax;
-$('calcFine').textContent = `Soma do site, do domínio e do primeiro mês de IA e hospedagem (${brl(inicio)}). Conta simples, sem promessa de resultado.`;
+const inicio = CFG.valorSite + CFG.dominioValor + CFG.mensalIA + CFG.hospMax + CFG.gestaoIG + CFG.verbaAds;
+$('calcFine').textContent = `Soma do site, do domínio e do primeiro mês de IA, hospedagem, gestão de anúncios e verba (${brl(inicio)}). Conta simples, sem promessa de resultado.`;
 const tk = $('tk');
 function calc(){
   const t = +tk.value; $('tkOut').textContent = brl(t);
