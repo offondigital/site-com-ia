@@ -125,6 +125,13 @@ td.def{color:var(--muted);font-style:italic}
 .d3{background:hsl(226,71%,36%)}
 @media (min-width:640px){.d1{min-height:110px}.d2{min-height:140px}.d3{min-height:170px}}
 
+/* Oferta com prazo (data-prazo="ISO"): [data-antes] some e [data-depois] aparece no fim do prazo */
+.oferta{margin-top:18px;border-radius:16px;padding:18px 20px;background:linear-gradient(135deg,hsl(24,95%,50%),hsl(12,85%,48%));color:#fff;display:flex;flex-wrap:wrap;gap:10px 20px;align-items:center;justify-content:space-between}
+.oferta strong{font-size:1.05rem}
+.oferta .relogio{font-variant-numeric:tabular-nums;font-weight:800;font-size:1.6rem;letter-spacing:.02em;background:rgba(0,0,0,.18);padding:6px 14px;border-radius:12px;white-space:nowrap}
+.oferta .relogio small{display:block;font-size:.68rem;font-weight:600;opacity:.85;letter-spacing:.06em;text-transform:uppercase}
+.oferta.fim{background:var(--soft);color:var(--fg);border:1px solid var(--line)}
+.valor s{color:var(--muted);font-weight:600;font-size:1.05rem;margin-right:6px}
 /* CTA */
 .cta{background:linear-gradient(145deg,hsl(224,76%,44%) 0%,hsl(217,91%,55%) 100%);color:#fff;border:0}
 .cta h2{color:#fff}
@@ -245,11 +252,28 @@ footer{text-align:center;color:var(--muted);font-size:.82rem;padding:8px 16px 40
     try{return {k:await chaveCliente(normalizar(digitado)),dono:false};}catch(e){}
     return {k:await chaveDono(String(digitado).trim()),dono:true};
   }
+  // Prazos: elementos com data-prazo ganham contagem regressiva em [data-relogio].
+  function prazos(){
+    var els=document.querySelectorAll("#proposta [data-prazo]");if(!els.length)return;
+    function p2(n){return (n<10?"0":"")+n;}
+    function tick(){
+      els.forEach(function(el){
+        var fim=new Date(el.getAttribute("data-prazo")).getTime(),r=fim-Date.now(),acabou=r<=0;
+        el.querySelectorAll("[data-antes]").forEach(function(x){x.hidden=acabou;});
+        el.querySelectorAll("[data-depois]").forEach(function(x){x.hidden=!acabou;});
+        el.classList.toggle("fim",acabou);
+        if(!acabou){var s=Math.floor(r/1000);
+          el.querySelectorAll("[data-relogio]").forEach(function(x){x.textContent=p2(Math.floor(s/3600))+":"+p2(Math.floor(s%3600/60))+":"+p2(s%60);});}
+      });
+    }
+    tick();setInterval(tick,1000);
+  }
   function mostrar(html){
     var alvo=document.getElementById("proposta");
     alvo.innerHTML=html;
     document.getElementById("gate").remove();
     alvo.style.display="block";
+    prazos();
     window.scrollTo(0,0);
     alvo.addEventListener("click",function(e){
       var a=e.target.closest("[data-cta]");
