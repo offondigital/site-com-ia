@@ -15,6 +15,11 @@ Regra da senha (nesta ordem):
 Telefone: a página aceita com ou sem parênteses, espaços, traço ou +55.
 E-mail: a página ignora maiúsculas/minúsculas e espaços nas pontas.
 
+Senha secundária do dono: toda proposta também abre com a senha do Cezar.
+  O gerador NÃO conhece essa senha: usa só a chave pública de chave_dono.json.
+  A chave privada fica nesse arquivo criptografada com a senha do dono.
+  Quem abre com a senha do dono entra em "modo dono" (sem GA4, Pixel ou aviso no Telegram).
+
 IMPORTANTE: este repositório é público. Nunca faça commit do arquivo de
 conteúdo em claro; mantenha-o fora do repositório.
 
@@ -38,6 +43,9 @@ from pathlib import Path
 from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.ciphers.aead import AESGCM
 from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
+from cryptography.hazmat.primitives import serialization
+from cryptography.hazmat.primitives.asymmetric import padding
+import json
 
 ITERACOES = 600_000
 GA4_ID = "G-CDGVGTPP75"          # ID de medição (fluxo da web) do GA4
@@ -47,6 +55,7 @@ WHATSAPP = "5545988195137"
 AVISO_URL = os.environ.get("AVISO_URL", "https://script.google.com/macros/s/AKfycbxcoFgihWxI51tOExb75D3I3rE8UBhin-Z_xa5PfwPd4Elz5tx2bXYJy83WP3UrG5G1/exec")
 RAIZ = Path(__file__).resolve().parent.parent
 MODELO = Path(__file__).resolve().parent / "modelo.html"
+CHAVE_DONO = Path(__file__).resolve().parent / "chave_dono.json"
 
 
 def senha_aleatoria() -> str:
@@ -71,13 +80,23 @@ def normalizar_senha(t: str) -> str:
 
 
 def criptografar(texto: str, senha: str) -> dict:
-    sal = os.urandom(16)
-    iv = os.urandom(12)
-    chave = PBKDF2HMAC(algorithm=hashes.SHA256(), length=32, salt=sal,
-                       iterations=ITERACOES).derive(senha.encode())
-    cifra = AESGCM(chave).encrypt(iv, texto.encode("utf-8"), None)
+    """Conteúdo cifrado com uma chave aleatória K; K é embrulhada duas vezes:
+    com a senha do cliente (PBKDF2 + AES-GCM) e com a chave pública do dono (RSA-OAEP)."""
     b64 = lambda b: base64.b64encode(b).decode()
-    return {"sal": b64(sal), "iv": b64(iv), "dados": b64(cifra)}
+    k = AESGCM.generate_key(bit_length=256)
+    iv = os.urandom(12)
+    dados = AESGCM(k).encrypt(iv, texto.encode("utf-8"), None)
+    sal = os.urandom(16)
+    ivk = os.urandom(12)
+    kek = PBKDF2HMAC(algorithm=hashes.SHA256(), length=32, salt=sal,
+                     iterations=ITERACOES).derive(senha.encode())
+    kc = AESGCM(kek).encrypt(ivk, k, None)
+    dono = json.loads(CHAVE_DONO.read_text(encoding="utf-8"))
+    pub = serialization.load_der_public_key(base64.b64decode(dono["publica_spki"]))
+    ko = pub.encrypt(k, padding.OAEP(mgf=padding.MGF1(hashes.SHA256()), algorithm=hashes.SHA256(), label=None))
+    return {"sal": b64(sal), "ivk": b64(ivk), "kc": b64(kc), "ko": b64(ko),
+            "iv": b64(iv), "dados": b64(dados),
+            "dono": json.dumps({"iter": dono["iter"], **dono["privada"]})}
 
 
 def main():
@@ -118,6 +137,10 @@ def main():
         "{{SENHA_LIVRE}}": "true" if livre else "false",
         "{{SAL}}": c["sal"],
         "{{IV}}": c["iv"],
+        "{{IVK}}": c["ivk"],
+        "{{KC}}": c["kc"],
+        "{{KO}}": c["ko"],
+        "{{DONO}}": c["dono"],
         "{{DADOS}}": c["dados"],
     }
     for k, v in trocas.items():
@@ -128,7 +151,7 @@ def main():
     destino.write_text(pagina, encoding="utf-8")
     print(f"OK: {destino.relative_to(RAIZ)}")
     print(f"Link: https://inovaseo.com.br/propostas/{nome}.html")
-    print(f"Senha: {senha}")
+    print(f"Senha: {senha}  (a senha do dono também abre)")
 
 
 if __name__ == "__main__":

@@ -144,7 +144,7 @@ footer{text-align:center;color:var(--muted);font-size:.82rem;padding:8px 16px 40
     <h1>Proposta comercial para {{CLIENTE}}</h1>
     <p>Esta proposta é confidencial. Para abrir, digite a senha que você recebeu.</p>
     <label for="senha">Senha</label>
-    <input id="senha" name="senha" type="password" inputmode="{{INPUTMODE}}" autocomplete="off" required>
+    <input id="senha" name="senha" type="password" inputmode="text" autocomplete="off" required>
     <button type="submit" id="entrar">Abrir proposta</button>
     <p id="erro" role="alert" hidden>Senha incorreta. Confira a senha enviada junto com o link.</p>
   </form>
@@ -154,7 +154,7 @@ footer{text-align:center;color:var(--muted);font-size:.82rem;padding:8px 16px 40
 
 <script>
 (function(){
-  var CFG={slug:"{{SLUG}}",cliente:"{{CLIENTE}}",aviso:"{{AVISO_URL}}",iter:{{ITERACOES}},sal:"{{SAL}}",iv:"{{IV}}",dados:"{{DADOS}}"};
+  var CFG={slug:"{{SLUG}}",cliente:"{{CLIENTE}}",aviso:"{{AVISO_URL}}",iter:{{ITERACOES}},sal:"{{SAL}}",ivk:"{{IVK}}",kc:"{{KC}}",ko:"{{KO}}",dono:{{DONO}},iv:"{{IV}}",dados:"{{DADOS}}"};
   var form=document.getElementById("form-senha"),campo=document.getElementById("senha"),
       erro=document.getElementById("erro"),botao=document.getElementById("entrar");
 
@@ -218,13 +218,33 @@ footer{text-align:center;color:var(--muted);font-size:.82rem;padding:8px 16px 40
     }
   }
 
-  async function abrir(senha){
+  function u2b(u){var s="";u=new Uint8Array(u);for(var i=0;i<u.length;i++)s+=String.fromCharCode(u[i]);return btoa(s);}
+  async function kdf(senha,sal,iter){
     var base=await crypto.subtle.importKey("raw",new TextEncoder().encode(senha),"PBKDF2",false,["deriveKey"]);
-    var chave=await crypto.subtle.deriveKey({name:"PBKDF2",salt:b64(CFG.sal),iterations:CFG.iter,hash:"SHA-256"},base,{name:"AES-GCM",length:256},false,["decrypt"]);
-    var claro=await crypto.subtle.decrypt({name:"AES-GCM",iv:b64(CFG.iv)},chave,b64(CFG.dados));
+    return crypto.subtle.deriveKey({name:"PBKDF2",salt:b64(sal),iterations:iter,hash:"SHA-256"},base,{name:"AES-GCM",length:256},false,["decrypt"]);
+  }
+  // Senha do cliente: desembrulha K com PBKDF2 + AES-GCM.
+  async function chaveCliente(senha){
+    var kek=await kdf(senha,CFG.sal,CFG.iter);
+    return crypto.subtle.decrypt({name:"AES-GCM",iv:b64(CFG.ivk)},kek,b64(CFG.kc));
+  }
+  // Senha do dono: abre a chave privada RSA e desembrulha K.
+  async function chaveDono(senha){
+    var kek=await kdf(senha,CFG.dono.sal,CFG.dono.iter);
+    var pk=await crypto.subtle.decrypt({name:"AES-GCM",iv:b64(CFG.dono.iv)},kek,b64(CFG.dono.dados));
+    var priv=await crypto.subtle.importKey("pkcs8",pk,{name:"RSA-OAEP",hash:"SHA-256"},false,["decrypt"]);
+    return crypto.subtle.decrypt({name:"RSA-OAEP"},priv,b64(CFG.ko));
+  }
+  async function conteudo(kraw){
+    var k=await crypto.subtle.importKey("raw",kraw,"AES-GCM",false,["decrypt"]);
+    var claro=await crypto.subtle.decrypt({name:"AES-GCM",iv:b64(CFG.iv)},k,b64(CFG.dados));
     return new TextDecoder().decode(claro);
   }
-
+  // Retorna {k, dono}. Tenta primeiro a senha do cliente; se falhar, a do dono.
+  async function abrir(digitado){
+    try{return {k:await chaveCliente(normalizar(digitado)),dono:false};}catch(e){}
+    return {k:await chaveDono(String(digitado).trim()),dono:true};
+  }
   function mostrar(html){
     var alvo=document.getElementById("proposta");
     alvo.innerHTML=html;
@@ -237,22 +257,23 @@ footer{text-align:center;color:var(--muted);font-size:.82rem;padding:8px 16px 40
     });
   }
 
-  async function tentar(senha,automatico){
+  async function tentar(digitado,salvo,automatico){
     botao.disabled=true;botao.textContent="Abrindo…";erro.hidden=true;
     try{
-      var html=await abrir(senha);
-      try{sessionStorage.setItem("prop_"+CFG.slug,senha);}catch(e){}
+      var r=salvo?{k:b64(salvo.k),dono:salvo.dono}:await abrir(digitado);
+      var html=await conteudo(r.k);
+      try{sessionStorage.setItem("prop_"+CFG.slug,JSON.stringify({k:u2b(r.k),dono:r.dono}));}catch(e){}
+      if(r.dono){DONO=true;window["ga-disable-{{GA4_ID}}"]=true;try{localStorage.setItem("prop_dono","1");}catch(e){}}
       mostrar(html);
-      ev("proposta_aberta");px("trackCustom","PropostaAberta");avisar("aberta");monitorar();
+      if(!DONO){ev("proposta_aberta");px("trackCustom","PropostaAberta");avisar("aberta");monitorar();}
     }catch(e){
       try{sessionStorage.removeItem("prop_"+CFG.slug);}catch(_){}
-      if(!automatico){erro.hidden=false;ev("proposta_senha_incorreta");}
+      if(!automatico){erro.hidden=false;if(!DONO)ev("proposta_senha_incorreta");}
       botao.disabled=false;botao.textContent="Abrir proposta";campo.select();
     }
   }
-
-  form.addEventListener("submit",function(e){e.preventDefault();tentar(normalizar(campo.value),false);});
-  try{var salvo=sessionStorage.getItem("prop_"+CFG.slug);if(salvo)tentar(salvo,true);}catch(e){}
+  form.addEventListener("submit",function(e){e.preventDefault();tentar(campo.value,null,false);});
+  try{var s=JSON.parse(sessionStorage.getItem("prop_"+CFG.slug)||"null");if(s&&s.k)tentar(null,s,true);}catch(e){}
 })();
 </script>
 </body>
